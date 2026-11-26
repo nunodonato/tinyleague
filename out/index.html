@@ -25,7 +25,7 @@
 <meta name="twitter:image" content="https://tinyleague.org/og.png">
 <meta name="twitter:image:alt" content="Tiny League — 44 small open-weight models ranked on 115 benchmarks, with KV-cache cost at 128K tokens">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48dGV4dCB5PSIwLjllbSIgZm9udC1zaXplPSI5MCI+8J+PhjwvdGV4dD48L3N2Zz4=">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"Tiny League — benchmark scores for small open-weight models","description":"Benchmark scores for 44 recent small open-weight models (1.5B to 285B, official weights only, current versions, released since 5 Apr 2026): 115 benchmarks, a sortable coverage heatmap, and each model's derived KV-cache cost at 128K tokens.","url":"https://tinyleague.org/","creator":{"@type":"Person","name":"Nuno Donato","url":"https://www.nunodonato.com"},"dateModified":"2026-11-26T16:18:02Z","isAccessibleForFree":true,"keywords":["LLM","benchmarks","open-weight models","small language models","KV cache"],"variableMeasured":["Terminal-Bench 2.1","Terminal-Bench 4","Terminal-Bench 2.0","Terminal-Bench Science 0.1","τ³-bench","τ²-bench","GPQA Diamond","HLE","IFBench","AIME 2026","AIME 2025","SWE-bench Verified","SciCode","SWE-bench Pro","AA-LCR","BrowseComp","SWE-bench Multilingual","BFCL v4","BFCL v3","LiveCodeBench v6"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"Tiny League — benchmark scores for small open-weight models","description":"Benchmark scores for 44 recent small open-weight models (1.5B to 285B, official weights only, current versions, released since 5 Apr 2026): 115 benchmarks, a sortable coverage heatmap, and each model's derived KV-cache cost at 128K tokens.","url":"https://tinyleague.org/","creator":{"@type":"Person","name":"Nuno Donato","url":"https://www.nunodonato.com"},"dateModified":"2026-11-26T16:24:29Z","isAccessibleForFree":true,"keywords":["LLM","benchmarks","open-weight models","small language models","KV cache"],"variableMeasured":["Terminal-Bench 2.1","Terminal-Bench 4","Terminal-Bench 2.0","Terminal-Bench Science 0.1","τ³-bench","τ²-bench","GPQA Diamond","HLE","IFBench","AIME 2026","AIME 2025","SWE-bench Verified","SciCode","SWE-bench Pro","AA-LCR","BrowseComp","SWE-bench Multilingual","BFCL v4","BFCL v3","LiveCodeBench v6"]}</script>
 <script>
 /*!
  * Chart.js v4.5.1
@@ -288,12 +288,15 @@ html[data-theme-mode="auto"] .theme-btn .t-auto,
 html[data-theme-mode="light"] .theme-btn .t-light,
 html[data-theme-mode="dark"] .theme-btn .t-dark { display: inline; }
 
-/* ---------- discord invite (community CTA) ---------- */
+/* ---------- community CTAs (GitHub + Discord) ---------- */
 
-/* Discord blurple, deliberately the one non-theme colour in the masthead: it is
-   a third-party brand mark, and it reads as something you can click. White on
-   #5865f2 is 4.6:1 (WCAG AA for normal text); hover darkens to Discord's own
-   #4752c4, which only increases the contrast. */
+/* Two branded, non-theme marks sit in the masthead because both are third-party
+   brands and both read as something you can click. Discord stays blurple (white
+   on #5865f2 is 4.6:1, AA for normal text; hover darkens to their own #4752c4).
+   GitHub uses its mono mark: near-black in light mode (#ffffff on #24292f is
+   15.6:1) and inverted to a light mark on GitHub's dark canvas in dark mode
+   (#f0f6fc on #21262d is 14.3:1), which is how GitHub itself renders it. */
+.github-btn,
 .discord-btn {
   display: inline-flex;
   align-items: center;
@@ -301,7 +304,6 @@ html[data-theme-mode="dark"] .theme-btn .t-dark { display: inline; }
   gap: 7px;
   height: 38px;
   padding: 0 12px;
-  background: #5865f2;
   color: #ffffff;
   border: 1px solid transparent;
   border-radius: var(--radius-sm);
@@ -310,9 +312,24 @@ html[data-theme-mode="dark"] .theme-btn .t-dark { display: inline; }
   line-height: 1;
   white-space: nowrap;
 }
-.discord-btn:hover { background: #4752c4; color: #ffffff; text-decoration: none; }
+.github-btn:hover,
+.discord-btn:hover { color: #ffffff; text-decoration: none; }
+.github-btn:focus-visible,
 .discord-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.github-btn svg,
 .discord-btn svg { flex: none; }
+
+.github-btn { background: #24292f; }
+.github-btn:hover { background: #15191e; }
+:root[data-theme="dark"] .github-btn {
+  background: #21262d;
+  color: #f0f6fc;
+  border-color: var(--line);
+}
+:root[data-theme="dark"] .github-btn:hover { background: #2d333b; color: #f0f6fc; }
+
+.discord-btn { background: #5865f2; }
+.discord-btn:hover { background: #4752c4; }
 
 /* ---------- mobile section menu ---------- */
 
@@ -1039,10 +1056,14 @@ footer {
 }
 footer a { color: var(--accent-dark); text-decoration: underline; text-underline-offset: 2px; }
 
-/* The Discord link stays a plain inline link: a purple glyph marks the brand
-   without adding a second loud button next to the masthead one. */
-.foot-discord { white-space: nowrap; }
-.foot-discord svg { color: #5865f2; vertical-align: -2px; margin-right: 4px; }
+/* The footer links stay plain inline links — a purple glyph and a mono GitHub
+   mark are enough to name the brands without a second loud button. */
+.foot-discord, .foot-github { white-space: nowrap; }
+.foot-discord svg, .foot-github svg { vertical-align: -2px; margin-right: 4px; }
+/* GitHub's mark is mono: it takes the surrounding ink, so it works in both modes. */
+.foot-github svg { color: var(--ink-2); }
+.foot-github:hover svg { color: var(--ink); }
+.foot-discord svg { color: #5865f2; }
 .foot-discord:hover svg { color: #4752c4; }
 .foot-dot { opacity: .55; margin: 0 5px; }
 
@@ -1080,13 +1101,17 @@ footer a { color: var(--accent-dark); text-decoration: underline; text-underline
 }
 
 @media (max-width: 700px) {
+  /* Tighter gutter and gaps: four icon-only controls plus the brand have to
+     fit one 360px line without pushing the row into a horizontal scroll. */
+  .head-inner { padding: 0 12px; gap: 10px; }
   /* Icon-only theme control: the masthead already carries the brand, the
-     section menu and two 38px buttons. */
+     section menu and four 38px buttons. */
   .theme-label { display: none; }
   .theme-btn { width: 38px; padding: 0; }
-  /* Icon-only Discord as well: three 38px controls still fit a 360px phone. */
-  .discord-label { display: none; }
-  .discord-btn { width: 38px; padding: 0; }
+  /* Icon-only GitHub and Discord as well: four 38px controls (GitHub, Discord,
+     theme, menu) still fit a 360px phone alongside the brand. */
+  .github-label, .discord-label { display: none; }
+  .github-btn, .discord-btn { width: 38px; padding: 0; }
   /* Taller scrollport: the sticky benchmark header stays useful and the
      table no longer feels like a letterbox on a phone. */
   .heat { max-height: 78vh; }
@@ -1211,6 +1236,7 @@ footer a { color: var(--accent-dark); text-decoration: underline; text-underline
 <a class="brand" href="#top"><span class="mark">🏆</span><span>Tiny League</span></a>
 <nav class="head-nav" id="head-nav" aria-label="Sections"><a href="#models">Models</a><a href="#heatmap">Scores</a><a href="#charts">Scatter</a><a href="#compare">Comparisons</a></nav>
 <div class="head-tools">
+<a class="github-btn" href="https://github.com/nunodonato/tinyleague" target="_blank" rel="noopener noreferrer" title="Tiny League on GitHub" aria-label="Tiny League on GitHub (opens in a new tab)"><svg width="17" height="17" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg><span class="github-label">GitHub</span></a>
 <a class="discord-btn" href="https://discord.gg/DQ6E6eJZVJ" target="_blank" rel="noopener noreferrer" title="Join the Tiny League Discord" aria-label="Join the Tiny League Discord (opens in a new tab)"><svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.445.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"></path></svg><span class="discord-label">Discord</span></a>
 <button type="button" class="theme-btn" id="theme-btn" aria-label="Theme: auto — following your system. Click for light." title="Theme: auto — following your system. Click for light.">
 <span class="ico ico-auto" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"></path></svg></span>
@@ -1237,7 +1263,7 @@ footer a { color: var(--accent-dark); text-decoration: underline; text-underline
 <div class="stat"><span class="v">19</span><span class="k">with vision</span></div>
 </div>
 <details class="changelog"><summary>Changelog</summary><ul>
-<li><span class="cl-date">26 Nov 2026</span><span>Added GigaChat4-37B-A4B (37B MoE, hybrid attention); moved to tinyleague.org, added Discord.</span></li>
+<li><span class="cl-date">26 Nov 2026</span><span>Added GigaChat4-37B-A4B (37B MoE, hybrid attention); moved to tinyleague.org; added Discord and GitHub buttons.</span></li>
 <li><span class="cl-date">24 Nov 2026</span><span>Added Maxwell-V1-Flash (35B MoE, block-sparse) and Raon-1-mini (29B MoE, Korean).</span></li>
 <li><span class="cl-date">23 Nov 2026</span><span>Added Aleph-Alpha/Kolibri-1.1 (75B sparse-attention MoE) and Ling-3.2-air (124B MoE, vision).</span></li>
 <li><span class="cl-date">21 Nov 2026</span><span>Added gemma-4-26B-A4B-it (25B MoE, vision); theme toggle with live system detection.</span></li>
@@ -1408,6 +1434,8 @@ footer a { color: var(--accent-dark); text-decoration: underline; text-underline
 </section>
 <footer>
 <span>Created and maintained by <a href="https://www.nunodonato.com" target="_blank" rel="noopener">www.nunodonato.com</a>
+<span class="foot-dot" aria-hidden="true">&middot;</span>
+<a class="foot-github" href="https://github.com/nunodonato/tinyleague" target="_blank" rel="noopener noreferrer" title="Tiny League on GitHub" aria-label="Tiny League on GitHub (opens in a new tab)"><svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>GitHub</a>
 <span class="foot-dot" aria-hidden="true">&middot;</span>
 <a class="foot-discord" href="https://discord.gg/DQ6E6eJZVJ" target="_blank" rel="noopener noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.445.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"></path></svg>Discord</a></span>
 <span>Updated 26 Nov 2026 &middot; 44 models &middot; 115 benchmarks &middot; 896 scores</span>

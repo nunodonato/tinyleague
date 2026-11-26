@@ -243,12 +243,15 @@ html[data-theme-mode="auto"] .theme-btn .t-auto,
 html[data-theme-mode="light"] .theme-btn .t-light,
 html[data-theme-mode="dark"] .theme-btn .t-dark { display: inline; }
 
-/* ---------- discord invite (community CTA) ---------- */
+/* ---------- community CTAs (GitHub + Discord) ---------- */
 
-/* Discord blurple, deliberately the one non-theme colour in the masthead: it is
-   a third-party brand mark, and it reads as something you can click. White on
-   #5865f2 is 4.6:1 (WCAG AA for normal text); hover darkens to Discord's own
-   #4752c4, which only increases the contrast. */
+/* Two branded, non-theme marks sit in the masthead because both are third-party
+   brands and both read as something you can click. Discord stays blurple (white
+   on #5865f2 is 4.6:1, AA for normal text; hover darkens to their own #4752c4).
+   GitHub uses its mono mark: near-black in light mode (#ffffff on #24292f is
+   15.6:1) and inverted to a light mark on GitHub's dark canvas in dark mode
+   (#f0f6fc on #21262d is 14.3:1), which is how GitHub itself renders it. */
+.github-btn,
 .discord-btn {
   display: inline-flex;
   align-items: center;
@@ -256,7 +259,6 @@ html[data-theme-mode="dark"] .theme-btn .t-dark { display: inline; }
   gap: 7px;
   height: 38px;
   padding: 0 12px;
-  background: #5865f2;
   color: #ffffff;
   border: 1px solid transparent;
   border-radius: var(--radius-sm);
@@ -265,9 +267,24 @@ html[data-theme-mode="dark"] .theme-btn .t-dark { display: inline; }
   line-height: 1;
   white-space: nowrap;
 }
-.discord-btn:hover { background: #4752c4; color: #ffffff; text-decoration: none; }
+.github-btn:hover,
+.discord-btn:hover { color: #ffffff; text-decoration: none; }
+.github-btn:focus-visible,
 .discord-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.github-btn svg,
 .discord-btn svg { flex: none; }
+
+.github-btn { background: #24292f; }
+.github-btn:hover { background: #15191e; }
+:root[data-theme="dark"] .github-btn {
+  background: #21262d;
+  color: #f0f6fc;
+  border-color: var(--line);
+}
+:root[data-theme="dark"] .github-btn:hover { background: #2d333b; color: #f0f6fc; }
+
+.discord-btn { background: #5865f2; }
+.discord-btn:hover { background: #4752c4; }
 
 /* ---------- mobile section menu ---------- */
 
@@ -994,10 +1011,14 @@ footer {
 }
 footer a { color: var(--accent-dark); text-decoration: underline; text-underline-offset: 2px; }
 
-/* The Discord link stays a plain inline link: a purple glyph marks the brand
-   without adding a second loud button next to the masthead one. */
-.foot-discord { white-space: nowrap; }
-.foot-discord svg { color: #5865f2; vertical-align: -2px; margin-right: 4px; }
+/* The footer links stay plain inline links — a purple glyph and a mono GitHub
+   mark are enough to name the brands without a second loud button. */
+.foot-discord, .foot-github { white-space: nowrap; }
+.foot-discord svg, .foot-github svg { vertical-align: -2px; margin-right: 4px; }
+/* GitHub's mark is mono: it takes the surrounding ink, so it works in both modes. */
+.foot-github svg { color: var(--ink-2); }
+.foot-github:hover svg { color: var(--ink); }
+.foot-discord svg { color: #5865f2; }
 .foot-discord:hover svg { color: #4752c4; }
 .foot-dot { opacity: .55; margin: 0 5px; }
 
@@ -1035,13 +1056,17 @@ footer a { color: var(--accent-dark); text-decoration: underline; text-underline
 }
 
 @media (max-width: 700px) {
+  /* Tighter gutter and gaps: four icon-only controls plus the brand have to
+     fit one 360px line without pushing the row into a horizontal scroll. */
+  .head-inner { padding: 0 12px; gap: 10px; }
   /* Icon-only theme control: the masthead already carries the brand, the
-     section menu and two 38px buttons. */
+     section menu and four 38px buttons. */
   .theme-label { display: none; }
   .theme-btn { width: 38px; padding: 0; }
-  /* Icon-only Discord as well: three 38px controls still fit a 360px phone. */
-  .discord-label { display: none; }
-  .discord-btn { width: 38px; padding: 0; }
+  /* Icon-only GitHub and Discord as well: four 38px controls (GitHub, Discord,
+     theme, menu) still fit a 360px phone alongside the brand. */
+  .github-label, .discord-label { display: none; }
+  .github-btn, .discord-btn { width: 38px; padding: 0; }
   /* Taller scrollport: the sticky benchmark header stays useful and the
      table no longer feels like a letterbox on a phone. */
   .heat { max-height: 78vh; }

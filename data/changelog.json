@@ -1,7 +1,7 @@
 [
   {
     "date": "26 Nov 2026",
-    "text": "Added GigaChat4-37B-A4B (37B MoE, hybrid attention); moved to tinyleague.org, added Discord."
+    "text": "Added GigaChat4-37B-A4B (37B MoE, hybrid attention); moved to tinyleague.org; added Discord and GitHub buttons."
   },
   {
     "date": "24 Nov 2026",

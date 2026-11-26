@@ -291,12 +291,15 @@ and re-render the tables + charts on the fly.
   filtered view can be linked. A **Share** button (the third floating control, left of
   Models/Params) appears only while that query string is non-empty and copies the view's
   absolute URL; it hides again when the view returns to the default.
-- **Discord button.** The masthead carries a Discord-blurple button (`#5865f2` — the one
-  deliberately non-theme colour, since it is a third-party brand mark) linking to the
-  **permanent** invite `https://discord.gg/DQ6E6eJZVJ`; the footer repeats it as a small
-  inline link beside the author credit. White on blurple is 4.6:1 (AA);
-  under 700px it collapses to an icon-only 38px control. Always use a never-expiring
-  invite — the first one (`DdjCPSdnY`) silently expired after 30 days.
+- **Community buttons (GitHub + Discord).** The masthead carries two branded buttons,
+  left of the theme control, both opening in a new tab. **Discord** is blurple
+  (`#5865f2`) and links to the **permanent** invite `https://discord.gg/DQ6E6eJZVJ`; the
+  footer repeats both as small inline links beside the author credit (white on blurple is
+  4.6:1, AA). **GitHub** (`GITHUB_REPO`) uses its mono mark — `#24292f` with white text
+  in light mode, inverted to a light glyph on GitHub's `#21262d` canvas in dark mode — and
+  points at `https://github.com/nunodonato/tinyleague`. Both collapse to icon-only 38px
+  controls under 700px. Always use a never-expiring Discord invite — the first one
+  (`DdjCPSdnY`) silently expired after 30 days.
 - **Vision / multimodal — the `(V)` badge.** Each model carries a boolean
   `supports_vision` (in `models.json`; auto-detected from a `vision_config` in the HF
   `config.json`, else from `modalities`). Vision-capable models show a small **V** badge
