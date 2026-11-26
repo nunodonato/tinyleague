@@ -304,6 +304,7 @@ DISCORD_MARK = ('<svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="tr
 
 def layout(title, body, nav, depth=0, script="", desc="", path="index.html"):
     up = "../" * depth
+    canon = SITE if path == "index.html" else SITE + path
     links = "".join(
         '<a href="%s%s"%s>%s</a>' % (up, href, ' aria-current="page"' if key == nav else "", label)
         for key, label, href in NAV
@@ -315,12 +316,12 @@ def layout(title, body, nav, depth=0, script="", desc="", path="index.html"):
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc or 'Benchmark scores for recent small open-weight models.')}">
-<link rel="canonical" href="{SITE}{path}">
+<link rel="canonical" href="{canon}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tiny League">
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc or 'Benchmark scores for recent small open-weight models.')}">
-<meta property="og:url" content="{SITE}{path}">
+<meta property="og:url" content="{canon}">
 <meta property="og:image" content="{SITE}og.png">
 <meta name="twitter:card" content="summary_large_image">
 <script>{THEME_JS}</script>
@@ -962,7 +963,8 @@ def main():
     write("sitemap.xml",
           '<?xml version="1.0" encoding="UTF-8"?>\n'
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-          + "".join("<url><loc>%s%s</loc><lastmod>%s</lastmod></url>\n" % (SITE, u, lastmod)
+          + "".join("<url><loc>%s</loc><lastmod>%s</lastmod></url>\n"
+                    % (SITE if u == "index.html" else SITE + u, lastmod)
                     for u in pages)
           + "</urlset>\n")
     write("llms.txt", f"""# Tiny League
