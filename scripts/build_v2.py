@@ -965,7 +965,9 @@ def main():
         shutil.rmtree(OUT)
     os.makedirs(OUT, exist_ok=True)
     if og_tmp:
-        shutil.move(og_tmp, os.path.join(OUT, "og.png"))
+        dest = os.path.join(OUT, "og.png")
+        shutil.move(og_tmp, dest)
+        os.chmod(dest, 0o644)   # mkstemp is 0600; the web server must be able to read it
     written = []
     written.append(("index.html", write("index.html", page_home())))
     written.append(("models.html", write("models.html", page_models())))
