@@ -99,7 +99,10 @@ for b in BENCHES:
 
 
 def slug(text):
-    s = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+    # keep Greek benchmark names readable in URLs (τ²-bench -> tau2-bench)
+    t = (text.replace("τ", "tau").replace("π", "pi")
+             .replace("²", "2").replace("³", "3"))
+    s = re.sub(r"[^a-z0-9]+", "-", t.lower()).strip("-")
     return s or "bench"
 
 
@@ -932,6 +935,9 @@ single-page build. The heatmap and scatter charts still live on the live site.</
 # --------------------------------------------------------------------------
 
 def main():
+    import shutil
+    if os.path.isdir(OUT):
+        shutil.rmtree(OUT)
     os.makedirs(OUT, exist_ok=True)
     written = []
     written.append(("index.html", write("index.html", page_home())))
