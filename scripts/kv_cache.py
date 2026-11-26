@@ -63,7 +63,7 @@ UA = {"User-Agent": "aibench-kvcache/1.0"}
 
 # Bump whenever the geometry rules below change: a stored `kv_cache` block is
 # reused verbatim only while this and the pinned config revision both match.
-FORMULA_VERSION = 3
+FORMULA_VERSION = 4
 
 # Per-thread pooled sessions: HF redirects `resolve/` to its CDN, and reusing a
 # connection skips a TCP + TLS handshake per fetch (the dominant cost of a
@@ -215,6 +215,17 @@ def layer_kinds(c):
         local = {int(i) for i in local_ids if isinstance(i, (int, float))}
         return (["sliding_attention" if i in local else "full_attention"
                  for i in range(L)], "local_layer_ids")
+    full_ids = c.get("full_attention_layers")
+    if L and isinstance(full_ids, list) and full_ids:
+        # GigaChat 4 hybrid stack: `full_attention_layers` enumerates the
+        # full-attention (MLA + DSA) layers by 0-based index; every other layer
+        # runs GatedDeltaNet, a linear-attention layer with a fixed-size state
+        # and no growing KV cache. Confirmed against the weights: exactly those
+        # layers own kv_a_proj_with_mqa / kv_b_proj.
+        full = {int(i) for i in full_ids if isinstance(i, (int, float))}
+        if full and all(0 <= i < L for i in full):
+            return (["full_attention" if i in full else "linear_attention"
+                     for i in range(L)], "full_attention_layers")
     interval = c.get("full_attention_interval") or c.get("global_attention_interval")
     group = c.get("layer_group_size")           # Ling / bailing_hybrid
     if L and interval:
@@ -440,7 +451,7 @@ def analyse(cfg, mods=None, ctx_override=None):
                    if geo["pooled"] or geo["window"] is None)
     confidence = "high" if provenance in ("layer_types", "layers_block_type", "block_types",
                                           "hybrid_override_pattern", "local_layer_ids",
-                                          "rda_mla_layers") else "medium"
+                                          "rda_mla_layers", "full_attention_layers") else "medium"
     if provenance == "assumed-all-attention":
         confidence = "low"
     out = {

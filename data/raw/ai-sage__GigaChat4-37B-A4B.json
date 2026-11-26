@@ -1,0 +1,249 @@
+{
+  "model_id": "ai-sage/GigaChat4-37B-A4B",
+  "scores": [
+    {
+      "benchmark": "LiveCodeBench v6",
+      "subtask": "reasoning mode",
+      "score": 85.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card 'Reasoning / Code' table. Instant mode reports 52.00."
+    },
+    {
+      "benchmark": "SWE-bench Verified",
+      "subtask": "reasoning mode",
+      "score": 70.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card 'Reasoning / Code' table. Instant mode reports 70.80 as well."
+    },
+    {
+      "benchmark": "SWE-bench Multilingual",
+      "subtask": "reasoning mode",
+      "score": 61.67,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card 'Reasoning / Code' table. Instant mode reports 61.67 as well."
+    },
+    {
+      "benchmark": "NL2Repo-Bench",
+      "subtask": "reasoning mode, mean score (pass rate 25.03)",
+      "score": 14.89,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card row 'NL2Repo (mean score / pass rate)' reports 14.89 / 25.03; mean score recorded."
+    },
+    {
+      "benchmark": "Terminal-Bench 2.0",
+      "subtask": "reasoning mode",
+      "score": 38.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card 'Reasoning / Code' table. Instant mode reports 38.20 as well."
+    },
+    {
+      "benchmark": "Terminal-Bench 2.1",
+      "subtask": "reasoning mode",
+      "score": 39.33,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card 'Reasoning / Code' table. Instant mode reports 39.33 as well."
+    },
+    {
+      "benchmark": "IFBench",
+      "subtask": "reasoning mode, prompt-level loose",
+      "score": 75.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card 'Reasoning / General' table. Instant mode reports 48.00."
+    },
+    {
+      "benchmark": "JSONSchemaBench",
+      "subtask": "reasoning mode",
+      "score": 96.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card 'Reasoning / General' table. Instant mode reports 86.00."
+    },
+    {
+      "benchmark": "StructEval Text",
+      "subtask": "reasoning mode",
+      "score": 86.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card 'Reasoning / General' table. Instant mode reports 87.00."
+    },
+    {
+      "benchmark": "GraphWalks",
+      "subtask": "reasoning mode",
+      "score": 63.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card 'Reasoning / General' table. Instant mode reports 26.00."
+    },
+    {
+      "benchmark": "Natural Plan",
+      "subtask": "reasoning mode",
+      "score": 92.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card 'Reasoning / General' table. Instant mode reports 45.00."
+    },
+    {
+      "benchmark": "NIH Complex",
+      "subtask": "reasoning mode",
+      "score": 99.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card 'Reasoning / General' table. Instant mode reports 92.00."
+    },
+    {
+      "benchmark": "AA-LCR",
+      "subtask": "reasoning mode",
+      "score": 54.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card 'Reasoning / General' table (vendor-reported, not an Artificial Analysis run). Instant mode reports 54.00 as well."
+    },
+    {
+      "benchmark": "GPQA Diamond",
+      "subtask": "reasoning mode",
+      "score": 70.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card 'Reasoning / STEM' table. Instant mode reports 55.00."
+    },
+    {
+      "benchmark": "HMMT",
+      "subtask": "reasoning mode, pass@8",
+      "score": 95.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card row 'HMMT (pass@8)' states no edition, so the benchmark is left unversioned. mean@8 = 87.00. Instant mode: pass@8 67.00."
+    },
+    {
+      "benchmark": "AIME 2025",
+      "subtask": "reasoning mode, pass@8",
+      "score": 93.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card row 'AIME 2025 (pass@8)'. mean@8 = 88.00. Instant mode: pass@8 73.00."
+    },
+    {
+      "benchmark": "AIME 2026",
+      "subtask": "reasoning mode, pass@8",
+      "score": 93.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card row 'AIME 2026 (pass@8)'. mean@8 = 92.00. Instant mode: pass@8 80.00."
+    },
+    {
+      "benchmark": "IMO AnswerBench",
+      "subtask": "reasoning mode",
+      "score": 76.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card 'Reasoning / STEM' table. Instant mode reports 35.00."
+    },
+    {
+      "benchmark": "HLE",
+      "subtask": "reasoning mode, text only",
+      "score": 9.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card row 'HLE (text only)'. Instant mode reports 4.00."
+    },
+    {
+      "benchmark": "BFCL",
+      "subtask": "reasoning mode, overall accuracy",
+      "score": 72.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card states no BFCL version, so it is left unversioned. Instant mode reports 49.00."
+    },
+    {
+      "benchmark": "τ³-bench",
+      "subtask": "reasoning mode, mean@3",
+      "score": 57.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card row 'τ³-Bench (mean@3)' (overall). Banking subset = 9.00. Instant mode: overall 47.30, Banking 10.00."
+    },
+    {
+      "benchmark": "τ²-bench",
+      "subtask": "reasoning mode, mean@3",
+      "score": 73.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card row 'τ²-Bench (mean@3)'. Instant mode reports 60.00."
+    },
+    {
+      "benchmark": "CoWorkBench",
+      "subtask": "reasoning mode, Pi harness",
+      "score": 59.48,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card row 'CoworkBench (Pi)'."
+    },
+    {
+      "benchmark": "Toolathlon",
+      "subtask": "reasoning mode",
+      "score": 39.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card 'Reasoning / Agentic' table."
+    },
+    {
+      "benchmark": "SkillsBench",
+      "subtask": "reasoning mode, with skills",
+      "score": 23.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card rows 'SkillsBench (with skills)' 23.80 and '(without skills)' 8.62; the with-skills figure is recorded."
+    },
+    {
+      "benchmark": "JobBench",
+      "subtask": "reasoning mode",
+      "score": 23.28,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+      "notes": "Card 'Reasoning / Agentic' table."
+    }
+  ],
+  "gaps": [
+    "No Artificial Analysis model page for GigaChat 4 37B-A4B (checked 2026-11-26), so no AA-sourced gap fills or independent cross-checks.",
+    "POLLUX not reported (card shows a dash) in either reasoning or instant mode.",
+    "MMLU-Pro, SciCode and other common roster benchmarks are not reported on the card.",
+    "Card also lists full 'Instant' mode scores (e.g. GPQA Diamond 55.00, AIME 2026 pass@8 80.00); only the higher reasoning-mode values are recorded.",
+    "HMMT and BFCL are reported without a version/edition, so they are recorded unversioned and will not pool with HMMT Feb 2026 or BFCL v3/v4.",
+    "τ³-bench Banking subset (9.00) and AIME/HMMT mean@8 figures are noted but not stored separately, to avoid duplicating the same canonical benchmark."
+  ],
+  "conflicts": [],
+  "retrieved_at": "2026-11-26T16:15:41Z"
+}

@@ -1,0 +1,647 @@
+{
+  "model_id": "ai-sage/GigaChat4-37B-A4B",
+  "display_name": "GigaChat4-37B-A4B",
+  "url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+  "retrieved_at": "2026-11-26T16:15:41Z",
+  "html_tables": [],
+  "markdown_tables": [
+    [
+      [
+        "Repository",
+        "Weights",
+        "Training stage"
+      ],
+      [
+        "[GigaChat4-37B-A4B](https://huggingface.co/ai-sage/GigaChat4-37B-A4B)",
+        "FP8",
+        "Instruction-tuned"
+      ],
+      [
+        "[GigaChat4-37B-A4B-GGUF](https://huggingface.co/ai-sage/GigaChat4-37B-A4B-GGUF)",
+        "GGUF",
+        "Instruction-tuned"
+      ],
+      [
+        "[GigaChat4-37B-A4B-bf16](https://huggingface.co/ai-sage/GigaChat4-37B-A4B-bf16)",
+        "BF16",
+        "Instruction-tuned"
+      ],
+      [
+        "[GigaChat4-37B-A4B-base](https://huggingface.co/ai-sage/GigaChat4-37B-A4B-base)",
+        "BF16",
+        "Base"
+      ],
+      [
+        "[GigaChat4-37B-A4B-checkpoints](https://huggingface.co/ai-sage/GigaChat4-37B-A4B-checkpoints)",
+        "BF16",
+        "Base, intermediate checkpoints"
+      ]
+    ],
+    [
+      [
+        "Property",
+        "Value"
+      ],
+      [
+        "Total / active parameters per token",
+        "37B / 4B"
+      ],
+      [
+        "Decoder layers / hidden size",
+        "32 / 2,560"
+      ],
+      [
+        "Linear-attention / sparse-attention layers",
+        "24 / 8"
+      ],
+      [
+        "Routed experts / active routed experts / shared experts",
+        "192 / 8 / 1"
+      ],
+      [
+        "Initial decoder layers with dense FFNs",
+        "1"
+      ],
+      [
+        "Maximum context length",
+        "1,048,576 tokens"
+      ],
+      [
+        "DSA tokens selected per query",
+        "2,048"
+      ],
+      [
+        "Built-in MTP layers",
+        "1, reused recurrently"
+      ]
+    ],
+    [
+      [
+        "Benchmark",
+        "GigaChat 4 37B",
+        "GigaChat 3.5 37B",
+        "Qwen3.5-35B-A3B",
+        "Qwen3.6-35B-A3B",
+        "GigaChat 3.5 Ultra 432B"
+      ],
+      [
+        "LiveCodeBench v6",
+        "85.00",
+        "64.00",
+        "69.00",
+        "65.00",
+        "85.40"
+      ],
+      [
+        "SWE-bench Verified",
+        "70.80",
+        "32.40",
+        "60.60",
+        "67.80",
+        "64.70"
+      ],
+      [
+        "SWE-bench Multilingual",
+        "61.67",
+        "26.00",
+        "57.30",
+        "60.70",
+        "—"
+      ],
+      [
+        "NL2Repo (mean score / pass rate)",
+        "14.89 / 25.03",
+        "3.20 / 3.40",
+        "11.40 / 5.70",
+        "30.30 / 17.70",
+        "5.00 / —"
+      ],
+      [
+        "Terminal-Bench 2.0",
+        "38.20",
+        "22.50",
+        "33.70",
+        "48.30",
+        "30.30"
+      ],
+      [
+        "Terminal-Bench 2.1",
+        "39.33",
+        "22.50",
+        "34.80",
+        "49.40",
+        "—"
+      ]
+    ],
+    [
+      [
+        "Benchmark",
+        "GigaChat 4 37B",
+        "GigaChat 3.5 37B",
+        "Qwen3.5-35B-A3B",
+        "Qwen3.6-35B-A3B",
+        "GigaChat 3.5 Ultra 432B"
+      ],
+      [
+        "IFBench (prompt-level loose)",
+        "75.00",
+        "61.00",
+        "64.30",
+        "58.00",
+        "77.00"
+      ],
+      [
+        "JSONSchemaBench",
+        "96.00",
+        "87.00",
+        "94.20",
+        "42.00",
+        "93.01"
+      ],
+      [
+        "StructEval Text",
+        "86.00",
+        "75.00",
+        "78.90",
+        "85.60",
+        "85.00"
+      ],
+      [
+        "POLLUX",
+        "—",
+        "73.00",
+        "68.60",
+        "71.00",
+        "75.50"
+      ],
+      [
+        "GraphWalks",
+        "63.00",
+        "13.00",
+        "60.50",
+        "46.00",
+        "38.00"
+      ],
+      [
+        "Natural Plan",
+        "92.00",
+        "51.00",
+        "75.20",
+        "76.00",
+        "80.19"
+      ],
+      [
+        "NIH Complex",
+        "99.00",
+        "94.00",
+        "96.90",
+        "67.00",
+        "99.16"
+      ],
+      [
+        "AA-LCR",
+        "54.00",
+        "18.70",
+        "66.00",
+        "60.70",
+        "25.00"
+      ]
+    ],
+    [
+      [
+        "Benchmark",
+        "GigaChat 4 37B",
+        "GigaChat 3.5 37B",
+        "Qwen3.5-35B-A3B",
+        "Qwen3.6-35B-A3B",
+        "GigaChat 3.5 Ultra 432B"
+      ],
+      [
+        "GPQA Diamond",
+        "70.00",
+        "66.00",
+        "85.00",
+        "80.00",
+        "82.30"
+      ],
+      [
+        "HMMT (pass@8)",
+        "95.00",
+        "86.70",
+        "87.00",
+        "83.00",
+        "93.00"
+      ],
+      [
+        "HMMT (mean@8)",
+        "87.00",
+        "61.50",
+        "74.00",
+        "70.00",
+        "—"
+      ],
+      [
+        "AIME 2025 (pass@8)",
+        "93.00",
+        "80.00",
+        "93.00",
+        "93.00",
+        "93.00"
+      ],
+      [
+        "AIME 2025 (mean@8)",
+        "88.00",
+        "73.00",
+        "88.00",
+        "92.00",
+        "89.00"
+      ],
+      [
+        "AIME 2026 (pass@8)",
+        "93.00",
+        "93.00",
+        "97.00",
+        "97.00",
+        "97.00"
+      ],
+      [
+        "AIME 2026 (mean@8)",
+        "92.00",
+        "78.00",
+        "88.00",
+        "87.00",
+        "91.00"
+      ],
+      [
+        "IMO-AnswerBench",
+        "76.00",
+        "60.00",
+        "74.00",
+        "76.00",
+        "73.00"
+      ],
+      [
+        "HLE (text only)",
+        "9.00",
+        "6.00",
+        "19.00",
+        "20.00",
+        "13.00"
+      ]
+    ],
+    [
+      [
+        "Benchmark",
+        "GigaChat 4 37B",
+        "GigaChat 3.5 37B",
+        "Qwen3.5-35B-A3B",
+        "Qwen3.6-35B-A3B",
+        "GigaChat 3.5 Ultra 432B"
+      ],
+      [
+        "BFCL (overall accuracy)",
+        "72.00",
+        "63.00",
+        "69.00",
+        "67.00",
+        "58.59"
+      ],
+      [
+        "τ³-Bench (mean@3)",
+        "57.00",
+        "41.20",
+        "53.60",
+        "63.30",
+        "47.80"
+      ],
+      [
+        "τ²-Bench (mean@3)",
+        "73.00",
+        "53.40",
+        "69.40",
+        "80.00",
+        "61.58"
+      ],
+      [
+        "τ³-Bench Banking (mean@3)",
+        "9.00",
+        "4.80",
+        "6.20",
+        "8.60",
+        "8.93"
+      ],
+      [
+        "CoworkBench (Pi)",
+        "59.48",
+        "5.80",
+        "39.00",
+        "57.00",
+        "25.00"
+      ],
+      [
+        "Toolathlon",
+        "39.00",
+        "18.90",
+        "40.00",
+        "42.00",
+        "1.41"
+      ],
+      [
+        "SkillsBench (without skills)",
+        "8.62",
+        "1.20",
+        "9.00",
+        "14.00",
+        "—"
+      ],
+      [
+        "SkillsBench (with skills)",
+        "23.80",
+        "3.70",
+        "25.00",
+        "35.00",
+        "—"
+      ],
+      [
+        "JobBench",
+        "23.28",
+        "2.50",
+        "9.10",
+        "17.10",
+        "—"
+      ]
+    ],
+    [
+      [
+        "Benchmark",
+        "GigaChat 4 37B",
+        "GigaChat 3.5 37B",
+        "Qwen3.5-35B-A3B",
+        "Qwen3.6-35B-A3B",
+        "GigaChat 3.5 Ultra 432B"
+      ],
+      [
+        "LiveCodeBench v6",
+        "52.00",
+        "49.00",
+        "57.63",
+        "46.45",
+        "56.20"
+      ],
+      [
+        "SWE-bench Verified",
+        "70.80",
+        "34.00",
+        "57.80",
+        "63.40",
+        "39.70"
+      ],
+      [
+        "SWE-bench Multilingual",
+        "61.67",
+        "7.00",
+        "54.30",
+        "59.70",
+        "21.60"
+      ],
+      [
+        "Terminal-Bench 2.0",
+        "38.20",
+        "5.60<sup>*</sup>",
+        "36.00",
+        "44.90<sup>*</sup>",
+        "12.94"
+      ],
+      [
+        "Terminal-Bench 2.1",
+        "39.33",
+        "7.90",
+        "46.10",
+        "46.10<sup>*</sup>",
+        "—"
+      ]
+    ],
+    [
+      [
+        "Benchmark",
+        "GigaChat 4 37B",
+        "GigaChat 3.5 37B",
+        "Qwen3.5-35B-A3B",
+        "Qwen3.6-35B-A3B",
+        "GigaChat 3.5 Ultra 432B"
+      ],
+      [
+        "IFBench (prompt-level loose)",
+        "48.00",
+        "35.00",
+        "41.30",
+        "37.30",
+        "43.66"
+      ],
+      [
+        "JSONSchemaBench",
+        "86.00",
+        "85.00",
+        "91.00",
+        "92.10",
+        "83.94"
+      ],
+      [
+        "StructEval Text",
+        "87.00",
+        "72.00",
+        "83.80",
+        "82.40",
+        "74.35"
+      ],
+      [
+        "POLLUX",
+        "—",
+        "70.00",
+        "65.10",
+        "—",
+        "74.25"
+      ],
+      [
+        "GraphWalks",
+        "26.00",
+        "7.00",
+        "56.20",
+        "55.60",
+        "19.99"
+      ],
+      [
+        "Natural Plan",
+        "45.00",
+        "21.00",
+        "44.10",
+        "44.60",
+        "66.42"
+      ],
+      [
+        "NIH Complex",
+        "92.00",
+        "82.00",
+        "96.60",
+        "99.99",
+        "97.11"
+      ],
+      [
+        "AA-LCR",
+        "54.00",
+        "10.70",
+        "52.70",
+        "52.30",
+        "27.60"
+      ]
+    ],
+    [
+      [
+        "Benchmark",
+        "GigaChat 4 37B",
+        "GigaChat 3.5 37B",
+        "Qwen3.5-35B-A3B",
+        "Qwen3.6-35B-A3B",
+        "GigaChat 3.5 Ultra 432B"
+      ],
+      [
+        "GPQA Diamond",
+        "55.00",
+        "58.00",
+        "78.30",
+        "81.80",
+        "61.11"
+      ],
+      [
+        "HMMT (pass@8)",
+        "67.00",
+        "73.30",
+        "71.70",
+        "80.00",
+        "55.00"
+      ],
+      [
+        "HMMT (mean@8)",
+        "—",
+        "46.90",
+        "49.80",
+        "56.70",
+        "—"
+      ],
+      [
+        "AIME 2025 (pass@8)",
+        "73.00",
+        "67.00",
+        "93.30",
+        "90.00",
+        "93.00"
+      ],
+      [
+        "AIME 2025 (mean@8)",
+        "39.00",
+        "50.00",
+        "76.30",
+        "72.50",
+        "68.00"
+      ],
+      [
+        "AIME 2026 (pass@8)",
+        "80.00",
+        "77.00",
+        "93.30",
+        "93.30",
+        "83.00"
+      ],
+      [
+        "AIME 2026 (mean@8)",
+        "57.00",
+        "55.00",
+        "71.30",
+        "76.30",
+        "67.00"
+      ],
+      [
+        "IMO-AnswerBench",
+        "35.00",
+        "44.00",
+        "59.20",
+        "56.00",
+        "32.00"
+      ],
+      [
+        "HLE (text only)",
+        "4.00",
+        "4.00",
+        "12.20",
+        "12.90",
+        "4.00"
+      ]
+    ],
+    [
+      [
+        "Benchmark",
+        "GigaChat 4 37B",
+        "GigaChat 3.5 37B",
+        "Qwen3.5-35B-A3B",
+        "Qwen3.6-35B-A3B",
+        "GigaChat 3.5 Ultra 432B"
+      ],
+      [
+        "BFCL (overall accuracy)",
+        "49.00",
+        "37.00",
+        "57.80",
+        "55.00",
+        "51.57"
+      ],
+      [
+        "τ³-Bench (mean@3)",
+        "47.30",
+        "40.80",
+        "60.20",
+        "59.40",
+        "50.04"
+      ],
+      [
+        "τ²-Bench (mean@3)",
+        "60.00",
+        "54.00",
+        "78.50",
+        "78.00",
+        "68.71"
+      ],
+      [
+        "τ³-Bench Banking (mean@3)",
+        "10.00",
+        "2.10<sup>*</sup>",
+        "5.50",
+        "3.80",
+        "5.15"
+      ]
+    ],
+    [
+      [
+        "Harness",
+        "API used by the harness",
+        "Required endpoint"
+      ],
+      [
+        "Pi",
+        "OpenAI Chat Completions",
+        "`POST /v1/chat/completions`"
+      ],
+      [
+        "Codex CLI",
+        "OpenAI Responses",
+        "`POST /v1/responses`"
+      ],
+      [
+        "DeepSeek Harness",
+        "OpenAI Chat Completions",
+        "`POST /v1/chat/completions`"
+      ]
+    ]
+  ],
+  "sections": [],
+  "raw_chars": 22475
+}
