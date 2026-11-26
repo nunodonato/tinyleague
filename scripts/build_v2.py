@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Tiny League v2 — prototype multi-page build.
 
-Writes into out-v2/ (never touches out/, which is what is deployed). Run:
+Writes into out/ — the deployable artifact. Run:
 
     .venv/bin/python scripts/build_v2.py
 
@@ -18,9 +18,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 
-import generate_html as gh  # reuse esc/fmt/license helpers + BENCH_FAMILY
+import tl_common as gh  # shared helpers, labels, heat ramp, OG card
 
-OUT = os.path.join(ROOT, "out-v2")
+OUT = os.path.join(ROOT, "out")
 SITE = "https://tinyleague.org/"
 REPO = "https://github.com/nunodonato/tinyleague"
 DISCORD = "https://discord.gg/DQ6E6eJZVJ"
@@ -47,6 +47,11 @@ for rec in scores_doc["models"]:
                 d[sc["benchmark"]] = sc
 
 COV = Counter(b for d in SCORES.values() for b in d)
+MODEL_NUMERIC = {mid: {b: sc["score"] for b, sc in d.items()} for mid, d in SCORES.items()}
+try:
+    UPDATED_H = gh.load("changelog.json")[0]["date"]
+except (OSError, ValueError, IndexError, KeyError, TypeError):
+    UPDATED_H = ""
 BENCHES = sorted(b for b, n in COV.items() if n >= MIN_MODELS)
 
 # --------------------------------------------------------------------------
@@ -188,9 +193,7 @@ def best_of(bench):
 # --------------------------------------------------------------------------
 # chrome
 
-STYLE = gh.web_asset("style.css")
-TOKENS = "\n".join(re.findall(r":root \{[^}]*\}", STYLE)) + "\n" + \
-    re.search(r':root\[data-theme="dark"\] \{[^}]*\}', STYLE).group(0)
+TOKENS = gh.web_asset("tokens.css")
 V2CSS = gh.web_asset("v2.css")
 
 # Same ramp as v1: pre-rendered into 21 classes so Python and JS agree on colour.
@@ -935,11 +938,34 @@ single-page build. The heatmap and scatter charts still live on the live site.</
 
 # --------------------------------------------------------------------------
 
+def build_og():
+    """Rasterise the social card into a temp file (before out/ is wiped)."""
+    import subprocess
+    import tempfile
+    if os.environ.get("TL_SKIP_OG") == "1":
+        return None
+    svg = gh.build_og_svg(MODELS, MODEL_NUMERIC, COV, len(MODELS), len(BENCHES), UPDATED_H)
+    fd, tmp = tempfile.mkstemp(suffix=".png", prefix="tl-og-")
+    os.close(fd)
+    try:
+        subprocess.run(["rsvg-convert", "-w", "1200", "-h", "630", "-o", tmp],
+                       input=svg.encode("utf-8"), check=True)
+        return tmp
+    except FileNotFoundError:
+        print("warn: rsvg-convert not found — no og.png")
+    except subprocess.CalledProcessError as exc:
+        print("warn: rsvg-convert failed (%s) — no og.png" % exc)
+    return None
+
+
 def main():
     import shutil
+    og_tmp = build_og()
     if os.path.isdir(OUT):
         shutil.rmtree(OUT)
     os.makedirs(OUT, exist_ok=True)
+    if og_tmp:
+        shutil.move(og_tmp, os.path.join(OUT, "og.png"))
     written = []
     written.append(("index.html", write("index.html", page_home())))
     written.append(("models.html", write("models.html", page_models())))
@@ -994,11 +1020,6 @@ benchmarks as of {lastmod}.
 - Decode speed is an estimate for one RTX 4090 at 50% of its bandwidth.
 - Missing values are absent, never estimated. Versions are never pooled.
 """)
-    # reuse the social card built by the v1 pipeline
-    src_og = os.path.join(ROOT, "out", "og.png")
-    if os.path.exists(src_og):
-        import shutil
-        shutil.copyfile(src_og, os.path.join(OUT, "og.png"))
     print("  %-20s %7d pages" % ("benchmarks/*", n))
     others = [b for b in BENCHES if DOMAIN_OF[b] == "Other"]
     print("  domains: " + ", ".join("%s %d" % (d, len(BY_DOMAIN.get(d) or []))

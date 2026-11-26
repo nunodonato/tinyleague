@@ -1,0 +1,115 @@
+/* Tiny League — colour tokens (light default, dark via data-theme on <html>).
+   Every surface a visitor can see must have a token here, or it glares in one mode. */
+
+:root {
+  color-scheme: light;
+  --ink: #101828;
+  --ink-2: #344054;
+  --muted: #667085;
+  --faint: #98a2b3;
+  --paper: #fcfcfd;
+  --surface: #ffffff;
+  --line: #eaecf0;
+  --line-2: #f2f4f7;
+  --accent: #3538cd;
+  --accent-dark: #2d31a6;
+  --accent-soft: #eef0ff;
+  --accent-soft-2: #f7f8ff;
+  --medal: #7a2e0e;
+  --medal-bg: #fef0c7;
+  --medal-line: #fec84b;
+  --good: #027a48;
+  --good-bg: #ecfdf3;
+  --rose: #c11574;
+  --rose-bg: #fdf2fa;
+  --amber: #b54708;
+  --amber-bg: #fffaeb;
+  /* surfaces that used to be hard-coded */
+  --head-bg: rgba(252, 252, 253, .88);
+  --head-bg-solid: rgba(252, 252, 253, .97);
+  --th-bg: #fafbfc;
+  --row-hover: #fbfcff;
+  --absent: #d0d5dd;
+  --focus-ring: #eef0ff;
+  --ring-shadow: 0 1px 2px rgba(16, 24, 40, .12);
+  --fab-bg: #101828;
+  --fab-fg: #ffffff;
+  --fab-hover-bg: #1d2939;
+  --fab-badge: rgba(255, 255, 255, .2);
+  --fab-copied: #027a48;
+  --scroll-bg: rgba(255, 255, 255, .94);
+  --scroll-bg-hover: #ffffff;
+  /* Chart.js reads these at draw time (canvas cannot use var()) */
+  --chart-bar-1: #3538cd;
+  --chart-bar-2: #a5a8ef;
+  --chart-point: rgba(53, 56, 205, .85);
+  --chart-point-border: #ffffff;
+  --chart-grid: #eaecf0;
+  --chart-tick: #667085;
+  --chart-tick-strong: #344054;
+  --chart-label: #475467;
+  --chart-halo: rgba(255, 255, 255, .92);
+  --glow-good: 2, 122, 72;
+  --glow-warn: 180, 35, 24;
+  --tooltip-bg: #101828;
+  --tooltip-fg: #f6f7f9;
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 2px rgba(16, 24, 40, .05);
+  --shadow-lg: 0 10px 32px rgba(16, 24, 40, .14);
+  --head-h: 56px;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #e9ecf4;
+  --ink-2: #c6ccda;
+  --muted: #98a2b3;
+  --faint: #6b7587;
+  --paper: #0b0e13;
+  --surface: #131820;
+  --line: #242d3b;
+  --line-2: #1c2432;
+  --accent: #4f52e8;
+  --accent-dark: #a9abff;
+  --accent-soft: #1c2142;
+  --accent-soft-2: #161b2e;
+  --medal: #ffe0a3;
+  --medal-bg: #3a2a0a;
+  --medal-line: #7a5a12;
+  --good: #34d399;
+  --good-bg: #062a1d;
+  --rose: #f472b6;
+  --rose-bg: #2f0d22;
+  --amber: #fbbf24;
+  --amber-bg: #2e2004;
+  --head-bg: rgba(11, 14, 19, .86);
+  --head-bg-solid: rgba(11, 14, 19, .97);
+  --th-bg: #161d28;
+  --row-hover: #171e2b;
+  --absent: #4d5768;
+  --focus-ring: #2b3160;
+  --ring-shadow: 0 1px 2px rgba(0, 0, 0, .5);
+  --fab-bg: #222b3a;
+  --fab-fg: #eef1f8;
+  --fab-hover-bg: #2c3747;
+  --fab-badge: rgba(255, 255, 255, .14);
+  --fab-copied: #15803d;
+  --scroll-bg: rgba(19, 24, 32, .94);
+  --scroll-bg-hover: #1b2330;
+  --chart-bar-1: #7d80ff;
+  --chart-bar-2: #3b3f8f;
+  --chart-point: rgba(141, 144, 255, .9);
+  --chart-point-border: #0b0e13;
+  --chart-grid: #242d3b;
+  --chart-tick: #98a2b3;
+  --chart-tick-strong: #c6ccda;
+  --chart-label: #c6ccda;
+  --chart-halo: rgba(11, 14, 19, .9);
+  --glow-good: 52, 211, 153;
+  --glow-warn: 248, 113, 113;
+  --tooltip-bg: #242d3b;
+  --tooltip-fg: #e9ecf4;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .5);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, .62);
+}

@@ -39,7 +39,7 @@ DATA = os.path.join(ROOT, "data")
 INDEX_VERSION = "TL-Index-1.0"
 
 # STATUS: experimental / parked. This is NOT wired into merge.py, validate.py or
-# generate_html.py — nothing on the site depends on it. Regenerate the snapshot
+# build_v2.py — nothing on the site depends on it. Regenerate the snapshot
 # with:
 #   .venv/bin/python scripts/tl_index.py --benchmarks "HLE,GPQA Diamond,IFBench" --json
 # Widen it with --benchmarks "..." (any subset of the nine columns below).

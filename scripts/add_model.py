@@ -11,7 +11,7 @@ data/meta.json (4B-285B, released on/after cutoff, official weights), appends th
 model to data/models.json and validates it against schema/models.schema.json.
 
 It does NOT research benchmark scores — after it succeeds, run extract_card.py,
-do the research step, then merge/validate/generate_html (see AGENTS.md).
+do the research step, then merge/validate/build_v2 (see AGENTS.md).
 """
 import argparse
 import json
@@ -164,7 +164,7 @@ def main():
     print("  3. .venv/bin/python scripts/kv_cache.py --verify --apply")
     print("     .venv/bin/python scripts/perf.py --apply")
     print("     .venv/bin/python scripts/merge.py && .venv/bin/python scripts/validate.py "
-          "&& .venv/bin/python scripts/generate_html.py")
+          "&& .venv/bin/python scripts/build_v2.py")
     print("  4. ASK before publishing `out/` (https://tinyleague.org) — never upload "
           "without an explicit OK.")
 

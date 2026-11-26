@@ -77,7 +77,7 @@ Given a name, a Hugging Face id (`Org/Model-9B`) or a full HF URL:
 .venv/bin/python scripts/perf.py --apply                # derive decode speed (after kv_cache)
 .venv/bin/python scripts/merge.py                       # raw/*.json -> scores.json
 .venv/bin/python scripts/validate.py                    # must print PASS
-.venv/bin/python scripts/generate_html.py               # -> out/index.html + sitemap/llms/robots/og.png
+.venv/bin/python scripts/build_v2.py                    # -> out/ (all pages + sitemap/llms/robots/og.png)
 ```
 
 `validate.py` is the gate: if it prints `FAIL`, the PR is not ready. Two of its
@@ -95,7 +95,7 @@ not a bug.
 Change the value in `data/raw/<org>__<name>.json` (not `data/scores.json` — it
 is generated), keep the `source`/`source_url` pointing at where the number
 comes from, note the reason in `notes`, then re-run `merge.py`,
-`validate.py` and `generate_html.py`. If two sources disagree, keep the card's
+`validate.py` and `build_v2.py`. If two sources disagree, keep the card's
 value as primary and record both under `conflicts`.
 
 ## Pull request checklist

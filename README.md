@@ -36,7 +36,7 @@ so the same benchmark is comparable across models; eval specifics live in
 | `data/meta.json` | Run metadata + criteria (cutoff, range, required families). |
 | `data/raw/<org>__<name>.draft.json` | Cleaned table extraction of each model card (intermediate). |
 | `data/raw/<org>__<name>.json` | Per-model research record (one per model). |
-| `out/index.html` | Self-contained dashboard (data + Chart.js inlined, zero external deps). |
+| `out/` | The built site (deployable as-is): home, models, scores matrix, benchmarks + one leaderboard per benchmark, compare, about. |
 
 Schemas in `schema/` are enforced by `scripts/validate.py`.
 
@@ -46,22 +46,24 @@ Schemas in `schema/` are enforced by `scripts/validate.py`.
 .venv/bin/python scripts/extract_card.py      # re-pull card drafts -> data/raw/*.draft.json
 .venv/bin/python scripts/merge.py             # data/raw/*.json -> data/scores.json (canonicalizes names)
 .venv/bin/python scripts/validate.py          # schema + range/age/officiality + coverage + conflicts (PASS/FAIL)
-.venv/bin/python scripts/generate_html.py     # -> out/index.html (+ robots.txt, llms.txt, sitemap.xml)
+.venv/bin/python scripts/build_v2.py          # -> out/ (home, models, matrix, benchmarks/*, compare, about)
 ```
 `extract_card.py` handles HF cards that embed benchmark tables in HTML *or* markdown;
 models whose card has no parseable table are read directly from the raw README by the
 research step.
 
 ## Dashboard
-`out/index.html` is fully interactive: click any header to sort, and floating **Params** /
-**Models** panels filter every table and chart by parameter range, vision, MoE, or an
-explicit model selection (marked with **V** / **MoE** badges). The heatmap opens on a
-**Core** view (benchmarks reported by ≥ 5 models) because most of the roster's columns are
-thin; **All** shows every column. Filters are reflected in the URL, and a **Share** button
-appears whenever the view differs from the default so any comparison can be copied as a
-link. To keep the page readable, a benchmark is **hidden when no version of its family is
-reported by at least 2 models** (family-aware, so a rare version like `Terminal-Bench Hard`
-still shows while its family is well covered).
+`out/` is a small static site — no framework, no client-side router:
+
+- **Models** — the roster, sortable on every column, with a text filter.
+- **Scores** — models × benchmarks matrix; colour is scaled within each column over the
+  models currently shown, click a column to sort by it, ↗ opens that benchmark's leaderboard.
+- **Benchmarks** — 115 benchmarks grouped by domain with jump chips, each with its own
+  leaderboard, source links and sibling versions.
+- **Compare** — up to five models side by side, best-in-row highlighted.
+
+One filter bar (min/max params, MoE only, vision only) applies across Models, Scores,
+Benchmarks, leaderboards and Compare, and follows you between pages.
 
 ## License
 

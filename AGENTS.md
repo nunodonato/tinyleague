@@ -6,26 +6,26 @@ support comparisons, tables, and charts, and published as a single shareable pag
 > **Most common task: "add a new model".** Jump to [Add a new model](#add-a-new-model).
 > You are usually given just a name or a Hugging Face URL.
 
-## Live build (v2) — and the v1 generator
+## The build
 
-The published site is the **v2 multi-page build**:
+The site is a **static multi-page build** — no framework, no client router:
 
 ```
-.venv/bin/python scripts/build_v2.py     # -> out-v2/
+.venv/bin/python scripts/build_v2.py      # -> out/
 ```
 
-It emits `index.html` (home), `models.html`, `matrix.html` (the scores matrix),
-`benchmarks.html` + one leaderboard per benchmark under `benchmarks/`, `compare.html`,
-`about.html`, and the crawler/social files (`robots.txt`, `sitemap.xml`, `llms.txt`,
-`og.png`). **`out-v2/` is the deployable artifact and what is live.**
+`out/` is the deployable artifact: `index.html` (home), `models.html`, `matrix.html`
+(scores matrix), `benchmarks.html` + one leaderboard per benchmark under `benchmarks/`,
+`compare.html`, `about.html`, plus `robots.txt`, `sitemap.xml`, `llms.txt` and `og.png`.
 
-`scripts/generate_html.py` is the **v1 single-page generator**. It is no longer what serves
-the site, but it remains the source of the colour tokens in `scripts/web/style.css` (v2
-imports them, so the palettes cannot drift) and of `out/og.png`. `out/` is the frozen v1
-build.
+Caddy serves the directory directly, so deploying is:
 
-Deploy: `rsync -a --delete out-v2/ nunodonato.com:~/tinyleague/` (no sudo; Caddy serves the
-directory directly).
+```
+rsync -a --delete out/ nunodonato.com:~/tinyleague/
+```
+
+Shared code is in `scripts/tl_common.py` (labels, heat ramp, social card); the palette is
+read from `scripts/web/style.css` and the layout from `scripts/web/v2.css`.
 
 ## Criteria (pinned in `data/meta.json`)
 - **Params:** 4B–285B inclusive (total parameters).
@@ -79,7 +79,7 @@ corroborate. Rules:
    rather than guessing. **Version aliases that name the same release are folded onto one
    column, not split** (e.g. `Terminal-Bench v2` is the same release as `2.0`; a bare
    `v2` is a spelling variant, not a new version). Each versioned name maps to its family
-   in `BENCH_FAMILY` (`generate_html.py`) — add a new multi-version family there so its rare
+   in `BENCH_FAMILY` (`scripts/tl_common.py`) — add a new multi-version family there so its rare
    versions are not hidden (see the visibility rule below). Spelling-variant / alias synonyms
    of a versioned name are normalized centrally in `scripts/merge.py` → `CANON_BENCH`
    (add new ones there).
@@ -96,11 +96,12 @@ corroborate. Rules:
 | `data/raw/<org>__<name>.json` | One researched score record per model (**double underscore**). |
 | `data/raw/<org>__<name>.draft.json` | Cleaned table extraction of the card (intermediate, auto). |
 | `schema/*.json` | JSON Schemas — enforced by `validate.py`. |
-| `out/index.html` | Self-contained dashboard (data + CSS + JS + Chart.js inlined, zero external deps). |
-| `out/robots.txt`, `out/llms.txt`, `out/sitemap.xml` | Crawler/agent metadata, emitted by `generate_html.py` beside the page. |
+| `out/` | The built site — **this is what is deployed** (see [The build](#the-build)). |
+| `out/robots.txt`, `out/llms.txt`, `out/sitemap.xml` | Crawler/agent metadata, emitted by `build_v2.py`. |
 | `out/og.png` | 1200×630 social card (Open Graph / Twitter), built from the data at generate time (`build_og_svg` → `rsvg-convert`; skipped with a warning if that tool is missing, keeping the previous PNG). |
-| `scripts/web/style.css` | The dashboard's design system (tokens, layout, tables, heatmap, charts, responsive). Read and inlined at build time. |
-| `scripts/web/app.js` | The dashboard's front-end (sorting, filters, URL state, heatmap recolouring, charts). Read and inlined at build time. |
+| `scripts/web/style.css` | Design tokens (light + dark). Inlined by the build. |
+| `scripts/web/v2.css` | v2 layout layer (masthead, tables, matrix, filters, compare). |
+| `scripts/build_v2.py`, `scripts/tl_common.py` | The page generator and its shared helpers. |
 
 ## Scripts (all run with `.venv/bin/python`, from the repo root)
 | Script | Purpose |
@@ -110,7 +111,7 @@ corroborate. Rules:
 | `scripts/extract_card.py [ids...]` | Fetch + clean model card(s) → `data/raw/*.draft.json`. |
 | `scripts/merge.py` | `data/raw/*.json` → `data/scores.json` (canonicalizes benchmark names). |
 | `scripts/validate.py` | Schema + criteria + coverage + conflicts. Prints `PASS`/`FAIL`, exit 0/1. |
-| `scripts/generate_html.py` | → `out/index.html` (+ `robots.txt`, `llms.txt`, `sitemap.xml`). Inlines `scripts/web/style.css` and `scripts/web/app.js`. |
+| `scripts/build_v2.py` | → `out/` — every page, `sitemap.xml`, `llms.txt`, `robots.txt`, `og.png`. Inlines the palette and `scripts/web/v2.css`. |
 | `scripts/kv_cache.py [--verify] [--apply] [--jobs N] [--force]` | Derive each model's **KV-cache footprint** from its `config.json` into `models.json` → `kv_cache` (see [KV cache](#kv-cache-derived-not-a-benchmark)). Dry-run prints a table; `--verify` cross-checks per-layer widths against real safetensors tensor shapes; `--refresh` re-fetches configs; unchanged models are reused and fetched in parallel. |
 | `scripts/perf.py [--apply]` | Derive each model's **decode speed** into `models.json` → `perf` (see [Decode speed](#decode-speed-derived-not-a-benchmark)). Needs `kv_cache` and `active_params_b`, so run it **after** `kv_cache.py`. Dry-run prints a table. |
 
@@ -168,7 +169,7 @@ Given a name, HF id, or URL (e.g. `Qwen/Qwen3.9-32B`, `gemma-4`, or a full URL):
    ```
    .venv/bin/python scripts/kv_cache.py --verify --apply
    .venv/bin/python scripts/perf.py --apply
-   .venv/bin/python scripts/merge.py && .venv/bin/python scripts/validate.py && .venv/bin/python scripts/generate_html.py
+   .venv/bin/python scripts/merge.py && .venv/bin/python scripts/validate.py && .venv/bin/python scripts/build_v2.py
    ```
    `kv_cache.py --verify --apply` derives the new model's KV-cache footprint and checks
    it against the repo's real tensor shapes (see [KV cache](#kv-cache-derived-not-a-benchmark)).
@@ -182,9 +183,9 @@ Given a name, HF id, or URL (e.g. `Qwen/Qwen3.9-32B`, `gemma-4`, or a full URL):
    `validate.py` MUST print `PASS`. If it reports new benchmark-name duplicates, add the
     synonym to `CANON_BENCH` in `merge.py` and re-run.
     **Update `data/changelog.json` first (one bullet per day; one sentence, ~15 words
-    max — see the file-layout row), THEN run `generate_html.py`** — the changelog is
+    max — see the file-layout row), THEN run `build_v2.py`** — the changelog is
     baked into the HTML at generate time, so
-    editing it after generating ships a stale changelog (re-run `generate_html.py`
+    editing it after generating ships a stale changelog (re-run `build_v2.py`
     and re-deploy if you forget).
 
 5. **Ask the user before deploying.** Say it's ready and the link
@@ -198,7 +199,7 @@ When a model must be dropped from the roster (out of scope, superseded, retracte
 2. Delete its research files `data/raw/<org>__<name>.json` and
    `data/raw/<org>__<name>.draft.json`.
 3. Regenerate exactly as [step 4](#add-a-new-model) — `merge.py` rebuilds `scores.json`
-   without the model and `generate_html.py` drops it from the page. `validate.py` must
+   without the model and `build_v2.py` drops it from the page. `validate.py` must
    still print `PASS` (the roster must keep ≥ 20 models and the required families).
  Then ask before deploying, as usual.
 
@@ -296,72 +297,41 @@ To show the user the page, open `out/index.html` in **their default browser** �
 browser tools for this; that opens a headless/managed Chrome instance, not the user's
 own browser.
 
-## Dashboard & filtering (`generate_html.py` + `scripts/web/`)
-`out/index.html` is one self-contained page; its CSS and JS live in `scripts/web/` and are
-inlined at build. Interactive filters live in the floating **Params** and **Models** panels
-and re-render the tables + charts on the fly.
-- **Core vs All heatmap.** The heatmap opens on **Core** — benchmarks reported by
-  `CORE_MIN_MODELS = 5` or more models, plus a small curated `CORE_ALWAYS` list
-  (`DeepSWE 1.1`, `AutomationBench`) that stays pinned however thin its column gets.
-  Most of the roster's benchmark columns are thin (median ~2 models) and a full matrix
-  is unreadable. **All** shows every column;
-  a benchmark search always reaches every column. Each header carries its model count.
-- **Shareable state.** Param range, vision/MoE toggles, model selection, chart tab,
-  benchmark search and Core/All are written to the query string
-  (`?min=8&vision=1&sel=…&chart=preset-kv&bf=swe&hv=all`) and restored on load, so any
-  filtered view can be linked. A **Share** button (the third floating control, left of
-  Models/Params) appears only while that query string is non-empty and copies the view's
-  absolute URL; it hides again when the view returns to the default.
-- **Community buttons (GitHub + Discord).** The masthead carries two branded buttons,
-  left of the theme control, both opening in a new tab. **Discord** is blurple
-  (`#5865f2`) and links to the **permanent** invite `https://discord.gg/DQ6E6eJZVJ`; the
-  footer repeats both as small inline links beside the author credit (white on blurple is
-  4.6:1, AA). **GitHub** (`GITHUB_REPO`) uses its mono mark — `#24292f` with white text
-  in light mode, inverted to a light glyph on GitHub's `#21262d` canvas in dark mode — and
-  points at `https://github.com/nunodonato/tinyleague`. Both collapse to icon-only 38px
-  controls under 700px. Always use a never-expiring Discord invite — the first one
-  (`DdjCPSdnY`) silently expired after 30 days.
-- **Vision / multimodal — the `(V)` badge.** Each model carries a boolean
-  `supports_vision` (in `models.json`; auto-detected from a `vision_config` in the HF
-  `config.json`, else from `modalities`). Vision-capable models show a small **V** badge
-  next to their name in the **Models** table and the **Scores Heatmap**.
-- **"Only models with vision" toggle.** A checkbox in the panel restricts the Models
-  table, heatmap and bar charts to `supports_vision` models (stacks with the param
-  range; **reset** clears it).
-- **Param-range filter.** The min/max slider hides out-of-range models across every
-  table and chart.
-- **Benchmark visibility — needs ≥ 2 models per column.** A benchmark column is hidden
-  (heatmap and bar charts) unless **at least 2 models report that exact
-  benchmark** (`MIN_BENCH_MODELS = 2` in `generate_html.py`). Versions are **not pooled**:
-  `Terminal-Bench Hard` (1 model) is hidden even though `Terminal-Bench 2.1` has 20, since
-  the versions are not comparable. It is a *display* rule only — those scores remain in
-  `data/scores.json`.
-  **Bar charts need ≥ 4 models** (`MIN_CHART_MODELS = 4` in the front-end JS): a
-  per-benchmark comparison chart is only drawn when at least four models report that
-  benchmark *within the current filters*, since two- or three-bar charts are not a
-  meaningful comparison. This is independent of the heatmap's ≥ 2 column rule.
-  **Dynamically, once a filter is active** (param range, vision/MoE toggle, model
-  selection, benchmark search) the heatmap re-counts coverage over the *visible* models
-  and hides any column with fewer than 2 of them (`MIN_BENCH_LIVE = 2`), so filtering
-  never leaves empty or single-entry columns behind. The counter next to the benchmark
-  search reports how many columns were hidden.
-- **Comparisons are curated.** `DEFAULT_CHARTS = 12` bar charts (the best-covered
-  benchmarks) are drawn, with a **Show all** control for the rest — 40 unlabelled charts
-  made the page 10,000 px long and duplicated the heatmap.
-- **Versioned columns** render a two-line header (family on top, version emphasized below)
-  via `bench_header_html` in `generate_html.py`, so sibling versions stay visually distinct.
-- **Column order — family-grouped, most data first.** Heatmap columns (and the bar charts,
-  which reuse the same order) are grouped by family and ordered by each
-  family's **total** coverage, with sibling versions adjacent within a family (e.g.
-  `Terminal-Bench 2.1/2.0/4` sit side by side). Set by the `fam_members` grouping in
-  `generate_html.py`.
-- **Click any header to sort** (sets `aria-sort`); a **benchmark search box** filters the
-  heatmap columns. Before any click the rows open **newest first** (`newest_first()`:
-  `official_release_date` descending, ties in roster order), the same order as the Models
-  table, so the latest models are at the top and a benchmark header re-ranks by score.
-- **Colour is contrast-checked.** `heat_style()` / `heatStyle()` pick white or ink per cell
-  and nudge mid-ramp steps darker so every value clears WCAG AA. Keep the Python and JS
-  versions in sync — the page renders cells server-side and re-colours them on filter.
+## The site (v2 pages)
+
+Generated by `scripts/build_v2.py`. Key behaviours, so changes stay consistent:
+
+- **Home** — stats, entry cards, newest models, recent changes.
+- **Models** — the roster table; sortable on every numeric column, plus a text filter.
+- **Scores (matrix)** — models × benchmarks. Colour comes from the shared 21-step ramp
+  (`tl_common.heat_style`) and is computed **within each column over the models currently
+  shown**, so a filtered view still reads. Click a column name to sort by it; the ↗ opens
+  that benchmark's leaderboard. Columns with fewer than 2 visible models are hidden.
+- **Benchmarks** — grouped into domains (Coding, Agentic, Math, Knowledge, Multimodal,
+  Instruction, Long context) with sticky jump chips whose counts are recomputed under the
+  filters, plus one page per benchmark (`benchmarks/<slug>.html`) with its full leaderboard,
+  sources and sibling versions.
+- **Compare** — up to five models; rows are benchmarks reported by at least two of them,
+  best-in-row highlighted.
+- **About** — criteria, sources, derived metrics, licensing.
+
+**Filters.** One bar — min/max params, MoE only, Vision only — rendered by `filter_bar()` on
+Models, Scores, Benchmarks, every leaderboard and Compare. Rows carry `data-params` /
+`data-moe` / `data-vision`; state lives in `localStorage` (`tl-filters`) so it follows you
+across pages. Each page sets `window.TL_APPLY` to re-render after a change (renumber ranks,
+recolour the matrix, drop empty columns, update counts).
+
+**Theme.** auto → light → dark, stored in `localStorage` (`tl-theme`) and applied before
+first paint. This needs a real origin: on `file://` every page is its own origin in Firefox,
+so the choice does not persist — preview over `http://`, not by opening the file.
+
+**Domains.** `DOMAIN_OF` in `build_v2.py` maps benchmark names to domains by ordered keyword
+rules; add a rule when a new family appears. `BENCH_FAMILY` in `tl_common.py` groups versions
+so siblings link to each other, and drives the slug (`τ²-bench` → `tau2-bench`).
+
+**Colour.** `heat_style()` returns background + text per ramp step with a WCAG AA check;
+`build_v2` pre-renders 21 `.hN` classes and the page JS recomputes the bucket from the
+visible min/max, so Python and JS can never disagree.
 
 ## Deployment (not in this repo)
 
