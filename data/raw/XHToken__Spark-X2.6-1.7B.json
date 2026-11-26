@@ -1,0 +1,259 @@
+{
+  "model_id": "XHToken/Spark-X2.6-1.7B",
+  "scores": [
+    {
+      "benchmark": "BFCL v4",
+      "subtask": "high reasoning",
+      "score": 55.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "Card row 'BFCL-V4' in the Benchmark Results figure. All evals in thinking mode, thinking level set to high (card footnote); temp=1.0, top_p=0.95, top_k=-1."
+    },
+    {
+      "benchmark": "τ²-bench",
+      "subtask": "high reasoning",
+      "score": 85.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "General agent. Thinking level high."
+    },
+    {
+      "benchmark": "τ³-bench",
+      "subtask": "Banking, high reasoning",
+      "score": 21.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "Card row 'τ³-bench Banking' (the Banking domain split). Thinking level high."
+    },
+    {
+      "benchmark": "VitaBench2.0",
+      "subtask": "high reasoning",
+      "score": 22.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "Thinking level high."
+    },
+    {
+      "benchmark": "MCP-Atlas",
+      "subtask": "high reasoning",
+      "score": 41.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "MCP tool use. Thinking level high."
+    },
+    {
+      "benchmark": "EnterpriseOps-Gym",
+      "subtask": "high reasoning",
+      "score": 26.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "Thinking level high."
+    },
+    {
+      "benchmark": "ClawEval",
+      "subtask": "EN, high reasoning",
+      "score": 66.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "Card row 'ClawEval-EN' (English split of ClawEval). Thinking level high."
+    },
+    {
+      "benchmark": "BrowseComp",
+      "subtask": "high reasoning",
+      "score": 41.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "Web browsing. Thinking level high."
+    },
+    {
+      "benchmark": "SWebBench",
+      "subtask": "high reasoning",
+      "score": 53.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "Vendor in-house benchmark for web browsing, information retrieval and research (not yet open-sourced). Distinct from SWE-bench."
+    },
+    {
+      "benchmark": "PAgentBench",
+      "subtask": "high reasoning",
+      "score": 58.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "Vendor in-house Personal Assistant Benchmark (task management, file ops, system interactions; not yet open-sourced)."
+    },
+    {
+      "benchmark": "SWE-bench Pro",
+      "subtask": "high reasoning",
+      "score": 26.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "Card row 'SWE Pro'. Thinking level high."
+    },
+    {
+      "benchmark": "SWE-bench Verified",
+      "subtask": "high reasoning",
+      "score": 59.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "Card row 'SWE Verified'. Thinking level high."
+    },
+    {
+      "benchmark": "SWE-bench Multilingual",
+      "subtask": "high reasoning",
+      "score": 57.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "Card row 'SWE Multilingual'. Thinking level high."
+    },
+    {
+      "benchmark": "SciCode",
+      "subtask": "high reasoning",
+      "score": 20.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "Thinking level high."
+    },
+    {
+      "benchmark": "Gaokao 2026",
+      "subtask": "high reasoning",
+      "score": 118.9,
+      "metric": "points",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "Average over the five 2026 Chinese GAOKAO exams (National I, National II, Beijing, Shanghai, Tianjin), each graded out of 150 points (card footnote); dataset XHToken/gaokao_math_2026. Thinking level high."
+    },
+    {
+      "benchmark": "AIME 2026",
+      "subtask": "high reasoning",
+      "score": 70.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "Thinking level high."
+    },
+    {
+      "benchmark": "HMMT Feb 2026",
+      "subtask": "high reasoning",
+      "score": 48.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "Card row 'HMMT Feb 26'. Thinking level high."
+    },
+    {
+      "benchmark": "IMO AnswerBench",
+      "subtask": "high reasoning",
+      "score": 47.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "Card row 'IMO-AnswerBench'. Thinking level high."
+    },
+    {
+      "benchmark": "AA-LCR",
+      "subtask": "v1.1, high reasoning",
+      "score": 48.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "Card row 'AA-LCRv1.1' (Artificial Analysis Long Context Reasoning index); kept in the shared AA-LCR column since every roster value is the same AA index metric. Thinking level high."
+    },
+    {
+      "benchmark": "LongBench-v2",
+      "subtask": "high reasoning",
+      "score": 40.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "Card row 'LongBench v2'. Thinking level high."
+    },
+    {
+      "benchmark": "GraphWalks",
+      "subtask": "BFS, 256k context, F1",
+      "score": 85.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "Card row 'Graphwalks bfs 256k f1'. F1 metric, BFS subtask at 256k context."
+    },
+    {
+      "benchmark": "GraphWalks Extend",
+      "subtask": "BFS, 1M context, F1",
+      "score": 25.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "Card row 'Graphwalks bfs 1m f1' (extended 1M-token context run), recorded on the extended-context column so the 256k and 1M buckets do not collapse. Model's native context is 1M."
+    },
+    {
+      "benchmark": "MRCR v2",
+      "subtask": "256k-512k context, high reasoning",
+      "score": 56.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "Card row 'Openai_MRCR v2 256k-512k'. The card also reports 19.9 for the 512k-1m bucket (kept here in notes so the two context buckets are not merged into one column)."
+    },
+    {
+      "benchmark": "IFEval",
+      "subtask": "high reasoning",
+      "score": 89.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "Thinking level high."
+    },
+    {
+      "benchmark": "IFBench",
+      "subtask": "high reasoning",
+      "score": 65.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "Thinking level high."
+    },
+    {
+      "benchmark": "HLE",
+      "subtask": "w/o tools, high reasoning",
+      "score": 8.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "Humanity's Last Exam without tools. The card also reports 19.9 with tools; the no-tools figure is kept for comparability with the rest of the roster (and with the sibling Spark-X2.6-4B record)."
+    },
+    {
+      "benchmark": "GPQA Diamond",
+      "subtask": "high reasoning",
+      "score": 56.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.6-1.7B",
+      "notes": "Card lists a separate plain 'GPQA' row (51.3) alongside 'GPQA Diamond' (56.1); the Diamond subset is recorded here."
+    }
+  ],
+  "gaps": [
+    "MMLU-Pro",
+    "LiveCodeBench",
+    "HumanEval",
+    "MBPP",
+    "Arena",
+    "GraphWalks (DFS subtask)",
+    "MRCR v2 512k-1m bucket (19.9, card only — no separate column)"
+  ],
+  "conflicts": [],
+  "retrieved_at": "2026-10-28T16:30:00Z"
+}

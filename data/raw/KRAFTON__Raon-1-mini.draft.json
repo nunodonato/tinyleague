@@ -1,0 +1,517 @@
+{
+  "model_id": "KRAFTON/Raon-1-mini",
+  "display_name": "Raon-1-mini",
+  "url": "https://huggingface.co/KRAFTON/Raon-1-mini",
+  "retrieved_at": "2026-11-24T21:11:26Z",
+  "html_tables": [
+    [
+      [
+        "Category",
+        "Benchmark",
+        "MoE",
+        "Dense"
+      ],
+      [
+        "Raon-1 mini (30B-A4B)",
+        "Raon-1 mini preview",
+        "Qwen3.6-35B-A3B",
+        "Gemma 4 26B-A4B",
+        "Flint (40B-A2.5B)",
+        "Inkling 2 Mini (26.4B-A5.4B)",
+        "Qwen3.8-27B",
+        "Muse Glimmer 30B"
+      ],
+      [
+        "Knowledge",
+        "MMLU Pro",
+        "82.7",
+        "76.5",
+        "85.9",
+        "82.9",
+        "77.7",
+        "83.5",
+        "85.7",
+        "84.0"
+      ],
+      [
+        "AA-Omniscience",
+        "1.0",
+        "3.5",
+        "−7.2",
+        "−46.6",
+        "−45.0",
+        "−0.3",
+        "−0.5",
+        "−34.7"
+      ],
+      [
+        "Reasoning",
+        "GPQA Diamond",
+        "86.0",
+        "84.3",
+        "83.2",
+        "80.7",
+        "70.8",
+        "86.6",
+        "89.7",
+        "82.6"
+      ],
+      [
+        "AIME 2026",
+        "96.7",
+        "93.3",
+        "92.9",
+        "87.1",
+        "89.6",
+        "97.5",
+        "98.8",
+        "92.9"
+      ],
+      [
+        "HMMT Feb 2026",
+        "87.1",
+        "84.1",
+        "84.5",
+        "79.9",
+        "76.9",
+        "88.6",
+        "95.8",
+        "74.6"
+      ],
+      [
+        "Instruction and multi-turn",
+        "IFBench",
+        "84.9",
+        "84.2",
+        "66.6",
+        "80.9",
+        "88.4",
+        "77.0",
+        "82.4",
+        "78.7"
+      ],
+      [
+        "MultiChallenge",
+        "64.9",
+        "59.0",
+        "58.2",
+        "58.4",
+        "54.8",
+        "52.4",
+        "63.6",
+        "63.4"
+      ],
+      [
+        "Coding",
+        "LiveCodeBench v6",
+        "81.7",
+        "81.6",
+        "81.2",
+        "83.4",
+        "88.5",
+        "87.4",
+        "79.3",
+        "77.4"
+      ],
+      [
+        "SciCode",
+        "41.3",
+        "38.7",
+        "35.6",
+        "39.6",
+        "33.7",
+        "43.8",
+        "44.6",
+        "43.6"
+      ],
+      [
+        "SWE-Verified¹",
+        "71.0",
+        "70.8",
+        "63.2",
+        "61.6",
+        "76.0",
+        "74.2",
+        "74.6",
+        "72.0"
+      ],
+      [
+        "Terminal-Bench Lite",
+        "52.0",
+        "47.0",
+        "63.3",
+        "52.0",
+        "57.3",
+        "77.0",
+        "67.0",
+        "70.7"
+      ],
+      [
+        "Agentic",
+        "GDPVal²",
+        "72.3",
+        "66.0",
+        "68.4",
+        "58.8",
+        "63.8",
+        "69.9",
+        "74.3",
+        "68.2"
+      ],
+      [
+        "AutomationBench³",
+        "39.9",
+        "29.7",
+        "24.9",
+        "36.2",
+        "30.8",
+        "56.7",
+        "58.7",
+        "32.1"
+      ],
+      [
+        "BrowseComp Plus",
+        "55.9",
+        "55.7",
+        "34.8",
+        "32.2",
+        "49.2",
+        "48.3",
+        "58.0",
+        "52.8"
+      ],
+      [
+        "BFCL v4 Overall",
+        "61.6",
+        "59.8",
+        "64.7",
+        "65.8",
+        "51.5",
+        "58.7",
+        "72.4",
+        "51.8"
+      ],
+      [
+        "Long context",
+        "AA-LCR",
+        "70.7",
+        "67.3",
+        "69.3",
+        "67.0",
+        "65.7",
+        "80.7",
+        "80.3",
+        "81.3"
+      ],
+      [
+        "GDP.pdf⁴",
+        "7.7",
+        "5.8",
+        "6.6",
+        "3.6",
+        "1.8",
+        "10.6",
+        "11.2",
+        "8.4"
+      ],
+      [
+        "Korean conversation",
+        "Chatbot Korean (internal)⁵",
+        "92.7",
+        "92.9",
+        "74.5",
+        "90.6",
+        "66.5",
+        "81.9",
+        "90.1",
+        "87.0"
+      ]
+    ],
+    [
+      [
+        "Group",
+        "Model",
+        "Input modality",
+        "Full exam / 450",
+        "Text-only subset / 352.5"
+      ],
+      [
+        "Per section",
+        "Per question",
+        "Per section",
+        "Per question"
+      ],
+      [
+        "Raon",
+        "Raon-1 mini (30B-A4B)",
+        "Text",
+        "371.8",
+        "401.3",
+        "324.4",
+        "336.2"
+      ],
+      [
+        "Raon-1 mini preview",
+        "Text",
+        "361.4",
+        "387.9",
+        "312.2",
+        "335.6"
+      ],
+      [
+        "Korean baselines",
+        "A.X K2 (688B-A33B)",
+        "Text",
+        "391.7",
+        "399.7",
+        "336.4",
+        "342.1"
+      ],
+      [
+        "Motif 3 (314B-A13.2B)",
+        "Text",
+        "249.1",
+        "326.2",
+        "204.0",
+        "284.4"
+      ],
+      [
+        "K-EXAONE 2.0 (750B-A37B)",
+        "Text",
+        "359.1",
+        "368.0",
+        "299.3",
+        "320.1"
+      ],
+      [
+        "Solar Open 2 (250B-A15B)",
+        "Text",
+        "328.0",
+        "400.1",
+        "263.7",
+        "345.2"
+      ],
+      [
+        "Solar Mini 4.5 Preview (35B-A3B)",
+        "Text",
+        "395.6",
+        "394.3",
+        "336.3",
+        "335.4"
+      ],
+      [
+        "MoE",
+        "Qwen3.6-35B-A3B",
+        "Text + image",
+        "376.1",
+        "388.1",
+        "299.1",
+        "305.2"
+      ],
+      [
+        "Gemma 4 26B-A4B",
+        "Text + image",
+        "392.3",
+        "422.3",
+        "318.5",
+        "335.2"
+      ],
+      [
+        "Flint (40B-A2.5B)",
+        "Text",
+        "270.1",
+        "313.5",
+        "236.0",
+        "272.5"
+      ],
+      [
+        "Inkling 2 Mini (26.4B-A5.4B)",
+        "Text + image",
+        "361.8",
+        "412.8",
+        "334.6",
+        "329.8"
+      ],
+      [
+        "Dense",
+        "Qwen3.8-27B",
+        "Text + image",
+        "400.2",
+        "421.2",
+        "335.3",
+        "340.4"
+      ],
+      [
+        "Muse Glimmer 30B",
+        "Text + image",
+        "396.7",
+        "423.4",
+        "252.7",
+        "338.5"
+      ]
+    ]
+  ],
+  "markdown_tables": [
+    [
+      [
+        "Field",
+        "Value"
+      ],
+      [
+        "Architecture",
+        "MoE"
+      ],
+      [
+        "Total Parameters",
+        "28.8B"
+      ],
+      [
+        "Activated Parameters",
+        "4.3B"
+      ],
+      [
+        "Layers",
+        "25"
+      ],
+      [
+        "Hidden Size",
+        "2,560"
+      ],
+      [
+        "Attention",
+        "Hybrid — RDA 3 : Gated MLA 1"
+      ],
+      [
+        "Position Encoding",
+        "NoPE (no positional encoding)"
+      ],
+      [
+        "Number of Attention Heads",
+        "40 for both RDA & Gated MLA"
+      ],
+      [
+        "Attention Head Dimension",
+        "128 for RDA; 192 QK / 128 V, for Gated MLA"
+      ],
+      [
+        "Query / KV LoRA Rank",
+        "576 / 512, for Gated MLA"
+      ],
+      [
+        "Number of Experts",
+        "128"
+      ],
+      [
+        "Number of Activated Experts",
+        "6 routed + 1 shared"
+      ],
+      [
+        "Expert Intermediate Size",
+        "1,088"
+      ],
+      [
+        "Dense FFN Intermediate Size (first layer)",
+        "12,032"
+      ],
+      [
+        "Activation Function",
+        "SiTU-GLU"
+      ],
+      [
+        "Residual Connection",
+        "Raon-mHC w/ 4 streams"
+      ],
+      [
+        "Vocabulary Size",
+        "259,840"
+      ],
+      [
+        "LM Head",
+        "Untied"
+      ],
+      [
+        "Context Length",
+        "262,144 tokens"
+      ]
+    ],
+    [
+      [
+        "Setting",
+        "Value"
+      ],
+      [
+        "temperature",
+        "1.0"
+      ],
+      [
+        "top_p",
+        "0.95"
+      ],
+      [
+        "top_k",
+        "20"
+      ],
+      [
+        "repetition_penalty",
+        "1.0"
+      ],
+      [
+        "frequency_penalty",
+        "0"
+      ],
+      [
+        "min_p",
+        "0"
+      ],
+      [
+        "truncate_history_thinking",
+        "false"
+      ]
+    ],
+    [
+      [
+        "Task",
+        "presence_penalty"
+      ],
+      [
+        "Coding / math",
+        "0"
+      ],
+      [
+        "Everything else (chat, summarization, knowledge Q&A, agents, etc.)",
+        "1.5"
+      ]
+    ],
+    [
+      [
+        "`reasoning_effort`",
+        "`none`",
+        "`low`",
+        "`medium`",
+        "`high`",
+        "`xhigh`",
+        "`max`"
+      ],
+      [
+        "---",
+        ":-:",
+        ":-:",
+        ":-:",
+        ":-:",
+        ":-:",
+        ":-:"
+      ],
+      [
+        "Reasoning",
+        "Off",
+        "Shortest",
+        "Shorter",
+        "**Default**",
+        "Longer",
+        "Longest (unsteered)"
+      ]
+    ]
+  ],
+  "sections": [],
+  "raw_chars": 72470
+}

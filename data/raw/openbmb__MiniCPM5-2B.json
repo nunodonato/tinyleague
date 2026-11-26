@@ -1,0 +1,266 @@
+{
+  "model_id": "openbmb/MiniCPM5-2B",
+  "scores": [
+    {
+      "benchmark": "LiveCodeBench v6",
+      "score": 69.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "LiveCodeBench Pro 25Q2",
+      "subtask": "Easy",
+      "score": 68.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "OJBench",
+      "score": 32.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "SciCode",
+      "score": 26.3,
+      "metric": "%",
+      "notes": "wbg; dagger on card = official Artificial Analysis figure",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "AIME 2025",
+      "score": 86.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "AIME 2026",
+      "score": 86.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "HMMT Feb 2026",
+      "score": 63.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "MATH500",
+      "score": 94.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "IFBench",
+      "score": 66.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "IFEval",
+      "score": 86.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "Multi-IF",
+      "score": 71.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "MMLU-Pro",
+      "score": 70.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "MMLU-Redux",
+      "score": 84.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "HLE",
+      "score": 8.9,
+      "metric": "%",
+      "notes": "dagger on card = official Artificial Analysis figure",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "GPQA Diamond",
+      "score": 70.2,
+      "metric": "%",
+      "notes": "dagger on card = official Artificial Analysis figure",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "SuperGPQA",
+      "score": 40.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "AA-LCR",
+      "score": 59.0,
+      "metric": "%",
+      "notes": "dagger on card = official Artificial Analysis figure",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "NoLiMa",
+      "score": 68.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "LongBenchPro",
+      "score": 44.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "LongBench-v2",
+      "score": 43.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "τ³-bench",
+      "subtask": "Banking",
+      "score": 20.8,
+      "metric": "%",
+      "notes": "dagger on card = official Artificial Analysis figure",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "τ²-bench",
+      "subtask": "Telecom",
+      "score": 97.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "BFCL v4",
+      "score": 66.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "SWE-bench Verified",
+      "score": 46.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "SWE-bench Pro",
+      "score": 14.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "Terminal-Bench 2.1",
+      "score": 8.6,
+      "metric": "%",
+      "notes": "dagger on card = official Artificial Analysis figure",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "BrowseComp-zh",
+      "score": 43.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "BrowseComp",
+      "subtask": "Top100",
+      "score": 39.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "GAIA",
+      "subtask": "Text-103",
+      "score": 88.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "GDPval-AA-V2",
+      "score": 19.6,
+      "metric": "%",
+      "notes": "dagger on card = official Artificial Analysis figure",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "Claw-Gym",
+      "score": 59.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "WildClaw",
+      "score": 23.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "benchmark": "QwenClaw",
+      "score": 42.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    }
+  ],
+  "gaps": [],
+  "conflicts": [
+    {
+      "benchmark": "LiveCodeBench Pro 25Q2",
+      "values": [
+        {
+          "score": 68.0,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 17.5,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (68.0) per the highest-reasoning-level policy. Kept entries: Easy; Medium."
+    }
+  ],
+  "retrieved_at": "2026-09-07T15:26:28Z"
+}

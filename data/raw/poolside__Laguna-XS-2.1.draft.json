@@ -1,0 +1,85 @@
+{
+  "model_id": "poolside/Laguna-XS-2.1",
+  "display_name": "Laguna-XS-2.1",
+  "url": "https://huggingface.co/poolside/Laguna-XS-2.1",
+  "retrieved_at": "2026-09-05T09:07:15Z",
+  "html_tables": [],
+  "markdown_tables": [
+    [
+      [
+        "Model",
+        "Size (total params.)",
+        "SWE-bench Verified",
+        "SWE-bench Multilingual",
+        "SWE-Bench Pro (Public Dataset)",
+        "Terminal-Bench 2.0"
+      ],
+      [
+        "**Laguna XS 2.1**",
+        "33B",
+        "70.9%",
+        "63.1%",
+        "47.6%",
+        "37.5%"
+      ],
+      [
+        "**Laguna XS.2**",
+        "33B",
+        "69.9%",
+        "57.7%",
+        "46.3%",
+        "35.7%"
+      ],
+      [
+        "Qwen3.6-35B-A3B",
+        "35B",
+        "73.4%",
+        "67.2%",
+        "49.5%",
+        "51.5%"
+      ],
+      [
+        "North Mini Code",
+        "30B",
+        "67.6%",
+        "-",
+        "40.2%",
+        "36.0%"
+      ],
+      [
+        "MAI-Code-1-Flash",
+        "137B",
+        "71.6%",
+        "65.5%",
+        "51.2%",
+        "54.8%"
+      ],
+      [
+        "gpt-oss-120B",
+        "120B",
+        "-",
+        "-",
+        "16.2%",
+        "18.7%"
+      ],
+      [
+        "Claude Haiku 4.5",
+        "-",
+        "73.3%",
+        "-",
+        "39.5%",
+        "29.8%"
+      ],
+      [
+        "GPT-5.4 Nano",
+        "-",
+        "-",
+        "-",
+        "52.4%",
+        "46.3%"
+      ]
+    ]
+  ],
+  "sections": [],
+  "raw_chars": 21476
+}

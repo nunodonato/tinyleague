@@ -1,0 +1,170 @@
+{
+  "model_id": "ibm-granite/granite-4.2-8b",
+  "scores": [
+    {
+      "benchmark": "SWE-bench Multilingual",
+      "score": 30.78,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ibm-granite/granite-4.2-8b"
+    },
+    {
+      "benchmark": "SWE-bench Pro",
+      "score": 19.11,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ibm-granite/granite-4.2-8b"
+    },
+    {
+      "benchmark": "SWE-bench Verified",
+      "score": 47.67,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ibm-granite/granite-4.2-8b"
+    },
+    {
+      "benchmark": "Terminal-Bench 2.1",
+      "score": 20.56,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ibm-granite/granite-4.2-8b"
+    },
+    {
+      "benchmark": "τ³-bench",
+      "subtask": "avg",
+      "score": 58.06,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ibm-granite/granite-4.2-8b",
+      "notes": "AVG"
+    },
+    {
+      "benchmark": "BFCL v4",
+      "score": 52.39,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ibm-granite/granite-4.2-8b"
+    },
+    {
+      "benchmark": "ProfBench",
+      "score": 41.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ibm-granite/granite-4.2-8b"
+    },
+    {
+      "benchmark": "BirdBench",
+      "score": 41.07,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ibm-granite/granite-4.2-8b"
+    },
+    {
+      "benchmark": "GDPval",
+      "score": 1189,
+      "metric": "points",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ibm-granite/granite-4.2-8b"
+    },
+    {
+      "benchmark": "AIME 2025",
+      "score": 86.67,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ibm-granite/granite-4.2-8b",
+      "notes": "AIME25"
+    },
+    {
+      "benchmark": "HMMT Feb 2025",
+      "score": 78.33,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ibm-granite/granite-4.2-8b",
+      "notes": "HMMT Feb25"
+    },
+    {
+      "benchmark": "GPQA Diamond",
+      "score": 64.14,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ibm-granite/granite-4.2-8b",
+      "notes": "Card reports 'GPQA' (Diamond subset not specified)"
+    },
+    {
+      "benchmark": "LiveCodeBench v6",
+      "score": 73.24,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ibm-granite/granite-4.2-8b"
+    },
+    {
+      "benchmark": "SciCode",
+      "score": 36.09,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ibm-granite/granite-4.2-8b"
+    },
+    {
+      "benchmark": "MMLU-Pro",
+      "score": 74.04,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ibm-granite/granite-4.2-8b"
+    },
+    {
+      "benchmark": "MMLU-ProX lite",
+      "score": 61.06,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ibm-granite/granite-4.2-8b"
+    },
+    {
+      "benchmark": "Arena-Hard-V2",
+      "score": 65.19,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ibm-granite/granite-4.2-8b"
+    },
+    {
+      "benchmark": "IFBench",
+      "subtask": "prompt",
+      "score": 79.33,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ibm-granite/granite-4.2-8b",
+      "notes": "IFBench (prompt-level)"
+    },
+    {
+      "benchmark": "RULER",
+      "subtask": "64K",
+      "score": 80.99,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ibm-granite/granite-4.2-8b"
+    }
+  ],
+  "gaps": [
+    "MMLU",
+    "HLE",
+    "HumanEval",
+    "MBPP",
+    "Arena"
+  ],
+  "conflicts": [
+    {
+      "benchmark": "RULER",
+      "values": [
+        {
+          "score": 80.99,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 71.41,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (80.99) per the highest-reasoning-level policy. Kept entries: 128K; 64K."
+    }
+  ],
+  "retrieved_at": "2026-09-05T18:43:28Z"
+}

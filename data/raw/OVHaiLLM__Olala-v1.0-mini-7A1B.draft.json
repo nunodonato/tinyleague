@@ -1,0 +1,680 @@
+{
+  "model_id": "OVHaiLLM/Olala-v1.0-mini-7A1B",
+  "display_name": "Olala-v1.0-mini-7A1B",
+  "url": "https://huggingface.co/OVHaiLLM/Olala-v1.0-mini-7A1B",
+  "retrieved_at": "2026-11-19T12:30:19Z",
+  "html_tables": [
+    [
+      [
+        "Model",
+        "Description"
+      ],
+      [
+        "Olala-v1.0-mini-7A1B-base",
+        "Pre-trained base model (12.8T tokens)"
+      ],
+      [
+        "Olala-v1.0-mini-7A1B-SFT",
+        "After supervised fine-tuning, before RL"
+      ],
+      [
+        "Olala-v1.0-mini-7A1B",
+        "Final post-trained model: reasoning, chat and tool use"
+      ],
+      [
+        "Olala-v1.0-summarise",
+        "Specialized for document summarization"
+      ],
+      [
+        "Olala-v1.0-translate",
+        "Specialized for machine translation, including financial documents"
+      ]
+    ],
+    [
+      [
+        "Property",
+        "Specification"
+      ],
+      [
+        "Checkpoint",
+        "Post-trained (SFT + reinforcement learning), text-only language model"
+      ],
+      [
+        "Parameters",
+        "6.8B total, about 1B active per token"
+      ],
+      [
+        "Architecture",
+        "36 layers: 29 Mamba-3 and 7 attention layers (one in five), each followed by a mixture-of-experts block with 256 routed experts (6 active) and 1 shared expert"
+      ],
+      [
+        "Context length",
+        "32K tokens (input + output) A 128K-context version is coming soon."
+      ],
+      [
+        "Vocabulary",
+        "151,936 tokens"
+      ],
+      [
+        "Training data",
+        "12.8T tokens: public datasets and our own synthetic data"
+      ],
+      [
+        "Languages",
+        "Pre-trained on English and 36 other languages (38 in annealing), mostly European, plus Arabic, Chinese, Japanese and Korean (full list in the technical report ). Multilingual post-training evaluation covers 11 languages (MGSM) and 8 languages (Multi-IF)."
+      ],
+      [
+        "License",
+        "Apache 2.0"
+      ]
+    ],
+    [
+      [
+        "Option",
+        "Use it for",
+        "How"
+      ],
+      [
+        "OVHcloud AI Endpoints",
+        "A production API, OpenAI-compatible, hosted in Europe",
+        "Base URL https://oai.endpoints.kepler.ai.cloud.ovh.net/v1 , model Olala-v1.0-mini-7A1B ; create an AI Endpoints key for more than a few requests per minute"
+      ],
+      [
+        "Hugging Face Inference Providers ( ovhcloud )",
+        "The same AI Endpoints service, with your Hugging Face token and billing",
+        "The snippet below, or the inference panel on this page"
+      ],
+      [
+        "Blade (by Shadow)",
+        "An OpenAI-compatible API on GPUs in Europe, free to start, with a playground (LLM Studio)",
+        "Create a key on the Blade console ; base URL https://api.models.blade.sh/v1 , model olala"
+      ],
+      [
+        "OVHcloud AI Deploy",
+        "Your own GPU: a fine-tuned model, a private deployment",
+        "Run our pre-built vLLM image ovhaillm/olala-vllm (command below). For a fine-tuned model: AI Deploy guide"
+      ],
+      [
+        "Hugging Face Space",
+        "A demo",
+        "Call the OVHcloud provider from a Gradio Space (CPU hardware is enough). To run the weights inside a Space, use a Docker Space with our vLLM image ovhaillm/olala-vllm or one of the forks below"
+      ],
+      [
+        "Hugging Face Inference Endpoints",
+        "A dedicated GPU on Hugging Face",
+        "A custom container with our vLLM image ovhaillm/olala-vllm : the default engines cannot load the olala architecture"
+      ]
+    ],
+    [
+      [
+        "You have",
+        "Use",
+        "Guide"
+      ],
+      [
+        "A Mac with Apple Silicon (M2 or later, 16 GB)",
+        "MLX, 5.4 GB",
+        "MLX card"
+      ],
+      [
+        "A Mac M1, a PC without GPU, or one NVIDIA GPU for yourself",
+        "llama.cpp (GGUF), 6 to 14 GB",
+        "GGUF card"
+      ],
+      [
+        "An NVIDIA GPU server (24 GB or more) for an application",
+        "vLLM, this repo",
+        "below"
+      ],
+      [
+        "Python research code",
+        "Transformers, this repo",
+        "below"
+      ]
+    ],
+    [
+      [
+        "",
+        "Ours",
+        "7-8B MoE, ~1B active",
+        "Up to 2B dense",
+        "2.6-4B dense",
+        "7-9B dense",
+        "23B dense"
+      ],
+      [
+        "Benchmark",
+        "Olala v1.0-mini-7A1B 7B-A1B",
+        "Granite 4.0-H-Tiny 7B-A1B",
+        "LFM2.5 8B-A1B 8B-A1B",
+        "Ling 3.0-tiny 7.9B-A1.3B",
+        "OLMoE 1B-7B-Instruct 7B-A1B",
+        "LFM3-1.7B 1.7B",
+        "Qwen3.5-2B 2B",
+        "LFM2.5 2.6B 2.6B",
+        "Ministral 3-3B-Reasoning 3B",
+        "Qwen3.5-4B 4B",
+        "SmolLM3-3B 3B",
+        "Apertus 8B-Instruct 8B",
+        "EuroLLM 9B-Instruct 9B",
+        "Falcon H1R-7B 7B",
+        "Ministral 3-8B-Reasoning 8B",
+        "Mistral 7B-Instruct-v0.3 7B",
+        "Olmo 3-7B-Think 7B",
+        "Luciole 23B-Instruct 23B",
+        "Luciole 23B-Thinking 23B"
+      ],
+      [
+        "Instruction following",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "IFBench",
+        "57.7",
+        "14.3",
+        "48.3",
+        "57.3",
+        "17.0",
+        "70.0",
+        "35.3",
+        "59.0",
+        "33.7",
+        "49.7",
+        "19.0",
+        "19.3",
+        "15.0",
+        "45.3",
+        "27.0",
+        "18.0",
+        "38.7",
+        "26.3",
+        "23.7"
+      ],
+      [
+        "Multi-IF",
+        "71.2",
+        "44.5",
+        "71.0",
+        "75.2",
+        "25.0",
+        "83.6",
+        "57.3",
+        "77.7",
+        "48.6",
+        "71.8",
+        "42.9",
+        "41.8",
+        "37.7",
+        "65.7",
+        "49.7",
+        "25.5",
+        "61.2",
+        "51.6",
+        "54.6"
+      ],
+      [
+        "LIFEBench",
+        "79.3",
+        "63.4",
+        "77.8",
+        "82.3",
+        "51.0",
+        "82.7",
+        "82.0",
+        "79.3",
+        "68.4",
+        "84.0",
+        "64.6",
+        "62.4",
+        "64.0",
+        "72.1",
+        "72.8",
+        "58.2",
+        "71.1",
+        "61.5",
+        "64.3"
+      ],
+      [
+        "Knowledge and reading",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "GPQA Diamond",
+        "50.5",
+        "30.3",
+        "41.9",
+        "68.7",
+        "15.7",
+        "62.6",
+        "63.1",
+        "56.1",
+        "42.4",
+        "75.8",
+        "42.9",
+        "23.7",
+        "30.3",
+        "62.1",
+        "56.6",
+        "21.2",
+        "48.5",
+        "28.8",
+        "36.4"
+      ],
+      [
+        "TruthfulQA",
+        "66.6",
+        "48.7",
+        "68.9",
+        "66.5",
+        "12.7",
+        "65.6",
+        "60.5",
+        "62.9",
+        "47.7",
+        "74.7",
+        "59.9",
+        "21.7",
+        "47.4",
+        "67.3",
+        "63.4",
+        "8.0",
+        "65.6",
+        "57.6",
+        "64.3"
+      ],
+      [
+        "DROP",
+        "83.8",
+        "64.7",
+        "73.1",
+        "87.6",
+        "36.4",
+        "85.5",
+        "81.4",
+        "79.6",
+        "82.2",
+        "86.3",
+        "54.0",
+        "55.0",
+        "62.5",
+        "85.7",
+        "85.6",
+        "35.8",
+        "86.7",
+        "63.4",
+        "78.7"
+      ],
+      [
+        "Code",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "HumanEval+",
+        "88.3",
+        "77.4",
+        "79.9",
+        "92.0",
+        "32.4",
+        "92.2",
+        "48.3",
+        "90.2",
+        "92.6",
+        "83.4",
+        "81.3",
+        "34.6",
+        "36.0",
+        "93.4",
+        "93.8",
+        "32.8",
+        "91.1",
+        "44.1",
+        "77.4"
+      ],
+      [
+        "MBPP+",
+        "75.1",
+        "72.8",
+        "64.2",
+        "79.1",
+        "26.0",
+        "80.8",
+        "49.0",
+        "74.9",
+        "78.5",
+        "73.5",
+        "70.8",
+        "44.3",
+        "48.6",
+        "82.0",
+        "81.0",
+        "45.7",
+        "79.0",
+        "62.6",
+        "71.7"
+      ],
+      [
+        "Math",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "AIME 2024",
+        "60.7",
+        "4.0",
+        "64.7",
+        "78.7",
+        "0.7",
+        "81.3",
+        "24.0",
+        "66.7",
+        "74.7",
+        "80.7",
+        "46.0",
+        "0.0",
+        "0.0",
+        "94.0",
+        "78.0",
+        "0.0",
+        "69.3",
+        "10.0",
+        "30.0"
+      ],
+      [
+        "AIME 2025",
+        "61.3",
+        "4.7",
+        "48.0",
+        "70.0",
+        "0.0",
+        "79.3",
+        "26.7",
+        "51.3",
+        "70.0",
+        "74.7",
+        "32.7",
+        "0.0",
+        "0.7",
+        "82.7",
+        "78.0",
+        "0.0",
+        "64.0",
+        "13.3",
+        "31.3"
+      ],
+      [
+        "AIME 2026",
+        "52.7",
+        "10.0",
+        "48.0",
+        "75.3",
+        "0.0",
+        "80.0",
+        "27.3",
+        "57.3",
+        "73.3",
+        "82.0",
+        "45.3",
+        "0.7",
+        "0.7",
+        "90.0",
+        "82.7",
+        "0.0",
+        "67.3",
+        "6.0",
+        "23.3"
+      ],
+      [
+        "MGSM",
+        "68.7",
+        "62.0",
+        "60.5",
+        "73.7",
+        "22.0",
+        "79.3",
+        "73.3",
+        "75.7",
+        "77.7",
+        "88.8",
+        "61.7",
+        "40.7",
+        "39.8",
+        "66.9",
+        "84.8",
+        "28.7",
+        "71.7",
+        "45.9",
+        "61.0"
+      ],
+      [
+        "Tool use",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "BFCL V3",
+        "59.6",
+        "60.2",
+        "69.7",
+        "68.3",
+        "n/a",
+        "74.1",
+        "59.2",
+        "67.9",
+        "37.7",
+        "67.8",
+        "42.6",
+        "n/a",
+        "n/a",
+        "67.8",
+        "42.0",
+        "48.2",
+        "n/a",
+        "60.4",
+        "35.1"
+      ]
+    ],
+    [
+      [
+        "",
+        "Olala-v1.0-mini-7A1B-SFT",
+        "Olala-v1.0-mini-7A1B"
+      ],
+      [
+        "Attacks (n = 5,701)"
+      ],
+      [
+        "Guard attack success rate (%) ↓",
+        "12.5",
+        "6.3"
+      ],
+      [
+        "Guard attack success rate, strict (%) ↓",
+        "24.6",
+        "13.5"
+      ],
+      [
+        "Harmful, rubric judge (%) ↓",
+        "34.9",
+        "22.2"
+      ],
+      [
+        "Benign (n = 299)"
+      ],
+      [
+        "Over-refusal (%) ↓",
+        "7.0",
+        "10.7"
+      ],
+      [
+        "All prompts"
+      ],
+      [
+        "Reasoning overflow (%) ↓",
+        "11.8",
+        "15.0"
+      ]
+    ],
+    [
+      [
+        "Energy",
+        "About 1.16 GWh for the whole training: pre-training and annealing on JUPITER (1,024 GH200 GPUs, Germany), supervised fine-tuning and reinforcement learning on Jean Zay (H100 GPUs, France) and MeluXina (Luxembourg)"
+      ],
+      [
+        "Emissions",
+        "About 40 t CO₂e (range 30 to 50 t), market-based: electricity covered by renewable supply contracts"
+      ],
+      [
+        "Largest share",
+        "JUPITER, about 70% of the emissions"
+      ]
+    ],
+    [
+      [
+        "Machine",
+        "Load",
+        "g CO₂e per million generated tokens"
+      ],
+      [
+        "Server with an H100 GPU",
+        "32 or more requests at once",
+        "12 (est.)"
+      ],
+      [
+        "Laptop (MacBook M1 Pro)",
+        "one request at a time",
+        "30"
+      ],
+      [
+        "PC with 8 GB of RAM and no GPU",
+        "one request at a time",
+        "65 (est.)"
+      ],
+      [
+        "Server with an H100 GPU",
+        "one request at a time",
+        "140 (est.)"
+      ]
+    ],
+    [
+      [
+        "Licence",
+        "Apache License, Version 2.0 (SPDX: Apache-2.0 )"
+      ],
+      [
+        "Licensor",
+        "OVH LLM SAS, trading as OVHai LLM, 2 rue Kellermann, 59100 Roubaix, France"
+      ],
+      [
+        "Copyright",
+        "Copyright 2026 OVH LLM SAS"
+      ],
+      [
+        "Release date",
+        "19 November 2026"
+      ],
+      [
+        "Distribution",
+        "Open weights"
+      ],
+      [
+        "Notices",
+        "NOTICE : keep it when you redistribute the model or a derivative. It includes the attribution of the Qwen tokenizer (Copyright 2024 Alibaba Cloud, Apache 2.0)"
+      ],
+      [
+        "Training content (EU AI Act)",
+        "Public summary of training content , on the European Commission template (Art. 53(1)(d))"
+      ]
+    ]
+  ],
+  "markdown_tables": [],
+  "sections": [],
+  "raw_chars": 95057
+}

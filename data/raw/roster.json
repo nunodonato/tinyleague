@@ -1,0 +1,3942 @@
+{
+  "generated_at": "2026-09-13T08:30:55Z",
+  "method": "HF models API. For a curated set of real developer orgs, list each org's models (sort=createdAt, limit 200) and keep those released >= 2026-04-05 whose names carry no quantization/finetune/merge markers, are not base checkpoints, and are text-generation / image-text-to-text / any-to-any (org-owned by the developer = official weights). Also include required families Ornith / Ling / Spark X at their current in-range versions plus older in-range lineage versions. Full metadata per candidate: keep safetensors.total in [4B,190B] and createdAt>=cutoff. De-dupe, then current-version rule (newer decimal version of same family+size supersedes). Candidate pool for orchestrator to finalize to the target model count.",
+  "candidates": [
+    {
+      "model_id": "XHToken/Spark-X2.5-4B",
+      "display_name": "Spark-X2.5-4B",
+      "org": "XHToken",
+      "family": "Spark X",
+      "param_count_b": 4.1,
+      "param_count_note": "4.1B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-24",
+      "hf_url": "https://huggingface.co/XHToken/Spark-X2.5-4B",
+      "likes": 1145,
+      "officiality_evidence": "HF repo 'XHToken/Spark-X2.5-4B' owned by developer org 'XHToken'; safetensors total=4112079360 (4.1B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": "required family 'Spark X'",
+      "must_include_family": true
+    },
+    {
+      "model_id": "ornith-ai/Ornith-1.5-35B-A3B",
+      "display_name": "Ornith-1.5-35B-A3B",
+      "org": "ornith-ai",
+      "family": "Ornith",
+      "param_count_b": 36.0,
+      "param_count_note": "36.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "mit"
+      },
+      "official_release_date": "2026-08-18",
+      "hf_url": "https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B",
+      "likes": 591,
+      "officiality_evidence": "HF repo 'ornith-ai/Ornith-1.5-35B-A3B' owned by developer org 'ornith-ai'; safetensors total=35951822704 (36.0B); no quant/finetune/merge markers in name; license=mit",
+      "current_version": true,
+      "notes": "required family 'Ornith'",
+      "must_include_family": true
+    },
+    {
+      "model_id": "inclusionAI/Ling-3.0-tiny",
+      "display_name": "Ling-3.0-tiny",
+      "org": "inclusionAI",
+      "family": "Ling",
+      "param_count_b": 7.9,
+      "param_count_note": "7.9B total (A8B active) MoE, 128 experts",
+      "architecture": {
+        "type": "hybrid",
+        "experts": 128,
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ],
+        "license": "mit"
+      },
+      "official_release_date": "2026-08-10",
+      "hf_url": "https://huggingface.co/inclusionAI/Ling-3.0-tiny",
+      "likes": 448,
+      "officiality_evidence": "HF repo 'inclusionAI/Ling-3.0-tiny' owned by developer org 'inclusionAI'; safetensors total=7893392800 (7.9B); no quant/finetune/merge markers in name; license=mit",
+      "current_version": true,
+      "notes": "required family 'Ling'",
+      "must_include_family": true
+    },
+    {
+      "model_id": "inclusionAI/Ling-3.0-flash",
+      "display_name": "Ling-3.0-flash",
+      "org": "inclusionAI",
+      "family": "Ling",
+      "param_count_b": 127.5,
+      "param_count_note": "127.5B total (A8B active) MoE, 512 experts",
+      "architecture": {
+        "type": "hybrid",
+        "experts": 512,
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ],
+        "license": "mit"
+      },
+      "official_release_date": "2026-08-02",
+      "hf_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "likes": 406,
+      "officiality_evidence": "HF repo 'inclusionAI/Ling-3.0-flash' owned by developer org 'inclusionAI'; safetensors total=127486405600 (127.5B); no quant/finetune/merge markers in name; license=mit",
+      "current_version": true,
+      "notes": "required family 'Ling'",
+      "must_include_family": true
+    },
+    {
+      "model_id": "ornith-ai/Ornith-1.5-9B",
+      "display_name": "Ornith-1.5-9B",
+      "org": "ornith-ai",
+      "family": "Ornith",
+      "param_count_b": 9.7,
+      "param_count_note": "9.7B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "mit"
+      },
+      "official_release_date": "2026-08-18",
+      "hf_url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B",
+      "likes": 299,
+      "officiality_evidence": "HF repo 'ornith-ai/Ornith-1.5-9B' owned by developer org 'ornith-ai'; safetensors total=9653104368 (9.7B); no quant/finetune/merge markers in name; license=mit",
+      "current_version": true,
+      "notes": "required family 'Ornith'",
+      "must_include_family": true
+    },
+    {
+      "model_id": "inclusionAI/Ling-2.6-flash",
+      "display_name": "Ling-2.6-flash",
+      "org": "inclusionAI",
+      "family": "Ling",
+      "param_count_b": 107.5,
+      "param_count_note": "107.5B total (A8B active) MoE, 256 experts",
+      "architecture": {
+        "type": "hybrid",
+        "experts": 256,
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ],
+        "license": "mit"
+      },
+      "official_release_date": "2026-04-28",
+      "hf_url": "https://huggingface.co/inclusionAI/Ling-2.6-flash",
+      "likes": 506,
+      "officiality_evidence": "HF repo 'inclusionAI/Ling-2.6-flash' owned by developer org 'inclusionAI'; safetensors total=107494409216 (107.5B); no quant/finetune/merge markers in name; license=mit",
+      "current_version": false,
+      "notes": "required family 'Ling'; older version kept for lineage",
+      "must_include_family": true,
+      "superseded_by": "inclusionAI/Ling-3.0-flash"
+    },
+    {
+      "model_id": "Qwen/Qwen3.8-27B",
+      "display_name": "Qwen3.8-27B",
+      "org": "Qwen",
+      "family": "Qwen",
+      "param_count_b": 27.8,
+      "param_count_note": "27.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text",
+          "vision"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-05",
+      "hf_url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+      "likes": 14892,
+      "officiality_evidence": "HF repo 'Qwen/Qwen3.8-27B' owned by developer org 'Qwen'; safetensors total=27781427952 (27.8B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Qwen/Qwen3.8-Flash-Next",
+      "display_name": "Qwen3.8-Flash-Next",
+      "org": "Qwen",
+      "family": "Qwen3.8-Flash-Next",
+      "param_count_b": 180.0,
+      "param_count_note": "180.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text",
+          "vision"
+        ],
+        "license": "other"
+      },
+      "official_release_date": "2026-08-24",
+      "hf_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "likes": 5152,
+      "officiality_evidence": "HF repo 'Qwen/Qwen3.8-Flash-Next' owned by developer org 'Qwen'; safetensors total=179999981459 (180.0B); no quant/finetune/merge markers in name; license=other",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Qwen/Qwen3.6-35B-A3B",
+      "display_name": "Qwen3.6-35B-A3B",
+      "org": "Qwen",
+      "family": "Qwen",
+      "param_count_b": 36.0,
+      "param_count_note": "36.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text",
+          "vision"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-04-15",
+      "hf_url": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B",
+      "likes": 2803,
+      "officiality_evidence": "HF repo 'Qwen/Qwen3.6-35B-A3B' owned by developer org 'Qwen'; safetensors total=35951822704 (36.0B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "TokenRhythm/NeoHorse-1-4B",
+      "display_name": "NeoHorse-1-4B",
+      "org": "TokenRhythm",
+      "family": "NeoHorse-1",
+      "param_count_b": 4.2,
+      "param_count_note": "4.2B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-05",
+      "hf_url": "https://huggingface.co/TokenRhythm/NeoHorse-1-4B",
+      "likes": 1654,
+      "officiality_evidence": "HF repo 'TokenRhythm/NeoHorse-1-4B' owned by developer org 'TokenRhythm'; safetensors total=4205751296 (4.2B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "google/gemma-4-12B-it",
+      "display_name": "gemma-4-12B-it",
+      "org": "google",
+      "family": "gemma-4-12B-it",
+      "param_count_b": 12.0,
+      "param_count_note": "12.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text",
+          "vision",
+          "audio"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-05-23",
+      "hf_url": "https://huggingface.co/google/gemma-4-12B-it",
+      "likes": 1551,
+      "officiality_evidence": "HF repo 'google/gemma-4-12B-it' owned by developer org 'google'; safetensors total=11959730224 (12.0B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "google/diffusiongemma-26B-A4B-it",
+      "display_name": "diffusiongemma-26B-A4B-it",
+      "org": "google",
+      "family": "diffusiongemma-26B-A4B-it",
+      "param_count_b": 25.8,
+      "param_count_note": "25.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text",
+          "vision"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-06-09",
+      "hf_url": "https://huggingface.co/google/diffusiongemma-26B-A4B-it",
+      "likes": 1205,
+      "officiality_evidence": "HF repo 'google/diffusiongemma-26B-A4B-it' owned by developer org 'google'; safetensors total=25823778864 (25.8B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "poolside/Laguna-S-2.1",
+      "display_name": "Laguna-S-2.1",
+      "org": "poolside",
+      "family": "Laguna-S",
+      "param_count_b": 117.6,
+      "param_count_note": "117.6B total (A10B active) MoE, 256 experts",
+      "architecture": {
+        "type": "moe",
+        "experts": 256,
+        "active_experts": 10,
+        "modalities": [
+          "text"
+        ],
+        "license": "openmdw-1.1"
+      },
+      "official_release_date": "2026-07-13",
+      "hf_url": "https://huggingface.co/poolside/Laguna-S-2.1",
+      "likes": 1023,
+      "officiality_evidence": "HF repo 'poolside/Laguna-S-2.1' owned by developer org 'poolside'; safetensors total=117561977600 (117.6B); no quant/finetune/merge markers in name; license=openmdw-1.1",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Nanbeige/Nanbeige4.2-3B",
+      "display_name": "Nanbeige4.2-3B",
+      "org": "Nanbeige",
+      "family": "Nanbeige",
+      "param_count_b": 4.2,
+      "param_count_note": "4.2B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-07-21",
+      "hf_url": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B",
+      "likes": 781,
+      "officiality_evidence": "HF repo 'Nanbeige/Nanbeige4.2-3B' owned by developer org 'Nanbeige'; safetensors total=4169800704 (4.2B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "LiquidAI/LFM2.5-8B-A1B",
+      "display_name": "LFM2.5-8B-A1B",
+      "org": "LiquidAI",
+      "family": "LFM",
+      "param_count_b": 8.5,
+      "param_count_note": "8.5B total (A4B active) MoE, 32 experts",
+      "architecture": {
+        "type": "moe",
+        "experts": 32,
+        "active_experts": 4,
+        "modalities": [
+          "text"
+        ],
+        "license": "other"
+      },
+      "official_release_date": "2026-05-28",
+      "hf_url": "https://huggingface.co/LiquidAI/LFM2.5-8B-A1B",
+      "likes": 763,
+      "officiality_evidence": "HF repo 'LiquidAI/LFM2.5-8B-A1B' owned by developer org 'LiquidAI'; safetensors total=8467856832 (8.5B); no quant/finetune/merge markers in name; license=other",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "nex-agi/Nex-N2.5-mini",
+      "display_name": "Nex-N2.5-mini",
+      "org": "nex-agi",
+      "family": "Nex-N2.5",
+      "param_count_b": 35.1,
+      "param_count_note": "35.1B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-08",
+      "hf_url": "https://huggingface.co/nex-agi/Nex-N2.5-mini",
+      "likes": 748,
+      "officiality_evidence": "HF repo 'nex-agi/Nex-N2.5-mini' owned by developer org 'nex-agi'; safetensors total=35107181936 (35.1B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "google/gemma-4-12B",
+      "display_name": "gemma-4-12B",
+      "org": "google",
+      "family": "gemma-4",
+      "param_count_b": 12.0,
+      "param_count_note": "12.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text",
+          "vision",
+          "audio"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-05-23",
+      "hf_url": "https://huggingface.co/google/gemma-4-12B",
+      "likes": 731,
+      "officiality_evidence": "HF repo 'google/gemma-4-12B' owned by developer org 'google'; safetensors total=11959730224 (12.0B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Qwen/Qwen-AgentWorld-35B-A3B",
+      "display_name": "Qwen-AgentWorld-35B-A3B",
+      "org": "Qwen",
+      "family": "Qwen-AgentWorld",
+      "param_count_b": 34.7,
+      "param_count_note": "34.7B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-06-22",
+      "hf_url": "https://huggingface.co/Qwen/Qwen-AgentWorld-35B-A3B",
+      "likes": 712,
+      "officiality_evidence": "HF repo 'Qwen/Qwen-AgentWorld-35B-A3B' owned by developer org 'Qwen'; safetensors total=34660610688 (34.7B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Kwaipilot/KAT-Coder-V2.5-Dev",
+      "display_name": "KAT-Coder-V2.5-Dev",
+      "org": "Kwaipilot",
+      "family": "KAT-Coder-V2.5",
+      "param_count_b": 34.7,
+      "param_count_note": "34.7B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-07-23",
+      "hf_url": "https://huggingface.co/Kwaipilot/KAT-Coder-V2.5-Dev",
+      "likes": 637,
+      "officiality_evidence": "HF repo 'Kwaipilot/KAT-Coder-V2.5-Dev' owned by developer org 'Kwaipilot'; safetensors total=34660610688 (34.7B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "InternScience/Agents-A1",
+      "display_name": "Agents-A1",
+      "org": "InternScience",
+      "family": "Agents-A1",
+      "param_count_b": 35.1,
+      "param_count_note": "35.1B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-06-22",
+      "hf_url": "https://huggingface.co/InternScience/Agents-A1",
+      "likes": 637,
+      "officiality_evidence": "HF repo 'InternScience/Agents-A1' owned by developer org 'InternScience'; safetensors total=35107181936 (35.1B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Edge0/Edge0-35B-A3B-preview",
+      "display_name": "Edge0-35B-A3B-preview",
+      "org": "Edge0",
+      "family": "Edge0-35B-A3B",
+      "param_count_b": 34.7,
+      "param_count_note": "34.7B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-08",
+      "hf_url": "https://huggingface.co/Edge0/Edge0-35B-A3B-preview",
+      "likes": 617,
+      "officiality_evidence": "HF repo 'Edge0/Edge0-35B-A3B-preview' owned by developer org 'Edge0'; safetensors total=34660610688 (34.7B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "CohereLabs/North-Mini-Code-1.0",
+      "display_name": "North-Mini-Code-1.0",
+      "org": "CohereLabs",
+      "family": "North-Mini",
+      "param_count_b": 30.5,
+      "param_count_note": "30.5B total (A8B active) MoE, 128 experts",
+      "architecture": {
+        "type": "moe",
+        "experts": 128,
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-06-05",
+      "hf_url": "https://huggingface.co/CohereLabs/North-Mini-Code-1.0",
+      "likes": 565,
+      "officiality_evidence": "HF repo 'CohereLabs/North-Mini-Code-1.0' owned by developer org 'CohereLabs'; safetensors total=30484303872 (30.5B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "TokenRhythm/NeoHorse-1-9B",
+      "display_name": "NeoHorse-1-9B",
+      "org": "TokenRhythm",
+      "family": "NeoHorse-1",
+      "param_count_b": 9.0,
+      "param_count_note": "9.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-05",
+      "hf_url": "https://huggingface.co/TokenRhythm/NeoHorse-1-9B",
+      "likes": 534,
+      "officiality_evidence": "HF repo 'TokenRhythm/NeoHorse-1-9B' owned by developer org 'TokenRhythm'; safetensors total=8953803264 (9.0B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "XYZAILab/XYZ-Aquila-mini",
+      "display_name": "XYZ-Aquila-mini",
+      "org": "XYZAILab",
+      "family": "XYZ-Aquila",
+      "param_count_b": 35.1,
+      "param_count_note": "35.1B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-07-22",
+      "hf_url": "https://huggingface.co/XYZAILab/XYZ-Aquila-mini",
+      "likes": 441,
+      "officiality_evidence": "HF repo 'XYZAILab/XYZ-Aquila-mini' owned by developer org 'XYZAILab'; safetensors total=35107181936 (35.1B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+      "display_name": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+      "org": "nvidia",
+      "family": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+      "param_count_b": 33.0,
+      "param_count_note": "33.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text",
+          "vision",
+          "audio"
+        ],
+        "license": "other"
+      },
+      "official_release_date": "2026-04-20",
+      "hf_url": "https://huggingface.co/nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+      "likes": 422,
+      "officiality_evidence": "HF repo 'nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16' owned by developer org 'nvidia'; safetensors total=33015632214 (33.0B); no quant/finetune/merge markers in name; license=other",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "microsoft/Mage-VL",
+      "display_name": "Mage-VL",
+      "org": "microsoft",
+      "family": "Mage-VL",
+      "param_count_b": 4.7,
+      "param_count_note": "4.7B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text",
+          "vision"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-07-25",
+      "hf_url": "https://huggingface.co/microsoft/Mage-VL",
+      "likes": 398,
+      "officiality_evidence": "HF repo 'microsoft/Mage-VL' owned by developer org 'microsoft'; safetensors total=4741793792 (4.7B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "deepgrove/maple-preview",
+      "display_name": "maple-preview",
+      "org": "deepgrove",
+      "family": "maple",
+      "param_count_b": 20.2,
+      "param_count_note": "20.2B total (A8B active) MoE, 256 experts",
+      "architecture": {
+        "type": "moe",
+        "experts": 256,
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ],
+        "license": "mit"
+      },
+      "official_release_date": "2026-08-04",
+      "hf_url": "https://huggingface.co/deepgrove/maple-preview",
+      "likes": 390,
+      "officiality_evidence": "HF repo 'deepgrove/maple-preview' owned by developer org 'deepgrove'; safetensors total=20214030336 (20.2B); no quant/finetune/merge markers in name; license=mit",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "JetBrains/Mellum2-12B-A2.5B-Thinking",
+      "display_name": "Mellum2-12B-A2.5B-Thinking",
+      "org": "JetBrains",
+      "family": "Mellum2-12B-A2.5B",
+      "param_count_b": 12.1,
+      "param_count_note": "12.1B total (A8B active) MoE, 64 experts",
+      "architecture": {
+        "type": "moe",
+        "experts": 64,
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-05-26",
+      "hf_url": "https://huggingface.co/JetBrains/Mellum2-12B-A2.5B-Thinking",
+      "likes": 336,
+      "officiality_evidence": "HF repo 'JetBrains/Mellum2-12B-A2.5B-Thinking' owned by developer org 'JetBrains'; safetensors total=12149923072 (12.1B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "poolside/Laguna-XS.2",
+      "display_name": "Laguna-XS.2",
+      "org": "poolside",
+      "family": "Laguna-XS.2",
+      "param_count_b": 33.4,
+      "param_count_note": "33.4B total (A8B active) MoE, 256 experts",
+      "architecture": {
+        "type": "moe",
+        "experts": 256,
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-04-23",
+      "hf_url": "https://huggingface.co/poolside/Laguna-XS.2",
+      "likes": 319,
+      "officiality_evidence": "HF repo 'poolside/Laguna-XS.2' owned by developer org 'poolside'; safetensors total=33442617088 (33.4B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "nex-agi/Nex-N2-mini",
+      "display_name": "Nex-N2-mini",
+      "org": "nex-agi",
+      "family": "Nex-N2",
+      "param_count_b": 35.1,
+      "param_count_note": "35.1B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-06-04",
+      "hf_url": "https://huggingface.co/nex-agi/Nex-N2-mini",
+      "likes": 307,
+      "officiality_evidence": "HF repo 'nex-agi/Nex-N2-mini' owned by developer org 'nex-agi'; safetensors total=35107181936 (35.1B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "microsoft/Fara1.5-27B",
+      "display_name": "Fara1.5-27B",
+      "org": "microsoft",
+      "family": "Fara",
+      "param_count_b": 27.4,
+      "param_count_note": "27.4B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text",
+          "vision"
+        ],
+        "license": "mit"
+      },
+      "official_release_date": "2026-07-17",
+      "hf_url": "https://huggingface.co/microsoft/Fara1.5-27B",
+      "likes": 289,
+      "officiality_evidence": "HF repo 'microsoft/Fara1.5-27B' owned by developer org 'microsoft'; safetensors total=27356728560 (27.4B); no quant/finetune/merge markers in name; license=mit",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "display_name": "DeepSeek-V4-Flash-DSpark",
+      "org": "deepseek-ai",
+      "family": "DeepSeek-V4-Flash-DSpark",
+      "param_count_b": 165.3,
+      "param_count_note": "165.3B dense",
+      "architecture": {
+        "type": "dense",
+        "active_experts": 6,
+        "modalities": [
+          "text"
+        ],
+        "license": "mit"
+      },
+      "official_release_date": "2026-06-27",
+      "hf_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "likes": 271,
+      "officiality_evidence": "HF repo 'deepseek-ai/DeepSeek-V4-Flash-DSpark' owned by developer org 'deepseek-ai'; safetensors total=165265454782 (165.3B); no quant/finetune/merge markers in name; license=mit",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "poolside/Laguna-XS-2.1",
+      "display_name": "Laguna-XS-2.1",
+      "org": "poolside",
+      "family": "Laguna-XS",
+      "param_count_b": 33.4,
+      "param_count_note": "33.4B total (A8B active) MoE, 256 experts",
+      "architecture": {
+        "type": "moe",
+        "experts": 256,
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ],
+        "license": "openmdw-1.1"
+      },
+      "official_release_date": "2026-06-20",
+      "hf_url": "https://huggingface.co/poolside/Laguna-XS-2.1",
+      "likes": 243,
+      "officiality_evidence": "HF repo 'poolside/Laguna-XS-2.1' owned by developer org 'poolside'; safetensors total=33442617088 (33.4B); no quant/finetune/merge markers in name; license=openmdw-1.1",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+      "display_name": "NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+      "org": "nvidia",
+      "family": "NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+      "param_count_b": 31.6,
+      "param_count_note": "31.6B dense",
+      "architecture": {
+        "type": "dense",
+        "active_experts": 6,
+        "modalities": [
+          "text"
+        ],
+        "license": "other"
+      },
+      "official_release_date": "2026-08-01",
+      "hf_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+      "likes": 206,
+      "officiality_evidence": "HF repo 'nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16' owned by developer org 'nvidia'; safetensors total=31577937344 (31.6B); no quant/finetune/merge markers in name; license=other",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "amd/Instella-MoE-16B-A3B-Think",
+      "display_name": "Instella-MoE-16B-A3B-Think",
+      "org": "amd",
+      "family": "Instella-MoE-16B-A3B-Think",
+      "param_count_b": 15.9,
+      "param_count_note": "15.9B dense",
+      "architecture": {
+        "type": "dense",
+        "active_experts": 6,
+        "modalities": [
+          "text"
+        ],
+        "license": "other"
+      },
+      "official_release_date": "2026-07-23",
+      "hf_url": "https://huggingface.co/amd/Instella-MoE-16B-A3B-Think",
+      "likes": 178,
+      "officiality_evidence": "HF repo 'amd/Instella-MoE-16B-A3B-Think' owned by developer org 'amd'; safetensors total=15862789248 (15.9B); no quant/finetune/merge markers in name; license=other",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "apodex/Apodex-1.1-mini",
+      "display_name": "Apodex-1.1-mini",
+      "org": "apodex",
+      "family": "Apodex-1.1",
+      "param_count_b": 36.0,
+      "param_count_note": "36.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-17",
+      "hf_url": "https://huggingface.co/apodex/Apodex-1.1-mini",
+      "likes": 130,
+      "officiality_evidence": "HF repo 'apodex/Apodex-1.1-mini' owned by developer org 'apodex'; safetensors total=35951822704 (36.0B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Agnes-AI/Agnes-3.0-Flash",
+      "display_name": "Agnes-3.0-Flash",
+      "org": "Agnes-AI",
+      "family": "Agnes-3.0",
+      "param_count_b": 33.1,
+      "param_count_note": "33.1B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text",
+          "vision"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-11",
+      "hf_url": "https://huggingface.co/Agnes-AI/Agnes-3.0-Flash",
+      "likes": 130,
+      "officiality_evidence": "HF repo 'Agnes-AI/Agnes-3.0-Flash' owned by developer org 'Agnes-AI'; safetensors total=33090501680 (33.1B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "zed-industries/zeta-2.1",
+      "display_name": "zeta-2.1",
+      "org": "zed-industries",
+      "family": "zeta",
+      "param_count_b": 8.3,
+      "param_count_note": "8.3B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-05-07",
+      "hf_url": "https://huggingface.co/zed-industries/zeta-2.1",
+      "likes": 121,
+      "officiality_evidence": "HF repo 'zed-industries/zeta-2.1' owned by developer org 'zed-industries'; safetensors total=8250462208 (8.3B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "ibm-granite/granite-4.2-30b",
+      "display_name": "granite-4.2-30b",
+      "org": "ibm-granite",
+      "family": "granite",
+      "param_count_b": 29.3,
+      "param_count_note": "29.3B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-07",
+      "hf_url": "https://huggingface.co/ibm-granite/granite-4.2-30b",
+      "likes": 119,
+      "officiality_evidence": "HF repo 'ibm-granite/granite-4.2-30b' owned by developer org 'ibm-granite'; safetensors total=29276770304 (29.3B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "pat-jj/harness-1",
+      "display_name": "harness-1",
+      "org": "pat-jj",
+      "family": "harness-1",
+      "param_count_b": 20.9,
+      "param_count_note": "20.9B dense",
+      "architecture": {
+        "type": "dense",
+        "active_experts": 4,
+        "modalities": [
+          "text"
+        ]
+      },
+      "official_release_date": "2026-05-12",
+      "hf_url": "https://huggingface.co/pat-jj/harness-1",
+      "likes": 104,
+      "officiality_evidence": "HF repo 'pat-jj/harness-1' owned by developer org 'pat-jj'; safetensors total=20914757184 (20.9B); no quant/finetune/merge markers in name; license=n/a",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "AlexWortega/SIQ-1-35B",
+      "display_name": "SIQ-1-35B",
+      "org": "AlexWortega",
+      "family": "SIQ-1",
+      "param_count_b": 34.7,
+      "param_count_note": "34.7B total (A8B active) MoE, 256 experts",
+      "architecture": {
+        "type": "moe",
+        "experts": 256,
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-06-14",
+      "hf_url": "https://huggingface.co/AlexWortega/SIQ-1-35B",
+      "likes": 102,
+      "officiality_evidence": "HF repo 'AlexWortega/SIQ-1-35B' owned by developer org 'AlexWortega'; safetensors total=34660610688 (34.7B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "FINAL-Bench/Darwin-36B-Opus",
+      "display_name": "Darwin-36B-Opus",
+      "org": "FINAL-Bench",
+      "family": "Darwin-36B-Opus",
+      "param_count_b": 34.7,
+      "param_count_note": "34.7B total (A8B active) MoE, 256 experts",
+      "architecture": {
+        "type": "moe",
+        "experts": 256,
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-04-22",
+      "hf_url": "https://huggingface.co/FINAL-Bench/Darwin-36B-Opus",
+      "likes": 97,
+      "officiality_evidence": "HF repo 'FINAL-Bench/Darwin-36B-Opus' owned by developer org 'FINAL-Bench'; safetensors total=34660610688 (34.7B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "yuxinlu1/gemma-4-12B-agentic-fable5-composer2.5-v2-3.5x-tau2",
+      "display_name": "gemma-4-12B-agentic-fable5-composer2.5-v2-3.5x-tau2",
+      "org": "yuxinlu1",
+      "family": "gemma-4-12B-agentic-fable5-composer2.5-v2-3.5x-tau2",
+      "param_count_b": 12.0,
+      "param_count_note": "12.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-06-28",
+      "hf_url": "https://huggingface.co/yuxinlu1/gemma-4-12B-agentic-fable5-composer2.5-v2-3.5x-tau2",
+      "likes": 97,
+      "officiality_evidence": "HF repo 'yuxinlu1/gemma-4-12B-agentic-fable5-composer2.5-v2-3.5x-tau2' owned by developer org 'yuxinlu1'; safetensors total=11959730224 (12.0B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "silx-ai/Quasar-Preview",
+      "display_name": "Quasar-Preview",
+      "org": "silx-ai",
+      "family": "Quasar",
+      "param_count_b": 16.6,
+      "param_count_note": "16.6B total (A8B active) MoE, 256 experts",
+      "architecture": {
+        "type": "moe",
+        "experts": 256,
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ],
+        "license": "mit"
+      },
+      "official_release_date": "2026-06-08",
+      "hf_url": "https://huggingface.co/silx-ai/Quasar-Preview",
+      "likes": 95,
+      "officiality_evidence": "HF repo 'silx-ai/Quasar-Preview' owned by developer org 'silx-ai'; safetensors total=16553954240 (16.6B); no quant/finetune/merge markers in name; license=mit",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "ai9stars/G9v3-39A5B",
+      "display_name": "G9v3-39A5B",
+      "org": "ai9stars",
+      "family": "G9v3-39A",
+      "param_count_b": 39.0,
+      "param_count_note": "39.0B dense",
+      "architecture": {
+        "type": "dense",
+        "active_experts": 32,
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-07-21",
+      "hf_url": "https://huggingface.co/ai9stars/G9v3-39A5B",
+      "likes": 95,
+      "officiality_evidence": "HF repo 'ai9stars/G9v3-39A5B' owned by developer org 'ai9stars'; safetensors total=38967481920 (39.0B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "thesysdev/OUI-1",
+      "display_name": "OUI-1",
+      "org": "thesysdev",
+      "family": "OUI-1",
+      "param_count_b": 25.8,
+      "param_count_note": "25.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-07",
+      "hf_url": "https://huggingface.co/thesysdev/OUI-1",
+      "likes": 93,
+      "officiality_evidence": "HF repo 'thesysdev/OUI-1' owned by developer org 'thesysdev'; safetensors total=25823778864 (25.8B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "display_name": "LongCat-Flash-Lite-Sparse",
+      "org": "meituan-longcat",
+      "family": "LongCat-Flash-Lite-Sparse",
+      "param_count_b": 69.1,
+      "param_count_note": "69.1B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "mit"
+      },
+      "official_release_date": "2026-07-31",
+      "hf_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "likes": 90,
+      "officiality_evidence": "HF repo 'meituan-longcat/LongCat-Flash-Lite-Sparse' owned by developer org 'meituan-longcat'; safetensors total=69127158912 (69.1B); no quant/finetune/merge markers in name; license=mit",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Gryphe/Gemma-4-31B-StyleTune",
+      "display_name": "Gemma-4-31B-StyleTune",
+      "org": "Gryphe",
+      "family": "Gemma-4-31B-StyleTune",
+      "param_count_b": 32.7,
+      "param_count_note": "32.7B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-06-10",
+      "hf_url": "https://huggingface.co/Gryphe/Gemma-4-31B-StyleTune",
+      "likes": 89,
+      "officiality_evidence": "HF repo 'Gryphe/Gemma-4-31B-StyleTune' owned by developer org 'Gryphe'; safetensors total=32682372656 (32.7B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "inclusionAI/LLaDA2.2-flash",
+      "display_name": "LLaDA2.2-flash",
+      "org": "inclusionAI",
+      "family": "Ling",
+      "param_count_b": 102.9,
+      "param_count_note": "102.9B total (A8B active) MoE, 256 experts",
+      "architecture": {
+        "type": "moe",
+        "experts": 256,
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-07-16",
+      "hf_url": "https://huggingface.co/inclusionAI/LLaDA2.2-flash",
+      "likes": 89,
+      "officiality_evidence": "HF repo 'inclusionAI/LLaDA2.2-flash' owned by developer org 'inclusionAI'; safetensors total=102889705216 (102.9B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "inclusionAI/Ling-3.0-flash-Fin",
+      "display_name": "Ling-3.0-flash-Fin",
+      "org": "inclusionAI",
+      "family": "Ling",
+      "param_count_b": 127.5,
+      "param_count_note": "127.5B total (A8B active) MoE, 512 experts",
+      "architecture": {
+        "type": "hybrid",
+        "experts": 512,
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ],
+        "license": "mit"
+      },
+      "official_release_date": "2026-09-03",
+      "hf_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash-Fin",
+      "likes": 89,
+      "officiality_evidence": "HF repo 'inclusionAI/Ling-3.0-flash-Fin' owned by developer org 'inclusionAI'; safetensors total=127486405600 (127.5B); no quant/finetune/merge markers in name; license=mit",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "InternScience/Agents-A1-4B",
+      "display_name": "Agents-A1-4B",
+      "org": "InternScience",
+      "family": "Agents-A1",
+      "param_count_b": 4.5,
+      "param_count_note": "4.5B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-07-13",
+      "hf_url": "https://huggingface.co/InternScience/Agents-A1-4B",
+      "likes": 87,
+      "officiality_evidence": "HF repo 'InternScience/Agents-A1-4B' owned by developer org 'InternScience'; safetensors total=4539265536 (4.5B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "swiss-ai/Apertus-v1.5-70B",
+      "display_name": "Apertus-v1.5-70B",
+      "org": "swiss-ai",
+      "family": "Apertus-v",
+      "param_count_b": 72.0,
+      "param_count_note": "72.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text",
+          "vision"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-07-24",
+      "hf_url": "https://huggingface.co/swiss-ai/Apertus-v1.5-70B",
+      "likes": 87,
+      "officiality_evidence": "HF repo 'swiss-ai/Apertus-v1.5-70B' owned by developer org 'swiss-ai'; safetensors total=72005819139 (72.0B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "swiss-ai/Apertus-v1.5-8B",
+      "display_name": "Apertus-v1.5-8B",
+      "org": "swiss-ai",
+      "family": "Apertus-v",
+      "param_count_b": 8.9,
+      "param_count_note": "8.9B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text",
+          "vision"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-07-24",
+      "hf_url": "https://huggingface.co/swiss-ai/Apertus-v1.5-8B",
+      "likes": 86,
+      "officiality_evidence": "HF repo 'swiss-ai/Apertus-v1.5-8B' owned by developer org 'swiss-ai'; safetensors total=8903547555 (8.9B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "JetBrains/Mellum2-12B-A2.5B-Instruct",
+      "display_name": "Mellum2-12B-A2.5B-Instruct",
+      "org": "JetBrains",
+      "family": "Mellum2-12B-A2.5B",
+      "param_count_b": 12.1,
+      "param_count_note": "12.1B total (A8B active) MoE, 64 experts",
+      "architecture": {
+        "type": "moe",
+        "experts": 64,
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-05-26",
+      "hf_url": "https://huggingface.co/JetBrains/Mellum2-12B-A2.5B-Instruct",
+      "likes": 84,
+      "officiality_evidence": "HF repo 'JetBrains/Mellum2-12B-A2.5B-Instruct' owned by developer org 'JetBrains'; safetensors total=12149923072 (12.1B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "BennyDaBall/Z-Image-Engineer-V6",
+      "display_name": "Z-Image-Engineer-V6",
+      "org": "BennyDaBall",
+      "family": "Z-Image-Engineer-V6",
+      "param_count_b": 4.0,
+      "param_count_note": "4.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-06-06",
+      "hf_url": "https://huggingface.co/BennyDaBall/Z-Image-Engineer-V6",
+      "likes": 82,
+      "officiality_evidence": "HF repo 'BennyDaBall/Z-Image-Engineer-V6' owned by developer org 'BennyDaBall'; safetensors total=4022468096 (4.0B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "ibm-granite/granite-4.2-8b",
+      "display_name": "granite-4.2-8b",
+      "org": "ibm-granite",
+      "family": "granite",
+      "param_count_b": 8.8,
+      "param_count_note": "8.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-07",
+      "hf_url": "https://huggingface.co/ibm-granite/granite-4.2-8b",
+      "likes": 73,
+      "officiality_evidence": "HF repo 'ibm-granite/granite-4.2-8b' owned by developer org 'ibm-granite'; safetensors total=8791592960 (8.8B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Jackrong/Qwopus3.8-27B-Flash",
+      "display_name": "Qwopus3.8-27B-Flash",
+      "org": "Jackrong",
+      "family": "Qwopus3.8-27B",
+      "param_count_b": 27.8,
+      "param_count_note": "27.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text",
+          "vision"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-03",
+      "hf_url": "https://huggingface.co/Jackrong/Qwopus3.8-27B-Flash",
+      "likes": 52,
+      "officiality_evidence": "HF repo 'Jackrong/Qwopus3.8-27B-Flash' owned by developer org 'Jackrong'; safetensors total=27781427952 (27.8B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Edge0/Edge0-8B-A1B-preview",
+      "display_name": "Edge0-8B-A1B-preview",
+      "org": "Edge0",
+      "family": "Edge0-8B-A1B",
+      "param_count_b": 7.9,
+      "param_count_note": "7.9B total (A8B active) MoE, 128 experts",
+      "architecture": {
+        "type": "moe",
+        "experts": 128,
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-08",
+      "hf_url": "https://huggingface.co/Edge0/Edge0-8B-A1B-preview",
+      "likes": 50,
+      "officiality_evidence": "HF repo 'Edge0/Edge0-8B-A1B-preview' owned by developer org 'Edge0'; safetensors total=7923998112 (7.9B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "microsoft/Fara1.5-9B",
+      "display_name": "Fara1.5-9B",
+      "org": "microsoft",
+      "family": "Fara",
+      "param_count_b": 9.4,
+      "param_count_note": "9.4B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text",
+          "vision"
+        ],
+        "license": "mit"
+      },
+      "official_release_date": "2026-05-12",
+      "hf_url": "https://huggingface.co/microsoft/Fara1.5-9B",
+      "likes": 42,
+      "officiality_evidence": "HF repo 'microsoft/Fara1.5-9B' owned by developer org 'microsoft'; safetensors total=9409813744 (9.4B); no quant/finetune/merge markers in name; license=mit",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "microsoft/Fara1.5-4B",
+      "display_name": "Fara1.5-4B",
+      "org": "microsoft",
+      "family": "Fara",
+      "param_count_b": 4.5,
+      "param_count_note": "4.5B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text",
+          "vision"
+        ],
+        "license": "mit"
+      },
+      "official_release_date": "2026-07-17",
+      "hf_url": "https://huggingface.co/microsoft/Fara1.5-4B",
+      "likes": 41,
+      "officiality_evidence": "HF repo 'microsoft/Fara1.5-4B' owned by developer org 'microsoft'; safetensors total=4539265536 (4.5B); no quant/finetune/merge markers in name; license=mit",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "OrionLLM/OxCoder-9B",
+      "display_name": "OxCoder-9B",
+      "org": "OrionLLM",
+      "family": "OxCoder",
+      "param_count_b": 9.4,
+      "param_count_note": "9.4B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-07",
+      "hf_url": "https://huggingface.co/OrionLLM/OxCoder-9B",
+      "likes": 41,
+      "officiality_evidence": "HF repo 'OrionLLM/OxCoder-9B' owned by developer org 'OrionLLM'; safetensors total=9409813744 (9.4B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "llm-jp/llm-jp-4-33b-thinking",
+      "display_name": "llm-jp-4-33b-thinking",
+      "org": "llm-jp",
+      "family": "llm-jp-4-33b",
+      "param_count_b": 33.2,
+      "param_count_note": "33.2B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-14",
+      "hf_url": "https://huggingface.co/llm-jp/llm-jp-4-33b-thinking",
+      "likes": 40,
+      "officiality_evidence": "HF repo 'llm-jp/llm-jp-4-33b-thinking' owned by developer org 'llm-jp'; safetensors total=33219548160 (33.2B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Jab1718/qwen3.8-flash-coder-85gb-bf16",
+      "display_name": "qwen3.8-flash-coder-85gb-bf16",
+      "org": "Jab1718",
+      "family": "qwen3.8-flash-coder-85gb-bf16",
+      "param_count_b": 42.6,
+      "param_count_note": "42.6B total (A10B active) MoE, 160 experts",
+      "architecture": {
+        "type": "moe",
+        "experts": 160,
+        "active_experts": 10,
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-27",
+      "hf_url": "https://huggingface.co/Jab1718/qwen3.8-flash-coder-85gb-bf16",
+      "likes": 30,
+      "officiality_evidence": "HF repo 'Jab1718/qwen3.8-flash-coder-85gb-bf16' owned by developer org 'Jab1718'; safetensors total=42620341120 (42.6B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "inclusionAI/LLaDA2.2-mini",
+      "display_name": "LLaDA2.2-mini",
+      "org": "inclusionAI",
+      "family": "Ling",
+      "param_count_b": 16.3,
+      "param_count_note": "16.3B total (A8B active) MoE, 256 experts",
+      "architecture": {
+        "type": "moe",
+        "experts": 256,
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-05",
+      "hf_url": "https://huggingface.co/inclusionAI/LLaDA2.2-mini",
+      "likes": 25,
+      "officiality_evidence": "HF repo 'inclusionAI/LLaDA2.2-mini' owned by developer org 'inclusionAI'; safetensors total=16255643392 (16.3B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "CogEvol/CogEvol-4B",
+      "display_name": "CogEvol-4B",
+      "org": "CogEvol",
+      "family": "CogEvol",
+      "param_count_b": 4.5,
+      "param_count_note": "4.5B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-31",
+      "hf_url": "https://huggingface.co/CogEvol/CogEvol-4B",
+      "likes": 25,
+      "officiality_evidence": "HF repo 'CogEvol/CogEvol-4B' owned by developer org 'CogEvol'; safetensors total=4539265536 (4.5B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Gryphe/Pantheon-Reasoning-26B-A4B-1.1-V2",
+      "display_name": "Pantheon-Reasoning-26B-A4B-1.1-V2",
+      "org": "Gryphe",
+      "family": "Pantheon-Reasoning-26B-A4B-1.1-V2",
+      "param_count_b": 26.5,
+      "param_count_note": "26.5B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-08",
+      "hf_url": "https://huggingface.co/Gryphe/Pantheon-Reasoning-26B-A4B-1.1-V2",
+      "likes": 21,
+      "officiality_evidence": "HF repo 'Gryphe/Pantheon-Reasoning-26B-A4B-1.1-V2' owned by developer org 'Gryphe'; safetensors total=26544131376 (26.5B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "saai-sa/ASL-4B-v1",
+      "display_name": "ASL-4B-v1",
+      "org": "saai-sa",
+      "family": "ASL-4B-v1",
+      "param_count_b": 4.7,
+      "param_count_note": "4.7B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-26",
+      "hf_url": "https://huggingface.co/saai-sa/ASL-4B-v1",
+      "likes": 19,
+      "officiality_evidence": "HF repo 'saai-sa/ASL-4B-v1' owned by developer org 'saai-sa'; safetensors total=4659865088 (4.7B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "TaoLiveAIGC/TLive-Omni-4B",
+      "display_name": "TLive-Omni-4B",
+      "org": "TaoLiveAIGC",
+      "family": "TLive-Omni",
+      "param_count_b": 5.8,
+      "param_count_note": "5.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-14",
+      "hf_url": "https://huggingface.co/TaoLiveAIGC/TLive-Omni-4B",
+      "likes": 18,
+      "officiality_evidence": "HF repo 'TaoLiveAIGC/TLive-Omni-4B' owned by developer org 'TaoLiveAIGC'; safetensors total=5823547776 (5.8B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "aifeifei798/Qwen3.8-Queen-27B",
+      "display_name": "Qwen3.8-Queen-27B",
+      "org": "aifeifei798",
+      "family": "Qwen3.8-Queen",
+      "param_count_b": 27.8,
+      "param_count_note": "27.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text",
+          "vision"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-14",
+      "hf_url": "https://huggingface.co/aifeifei798/Qwen3.8-Queen-27B",
+      "likes": 17,
+      "officiality_evidence": "HF repo 'aifeifei798/Qwen3.8-Queen-27B' owned by developer org 'aifeifei798'; safetensors total=27781427952 (27.8B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "TaoLiveAIGC/TLive-Omni-9B",
+      "display_name": "TLive-Omni-9B",
+      "org": "TaoLiveAIGC",
+      "family": "TLive-Omni",
+      "param_count_b": 10.1,
+      "param_count_note": "10.1B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-18",
+      "hf_url": "https://huggingface.co/TaoLiveAIGC/TLive-Omni-9B",
+      "likes": 15,
+      "officiality_evidence": "HF repo 'TaoLiveAIGC/TLive-Omni-9B' owned by developer org 'TaoLiveAIGC'; safetensors total=10060364400 (10.1B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "nvidia/Cosmos-Reason2-32B",
+      "display_name": "Cosmos-Reason2-32B",
+      "org": "nvidia",
+      "family": "Cosmos-Reason2",
+      "param_count_b": 33.4,
+      "param_count_note": "33.4B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text",
+          "vision"
+        ],
+        "license": "other"
+      },
+      "official_release_date": "2026-04-29",
+      "hf_url": "https://huggingface.co/nvidia/Cosmos-Reason2-32B",
+      "likes": 14,
+      "officiality_evidence": "HF repo 'nvidia/Cosmos-Reason2-32B' owned by developer org 'nvidia'; safetensors total=33357390064 (33.4B); no quant/finetune/merge markers in name; license=other",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "drowzeys/keys-Qwen3.8-flash-next-ablit-Mia-Single-Spark-only",
+      "display_name": "keys-Qwen3.8-flash-next-ablit-Mia-Single-Spark-only",
+      "org": "drowzeys",
+      "family": "keys-Qwen3.8-flash-next-ablit-Mia-Single-Spark-only",
+      "param_count_b": 92.7,
+      "param_count_note": "92.7B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text",
+          "vision"
+        ],
+        "license": "other"
+      },
+      "official_release_date": "2026-09-05",
+      "hf_url": "https://huggingface.co/drowzeys/keys-Qwen3.8-flash-next-ablit-Mia-Single-Spark-only",
+      "likes": 13,
+      "officiality_evidence": "HF repo 'drowzeys/keys-Qwen3.8-flash-next-ablit-Mia-Single-Spark-only' owned by developer org 'drowzeys'; safetensors total=92676653971 (92.7B); no quant/finetune/merge markers in name; license=other",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "NeuronUz/MustaqiLLM",
+      "display_name": "MustaqiLLM",
+      "org": "NeuronUz",
+      "family": "MustaqiLLM",
+      "param_count_b": 5.2,
+      "param_count_note": "5.2B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-13",
+      "hf_url": "https://huggingface.co/NeuronUz/MustaqiLLM",
+      "likes": 12,
+      "officiality_evidence": "HF repo 'NeuronUz/MustaqiLLM' owned by developer org 'NeuronUz'; safetensors total=5166735872 (5.2B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "logic65/Whittle-Next-27B-A3B",
+      "display_name": "Whittle-Next-27B-A3B",
+      "org": "logic65",
+      "family": "Whittle-Next",
+      "param_count_b": 27.6,
+      "param_count_note": "27.6B total (A8B active) MoE, 180 experts",
+      "architecture": {
+        "type": "moe",
+        "experts": 180,
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-03",
+      "hf_url": "https://huggingface.co/logic65/Whittle-Next-27B-A3B",
+      "likes": 11,
+      "officiality_evidence": "HF repo 'logic65/Whittle-Next-27B-A3B' owned by developer org 'logic65'; safetensors total=27568288915 (27.6B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "nitrai-research/Moderato-V1-Pro",
+      "display_name": "Moderato-V1-Pro",
+      "org": "nitrai-research",
+      "family": "Moderato-V1",
+      "param_count_b": 113.3,
+      "param_count_note": "113.3B total (A2B active) MoE, 6 experts",
+      "architecture": {
+        "type": "moe",
+        "experts": 6,
+        "active_experts": 2,
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-25",
+      "hf_url": "https://huggingface.co/nitrai-research/Moderato-V1-Pro",
+      "likes": 9,
+      "officiality_evidence": "HF repo 'nitrai-research/Moderato-V1-Pro' owned by developer org 'nitrai-research'; safetensors total=113348359666 (113.3B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "26B-Suite/Dark-Goetia-26B-A4B-v4",
+      "display_name": "Dark-Goetia-26B-A4B-v4",
+      "org": "26B-Suite",
+      "family": "Dark-Goetia-26B-A4B-v4",
+      "param_count_b": 25.8,
+      "param_count_note": "25.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "gemma"
+      },
+      "official_release_date": "2026-08-31",
+      "hf_url": "https://huggingface.co/26B-Suite/Dark-Goetia-26B-A4B-v4",
+      "likes": 8,
+      "officiality_evidence": "HF repo '26B-Suite/Dark-Goetia-26B-A4B-v4' owned by developer org '26B-Suite'; safetensors total=25805933872 (25.8B); no quant/finetune/merge markers in name; license=gemma",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "darkps/ice-AI",
+      "display_name": "ice-AI",
+      "org": "darkps",
+      "family": "ice-AI",
+      "param_count_b": 8.2,
+      "param_count_note": "8.2B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-25",
+      "hf_url": "https://huggingface.co/darkps/ice-AI",
+      "likes": 8,
+      "officiality_evidence": "HF repo 'darkps/ice-AI' owned by developer org 'darkps'; safetensors total=8190735360 (8.2B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "ConwayResearch/Underdog-Woof-4B-1.1",
+      "display_name": "Underdog-Woof-4B-1.1",
+      "org": "ConwayResearch",
+      "family": "Underdog-Woof-4B",
+      "param_count_b": 4.2,
+      "param_count_note": "4.2B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-12",
+      "hf_url": "https://huggingface.co/ConwayResearch/Underdog-Woof-4B-1.1",
+      "likes": 7,
+      "officiality_evidence": "HF repo 'ConwayResearch/Underdog-Woof-4B-1.1' owned by developer org 'ConwayResearch'; safetensors total=4205751296 (4.2B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "OliviaRossi/UltiMerge",
+      "display_name": "UltiMerge",
+      "org": "OliviaRossi",
+      "family": "UltiMerge",
+      "param_count_b": 34.7,
+      "param_count_note": "34.7B total (A8B active) MoE, 256 experts",
+      "architecture": {
+        "type": "moe",
+        "experts": 256,
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-02",
+      "hf_url": "https://huggingface.co/OliviaRossi/UltiMerge",
+      "likes": 7,
+      "officiality_evidence": "HF repo 'OliviaRossi/UltiMerge' owned by developer org 'OliviaRossi'; safetensors total=34660610688 (34.7B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "primitive-ai/DeepSeek-V4-Flash-Vision-Exp-REAP-145B",
+      "display_name": "DeepSeek-V4-Flash-Vision-Exp-REAP-145B",
+      "org": "primitive-ai",
+      "family": "DeepSeek-V4-Flash-Vision-Exp-REAP",
+      "param_count_b": 145.8,
+      "param_count_note": "145.8B dense",
+      "architecture": {
+        "type": "dense",
+        "active_experts": 6,
+        "modalities": [
+          "text"
+        ],
+        "license": "mit"
+      },
+      "official_release_date": "2026-08-31",
+      "hf_url": "https://huggingface.co/primitive-ai/DeepSeek-V4-Flash-Vision-Exp-REAP-145B",
+      "likes": 7,
+      "officiality_evidence": "HF repo 'primitive-ai/DeepSeek-V4-Flash-Vision-Exp-REAP-145B' owned by developer org 'primitive-ai'; safetensors total=145799322711 (145.8B); no quant/finetune/merge markers in name; license=mit",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "alibaba-pai/SearchQwen3-8B",
+      "display_name": "SearchQwen3-8B",
+      "org": "alibaba-pai",
+      "family": "SearchQwen3",
+      "param_count_b": 8.2,
+      "param_count_note": "8.2B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-24",
+      "hf_url": "https://huggingface.co/alibaba-pai/SearchQwen3-8B",
+      "likes": 7,
+      "officiality_evidence": "HF repo 'alibaba-pai/SearchQwen3-8B' owned by developer org 'alibaba-pai'; safetensors total=8190735360 (8.2B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "i-Coder/iCoder-27B",
+      "display_name": "iCoder-27B",
+      "org": "i-Coder",
+      "family": "iCoder",
+      "param_count_b": 27.4,
+      "param_count_note": "27.4B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-21",
+      "hf_url": "https://huggingface.co/i-Coder/iCoder-27B",
+      "likes": 7,
+      "officiality_evidence": "HF repo 'i-Coder/iCoder-27B' owned by developer org 'i-Coder'; safetensors total=27356728560 (27.4B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "wangzhang/Qwen3.8-27B-abliteratex",
+      "display_name": "Qwen3.8-27B-abliteratex",
+      "org": "wangzhang",
+      "family": "Qwen3.8-27B-abliteratex",
+      "param_count_b": 26.9,
+      "param_count_note": "26.9B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-17",
+      "hf_url": "https://huggingface.co/wangzhang/Qwen3.8-27B-abliteratex",
+      "likes": 7,
+      "officiality_evidence": "HF repo 'wangzhang/Qwen3.8-27B-abliteratex' owned by developer org 'wangzhang'; safetensors total=26895998464 (26.9B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "GBP-DE/Qwen3.8-Flash-Next-oQ5e-mtp",
+      "display_name": "Qwen3.8-Flash-Next-oQ5e-mtp",
+      "org": "GBP-DE",
+      "family": "Qwen3.8-Flash-Next-oQ5e-mtp",
+      "param_count_b": 180.0,
+      "param_count_note": "180.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "other"
+      },
+      "official_release_date": "2026-09-07",
+      "hf_url": "https://huggingface.co/GBP-DE/Qwen3.8-Flash-Next-oQ5e-mtp",
+      "likes": 6,
+      "officiality_evidence": "HF repo 'GBP-DE/Qwen3.8-Flash-Next-oQ5e-mtp' owned by developer org 'GBP-DE'; safetensors total=179999981459 (180.0B); no quant/finetune/merge markers in name; license=other",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "AllSpark-Research/Iris-mini",
+      "display_name": "Iris-mini",
+      "org": "AllSpark-Research",
+      "family": "Iris",
+      "param_count_b": 36.0,
+      "param_count_note": "36.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-01",
+      "hf_url": "https://huggingface.co/AllSpark-Research/Iris-mini",
+      "likes": 6,
+      "officiality_evidence": "HF repo 'AllSpark-Research/Iris-mini' owned by developer org 'AllSpark-Research'; safetensors total=35951822704 (36.0B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Akicou/Qwen3.8-Flash-Next-REAM-60Pct",
+      "display_name": "Qwen3.8-Flash-Next-REAM-60Pct",
+      "org": "Akicou",
+      "family": "Qwen3.8-Flash-Next-REAM-60Pct",
+      "param_count_b": 128.8,
+      "param_count_note": "128.8B total (A10B active) MoE, 308 experts",
+      "architecture": {
+        "type": "moe",
+        "experts": 308,
+        "active_experts": 10,
+        "modalities": [
+          "text"
+        ]
+      },
+      "official_release_date": "2026-08-29",
+      "hf_url": "https://huggingface.co/Akicou/Qwen3.8-Flash-Next-REAM-60Pct",
+      "likes": 6,
+      "officiality_evidence": "HF repo 'Akicou/Qwen3.8-Flash-Next-REAM-60Pct' owned by developer org 'Akicou'; safetensors total=128789193600 (128.8B); no quant/finetune/merge markers in name; license=n/a",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "HCHs/RivetCoder-9B-A4B",
+      "display_name": "RivetCoder-9B-A4B",
+      "org": "HCHs",
+      "family": "RivetCoder",
+      "param_count_b": 8.7,
+      "param_count_note": "8.7B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "other"
+      },
+      "official_release_date": "2026-08-27",
+      "hf_url": "https://huggingface.co/HCHs/RivetCoder-9B-A4B",
+      "likes": 6,
+      "officiality_evidence": "HF repo 'HCHs/RivetCoder-9B-A4B' owned by developer org 'HCHs'; safetensors total=8738041342 (8.7B); no quant/finetune/merge markers in name; license=other",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "DarkArtsForge/Asmodeus-24B-v3",
+      "display_name": "Asmodeus-24B-v3",
+      "org": "DarkArtsForge",
+      "family": "Asmodeus-24B-v3",
+      "param_count_b": 23.6,
+      "param_count_note": "23.6B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-20",
+      "hf_url": "https://huggingface.co/DarkArtsForge/Asmodeus-24B-v3",
+      "likes": 6,
+      "officiality_evidence": "HF repo 'DarkArtsForge/Asmodeus-24B-v3' owned by developer org 'DarkArtsForge'; safetensors total=23572444160 (23.6B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "nightmedia/Qwen3.8-27B-Brainwaves",
+      "display_name": "Qwen3.8-27B-Brainwaves",
+      "org": "nightmedia",
+      "family": "Qwen3.8-27B-Brainwaves",
+      "param_count_b": 27.8,
+      "param_count_note": "27.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text",
+          "vision"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-18",
+      "hf_url": "https://huggingface.co/nightmedia/Qwen3.8-27B-Brainwaves",
+      "likes": 6,
+      "officiality_evidence": "HF repo 'nightmedia/Qwen3.8-27B-Brainwaves' owned by developer org 'nightmedia'; safetensors total=27781427952 (27.8B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "nitrai-research/Polaris-V1",
+      "display_name": "Polaris-V1",
+      "org": "nitrai-research",
+      "family": "Polaris-V1",
+      "param_count_b": 4.2,
+      "param_count_note": "4.2B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-17",
+      "hf_url": "https://huggingface.co/nitrai-research/Polaris-V1",
+      "likes": 6,
+      "officiality_evidence": "HF repo 'nitrai-research/Polaris-V1' owned by developer org 'nitrai-research'; safetensors total=4205751296 (4.2B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "OccultAI/Ouroboros-24B-v1.4",
+      "display_name": "Ouroboros-24B-v1.4",
+      "org": "OccultAI",
+      "family": "Ouroboros-24B-v",
+      "param_count_b": 23.6,
+      "param_count_note": "23.6B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-15",
+      "hf_url": "https://huggingface.co/OccultAI/Ouroboros-24B-v1.4",
+      "likes": 6,
+      "officiality_evidence": "HF repo 'OccultAI/Ouroboros-24B-v1.4' owned by developer org 'OccultAI'; safetensors total=23572444160 (23.6B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "0xWhiteMage/Qwen3.8-27B-Kearuga",
+      "display_name": "Qwen3.8-27B-Kearuga",
+      "org": "0xWhiteMage",
+      "family": "Qwen3.8-27B-Kearuga",
+      "param_count_b": 19.8,
+      "param_count_note": "19.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-04",
+      "hf_url": "https://huggingface.co/0xWhiteMage/Qwen3.8-27B-Kearuga",
+      "likes": 5,
+      "officiality_evidence": "HF repo '0xWhiteMage/Qwen3.8-27B-Kearuga' owned by developer org '0xWhiteMage'; safetensors total=19759821552 (19.8B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "HaberstrohSystems/Qwen3.8-Flash-Next-int2-mixed-AutoRound-24GB-SGLang",
+      "display_name": "Qwen3.8-Flash-Next-int2-mixed-AutoRound-24GB-SGLang",
+      "org": "HaberstrohSystems",
+      "family": "Qwen3.8-Flash-Next-int2-mixed-AutoRound-24GB-SGLang",
+      "param_count_b": 10.9,
+      "param_count_note": "10.9B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "other"
+      },
+      "official_release_date": "2026-09-03",
+      "hf_url": "https://huggingface.co/HaberstrohSystems/Qwen3.8-Flash-Next-int2-mixed-AutoRound-24GB-SGLang",
+      "likes": 5,
+      "officiality_evidence": "HF repo 'HaberstrohSystems/Qwen3.8-Flash-Next-int2-mixed-AutoRound-24GB-SGLang' owned by developer org 'HaberstrohSystems'; safetensors total=10875647395 (10.9B); no quant/finetune/merge markers in name; license=other",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "pragmaticcs/Qwen-35B-A3B-SignOfFour-Coder",
+      "display_name": "Qwen-35B-A3B-SignOfFour-Coder",
+      "org": "pragmaticcs",
+      "family": "Qwen-35B-A3B-SignOfFour",
+      "param_count_b": 35.1,
+      "param_count_note": "35.1B total (A8B active) MoE, 256 experts",
+      "architecture": {
+        "type": "moe",
+        "experts": 256,
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-02",
+      "hf_url": "https://huggingface.co/pragmaticcs/Qwen-35B-A3B-SignOfFour-Coder",
+      "likes": 5,
+      "officiality_evidence": "HF repo 'pragmaticcs/Qwen-35B-A3B-SignOfFour-Coder' owned by developer org 'pragmaticcs'; safetensors total=35107181936 (35.1B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "rolandwhere/granite-4.2-8b-symbolic-cot",
+      "display_name": "granite-4.2-8b-symbolic-cot",
+      "org": "rolandwhere",
+      "family": "granite-4.2-8b-symbolic-cot",
+      "param_count_b": 8.8,
+      "param_count_note": "8.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-30",
+      "hf_url": "https://huggingface.co/rolandwhere/granite-4.2-8b-symbolic-cot",
+      "likes": 5,
+      "officiality_evidence": "HF repo 'rolandwhere/granite-4.2-8b-symbolic-cot' owned by developer org 'rolandwhere'; safetensors total=8791592960 (8.8B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "aimeri/spoomplesmaxx-thrasher-24B",
+      "display_name": "spoomplesmaxx-thrasher-24B",
+      "org": "aimeri",
+      "family": "spoomplesmaxx-thrasher",
+      "param_count_b": 23.6,
+      "param_count_note": "23.6B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-27",
+      "hf_url": "https://huggingface.co/aimeri/spoomplesmaxx-thrasher-24B",
+      "likes": 5,
+      "officiality_evidence": "HF repo 'aimeri/spoomplesmaxx-thrasher-24B' owned by developer org 'aimeri'; safetensors total=23572403200 (23.6B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "ArchSpace-Collection/NCP_ArchPreview_dolma3_8.9B_Stage1",
+      "display_name": "NCP_ArchPreview_dolma3_8.9B_Stage1",
+      "org": "ArchSpace-Collection",
+      "family": "NCP_ArchPreview_dolma3_8.9B_Stage1",
+      "param_count_b": 8.9,
+      "param_count_note": "8.9B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-27",
+      "hf_url": "https://huggingface.co/ArchSpace-Collection/NCP_ArchPreview_dolma3_8.9B_Stage1",
+      "likes": 5,
+      "officiality_evidence": "HF repo 'ArchSpace-Collection/NCP_ArchPreview_dolma3_8.9B_Stage1' owned by developer org 'ArchSpace-Collection'; safetensors total=8938363792 (8.9B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "BrokenCompute/IDK-v1",
+      "display_name": "IDK-v1",
+      "org": "BrokenCompute",
+      "family": "IDK-v1",
+      "param_count_b": 4.5,
+      "param_count_note": "4.5B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-23",
+      "hf_url": "https://huggingface.co/BrokenCompute/IDK-v1",
+      "likes": 5,
+      "officiality_evidence": "HF repo 'BrokenCompute/IDK-v1' owned by developer org 'BrokenCompute'; safetensors total=4539265536 (4.5B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "temaq-org/Tema_Q-X7-Thinking",
+      "display_name": "Tema_Q-X7-Thinking",
+      "org": "temaq-org",
+      "family": "Tema_Q-X7",
+      "param_count_b": 36.0,
+      "param_count_note": "36.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ]
+      },
+      "official_release_date": "2026-08-20",
+      "hf_url": "https://huggingface.co/temaq-org/Tema_Q-X7-Thinking",
+      "likes": 5,
+      "officiality_evidence": "HF repo 'temaq-org/Tema_Q-X7-Thinking' owned by developer org 'temaq-org'; safetensors total=35951822704 (36.0B); no quant/finetune/merge markers in name; license=n/a",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Danielbrdz/Barcenas-Qwen3.8-27B-Fable",
+      "display_name": "Barcenas-Qwen3.8-27B-Fable",
+      "org": "Danielbrdz",
+      "family": "Barcenas-Qwen3.8-27B-Fable",
+      "param_count_b": 26.9,
+      "param_count_note": "26.9B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text",
+          "vision"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-18",
+      "hf_url": "https://huggingface.co/Danielbrdz/Barcenas-Qwen3.8-27B-Fable",
+      "likes": 5,
+      "officiality_evidence": "HF repo 'Danielbrdz/Barcenas-Qwen3.8-27B-Fable' owned by developer org 'Danielbrdz'; safetensors total=26895998464 (26.9B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Smilyai-labs/Mira-1-large",
+      "display_name": "Mira-1-large",
+      "org": "Smilyai-labs",
+      "family": "Mira-1-large",
+      "param_count_b": 14.8,
+      "param_count_note": "14.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "other"
+      },
+      "official_release_date": "2026-08-16",
+      "hf_url": "https://huggingface.co/Smilyai-labs/Mira-1-large",
+      "likes": 5,
+      "officiality_evidence": "HF repo 'Smilyai-labs/Mira-1-large' owned by developer org 'Smilyai-labs'; safetensors total=14768307200 (14.8B); no quant/finetune/merge markers in name; license=other",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "26B-Suite/Dark-Goetia-26B-A4B-v2",
+      "display_name": "Dark-Goetia-26B-A4B-v2",
+      "org": "26B-Suite",
+      "family": "Dark-Goetia-26B-A4B-v2",
+      "param_count_b": 25.8,
+      "param_count_note": "25.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "gemma"
+      },
+      "official_release_date": "2026-08-16",
+      "hf_url": "https://huggingface.co/26B-Suite/Dark-Goetia-26B-A4B-v2",
+      "likes": 5,
+      "officiality_evidence": "HF repo '26B-Suite/Dark-Goetia-26B-A4B-v2' owned by developer org '26B-Suite'; safetensors total=25805933872 (25.8B); no quant/finetune/merge markers in name; license=gemma",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "precisionalgorithms/qwen3.5-9b_precision_agentic_trading",
+      "display_name": "qwen3.5-9b_precision_agentic_trading",
+      "org": "precisionalgorithms",
+      "family": "qwen3.5-9b_precision_agentic_trading",
+      "param_count_b": 9.7,
+      "param_count_note": "9.7B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-15",
+      "hf_url": "https://huggingface.co/precisionalgorithms/qwen3.5-9b_precision_agentic_trading",
+      "likes": 5,
+      "officiality_evidence": "HF repo 'precisionalgorithms/qwen3.5-9b_precision_agentic_trading' owned by developer org 'precisionalgorithms'; safetensors total=9653104368 (9.7B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "OliviaRossi/TripleTrouble",
+      "display_name": "TripleTrouble",
+      "org": "OliviaRossi",
+      "family": "TripleTrouble",
+      "param_count_b": 34.7,
+      "param_count_note": "34.7B total (A8B active) MoE, 256 experts",
+      "architecture": {
+        "type": "moe",
+        "experts": 256,
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-11",
+      "hf_url": "https://huggingface.co/OliviaRossi/TripleTrouble",
+      "likes": 4,
+      "officiality_evidence": "HF repo 'OliviaRossi/TripleTrouble' owned by developer org 'OliviaRossi'; safetensors total=34660610688 (34.7B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "aifeifei798/DarkIdol-Qwen3.8-27B-v1.1",
+      "display_name": "DarkIdol-Qwen3.8-27B-v1.1",
+      "org": "aifeifei798",
+      "family": "DarkIdol-Qwen3.8-27B-v",
+      "param_count_b": 27.4,
+      "param_count_note": "27.4B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text",
+          "vision"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-06",
+      "hf_url": "https://huggingface.co/aifeifei798/DarkIdol-Qwen3.8-27B-v1.1",
+      "likes": 4,
+      "officiality_evidence": "HF repo 'aifeifei798/DarkIdol-Qwen3.8-27B-v1.1' owned by developer org 'aifeifei798'; safetensors total=27356728560 (27.4B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "bogairff55/ViAble-1.7-9B",
+      "display_name": "ViAble-1.7-9B",
+      "org": "bogairff55",
+      "family": "ViAble",
+      "param_count_b": 9.0,
+      "param_count_note": "9.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ]
+      },
+      "official_release_date": "2026-09-03",
+      "hf_url": "https://huggingface.co/bogairff55/ViAble-1.7-9B",
+      "likes": 4,
+      "officiality_evidence": "HF repo 'bogairff55/ViAble-1.7-9B' owned by developer org 'bogairff55'; safetensors total=8953803264 (9.0B); no quant/finetune/merge markers in name; license=n/a",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "RWKV/RWKV7-G1j-13.3B-20260831",
+      "display_name": "RWKV7-G1j-13.3B-20260831",
+      "org": "RWKV",
+      "family": "RWKV7-G1j-13.3B-20260831",
+      "param_count_b": 13.3,
+      "param_count_note": "13.3B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-02",
+      "hf_url": "https://huggingface.co/RWKV/RWKV7-G1j-13.3B-20260831",
+      "likes": 4,
+      "officiality_evidence": "HF repo 'RWKV/RWKV7-G1j-13.3B-20260831' owned by developer org 'RWKV'; safetensors total=13270298624 (13.3B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "ant-intl/O2-9b-preview",
+      "display_name": "O2-9b-preview",
+      "org": "ant-intl",
+      "family": "O2-9b",
+      "param_count_b": 9.4,
+      "param_count_note": "9.4B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-02",
+      "hf_url": "https://huggingface.co/ant-intl/O2-9b-preview",
+      "likes": 4,
+      "officiality_evidence": "HF repo 'ant-intl/O2-9b-preview' owned by developer org 'ant-intl'; safetensors total=9409813744 (9.4B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "OccultAI/MN-Nazgul-12B-v1",
+      "display_name": "MN-Nazgul-12B-v1",
+      "org": "OccultAI",
+      "family": "MN-Nazgul-12B-v1",
+      "param_count_b": 12.2,
+      "param_count_note": "12.2B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-02",
+      "hf_url": "https://huggingface.co/OccultAI/MN-Nazgul-12B-v1",
+      "likes": 4,
+      "officiality_evidence": "HF repo 'OccultAI/MN-Nazgul-12B-v1' owned by developer org 'OccultAI'; safetensors total=12247782400 (12.2B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Sorihon/Chaotic-Order-24B-V2",
+      "display_name": "Chaotic-Order-24B-V2",
+      "org": "Sorihon",
+      "family": "Chaotic-Order-24B-V2",
+      "param_count_b": 23.6,
+      "param_count_note": "23.6B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ]
+      },
+      "official_release_date": "2026-08-28",
+      "hf_url": "https://huggingface.co/Sorihon/Chaotic-Order-24B-V2",
+      "likes": 4,
+      "officiality_evidence": "HF repo 'Sorihon/Chaotic-Order-24B-V2' owned by developer org 'Sorihon'; safetensors total=23572403200 (23.6B); no quant/finetune/merge markers in name; license=n/a",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "OrobasVault/Vespera-Synapse-31B",
+      "display_name": "Vespera-Synapse-31B",
+      "org": "OrobasVault",
+      "family": "Vespera-Synapse",
+      "param_count_b": 32.1,
+      "param_count_note": "32.1B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-26",
+      "hf_url": "https://huggingface.co/OrobasVault/Vespera-Synapse-31B",
+      "likes": 4,
+      "officiality_evidence": "HF repo 'OrobasVault/Vespera-Synapse-31B' owned by developer org 'OrobasVault'; safetensors total=32137304636 (32.1B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "trymirai/Qwen3.6-27B-M",
+      "display_name": "Qwen3.6-27B-M",
+      "org": "trymirai",
+      "family": "Qwen3.6-27B-M",
+      "param_count_b": 14.1,
+      "param_count_note": "14.1B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-18",
+      "hf_url": "https://huggingface.co/trymirai/Qwen3.6-27B-M",
+      "likes": 4,
+      "officiality_evidence": "HF repo 'trymirai/Qwen3.6-27B-M' owned by developer org 'trymirai'; safetensors total=14085711872 (14.1B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "YFC-112358/Qwen3.8-27B-Della-Deckard-Fable-Qwopus-ColdFusion-v4",
+      "display_name": "Qwen3.8-27B-Della-Deckard-Fable-Qwopus-ColdFusion-v4",
+      "org": "YFC-112358",
+      "family": "Qwen3.8-27B-Della-Deckard-Fable-Qwopus-ColdFusion-v4",
+      "param_count_b": 27.8,
+      "param_count_note": "27.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-18",
+      "hf_url": "https://huggingface.co/YFC-112358/Qwen3.8-27B-Della-Deckard-Fable-Qwopus-ColdFusion-v4",
+      "likes": 4,
+      "officiality_evidence": "HF repo 'YFC-112358/Qwen3.8-27B-Della-Deckard-Fable-Qwopus-ColdFusion-v4' owned by developer org 'YFC-112358'; safetensors total=27781427952 (27.8B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "mondk/Safetensors.chatgpt-gpt-codex-V2",
+      "display_name": "Safetensors.chatgpt-gpt-codex-V2",
+      "org": "mondk",
+      "family": "Safetensors.chatgpt-gpt-codex-V2",
+      "param_count_b": 4.0,
+      "param_count_note": "4.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-17",
+      "hf_url": "https://huggingface.co/mondk/Safetensors.chatgpt-gpt-codex-V2",
+      "likes": 4,
+      "officiality_evidence": "HF repo 'mondk/Safetensors.chatgpt-gpt-codex-V2' owned by developer org 'mondk'; safetensors total=4022468096 (4.0B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "SousiOmine/Lumi-v2-llm-jp-4-8b",
+      "display_name": "Lumi-v2-llm-jp-4-8b",
+      "org": "SousiOmine",
+      "family": "Lumi-v2-llm-jp-4",
+      "param_count_b": 8.6,
+      "param_count_note": "8.6B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-17",
+      "hf_url": "https://huggingface.co/SousiOmine/Lumi-v2-llm-jp-4-8b",
+      "likes": 4,
+      "officiality_evidence": "HF repo 'SousiOmine/Lumi-v2-llm-jp-4-8b' owned by developer org 'SousiOmine'; safetensors total=8590200832 (8.6B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "rdtand/Qwen3.8-27B-PrismaAQUA-gridbook-13GB-5080-vllm",
+      "display_name": "Qwen3.8-27B-PrismaAQUA-gridbook-13GB-5080-vllm",
+      "org": "rdtand",
+      "family": "Qwen3.8-27B-PrismaAQUA-gridbook-13GB-5080-vllm",
+      "param_count_b": 12.4,
+      "param_count_note": "12.4B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-16",
+      "hf_url": "https://huggingface.co/rdtand/Qwen3.8-27B-PrismaAQUA-gridbook-13GB-5080-vllm",
+      "likes": 4,
+      "officiality_evidence": "HF repo 'rdtand/Qwen3.8-27B-PrismaAQUA-gridbook-13GB-5080-vllm' owned by developer org 'rdtand'; safetensors total=12437376896 (12.4B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "mondk/Safetensors.claude_Deepseek-R1-Llama",
+      "display_name": "Safetensors.claude_Deepseek-R1-Llama",
+      "org": "mondk",
+      "family": "Safetensors.claude_Deepseek-R1-Llama",
+      "param_count_b": 8.0,
+      "param_count_note": "8.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-15",
+      "hf_url": "https://huggingface.co/mondk/Safetensors.claude_Deepseek-R1-Llama",
+      "likes": 4,
+      "officiality_evidence": "HF repo 'mondk/Safetensors.claude_Deepseek-R1-Llama' owned by developer org 'mondk'; safetensors total=8030261248 (8.0B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "EryriLabs/Lightning-Herald-30B-A3B",
+      "display_name": "Lightning-Herald-30B-A3B",
+      "org": "EryriLabs",
+      "family": "Lightning-Herald",
+      "param_count_b": 31.6,
+      "param_count_note": "31.6B dense",
+      "architecture": {
+        "type": "dense",
+        "active_experts": 6,
+        "modalities": [
+          "text"
+        ],
+        "license": "other"
+      },
+      "official_release_date": "2026-08-15",
+      "hf_url": "https://huggingface.co/EryriLabs/Lightning-Herald-30B-A3B",
+      "likes": 4,
+      "officiality_evidence": "HF repo 'EryriLabs/Lightning-Herald-30B-A3B' owned by developer org 'EryriLabs'; safetensors total=31577937344 (31.6B); no quant/finetune/merge markers in name; license=other",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "mondk/Safetensors.claude-sonnet-mistral-7b-it-v0.3",
+      "display_name": "Safetensors.claude-sonnet-mistral-7b-it-v0.3",
+      "org": "mondk",
+      "family": "Safetensors.claude-sonnet-mistral-7b-it-v",
+      "param_count_b": 7.2,
+      "param_count_note": "7.2B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-14",
+      "hf_url": "https://huggingface.co/mondk/Safetensors.claude-sonnet-mistral-7b-it-v0.3",
+      "likes": 4,
+      "officiality_evidence": "HF repo 'mondk/Safetensors.claude-sonnet-mistral-7b-it-v0.3' owned by developer org 'mondk'; safetensors total=7248023552 (7.2B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "mondk/Safetensors.chatgpt-gpt-gpt5.1-thinking",
+      "display_name": "Safetensors.chatgpt-gpt-gpt5.1-thinking",
+      "org": "mondk",
+      "family": "Safetensors.chatgpt-gpt-gpt5.1",
+      "param_count_b": 4.0,
+      "param_count_note": "4.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-14",
+      "hf_url": "https://huggingface.co/mondk/Safetensors.chatgpt-gpt-gpt5.1-thinking",
+      "likes": 4,
+      "officiality_evidence": "HF repo 'mondk/Safetensors.chatgpt-gpt-gpt5.1-thinking' owned by developer org 'mondk'; safetensors total=4022468096 (4.0B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Saanora/mark-1x-9b",
+      "display_name": "mark-1x-9b",
+      "org": "Saanora",
+      "family": "mark-1x",
+      "param_count_b": 9.0,
+      "param_count_note": "9.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "other"
+      },
+      "official_release_date": "2026-09-08",
+      "hf_url": "https://huggingface.co/Saanora/mark-1x-9b",
+      "likes": 3,
+      "officiality_evidence": "HF repo 'Saanora/mark-1x-9b' owned by developer org 'Saanora'; safetensors total=8953803264 (9.0B); no quant/finetune/merge markers in name; license=other",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "McG-221/Boulesis-26B-A4B-9bit",
+      "display_name": "Boulesis-26B-A4B-9bit",
+      "org": "McG-221",
+      "family": "Boulesis-26B-A4B-9bit",
+      "param_count_b": 26.0,
+      "param_count_note": "26.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ]
+      },
+      "official_release_date": "2026-09-08",
+      "hf_url": "https://huggingface.co/McG-221/Boulesis-26B-A4B-9bit",
+      "likes": 3,
+      "officiality_evidence": "HF repo 'McG-221/Boulesis-26B-A4B-9bit' owned by developer org 'McG-221'; safetensors total=25971250944 (26.0B); no quant/finetune/merge markers in name; license=n/a",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "ant-intl/O2-27b-preview",
+      "display_name": "O2-27b-preview",
+      "org": "ant-intl",
+      "family": "O2-27b",
+      "param_count_b": 27.4,
+      "param_count_note": "27.4B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-02",
+      "hf_url": "https://huggingface.co/ant-intl/O2-27b-preview",
+      "likes": 3,
+      "officiality_evidence": "HF repo 'ant-intl/O2-27b-preview' owned by developer org 'ant-intl'; safetensors total=27356728560 (27.4B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "stefanprodan/Apodex-1.1-mini-oQ4e-mtp",
+      "display_name": "Apodex-1.1-mini-oQ4e-mtp",
+      "org": "stefanprodan",
+      "family": "Apodex-1.1-mini-oQ4e-mtp",
+      "param_count_b": 36.0,
+      "param_count_note": "36.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-30",
+      "hf_url": "https://huggingface.co/stefanprodan/Apodex-1.1-mini-oQ4e-mtp",
+      "likes": 3,
+      "officiality_evidence": "HF repo 'stefanprodan/Apodex-1.1-mini-oQ4e-mtp' owned by developer org 'stefanprodan'; safetensors total=35951822704 (36.0B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "ross-dev/SexyGPT-v3-Thinking-Female",
+      "display_name": "SexyGPT-v3-Thinking-Female",
+      "org": "ross-dev",
+      "family": "SexyGPT-v3-Thinking-Female",
+      "param_count_b": 27.8,
+      "param_count_note": "27.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-29",
+      "hf_url": "https://huggingface.co/ross-dev/SexyGPT-v3-Thinking-Female",
+      "likes": 3,
+      "officiality_evidence": "HF repo 'ross-dev/SexyGPT-v3-Thinking-Female' owned by developer org 'ross-dev'; safetensors total=27781427952 (27.8B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Soomin33/Qwen3.8-Flash-Next-FP6",
+      "display_name": "Qwen3.8-Flash-Next-FP6",
+      "org": "Soomin33",
+      "family": "Qwen3.8-Flash-Next-FP6",
+      "param_count_b": 98.0,
+      "param_count_note": "98.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "other"
+      },
+      "official_release_date": "2026-08-28",
+      "hf_url": "https://huggingface.co/Soomin33/Qwen3.8-Flash-Next-FP6",
+      "likes": 3,
+      "officiality_evidence": "HF repo 'Soomin33/Qwen3.8-Flash-Next-FP6' owned by developer org 'Soomin33'; safetensors total=97971601299 (98.0B); no quant/finetune/merge markers in name; license=other",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "rdtand/Qwen3.8-27B-PrismaScout-AQUA-20GB",
+      "display_name": "Qwen3.8-27B-PrismaScout-AQUA-20GB",
+      "org": "rdtand",
+      "family": "Qwen3.8-27B-PrismaScout-AQUA-20GB",
+      "param_count_b": 17.4,
+      "param_count_note": "17.4B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-24",
+      "hf_url": "https://huggingface.co/rdtand/Qwen3.8-27B-PrismaScout-AQUA-20GB",
+      "likes": 3,
+      "officiality_evidence": "HF repo 'rdtand/Qwen3.8-27B-PrismaScout-AQUA-20GB' owned by developer org 'rdtand'; safetensors total=17434756096 (17.4B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "StargazerLabs/Qwen3.8-32B-Jumbo",
+      "display_name": "Qwen3.8-32B-Jumbo",
+      "org": "StargazerLabs",
+      "family": "Qwen3.8-32B-Jumbo",
+      "param_count_b": 31.9,
+      "param_count_note": "31.9B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-22",
+      "hf_url": "https://huggingface.co/StargazerLabs/Qwen3.8-32B-Jumbo",
+      "likes": 3,
+      "officiality_evidence": "HF repo 'StargazerLabs/Qwen3.8-32B-Jumbo' owned by developer org 'StargazerLabs'; safetensors total=31922952912 (31.9B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "philipjohnbasile/ornith-ai-Ornith-1.5-35B-A3B-V2-MTPLX",
+      "display_name": "ornith-ai-Ornith-1.5-35B-A3B-V2-MTPLX",
+      "org": "philipjohnbasile",
+      "family": "ornith-ai-Ornith-1.5-35B-A3B-V2-MTPLX",
+      "param_count_b": 35.1,
+      "param_count_note": "35.1B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ]
+      },
+      "official_release_date": "2026-08-22",
+      "hf_url": "https://huggingface.co/philipjohnbasile/ornith-ai-Ornith-1.5-35B-A3B-V2-MTPLX",
+      "likes": 3,
+      "officiality_evidence": "HF repo 'philipjohnbasile/ornith-ai-Ornith-1.5-35B-A3B-V2-MTPLX' owned by developer org 'philipjohnbasile'; safetensors total=35107180016 (35.1B); no quant/finetune/merge markers in name; license=n/a",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "ManniX-ITA/Qwen3.6-27B-A3B-CoderX",
+      "display_name": "Qwen3.6-27B-A3B-CoderX",
+      "org": "ManniX-ITA",
+      "family": "Qwen3.6-27B-A3B-CoderX",
+      "param_count_b": 25.6,
+      "param_count_note": "25.6B total (A8B active) MoE, 184 experts",
+      "architecture": {
+        "type": "moe",
+        "experts": 184,
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-21",
+      "hf_url": "https://huggingface.co/ManniX-ITA/Qwen3.6-27B-A3B-CoderX",
+      "likes": 3,
+      "officiality_evidence": "HF repo 'ManniX-ITA/Qwen3.6-27B-A3B-CoderX' owned by developer org 'ManniX-ITA'; safetensors total=25595015808 (25.6B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "DarkKitsune/Qwen3.5-9B-Qworus-V2",
+      "display_name": "Qwen3.5-9B-Qworus-V2",
+      "org": "DarkKitsune",
+      "family": "Qwen3.5-9B-Qworus-V2",
+      "param_count_b": 9.4,
+      "param_count_note": "9.4B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ]
+      },
+      "official_release_date": "2026-08-20",
+      "hf_url": "https://huggingface.co/DarkKitsune/Qwen3.5-9B-Qworus-V2",
+      "likes": 3,
+      "officiality_evidence": "HF repo 'DarkKitsune/Qwen3.5-9B-Qworus-V2' owned by developer org 'DarkKitsune'; safetensors total=9409813744 (9.4B); no quant/finetune/merge markers in name; license=n/a",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "cloudsurf-software/CloudSurf-4B-FC",
+      "display_name": "CloudSurf-4B-FC",
+      "org": "cloudsurf-software",
+      "family": "CloudSurf-4B-FC",
+      "param_count_b": 8.0,
+      "param_count_note": "8.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-17",
+      "hf_url": "https://huggingface.co/cloudsurf-software/CloudSurf-4B-FC",
+      "likes": 3,
+      "officiality_evidence": "HF repo 'cloudsurf-software/CloudSurf-4B-FC' owned by developer org 'cloudsurf-software'; safetensors total=7996156490 (8.0B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "mondk/claude_Deepseek-R1-Qwen3_safetensors",
+      "display_name": "claude_Deepseek-R1-Qwen3_safetensors",
+      "org": "mondk",
+      "family": "claude_Deepseek-R1-Qwen3_safetensors",
+      "param_count_b": 8.2,
+      "param_count_note": "8.2B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-15",
+      "hf_url": "https://huggingface.co/mondk/claude_Deepseek-R1-Qwen3_safetensors",
+      "likes": 3,
+      "officiality_evidence": "HF repo 'mondk/claude_Deepseek-R1-Qwen3_safetensors' owned by developer org 'mondk'; safetensors total=8190735360 (8.2B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Dxniz/Novelist1.0-27b",
+      "display_name": "Novelist1.0-27b",
+      "org": "Dxniz",
+      "family": "Novelist",
+      "param_count_b": 27.8,
+      "param_count_note": "27.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-15",
+      "hf_url": "https://huggingface.co/Dxniz/Novelist1.0-27b",
+      "likes": 3,
+      "officiality_evidence": "HF repo 'Dxniz/Novelist1.0-27b' owned by developer org 'Dxniz'; safetensors total=27781427952 (27.8B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "CMSManhattan/JiRackUltra_14b",
+      "display_name": "JiRackUltra_14b",
+      "org": "CMSManhattan",
+      "family": "JiRackUltra",
+      "param_count_b": 14.8,
+      "param_count_note": "14.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "mit"
+      },
+      "official_release_date": "2026-08-03",
+      "hf_url": "https://huggingface.co/CMSManhattan/JiRackUltra_14b",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'CMSManhattan/JiRackUltra_14b' owned by developer org 'CMSManhattan'; safetensors total=14770033664 (14.8B); no quant/finetune/merge markers in name; license=mit",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "ukuwzi/qweble-9b",
+      "display_name": "qweble-9b",
+      "org": "ukuwzi",
+      "family": "qweble",
+      "param_count_b": 9.0,
+      "param_count_note": "9.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-12",
+      "hf_url": "https://huggingface.co/ukuwzi/qweble-9b",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'ukuwzi/qweble-9b' owned by developer org 'ukuwzi'; safetensors total=8953803264 (9.0B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "inclusionAI/Ling-3.0-flash-Fin-fp4",
+      "display_name": "Ling-3.0-flash-Fin-fp4",
+      "org": "inclusionAI",
+      "family": "Ling",
+      "param_count_b": 65.6,
+      "param_count_note": "65.6B total (A8B active) MoE, 512 experts",
+      "architecture": {
+        "type": "hybrid",
+        "experts": 512,
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ],
+        "license": "mit"
+      },
+      "official_release_date": "2026-09-10",
+      "hf_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash-Fin-fp4",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'inclusionAI/Ling-3.0-flash-Fin-fp4' owned by developer org 'inclusionAI'; safetensors total=65578478560 (65.6B); no quant/finetune/merge markers in name; license=mit",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "hermitdave/K2-Horizon-7B-Uno-merged",
+      "display_name": "K2-Horizon-7B-Uno-merged",
+      "org": "hermitdave",
+      "family": "K2-Horizon-7B-Uno-merged",
+      "param_count_b": 9.0,
+      "param_count_note": "9.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-09",
+      "hf_url": "https://huggingface.co/hermitdave/K2-Horizon-7B-Uno-merged",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'hermitdave/K2-Horizon-7B-Uno-merged' owned by developer org 'hermitdave'; safetensors total=8999178240 (9.0B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "ThakiCloud/Qwen3.8-27B-Human-KO-Safety",
+      "display_name": "Qwen3.8-27B-Human-KO-Safety",
+      "org": "ThakiCloud",
+      "family": "Qwen3.8-27B-Human-KO-Safety",
+      "param_count_b": 27.8,
+      "param_count_note": "27.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-06",
+      "hf_url": "https://huggingface.co/ThakiCloud/Qwen3.8-27B-Human-KO-Safety",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'ThakiCloud/Qwen3.8-27B-Human-KO-Safety' owned by developer org 'ThakiCloud'; safetensors total=27781427952 (27.8B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "AlreadyAI/Bala-30B-A3B",
+      "display_name": "Bala-30B-A3B",
+      "org": "AlreadyAI",
+      "family": "Bala",
+      "param_count_b": 30.5,
+      "param_count_note": "30.5B total (A8B active) MoE, 128 experts",
+      "architecture": {
+        "type": "moe",
+        "experts": 128,
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-06",
+      "hf_url": "https://huggingface.co/AlreadyAI/Bala-30B-A3B",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'AlreadyAI/Bala-30B-A3B' owned by developer org 'AlreadyAI'; safetensors total=30532122624 (30.5B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "KyrlG/NousCoder-14B",
+      "display_name": "NousCoder-14B",
+      "org": "KyrlG",
+      "family": "NousCoder",
+      "param_count_b": 14.8,
+      "param_count_note": "14.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-02",
+      "hf_url": "https://huggingface.co/KyrlG/NousCoder-14B",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'KyrlG/NousCoder-14B' owned by developer org 'KyrlG'; safetensors total=14768307200 (14.8B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "RicardoEstep/RPBizkitRemiX-v1-12B",
+      "display_name": "RPBizkitRemiX-v1-12B",
+      "org": "RicardoEstep",
+      "family": "RPBizkitRemiX-v1",
+      "param_count_b": 12.2,
+      "param_count_note": "12.2B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ]
+      },
+      "official_release_date": "2026-09-01",
+      "hf_url": "https://huggingface.co/RicardoEstep/RPBizkitRemiX-v1-12B",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'RicardoEstep/RPBizkitRemiX-v1-12B' owned by developer org 'RicardoEstep'; safetensors total=12247782400 (12.2B); no quant/finetune/merge markers in name; license=n/a",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "GALXAI/GALX-Titan-27B-v2.0",
+      "display_name": "GALX-Titan-27B-v2.0",
+      "org": "GALXAI",
+      "family": "GALX-Titan-27B-v",
+      "param_count_b": 27.8,
+      "param_count_note": "27.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-31",
+      "hf_url": "https://huggingface.co/GALXAI/GALX-Titan-27B-v2.0",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'GALXAI/GALX-Titan-27B-v2.0' owned by developer org 'GALXAI'; safetensors total=27781427952 (27.8B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Prannesshkva/ISOM-R1-Enterprise-40B",
+      "display_name": "ISOM-R1-Enterprise-40B",
+      "org": "Prannesshkva",
+      "family": "ISOM-R1-Enterprise",
+      "param_count_b": 41.8,
+      "param_count_note": "41.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "cc-by-nc-nd-4.0"
+      },
+      "official_release_date": "2026-08-30",
+      "hf_url": "https://huggingface.co/Prannesshkva/ISOM-R1-Enterprise-40B",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'Prannesshkva/ISOM-R1-Enterprise-40B' owned by developer org 'Prannesshkva'; safetensors total=41835970560 (41.8B); no quant/finetune/merge markers in name; license=cc-by-nc-nd-4.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "JamieBradfield/qwen3.8-9b-hermes-fc-balanced",
+      "display_name": "qwen3.8-9b-hermes-fc-balanced",
+      "org": "JamieBradfield",
+      "family": "qwen3.8-9b-hermes-fc-balanced",
+      "param_count_b": 9.2,
+      "param_count_note": "9.2B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-30",
+      "hf_url": "https://huggingface.co/JamieBradfield/qwen3.8-9b-hermes-fc-balanced",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'JamieBradfield/qwen3.8-9b-hermes-fc-balanced' owned by developer org 'JamieBradfield'; safetensors total=9195119616 (9.2B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "nightmedia/Qwen3.5-9B-Brainwaves",
+      "display_name": "Qwen3.5-9B-Brainwaves",
+      "org": "nightmedia",
+      "family": "Qwen3.5-9B-Brainwaves",
+      "param_count_b": 9.7,
+      "param_count_note": "9.7B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text",
+          "vision"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-29",
+      "hf_url": "https://huggingface.co/nightmedia/Qwen3.5-9B-Brainwaves",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'nightmedia/Qwen3.5-9B-Brainwaves' owned by developer org 'nightmedia'; safetensors total=9653104368 (9.7B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "sh0wie/Qwen3.8-Flash-Next-REAP-288-bf16",
+      "display_name": "Qwen3.8-Flash-Next-REAP-288-bf16",
+      "org": "sh0wie",
+      "family": "Qwen3.8-Flash-Next-REAP-288-bf16",
+      "param_count_b": 124.5,
+      "param_count_note": "124.5B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "other"
+      },
+      "official_release_date": "2026-08-29",
+      "hf_url": "https://huggingface.co/sh0wie/Qwen3.8-Flash-Next-REAP-288-bf16",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'sh0wie/Qwen3.8-Flash-Next-REAP-288-bf16' owned by developer org 'sh0wie'; safetensors total=124517075091 (124.5B); no quant/finetune/merge markers in name; license=other",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "ForSureTesterSim/Qwen3-14B-NSFW-FDA",
+      "display_name": "Qwen3-14B-NSFW-FDA",
+      "org": "ForSureTesterSim",
+      "family": "Qwen3-14B-NSFW-FDA",
+      "param_count_b": 14.8,
+      "param_count_note": "14.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-25",
+      "hf_url": "https://huggingface.co/ForSureTesterSim/Qwen3-14B-NSFW-FDA",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'ForSureTesterSim/Qwen3-14B-NSFW-FDA' owned by developer org 'ForSureTesterSim'; safetensors total=14768307200 (14.8B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "alibaba-pai/SearchQwen2.5-7B",
+      "display_name": "SearchQwen2.5-7B",
+      "org": "alibaba-pai",
+      "family": "SearchQwen",
+      "param_count_b": 7.6,
+      "param_count_note": "7.6B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-24",
+      "hf_url": "https://huggingface.co/alibaba-pai/SearchQwen2.5-7B",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'alibaba-pai/SearchQwen2.5-7B' owned by developer org 'alibaba-pai'; safetensors total=7615616512 (7.6B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Veda-Labs/Vedika-Vyom-31B-v2",
+      "display_name": "Vedika-Vyom-31B-v2",
+      "org": "Veda-Labs",
+      "family": "Vedika-Vyom-31B-v2",
+      "param_count_b": 31.3,
+      "param_count_note": "31.3B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text",
+          "vision"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-24",
+      "hf_url": "https://huggingface.co/Veda-Labs/Vedika-Vyom-31B-v2",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'Veda-Labs/Vedika-Vyom-31B-v2' owned by developer org 'Veda-Labs'; safetensors total=31273088876 (31.3B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "ConicCat/Gleam-30B",
+      "display_name": "Gleam-30B",
+      "org": "ConicCat",
+      "family": "Gleam",
+      "param_count_b": 29.8,
+      "param_count_note": "29.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-23",
+      "hf_url": "https://huggingface.co/ConicCat/Gleam-30B",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'ConicCat/Gleam-30B' owned by developer org 'ConicCat'; safetensors total=29776626688 (29.8B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "shrugging-shoulders/Amberlight-Lux-12B",
+      "display_name": "Amberlight-Lux-12B",
+      "org": "shrugging-shoulders",
+      "family": "Amberlight-Lux",
+      "param_count_b": 12.2,
+      "param_count_note": "12.2B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-22",
+      "hf_url": "https://huggingface.co/shrugging-shoulders/Amberlight-Lux-12B",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'shrugging-shoulders/Amberlight-Lux-12B' owned by developer org 'shrugging-shoulders'; safetensors total=12247782400 (12.2B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "chartreuse-verte/prose-rewriter-4b-v1.2",
+      "display_name": "prose-rewriter-4b-v1.2",
+      "org": "chartreuse-verte",
+      "family": "prose-rewriter-4b-v",
+      "param_count_b": 4.4,
+      "param_count_note": "4.4B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "agpl-3.0"
+      },
+      "official_release_date": "2026-08-21",
+      "hf_url": "https://huggingface.co/chartreuse-verte/prose-rewriter-4b-v1.2",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'chartreuse-verte/prose-rewriter-4b-v1.2' owned by developer org 'chartreuse-verte'; safetensors total=4411424256 (4.4B); no quant/finetune/merge markers in name; license=agpl-3.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "dendriteholdings/teutonic-II-110B-genesis",
+      "display_name": "teutonic-II-110B-genesis",
+      "org": "dendriteholdings",
+      "family": "teutonic-II-110B-genesis",
+      "param_count_b": 110.3,
+      "param_count_note": "110.3B dense",
+      "architecture": {
+        "type": "dense",
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ]
+      },
+      "official_release_date": "2026-08-21",
+      "hf_url": "https://huggingface.co/dendriteholdings/teutonic-II-110B-genesis",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'dendriteholdings/teutonic-II-110B-genesis' owned by developer org 'dendriteholdings'; safetensors total=110280865472 (110.3B); no quant/finetune/merge markers in name; license=n/a",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "JamieBradfield/qwen3.8-9b-hermes-function-calling-v1",
+      "display_name": "qwen3.8-9b-hermes-function-calling-v1",
+      "org": "JamieBradfield",
+      "family": "qwen3.8-9b-hermes-function-calling-v1",
+      "param_count_b": 9.2,
+      "param_count_note": "9.2B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-20",
+      "hf_url": "https://huggingface.co/JamieBradfield/qwen3.8-9b-hermes-function-calling-v1",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'JamieBradfield/qwen3.8-9b-hermes-function-calling-v1' owned by developer org 'JamieBradfield'; safetensors total=9195119616 (9.2B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "frzr-labs/Yotsuba",
+      "display_name": "Yotsuba",
+      "org": "frzr-labs",
+      "family": "Yotsuba",
+      "param_count_b": 7.6,
+      "param_count_note": "7.6B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "openrail"
+      },
+      "official_release_date": "2026-08-20",
+      "hf_url": "https://huggingface.co/frzr-labs/Yotsuba",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'frzr-labs/Yotsuba' owned by developer org 'frzr-labs'; safetensors total=7615616512 (7.6B); no quant/finetune/merge markers in name; license=openrail",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "muradil211/ToolWeave_stage3",
+      "display_name": "ToolWeave_stage3",
+      "org": "muradil211",
+      "family": "ToolWeave_stage3",
+      "param_count_b": 4.4,
+      "param_count_note": "4.4B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ]
+      },
+      "official_release_date": "2026-08-19",
+      "hf_url": "https://huggingface.co/muradil211/ToolWeave_stage3",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'muradil211/ToolWeave_stage3' owned by developer org 'muradil211'; safetensors total=4411424256 (4.4B); no quant/finetune/merge markers in name; license=n/a",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "oracomputing/Qwen3-4B-ORA-W3",
+      "display_name": "Qwen3-4B-ORA-W3",
+      "org": "oracomputing",
+      "family": "Qwen3-4B-ORA-W3",
+      "param_count_b": 4.0,
+      "param_count_note": "4.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "other"
+      },
+      "official_release_date": "2026-08-19",
+      "hf_url": "https://huggingface.co/oracomputing/Qwen3-4B-ORA-W3",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'oracomputing/Qwen3-4B-ORA-W3' owned by developer org 'oracomputing'; safetensors total=4022468096 (4.0B); no quant/finetune/merge markers in name; license=other",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "trymirai/Qwen3.8-27B-M",
+      "display_name": "Qwen3.8-27B-M",
+      "org": "trymirai",
+      "family": "Qwen3.8-27B-M",
+      "param_count_b": 14.1,
+      "param_count_note": "14.1B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-18",
+      "hf_url": "https://huggingface.co/trymirai/Qwen3.8-27B-M",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'trymirai/Qwen3.8-27B-M' owned by developer org 'trymirai'; safetensors total=14085711872 (14.1B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "MTEnt/dot",
+      "display_name": "dot",
+      "org": "MTEnt",
+      "family": "dot",
+      "param_count_b": 9.0,
+      "param_count_note": "9.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-18",
+      "hf_url": "https://huggingface.co/MTEnt/dot",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'MTEnt/dot' owned by developer org 'MTEnt'; safetensors total=8953803264 (9.0B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "EryriLabs/gemma-4-e4b-cymraeg-v4",
+      "display_name": "gemma-4-e4b-cymraeg-v4",
+      "org": "EryriLabs",
+      "family": "gemma-4-e4b-cymraeg-v4",
+      "param_count_b": 8.6,
+      "param_count_note": "8.6B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-18",
+      "hf_url": "https://huggingface.co/EryriLabs/gemma-4-e4b-cymraeg-v4",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'EryriLabs/gemma-4-e4b-cymraeg-v4' owned by developer org 'EryriLabs'; safetensors total=8612189472 (8.6B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "logic65/Qwen3.8-Whittle-16B",
+      "display_name": "Qwen3.8-Whittle-16B",
+      "org": "logic65",
+      "family": "Qwen3.8-Whittle",
+      "param_count_b": 16.3,
+      "param_count_note": "16.3B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-16",
+      "hf_url": "https://huggingface.co/logic65/Qwen3.8-Whittle-16B",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'logic65/Qwen3.8-Whittle-16B' owned by developer org 'logic65'; safetensors total=16344368864 (16.3B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "logic65/Qwen3.8-p44w75-16.8B-unrepaired",
+      "display_name": "Qwen3.8-p44w75-16.8B-unrepaired",
+      "org": "logic65",
+      "family": "Qwen3.8-p44w75-16.8B-unrepaired",
+      "param_count_b": 16.3,
+      "param_count_note": "16.3B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-15",
+      "hf_url": "https://huggingface.co/logic65/Qwen3.8-p44w75-16.8B-unrepaired",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'logic65/Qwen3.8-p44w75-16.8B-unrepaired' owned by developer org 'logic65'; safetensors total=16344368864 (16.3B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "cyberneurova/cyberneurova-Qwen3.8-27B",
+      "display_name": "cyberneurova-Qwen3.8-27B",
+      "org": "cyberneurova",
+      "family": "cyberneurova-Qwen",
+      "param_count_b": 27.8,
+      "param_count_note": "27.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-15",
+      "hf_url": "https://huggingface.co/cyberneurova/cyberneurova-Qwen3.8-27B",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'cyberneurova/cyberneurova-Qwen3.8-27B' owned by developer org 'cyberneurova'; safetensors total=27781427952 (27.8B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Jaidchen/Focus-Red",
+      "display_name": "Focus-Red",
+      "org": "Jaidchen",
+      "family": "Focus-Red",
+      "param_count_b": 26.9,
+      "param_count_note": "26.9B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-15",
+      "hf_url": "https://huggingface.co/Jaidchen/Focus-Red",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'Jaidchen/Focus-Red' owned by developer org 'Jaidchen'; safetensors total=26895998464 (26.9B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "syaher/qwen2.5-coder-malay-7b",
+      "display_name": "qwen2.5-coder-malay-7b",
+      "org": "syaher",
+      "family": "qwen2.5-coder-malay",
+      "param_count_b": 7.6,
+      "param_count_note": "7.6B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-14",
+      "hf_url": "https://huggingface.co/syaher/qwen2.5-coder-malay-7b",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'syaher/qwen2.5-coder-malay-7b' owned by developer org 'syaher'; safetensors total=7615616512 (7.6B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "evsinlb/Qwen3.8-27B-oQ8e-fp16-mtp",
+      "display_name": "Qwen3.8-27B-oQ8e-fp16-mtp",
+      "org": "evsinlb",
+      "family": "Qwen3.8-27B-oQ8e-fp16-mtp",
+      "param_count_b": 27.8,
+      "param_count_note": "27.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-14",
+      "hf_url": "https://huggingface.co/evsinlb/Qwen3.8-27B-oQ8e-fp16-mtp",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'evsinlb/Qwen3.8-27B-oQ8e-fp16-mtp' owned by developer org 'evsinlb'; safetensors total=27781427952 (27.8B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "johninthepool/Qwen3.8-27B-MTPLX-bf16",
+      "display_name": "Qwen3.8-27B-MTPLX-bf16",
+      "org": "johninthepool",
+      "family": "Qwen3.8-27B-MTPLX-bf16",
+      "param_count_b": 26.9,
+      "param_count_note": "26.9B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-08-14",
+      "hf_url": "https://huggingface.co/johninthepool/Qwen3.8-27B-MTPLX-bf16",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'johninthepool/Qwen3.8-27B-MTPLX-bf16' owned by developer org 'johninthepool'; safetensors total=26895993856 (26.9B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Indexnusrefather/Erebus-RP-12B-Instruct-2608-v1",
+      "display_name": "Erebus-RP-12B-Instruct-2608-v1",
+      "org": "Indexnusrefather",
+      "family": "Erebus-RP-12B-Instruct-2608-v1",
+      "param_count_b": 11.8,
+      "param_count_note": "11.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "gemma"
+      },
+      "official_release_date": "2026-08-14",
+      "hf_url": "https://huggingface.co/Indexnusrefather/Erebus-RP-12B-Instruct-2608-v1",
+      "likes": 2,
+      "officiality_evidence": "HF repo 'Indexnusrefather/Erebus-RP-12B-Instruct-2608-v1' owned by developer org 'Indexnusrefather'; safetensors total=11766034176 (11.8B); no quant/finetune/merge markers in name; license=gemma",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "k-chirkunov/gemma4-e4b-claims-comparison",
+      "display_name": "gemma4-e4b-claims-comparison",
+      "org": "k-chirkunov",
+      "family": "gemma4-e4b-claims-comparison",
+      "param_count_b": 7.9,
+      "param_count_note": "7.9B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "gemma"
+      },
+      "official_release_date": "2026-07-14",
+      "hf_url": "https://huggingface.co/k-chirkunov/gemma4-e4b-claims-comparison",
+      "likes": 1,
+      "officiality_evidence": "HF repo 'k-chirkunov/gemma4-e4b-claims-comparison' owned by developer org 'k-chirkunov'; safetensors total=7941100874 (7.9B); no quant/finetune/merge markers in name; license=gemma",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Plmokn09/IPAI1.0",
+      "display_name": "IPAI1.0",
+      "org": "Plmokn09",
+      "family": "IPAI",
+      "param_count_b": 8.2,
+      "param_count_note": "8.2B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ]
+      },
+      "official_release_date": "2026-09-13",
+      "hf_url": "https://huggingface.co/Plmokn09/IPAI1.0",
+      "likes": 1,
+      "officiality_evidence": "HF repo 'Plmokn09/IPAI1.0' owned by developer org 'Plmokn09'; safetensors total=8190735360 (8.2B); no quant/finetune/merge markers in name; license=n/a",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "aigensciences/BioGravity-bilingual-Inst",
+      "display_name": "BioGravity-bilingual-Inst",
+      "org": "aigensciences",
+      "family": "BioGravity-bilingual-Inst",
+      "param_count_b": 29.6,
+      "param_count_note": "29.6B dense",
+      "architecture": {
+        "type": "dense",
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ]
+      },
+      "official_release_date": "2026-09-12",
+      "hf_url": "https://huggingface.co/aigensciences/BioGravity-bilingual-Inst",
+      "likes": 1,
+      "officiality_evidence": "HF repo 'aigensciences/BioGravity-bilingual-Inst' owned by developer org 'aigensciences'; safetensors total=29558812672 (29.6B); no quant/finetune/merge markers in name; license=n/a",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Diet-Panda/huginn-cs-tutor-v1",
+      "display_name": "huginn-cs-tutor-v1",
+      "org": "Diet-Panda",
+      "family": "huginn-cs-tutor-v1",
+      "param_count_b": 7.6,
+      "param_count_note": "7.6B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-12",
+      "hf_url": "https://huggingface.co/Diet-Panda/huginn-cs-tutor-v1",
+      "likes": 1,
+      "officiality_evidence": "HF repo 'Diet-Panda/huginn-cs-tutor-v1' owned by developer org 'Diet-Panda'; safetensors total=7615616512 (7.6B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Jeesup/svdsafety_l2_addbase_top256",
+      "display_name": "svdsafety_l2_addbase_top256",
+      "org": "Jeesup",
+      "family": "svdsafety_l2_addbase_top256",
+      "param_count_b": 6.7,
+      "param_count_note": "6.7B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "llama2"
+      },
+      "official_release_date": "2026-09-12",
+      "hf_url": "https://huggingface.co/Jeesup/svdsafety_l2_addbase_top256",
+      "likes": 1,
+      "officiality_evidence": "HF repo 'Jeesup/svdsafety_l2_addbase_top256' owned by developer org 'Jeesup'; safetensors total=6738415616 (6.7B); no quant/finetune/merge markers in name; license=llama2",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "OliviaRossi/TripleTrouble-V3",
+      "display_name": "TripleTrouble-V3",
+      "org": "OliviaRossi",
+      "family": "TripleTrouble-V3",
+      "param_count_b": 34.7,
+      "param_count_note": "34.7B total (A8B active) MoE, 256 experts",
+      "architecture": {
+        "type": "moe",
+        "experts": 256,
+        "active_experts": 8,
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-12",
+      "hf_url": "https://huggingface.co/OliviaRossi/TripleTrouble-V3",
+      "likes": 1,
+      "officiality_evidence": "HF repo 'OliviaRossi/TripleTrouble-V3' owned by developer org 'OliviaRossi'; safetensors total=34660610688 (34.7B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "win10/RWKV7-G1j-10B-A1B",
+      "display_name": "RWKV7-G1j-10B-A1B",
+      "org": "win10",
+      "family": "RWKV7-G1j",
+      "param_count_b": 9.8,
+      "param_count_note": "9.8B total (A4B active) MoE, 80 experts",
+      "architecture": {
+        "type": "moe",
+        "experts": 80,
+        "active_experts": 4,
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-12",
+      "hf_url": "https://huggingface.co/win10/RWKV7-G1j-10B-A1B",
+      "likes": 1,
+      "officiality_evidence": "HF repo 'win10/RWKV7-G1j-10B-A1B' owned by developer org 'win10'; safetensors total=9770365440 (9.8B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Osakra/Project-Norn-V17-4.5B",
+      "display_name": "Project-Norn-V17-4.5B",
+      "org": "Osakra",
+      "family": "Project-Norn-V17",
+      "param_count_b": 4.0,
+      "param_count_note": "4.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-12",
+      "hf_url": "https://huggingface.co/Osakra/Project-Norn-V17-4.5B",
+      "likes": 1,
+      "officiality_evidence": "HF repo 'Osakra/Project-Norn-V17-4.5B' owned by developer org 'Osakra'; safetensors total=4022468096 (4.0B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "face00/qwen2.5-7b-security-cot",
+      "display_name": "qwen2.5-7b-security-cot",
+      "org": "face00",
+      "family": "qwen2.5-7b-security-cot",
+      "param_count_b": 7.6,
+      "param_count_note": "7.6B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-12",
+      "hf_url": "https://huggingface.co/face00/qwen2.5-7b-security-cot",
+      "likes": 1,
+      "officiality_evidence": "HF repo 'face00/qwen2.5-7b-security-cot' owned by developer org 'face00'; safetensors total=7615616512 (7.6B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "ManniX-ITA/JackOD-9B-Coder",
+      "display_name": "JackOD-9B-Coder",
+      "org": "ManniX-ITA",
+      "family": "JackOD-9B",
+      "param_count_b": 9.7,
+      "param_count_note": "9.7B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-11",
+      "hf_url": "https://huggingface.co/ManniX-ITA/JackOD-9B-Coder",
+      "likes": 1,
+      "officiality_evidence": "HF repo 'ManniX-ITA/JackOD-9B-Coder' owned by developer org 'ManniX-ITA'; safetensors total=9653104368 (9.7B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "ryoji-info/Qwen3.5-9B-PsiLM",
+      "display_name": "Qwen3.5-9B-PsiLM",
+      "org": "ryoji-info",
+      "family": "Qwen3.5-9B-PsiLM",
+      "param_count_b": 9.0,
+      "param_count_note": "9.0B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-09-11",
+      "hf_url": "https://huggingface.co/ryoji-info/Qwen3.5-9B-PsiLM",
+      "likes": 1,
+      "officiality_evidence": "HF repo 'ryoji-info/Qwen3.5-9B-PsiLM' owned by developer org 'ryoji-info'; safetensors total=8953803264 (9.0B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": true,
+      "notes": ""
+    },
+    {
+      "model_id": "Qwen/Qwen3.6-27B",
+      "display_name": "Qwen3.6-27B",
+      "org": "Qwen",
+      "family": "Qwen",
+      "param_count_b": 27.8,
+      "param_count_note": "27.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text",
+          "vision"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-04-21",
+      "hf_url": "https://huggingface.co/Qwen/Qwen3.6-27B",
+      "likes": 2293,
+      "officiality_evidence": "HF repo 'Qwen/Qwen3.6-27B' owned by developer org 'Qwen'; safetensors total=27781427952 (27.8B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": false,
+      "notes": "[superseded by newer version Qwen3.8-27B]",
+      "superseded_by": "Qwen/Qwen3.8-27B"
+    },
+    {
+      "model_id": "ibm-granite/granite-4.1-8b",
+      "display_name": "granite-4.1-8b",
+      "org": "ibm-granite",
+      "family": "granite",
+      "param_count_b": 8.8,
+      "param_count_note": "8.8B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-04-06",
+      "hf_url": "https://huggingface.co/ibm-granite/granite-4.1-8b",
+      "likes": 255,
+      "officiality_evidence": "HF repo 'ibm-granite/granite-4.1-8b' owned by developer org 'ibm-granite'; safetensors total=8791592960 (8.8B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": false,
+      "notes": "[superseded by newer version granite-4.2-8b]",
+      "superseded_by": "ibm-granite/granite-4.2-8b"
+    },
+    {
+      "model_id": "ibm-granite/granite-4.1-30b",
+      "display_name": "granite-4.1-30b",
+      "org": "ibm-granite",
+      "family": "granite",
+      "param_count_b": 28.9,
+      "param_count_note": "28.9B dense",
+      "architecture": {
+        "type": "dense",
+        "modalities": [
+          "text"
+        ],
+        "license": "apache-2.0"
+      },
+      "official_release_date": "2026-04-06",
+      "hf_url": "https://huggingface.co/ibm-granite/granite-4.1-30b",
+      "likes": 146,
+      "officiality_evidence": "HF repo 'ibm-granite/granite-4.1-30b' owned by developer org 'ibm-granite'; safetensors total=28865728512 (28.9B); no quant/finetune/merge markers in name; license=apache-2.0",
+      "current_version": false,
+      "notes": "[superseded by newer version granite-4.2-30b]",
+      "superseded_by": "ibm-granite/granite-4.2-30b"
+    }
+  ]
+}

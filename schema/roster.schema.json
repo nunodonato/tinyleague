@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "raw/roster.json",
+  "description": "Candidate model list produced by discover.py before human/subagent finalization into models.json.",
+  "type": "object",
+  "required": ["generated_at", "candidates"],
+  "properties": {
+    "generated_at": { "type": "string" },
+    "method": { "type": "string" },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["model_id", "display_name", "param_count_b", "official_release_date", "hf_url"],
+        "properties": {
+          "model_id": { "type": "string" },
+          "display_name": { "type": "string" },
+          "org": { "type": "string" },
+          "family": { "type": "string" },
+          "param_count_b": { "type": "number" },
+          "param_count_note": { "type": "string" },
+          "architecture": { "type": "object" },
+          "official_release_date": { "type": "string", "format": "date" },
+          "hf_url": { "type": "string", "format": "uri" },
+          "likes": { "type": "integer" },
+          "officiality_evidence": { "type": "string" },
+          "current_version": { "type": "boolean" },
+          "superseded_by": { "type": "string" },
+          "must_include_family": { "type": "boolean", "description": "true if required to appear (Ornith / Ling / Spark X)" },
+          "notes": { "type": "string" }
+        }
+      }
+    }
+  }
+}

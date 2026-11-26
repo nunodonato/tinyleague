@@ -1,0 +1,248 @@
+{
+  "model_id": "Aleph-Alpha/Kolibri-1.1",
+  "scores": [
+    {
+      "benchmark": "GPQA Diamond",
+      "subtask": "EN",
+      "score": 87.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+      "notes": "Card-wide setup: identical prompts/few-shots for all models, run at each model's HIGHEST reasoning setting (highest effort or thinking enabled), in Aleph Alpha's eval-framework (TerminalBench and SWE-Bench in Harbor). German counterpart: GPQA Diamond (DE) 82.1.",
+      "retrieved_at": "2026-11-23T15:40:09Z"
+    },
+    {
+      "benchmark": "HLE",
+      "subtask": "Diamond",
+      "score": 10.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+      "notes": "Card's only English HLE figure is the Diamond subset, \"Humanity's Last Exam Diamond (EN)\" — recorded as HLE w/ Diamond subtask, the same handling as IFM Inkling-2-Mini. The card's German \"Humanity's Last Exam (DE)\" 22.1 is a translated suite and is not recorded.",
+      "retrieved_at": "2026-11-23T15:40:09Z"
+    },
+    {
+      "benchmark": "AIME 2025",
+      "subtask": "EN, highest reasoning",
+      "score": 98.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+      "notes": "German counterpart: AIME 2025 (DE) 95.2.",
+      "retrieved_at": "2026-11-23T15:40:09Z"
+    },
+    {
+      "benchmark": "AIME 2026",
+      "subtask": "EN, highest reasoning",
+      "score": 95.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+      "notes": "German counterpart: AIME 2026 (DE) 94.0.",
+      "retrieved_at": "2026-11-23T15:40:09Z"
+    },
+    {
+      "benchmark": "BeyondAIME",
+      "score": 83.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+      "retrieved_at": "2026-11-23T15:40:09Z"
+    },
+    {
+      "benchmark": "τ²-bench",
+      "subtask": "average over 3",
+      "score": 79.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+      "notes": "Mean of the card's three domains — Telecom 93.0, Retail 70.8, Airline 76.0 — rather than the single best domain, matching how Google gemma-4 records this benchmark.",
+      "retrieved_at": "2026-11-23T15:40:09Z"
+    },
+    {
+      "benchmark": "τ³-bench",
+      "subtask": "Banking",
+      "score": 28.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+      "notes": "Card reports only the Banking domain (\"Tau3-Bench (Banking)\").",
+      "retrieved_at": "2026-11-23T15:40:09Z"
+    },
+    {
+      "benchmark": "BFCL v4",
+      "subtask": "overall",
+      "score": 62.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+      "retrieved_at": "2026-11-23T15:40:09Z"
+    },
+    {
+      "benchmark": "BrowseComp",
+      "score": 34.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+      "retrieved_at": "2026-11-23T15:40:09Z"
+    },
+    {
+      "benchmark": "Terminal-Bench 2.1",
+      "score": 35.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+      "notes": "Run in the Harbor harness; card spells it \"TerminalBench 2.1\".",
+      "retrieved_at": "2026-11-23T15:40:09Z"
+    },
+    {
+      "benchmark": "LiveCodeBench v6",
+      "score": 93.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+      "retrieved_at": "2026-11-23T15:40:09Z"
+    },
+    {
+      "benchmark": "SciCode",
+      "subtask": "sub-step",
+      "score": 45.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+      "retrieved_at": "2026-11-23T15:40:09Z"
+    },
+    {
+      "benchmark": "SWE-bench Verified",
+      "score": 70.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+      "notes": "Run in the Harbor harness; card spells it \"SWE-Bench Verified\".",
+      "retrieved_at": "2026-11-23T15:40:09Z"
+    },
+    {
+      "benchmark": "IFBench",
+      "subtask": "loose-prompt",
+      "score": 82.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+      "retrieved_at": "2026-11-23T15:40:09Z"
+    },
+    {
+      "benchmark": "AA-Omniscience Accuracy",
+      "subtask": "public set",
+      "score": 17.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+      "retrieved_at": "2026-11-23T15:40:09Z"
+    },
+    {
+      "benchmark": "AA-Omniscience Index",
+      "subtask": "public set",
+      "score": -14.8,
+      "metric": "idx",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+      "notes": "Index runs −100..100 (credits correct answers, penalises guesses).",
+      "retrieved_at": "2026-11-23T15:40:09Z"
+    },
+    {
+      "benchmark": "AA-Omniscience Non-Hallucination",
+      "subtask": "public set",
+      "score": 61.1,
+      "metric": "%",
+      "source": "vendor-blog",
+      "source_url": "https://aleph-alpha.com/en/blog/kolibri-1-1/",
+      "notes": "Card gives the complementary Hallucination Rate 38.9 ↓ (public set); the launch post states the non-hallucination rate explicitly as 61.1% (= 100 − 38.9), up from 42.1% for Kolibri 1.0.",
+      "retrieved_at": "2026-11-23T15:40:09Z"
+    },
+    {
+      "benchmark": "AA-LCR",
+      "score": 71.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+      "retrieved_at": "2026-11-23T15:40:09Z"
+    },
+    {
+      "benchmark": "GraphWalks",
+      "subtask": "≤128k context",
+      "score": 64.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+      "retrieved_at": "2026-11-23T15:40:09Z"
+    },
+    {
+      "benchmark": "LongBenchPro",
+      "score": 65.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+      "notes": "Card spells it \"LongBench Pro\"; same benchmark as the roster's LongBenchPro column.",
+      "retrieved_at": "2026-11-23T15:40:09Z"
+    },
+    {
+      "benchmark": "RULER",
+      "subtask": "128K",
+      "score": 70.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+      "notes": "Mean of NIAH/VT/WE/QA at that input length, at temperature 0. Card curve: 4k 86.7, 8k 83.3, 16k 82.7, 32k 78.0, 64k 75.5, 128k 70.8, 256k 66.6, 512k 63.4, 1M 62.5.",
+      "retrieved_at": "2026-11-23T15:40:09Z"
+    },
+    {
+      "benchmark": "MMLU",
+      "subtask": "EN",
+      "score": 80.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+      "retrieved_at": "2026-11-23T15:40:09Z"
+    },
+    {
+      "benchmark": "MMLU-Pro",
+      "subtask": "EN",
+      "score": 59.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+      "notes": "German counterpart is a different suite, MMLU-ProX (DE) 54.3.",
+      "retrieved_at": "2026-11-23T15:40:09Z"
+    },
+    {
+      "benchmark": "BrowseComp-Plus",
+      "subtask": "dense retriever",
+      "score": 43.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+      "retrieved_at": "2026-11-23T15:40:09Z"
+    },
+    {
+      "benchmark": "WMT24++ MetricX",
+      "subtask": "EN → DE",
+      "score": 1.8,
+      "metric": "error (lower is better)",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+      "notes": "Deliberately its own column, not the roster's WMT24++ one: MetricX is an error score (lower better), incomparable with NVIDIA's 84.8 quality score. Reverse direction DE → EN: 2.8; both-direction average 2.3.",
+      "retrieved_at": "2026-11-23T15:40:09Z"
+    }
+  ],
+  "gaps": [
+    "No Artificial Analysis page exists for any Kolibri model (released 2026-11-20), so no AA cross-check of the card numbers.",
+    "No SWE-bench Pro, SWE-bench Multilingual, DeepSWE, Terminal-Bench 2.0 / 4, MCP-Atlas, Toolathlon or GAIA results.",
+    "No IFEval / Multi-IF, no HMMT Feb 2026, MATH500, GSM8K or MathVision (card's math suite is AIME 2025/2026, BeyondAIME, miniF2F).",
+    "No IFEval-family or Arena-Hard-V2; card's instruction-following suite is IFBench only.",
+    "No vision benchmarks — Kolibri 1.1 is text-only by design (card: BenchCAD reported text-only); MMMU Pro, CharXiv and OmniDocBench are not applicable.",
+    "No MRCR v2, no GDPval / GDP.pdf / JobBench / AutomationBench-style work suites, no ClawEval, no Terminal-Bench Science.",
+    "Card-only benchmarks not reported by any roster model, so left out of the tables: BenchCAD Code Edit 86.2 and QA 82.9, miniF2F 31.5, MuSiQue 86.4, Honeypot 83.3, Agentic Wiki QA (DE) 73.7, SQuAD M/A grounding 34.8, RGB, FRAMES 78.4, SealQA 79.4, AgentDojo, CyberSecEval 2, and five internal customer-proxy suites."
+  ],
+  "conflicts": [],
+  "retrieved_at": "2026-11-23T15:40:09Z"
+}

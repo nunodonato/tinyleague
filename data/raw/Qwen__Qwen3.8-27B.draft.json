@@ -1,0 +1,246 @@
+{
+  "model_id": "Qwen/Qwen3.8-27B",
+  "display_name": "Qwen3.8-27B",
+  "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+  "retrieved_at": "2026-09-05T09:07:09Z",
+  "html_tables": [
+    [
+      [
+        "",
+        "Qwen3.8-27B",
+        "Qwen3.6-27B",
+        "Qwen3.7-Plus",
+        "Muse Glimmer-30B",
+        "Opus4.6 Max"
+      ],
+      [
+        "Coding"
+      ],
+      [
+        "Agentic terminal coding Terminal Bench 2.1 (Terminus)",
+        "73.0",
+        "63.4",
+        "64.0",
+        "51.7",
+        "78.2"
+      ],
+      [
+        "Agentic coding SWE-bench Pro",
+        "61.7",
+        "53.5",
+        "57.6",
+        "51.2",
+        "53.4"
+      ],
+      [
+        "Repo-level code generation NL2Repo-Bench",
+        "42.3",
+        "36.2",
+        "41.1",
+        "--",
+        "47.6"
+      ],
+      [
+        "Agentic coding DeepSWE 1.1",
+        "42.2",
+        "13.3",
+        "14.2",
+        "--",
+        "--"
+      ],
+      [
+        "Software engineering QwenSWEBench",
+        "79.0",
+        "49.3",
+        "59.2",
+        "--",
+        "63.8"
+      ],
+      [
+        "Agent"
+      ],
+      [
+        "Long-horizon office work CoWorkBench",
+        "70.7",
+        "61.0",
+        "65.1",
+        "--",
+        "68.2"
+      ],
+      [
+        "Professional job tasks JobBench",
+        "33.4",
+        "21.8",
+        "27.6",
+        "--",
+        "--"
+      ],
+      [
+        "Frontier agentic tasks Agents' Last Exam",
+        "Pass@1 20.4 Score 42.9",
+        "Pass@1 10.6 Score 27.3",
+        "Pass@1 13.2 Score 33.6",
+        "--",
+        "--"
+      ],
+      [
+        "General"
+      ],
+      [
+        "Instruction following IFBench",
+        "79.5",
+        "69.1",
+        "79.1",
+        "77.0",
+        "62.5"
+      ],
+      [
+        "Scientific reasoning GPQA Diamond",
+        "89.2",
+        "87.8",
+        "90.3",
+        "83.5",
+        "91.3"
+      ],
+      [
+        "Multidisciplinary reasoning HLE",
+        "30.8",
+        "24.0",
+        "34.7",
+        "22.0",
+        "40.0"
+      ],
+      [
+        "Competitive coding LiveCodeBench v6",
+        "90.3",
+        "83.9",
+        "89.6",
+        "--",
+        "88.8"
+      ]
+    ],
+    [
+      [
+        "",
+        "Qwen3.8-27B",
+        "Qwen3.6-27B",
+        "Qwen3.7-Plus",
+        "Muse Glimmer-30B",
+        "Opus4.6 Max"
+      ],
+      [
+        "Agentic Multimodal Intelligence"
+      ],
+      [
+        "Computer use OSWorld-Verified",
+        "84.3",
+        "63.9",
+        "73.3",
+        "65.9",
+        "72.7"
+      ],
+      [
+        "Browser use WebArena-Verified",
+        "64.8",
+        "48.8",
+        "55.3",
+        "--",
+        "--"
+      ],
+      [
+        "Mobile use AndroidWorld",
+        "81.9",
+        "70.3",
+        "81.0",
+        "--",
+        "62.0"
+      ],
+      [
+        "Application recreation RecreationBench",
+        "47.1",
+        "29.8",
+        "30.2",
+        "--",
+        "--"
+      ],
+      [
+        "Multimodal tool use ClawEval-MM",
+        "Pass@3 57.4 Average 56.9",
+        "Pass@3 42.6 Average 50.4",
+        "Pass@3 57.4 Average 60.1",
+        "--",
+        "Pass@3 52.5 Average 54.7"
+      ],
+      [
+        "Multimodal software engineering SWE-MM",
+        "38.6",
+        "25.7",
+        "30.0",
+        "--",
+        "27.1"
+      ],
+      [
+        "Visual web development Vision2Web",
+        "62.9",
+        "45.0",
+        "42.1",
+        "--",
+        "--"
+      ],
+      [
+        "General Multimodal Intelligence"
+      ],
+      [
+        "Visual math problem solving MathVision",
+        "Without CI 90.0 With CI 94.6",
+        "Without CI 85.1",
+        "Without CI 90.3",
+        "--",
+        "Without CI 65.5"
+      ],
+      [
+        "General visual reasoning BabyVision",
+        "Without CI 65.7 With CI 85.6",
+        "Without CI 28.9",
+        "Without CI 64.7 With CI 70.4",
+        "--",
+        "Without CI 12.6"
+      ],
+      [
+        "Scientific chart analysis CharXiv (RQ)",
+        "Without CI 83.7 With CI 90.2",
+        "Without CI 78.4",
+        "Without CI 85.8 With CI 85.9",
+        "78.8",
+        "Without CI 66.0"
+      ],
+      [
+        "Document intelligence OmniDocBench 1.5",
+        "91.1",
+        "89.4",
+        "91.4",
+        "75.8",
+        "86.6"
+      ],
+      [
+        "Real-world perception RealWorldQA",
+        "85.9",
+        "84.1",
+        "86.9",
+        "--",
+        "73.9"
+      ],
+      [
+        "Embodied intelligence ERQA",
+        "65.5",
+        "62.5",
+        "69.8",
+        "--",
+        "40.8"
+      ]
+    ]
+  ],
+  "markdown_tables": [],
+  "sections": [],
+  "raw_chars": 64985
+}

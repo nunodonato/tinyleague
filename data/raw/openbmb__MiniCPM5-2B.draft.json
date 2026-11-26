@@ -1,0 +1,693 @@
+{
+  "model_id": "openbmb/MiniCPM5-2B",
+  "display_name": "MiniCPM5-2B",
+  "url": "https://huggingface.co/openbmb/MiniCPM5-2B",
+  "retrieved_at": "2026-09-07T15:26:28Z",
+  "html_tables": [
+    [
+      [
+        "",
+        "MiniCPM5-2B",
+        "2B-class Models",
+        "4B-class Models"
+      ],
+      [
+        "LFM2.5-2.6B",
+        "Qwen3.5-2B",
+        "Gemma-4-E2B-it",
+        "Qwen3.5-4B",
+        "granite-4.2-3B",
+        "Nemotron-3-Nano-4B",
+        "Gemma-4-E4B-it",
+        "LFM2.5-8B-A1B"
+      ],
+      [
+        "Average",
+        "53.9",
+        "33.2",
+        "28.0",
+        "24.6",
+        "51.1",
+        "42.7",
+        "32.6",
+        "31.2",
+        "28.4"
+      ],
+      [
+        "Code Reasoning"
+      ],
+      [
+        "LiveCodeBench v6",
+        "69.1",
+        "42.1",
+        "20.2",
+        "42.9",
+        "56.4",
+        "58.9",
+        "50.7",
+        "53.9",
+        "39.8"
+      ],
+      [
+        "LCB-Pro 25Q2 (Easy)",
+        "68.0",
+        "30.9",
+        "10.3",
+        "27.1",
+        "58.3",
+        "54.6",
+        "51.6",
+        "45.8",
+        "27.8"
+      ],
+      [
+        "LCB-Pro 25Q2 (Medium)",
+        "17.5",
+        "0.0",
+        "0.0",
+        "0.0",
+        "7.0",
+        "5.3",
+        "5.3",
+        "1.8",
+        "0.0"
+      ],
+      [
+        "OJBench",
+        "32.5",
+        "11.2",
+        "2.6",
+        "11.6",
+        "24.8",
+        "21.8",
+        "20.0",
+        "19.0",
+        "8.2"
+      ],
+      [
+        "SciCode (wbg)",
+        "26.3 †",
+        "14.2 †",
+        "2.8 †",
+        "20.9 †",
+        "16.1 †",
+        "24.9 †",
+        "16.4 †",
+        "24.4 †",
+        "7.8 †"
+      ],
+      [
+        "Math Reasoning"
+      ],
+      [
+        "AIME 2025",
+        "86.5",
+        "41.9",
+        "29.6",
+        "31.7",
+        "78.8",
+        "79.4",
+        "56.3",
+        "37.1",
+        "46.0"
+      ],
+      [
+        "AIME 2026",
+        "86.5",
+        "45.2",
+        "29.0",
+        "39.8",
+        "82.7",
+        "83.5",
+        "62.1",
+        "45.0",
+        "56.7"
+      ],
+      [
+        "HMMT Feb 2026",
+        "63.8",
+        "33.7",
+        "20.5",
+        "17.8",
+        "64.0",
+        "60.8",
+        "51.3",
+        "30.1",
+        "38.5"
+      ],
+      [
+        "MATH-500",
+        "94.6",
+        "89.6",
+        "85.8",
+        "85.4",
+        "99.0",
+        "97.0",
+        "91.6",
+        "88.2",
+        "93.2"
+      ],
+      [
+        "Instruction Following"
+      ],
+      [
+        "IFBench",
+        "66.3",
+        "59.0",
+        "46.0",
+        "25.7",
+        "59.0",
+        "73.0",
+        "58.3",
+        "28.3",
+        "51.0"
+      ],
+      [
+        "IFEval",
+        "86.7",
+        "93.4",
+        "77.5",
+        "31.4",
+        "90.2",
+        "93.7",
+        "88.0",
+        "44.4",
+        "90.8"
+      ],
+      [
+        "Multi-IF",
+        "71.8",
+        "76.8",
+        "57.1",
+        "40.3",
+        "73.6",
+        "75.9",
+        "65.9",
+        "45.9",
+        "71.4"
+      ],
+      [
+        "General Knowledge"
+      ],
+      [
+        "MMLU-Pro",
+        "70.8",
+        "65.2",
+        "64.3",
+        "56.0",
+        "78.0",
+        "65.8",
+        "65.7",
+        "68.3",
+        "63.1"
+      ],
+      [
+        "MMLU-Redux",
+        "84.7",
+        "80.0",
+        "80.0",
+        "71.8",
+        "88.7",
+        "78.9",
+        "79.8",
+        "83.7",
+        "80.0"
+      ],
+      [
+        "HLE",
+        "8.9 †",
+        "6.2 †",
+        "2.6 †",
+        "4.8 †",
+        "9.9 †",
+        "6.6 †",
+        "4.9 †",
+        "3.8 †",
+        "6.9 †"
+      ],
+      [
+        "GPQA-Diamond",
+        "70.2 †",
+        "55.8 †",
+        "45.6 †",
+        "43.3 †",
+        "77.1 †",
+        "55.9 †",
+        "51.3 †",
+        "57.6 †",
+        "51.3 †"
+      ],
+      [
+        "SuperGPQA",
+        "40.8",
+        "26.2",
+        "38.6",
+        "30.3",
+        "52.8",
+        "39.9",
+        "37.8",
+        "38.7",
+        "34.5"
+      ],
+      [
+        "Long Context"
+      ],
+      [
+        "AA-LCR",
+        "59.0 †",
+        "5.3 †",
+        "28.7 †",
+        "17.0 †",
+        "61.0 †",
+        "24.3 †",
+        "17.3 †",
+        "33.0 †",
+        "0.0 †"
+      ],
+      [
+        "NoLiMa",
+        "68.1",
+        "0.7",
+        "17.1",
+        "3.9",
+        "43.5",
+        "5.1",
+        "1.1",
+        "2.3",
+        "0.5"
+      ],
+      [
+        "LongBenchPro",
+        "44.8",
+        "23.7",
+        "8.2",
+        "42.2",
+        "58.4",
+        "34.8",
+        "27.9",
+        "53.5",
+        "19.6"
+      ],
+      [
+        "LongBench v2",
+        "43.7",
+        "30.3",
+        "24.9",
+        "33.2",
+        "47.3",
+        "36.0",
+        "32.0",
+        "42.7",
+        "30.4"
+      ],
+      [
+        "Tool Use"
+      ],
+      [
+        "τ³-Bench Banking",
+        "20.8 †",
+        "7.2 †",
+        "2.1",
+        "3.9",
+        "6.8 †",
+        "5.6 †",
+        "1.2",
+        "4.1",
+        "3.4"
+      ],
+      [
+        "τ²-Bench Telecom",
+        "97.1",
+        "90.4",
+        "69.0 †",
+        "20.8 †",
+        "92.1 †",
+        "40.9",
+        "28.1 †",
+        "20.8 †",
+        "16.1 †"
+      ],
+      [
+        "BFCL v4",
+        "66.6",
+        "61.1",
+        "43.6",
+        "36.6",
+        "56.8",
+        "52.2",
+        "43.7",
+        "47.0",
+        "49.2"
+      ],
+      [
+        "Coding Agent"
+      ],
+      [
+        "SWE-bench Verified",
+        "46.4",
+        "6.0",
+        "5.0",
+        "2.0",
+        "33.6",
+        "36.8",
+        "3.0",
+        "15.0",
+        "0.4"
+      ],
+      [
+        "SWE-bench Pro",
+        "14.4",
+        "0.6",
+        "0.8",
+        "0.0",
+        "28.2",
+        "12.3",
+        "0.1",
+        "3.3",
+        "0.4"
+      ],
+      [
+        "Terminal-Bench v2.1",
+        "8.6 †",
+        "4.5 †",
+        "3.0 †",
+        "0.4 †",
+        "25.8 †",
+        "13.9 †",
+        "3.8 †",
+        "1.9 †",
+        "1.9"
+      ],
+      [
+        "Search Agent"
+      ],
+      [
+        "BrowseComp-ZH",
+        "43.5",
+        "9.8",
+        "18.2",
+        "4.7",
+        "39.6",
+        "21.1",
+        "3.3",
+        "7.0",
+        "13.2"
+      ],
+      [
+        "BrowseComp Top100",
+        "39.7",
+        "13.7",
+        "19.3",
+        "6.0",
+        "33.3",
+        "19.0",
+        "4.7",
+        "6.3",
+        "9.7"
+      ],
+      [
+        "GAIA Text-103",
+        "88.7",
+        "49.5",
+        "47.9",
+        "30.1",
+        "78.6",
+        "57.3",
+        "26.5",
+        "39.5",
+        "41.1"
+      ],
+      [
+        "General Agent"
+      ],
+      [
+        "GDPval-AA v2",
+        "19.6 †",
+        "4.5",
+        "0.0",
+        "0.0",
+        "11.7",
+        "0.0 †",
+        "0.0",
+        "0.0",
+        "0.0"
+      ],
+      [
+        "Claw-Gym",
+        "59.2",
+        "19.3",
+        "25.5",
+        "31.3",
+        "51.6",
+        "60.0",
+        "33.7",
+        "37.9",
+        "2.7"
+      ],
+      [
+        "WildClaw",
+        "23.9",
+        "10.2",
+        "9.2",
+        "8.9",
+        "17.0",
+        "20.0",
+        "8.9",
+        "14.3",
+        "4.5"
+      ],
+      [
+        "QwenClaw",
+        "42.9",
+        "19.3",
+        "18.2",
+        "14.5",
+        "37.1",
+        "36.4",
+        "16.8",
+        "16.7",
+        "4.5"
+      ]
+    ]
+  ],
+  "markdown_tables": [
+    [
+      [
+        "Backend",
+        "Model format / use case",
+        "Cookbook",
+        "Agent Skill"
+      ],
+      [
+        "Transformers",
+        "BF16 / FP16 local Python inference, GPU + CPU",
+        "[transformers.md](https://github.com/OpenBMB/MiniCPM/blob/main/docs/deployment/transformers.md)",
+        "[minicpm5-deploy-transformers](https://github.com/OpenBMB/MiniCPM/blob/main/skills/minicpm5-deploy-transformers/SKILL.md)"
+      ],
+      [
+        "vLLM",
+        "BF16 / FP16 OpenAI server",
+        "[vllm.md](https://github.com/OpenBMB/MiniCPM/blob/main/docs/deployment/vllm.md)",
+        "[minicpm5-deploy-vllm](https://github.com/OpenBMB/MiniCPM/blob/main/skills/minicpm5-deploy-vllm/SKILL.md)"
+      ],
+      [
+        "SGLang",
+        "BF16 / FP16 OpenAI server, recommended for tool calling",
+        "[sglang.md](https://github.com/OpenBMB/MiniCPM/blob/main/docs/deployment/sglang.md)",
+        "[minicpm5-deploy-sglang](https://github.com/OpenBMB/MiniCPM/blob/main/skills/minicpm5-deploy-sglang/SKILL.md)"
+      ],
+      [
+        "llama.cpp",
+        "GGUF local inference, CPU/GPU",
+        "[llama_cpp.md](https://github.com/OpenBMB/MiniCPM/blob/main/docs/deployment/llama_cpp.md)",
+        "[minicpm5-deploy-llama-cpp](https://github.com/OpenBMB/MiniCPM/blob/main/skills/minicpm5-deploy-llama-cpp/SKILL.md)"
+      ],
+      [
+        "Ollama",
+        "GGUF local on-device runtime",
+        "[ollama.md](https://github.com/OpenBMB/MiniCPM/blob/main/docs/deployment/ollama.md)",
+        "[minicpm5-deploy-ollama](https://github.com/OpenBMB/MiniCPM/blob/main/skills/minicpm5-deploy-ollama/SKILL.md)"
+      ],
+      [
+        "LM Studio",
+        "GGUF Mac desktop app and OpenAI server",
+        "[lmstudio.md](https://github.com/OpenBMB/MiniCPM/blob/main/docs/deployment/lmstudio.md)",
+        "[minicpm5-deploy-lmstudio](https://github.com/OpenBMB/MiniCPM/blob/main/skills/minicpm5-deploy-lmstudio/SKILL.md)"
+      ],
+      [
+        "MLX",
+        "MLX / 4bit local inference on Apple Silicon",
+        "[mlx.md](https://github.com/OpenBMB/MiniCPM/blob/main/docs/deployment/mlx.md)",
+        "[minicpm5-deploy-mlx](https://github.com/OpenBMB/MiniCPM/blob/main/skills/minicpm5-deploy-mlx/SKILL.md)"
+      ],
+      [
+        "ArcLight",
+        "GGUF local on-device, CPU, Desktop & Server",
+        "[arclight.md](https://github.com/OpenBMB/MiniCPM/blob/main/docs/deployment/arclight.md)",
+        "[minicpm5-deploy-arclight](https://github.com/OpenBMB/MiniCPM/blob/main/skills/minicpm5-deploy-arclight/SKILL.md)"
+      ],
+      [
+        "vLLM Ascend",
+        "BF16 / FP16 OpenAI server",
+        "[vllm_ascend.md](https://github.com/OpenBMB/MiniCPM/blob/main/docs/deployment/vllm_ascend.md)",
+        "[minicpm5-deploy-vllm-ascend](https://github.com/OpenBMB/MiniCPM/blob/main/skills/minicpm5-deploy-vllm-ascend/SKILL.md)"
+      ]
+    ],
+    [
+      [
+        "Framework",
+        "Use case",
+        "Cookbook",
+        "Agent Skill"
+      ],
+      [
+        "TRL + PEFT",
+        "LoRA / SFT fine-tuning",
+        "[trl.md](https://github.com/OpenBMB/MiniCPM/blob/main/docs/finetune/trl.md)",
+        "[minicpm5-finetune-trl](https://github.com/OpenBMB/MiniCPM/blob/main/skills/minicpm5-finetune-trl/SKILL.md)"
+      ],
+      [
+        "LLaMA-Factory",
+        "Fine-tuning",
+        "[llamafactory.md](https://github.com/OpenBMB/MiniCPM/blob/main/docs/finetune/llamafactory.md)",
+        "[minicpm5-finetune-llamafactory](https://github.com/OpenBMB/MiniCPM/blob/main/skills/minicpm5-finetune-llamafactory/SKILL.md)"
+      ],
+      [
+        "ms-swift",
+        "Fine-tuning",
+        "[ms_swift.md](https://github.com/OpenBMB/MiniCPM/blob/main/docs/finetune/ms_swift.md)",
+        "[minicpm5-finetune-ms-swift](https://github.com/OpenBMB/MiniCPM/blob/main/skills/minicpm5-finetune-ms-swift/SKILL.md)"
+      ],
+      [
+        "unsloth",
+        "Fine-tuning",
+        "[unsloth.md](https://github.com/OpenBMB/MiniCPM/blob/main/docs/finetune/unsloth.md)",
+        "[minicpm5-finetune-unsloth](https://github.com/OpenBMB/MiniCPM/blob/main/skills/minicpm5-finetune-unsloth/SKILL.md)"
+      ]
+    ],
+    [
+      [
+        "Vendor",
+        "ModelScope",
+        "Huggingface"
+      ],
+      [
+        "Nvidia",
+        "[MiniCPM5-2B-nvidia-FlagOS](https://www.modelscope.cn/models/FlagRelease/MiniCPM5-2B-nvidia-FlagOS)",
+        "[MiniCPM5-2B-nvidia-FlagOS](https://huggingface.co/FlagRelease/MiniCPM5-2B-nvidia-FlagOS)"
+      ],
+      [
+        "Hygon",
+        "[MiniCPM5-2B-hygon-FlagOS](https://www.modelscope.cn/models/FlagRelease/MiniCPM5-2B-hygon-FlagOS)",
+        "[MiniCPM5-2B-hygon-FlagOS](https://huggingface.co/FlagRelease/MiniCPM5-2B-hygon-FlagOS)"
+      ],
+      [
+        "Metax",
+        "[MiniCPM5-2B-metax-FlagOS](https://www.modelscope.cn/models/FlagRelease/MiniCPM5-2B-metax-FlagOS)",
+        "[MiniCPM5-2B-metax-FlagOS](https://huggingface.co/FlagRelease/MiniCPM5-2B-metax-FlagOS)"
+      ],
+      [
+        "Iluvatar",
+        "[MiniCPM5-2B-iluvatar-FlagOS](https://www.modelscope.cn/models/FlagRelease/MiniCPM5-2B-iluvatar-FlagOS)",
+        "[MiniCPM5-2B-iluvatar-FlagOS](https://huggingface.co/FlagRelease/MiniCPM5-2B-iluvatar-FlagOS)"
+      ],
+      [
+        "Zhenwu",
+        "[MiniCPM5-2B-zhenwu-FlagOS](https://www.modelscope.cn/models/FlagRelease/MiniCPM5-2B-zhenwu-FlagOS)",
+        "[MiniCPM5-2B-zhenwu-FlagOS](https://huggingface.co/FlagRelease/MiniCPM5-2B-zhenwu-FlagOS)"
+      ],
+      [
+        "Mthreads",
+        "[MiniCPM5-2B-mthreads-FlagOS](https://www.modelscope.cn/models/FlagRelease/MiniCPM5-2B-mthreads-FlagOS)",
+        "[MiniCPM5-2B-mthreads-FlagOS](https://huggingface.co/FlagRelease/MiniCPM5-2B-mthreads-FlagOS)"
+      ],
+      [
+        "Kunlunxin",
+        "[MiniCPM5-2B-kunlunxin-FlagOS](https://www.modelscope.cn/models/FlagRelease/MiniCPM5-2B-kunlunxin-FlagOS)",
+        "[MiniCPM5-2B-kunlunxin-FlagOS](https://huggingface.co/FlagRelease/MiniCPM5-2B-kunlunxin-FlagOS)"
+      ],
+      [
+        "Ascend",
+        "[MiniCPM5-2B-ascend-FlagOS](https://modelscope.cn/models/FlagRelease/MiniCPM5-2B-ascend-FlagOS)",
+        "[MiniCPM5-2B-ascend-FlagOS](https://huggingface.co/FlagRelease/MiniCPM5-2B-ascend-FlagOS)"
+      ],
+      [
+        "ARM-v9",
+        "[MiniCPM5-2B-Armv9-FlagOS](https://modelscope.cn/models/FlagRelease/MiniCPM5-2B-Armv9-FlagOS)",
+        "[MiniCPM5-2B-Armv9-FlagOS](https://huggingface.co/FlagRelease/MiniCPM5-2B-Armv9-FlagOS)"
+      ]
+    ],
+    [
+      [
+        "Vendor",
+        "ModelScope",
+        "Huggingface"
+      ],
+      [
+        "Nvidia",
+        "[MiniCPM5-2B-nvidia-FlagOS](https://www.modelscope.cn/models/FlagRelease/MiniCPM5-2B-nvidia-FlagOS)",
+        "[MiniCPM5-2B-nvidia-FlagOS](https://huggingface.co/FlagRelease/MiniCPM5-2B-nvidia-FlagOS)"
+      ],
+      [
+        "Hygon",
+        "[MiniCPM5-2B-hygon-FlagOS](https://www.modelscope.cn/models/FlagRelease/MiniCPM5-2B-hygon-FlagOS)",
+        "[MiniCPM5-2B-hygon-FlagOS](https://huggingface.co/FlagRelease/MiniCPM5-2B-hygon-FlagOS)"
+      ],
+      [
+        "Metax",
+        "[MiniCPM5-2B-metax-FlagOS](https://www.modelscope.cn/models/FlagRelease/MiniCPM5-2B-metax-FlagOS)",
+        "[MiniCPM5-2B-metax-FlagOS](https://huggingface.co/FlagRelease/MiniCPM5-2B-metax-FlagOS)"
+      ],
+      [
+        "Iluvatar",
+        "[MiniCPM5-2B-iluvatar-FlagOS](https://www.modelscope.cn/models/FlagRelease/MiniCPM5-2B-iluvatar-FlagOS)",
+        "[MiniCPM5-2B-iluvatar-FlagOS](https://huggingface.co/FlagRelease/MiniCPM5-2B-iluvatar-FlagOS)"
+      ],
+      [
+        "Zhenwu",
+        "[MiniCPM5-2B-zhenwu-FlagOS](https://www.modelscope.cn/models/FlagRelease/MiniCPM5-2B-zhenwu-FlagOS)",
+        "[MiniCPM5-2B-zhenwu-FlagOS](https://huggingface.co/FlagRelease/MiniCPM5-2B-zhenwu-FlagOS)"
+      ],
+      [
+        "Mthreads",
+        "[MiniCPM5-2B-mthreads-FlagOS](https://www.modelscope.cn/models/FlagRelease/MiniCPM5-2B-mthreads-FlagOS)",
+        "[MiniCPM5-2B-mthreads-FlagOS](https://huggingface.co/FlagRelease/MiniCPM5-2B-mthreads-FlagOS)"
+      ],
+      [
+        "Kunlunxin",
+        "[MiniCPM5-2B-kunlunxin-FlagOS](https://www.modelscope.cn/models/FlagRelease/MiniCPM5-2B-kunlunxin-FlagOS)",
+        "[MiniCPM5-2B-kunlunxin-FlagOS](https://huggingface.co/FlagRelease/MiniCPM5-2B-kunlunxin-FlagOS)"
+      ],
+      [
+        "Ascend",
+        "[MiniCPM5-2B-ascend-FlagOS](https://modelscope.cn/models/FlagRelease/MiniCPM5-2B-ascend-FlagOS)",
+        "[MiniCPM5-2B-ascend-FlagOS](https://huggingface.co/FlagRelease/MiniCPM5-2B-ascend-FlagOS)"
+      ],
+      [
+        "ARM-v9",
+        "[MiniCPM5-2B-Armv9-FlagOS](https://modelscope.cn/models/FlagRelease/MiniCPM5-2B-Armv9-FlagOS)",
+        "[MiniCPM5-2B-Armv9-FlagOS](https://huggingface.co/FlagRelease/MiniCPM5-2B-Armv9-FlagOS)"
+      ]
+    ],
+    [
+      [
+        "Vendor",
+        "From Scratch",
+        "From FlagRelease"
+      ],
+      [
+        "Nvidia",
+        "[vllm-plugin-FL/MiniCPM5-2B](https://github.com/flagos-ai/vllm-plugin-FL/blob/main/examples/minicpm/README.md)",
+        "[MiniCPM5-2B-ModelScope](https://www.modelscope.cn/models/FlagRelease/MiniCPM5-2B-nvidia-FlagOS)",
+        "[MiniCPM5-2B-nvidia-FlagOS](https://huggingface.co/FlagRelease/MiniCPM5-2B-nvidia-FlagOS)"
+      ]
+    ]
+  ],
+  "sections": [
+    {
+      "heading": "Evaluation Results of MiniCPM5-2B and Baselines",
+      "text": "1. Blue bold indicates the best result across all models in the row (including 4B-class models); Black bold indicates the best result among 2B-class models. 2. Scores marked † come from the official Artificial Analysis release; all others are reproduced internally."
+    }
+  ],
+  "raw_chars": 107325
+}

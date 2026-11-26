@@ -1,0 +1,136 @@
+{
+  "model_id": "ornith-ai/Ornith-1.5-9B",
+  "scores": [
+    {
+      "benchmark": "Terminal-Bench 2.1",
+      "subtask": "Claude Code",
+      "score": 47.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B"
+    },
+    {
+      "benchmark": "SWE-bench Verified",
+      "score": 70.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B"
+    },
+    {
+      "benchmark": "SWE-bench Pro",
+      "score": 47.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B"
+    },
+    {
+      "benchmark": "SWE-bench Multilingual",
+      "score": 54.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B"
+    },
+    {
+      "benchmark": "NL2Repo-Bench",
+      "score": 32.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B"
+    },
+    {
+      "benchmark": "SWE Atlas - QnA",
+      "score": 20.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B"
+    },
+    {
+      "benchmark": "HLE",
+      "subtask": "with tools",
+      "score": 30.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B"
+    },
+    {
+      "benchmark": "GPQA Diamond",
+      "score": 86.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B"
+    },
+    {
+      "benchmark": "MCP-Atlas",
+      "score": 54.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B"
+    },
+    {
+      "benchmark": "Toolathlon-Verified",
+      "score": 41.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B"
+    },
+    {
+      "benchmark": "WideSearch",
+      "score": 59.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B"
+    },
+    {
+      "benchmark": "BrowseComp",
+      "score": 56.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B"
+    },
+    {
+      "benchmark": "ClawEval",
+      "score": 66.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B"
+    }
+  ],
+  "gaps": [
+    "MMLU-Pro",
+    "AIME",
+    "LiveCodeBench",
+    "IFEval",
+    "BFCL"
+  ],
+  "conflicts": [
+    {
+      "benchmark": "Terminal-Bench 2.1",
+      "values": [
+        {
+          "score": 46.2,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 47.0,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (47.0) per the highest-reasoning-level policy. Kept entries: Claude Code; Terminus-2."
+    },
+    {
+      "benchmark": "HLE",
+      "values": [
+        {
+          "score": 20.2,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 30.5,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (30.5) per the highest-reasoning-level policy. Kept entries: no tools; with tools."
+    }
+  ],
+  "retrieved_at": "2026-09-05T09:09:41Z"
+}

@@ -1,0 +1,391 @@
+{
+  "model_id": "thinkingmachines/Inkling-2-Mini",
+  "scores": [
+    {
+      "benchmark": "FrontierCode 2.0",
+      "score": 15.1,
+      "metric": "%",
+      "subtask": "stirrup v0.2.1",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+      "notes": "Card row 'FrontierCode v2.0 stirrup v0.2.1'."
+    },
+    {
+      "benchmark": "DeepSWE 1.1",
+      "score": 48.2,
+      "metric": "%",
+      "subtask": "mini-swe-agent v2.4.6",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "Terminal-Bench 4",
+      "score": 5.6,
+      "metric": "%",
+      "subtask": "mini-swe-agent v2.4.6",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+      "notes": "Card row 'Terminal Bench v4.0'."
+    },
+    {
+      "benchmark": "Terminal-Bench 2.1",
+      "score": 71.6,
+      "metric": "%",
+      "subtask": "Inkling 2 Mini in pi v0.83.0",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "SWE-bench Pro v2",
+      "score": 77.9,
+      "metric": "%",
+      "subtask": "Hard, mini-swe-agent v2.4.6",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+      "notes": "Card row 'SWEBench Pro v2 (Hard)'; v2 is a different release from the unversioned SWE-bench Pro column, so it stays separate."
+    },
+    {
+      "benchmark": "SWE-bench Multilingual",
+      "score": 73.7,
+      "metric": "%",
+      "subtask": "bash only",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "SWE-bench Verified",
+      "score": 79.2,
+      "metric": "%",
+      "subtask": "bash only",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "Vibe Code Bench 1.1",
+      "score": 77.9,
+      "metric": "%",
+      "subtask": "OpenHands harness (Vals)",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "PMPP-Hard",
+      "score": 455.82,
+      "metric": "AUC",
+      "subtask": "AUC over 0-10h, pi v0.83.0",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "BrowseComp",
+      "score": 79.0,
+      "metric": "%",
+      "subtask": "with compaction",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "DeepSearchQA",
+      "score": 85.3,
+      "metric": "%",
+      "subtask": "with compaction",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "MCP-Atlas",
+      "score": 82.7,
+      "metric": "%",
+      "subtask": "Public",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "AA-Briefcase 1.1",
+      "score": 1263,
+      "metric": "points",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "GDPval-AA-V2",
+      "score": 1319,
+      "metric": "points",
+      "subtask": "v2.1, overall",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+      "notes": "Card row 'GDPVal-AA v2.1'; point total, not a percentage."
+    },
+    {
+      "benchmark": "JobBench",
+      "score": 49.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "AutomationBench",
+      "score": 41.8,
+      "metric": "%",
+      "subtask": "v1.0.6, AA run",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+      "notes": "Card row 'AutomationBench-AA v1.0.6'."
+    },
+    {
+      "benchmark": "EnterpriseOps-Gym",
+      "score": 42.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "AA-AnalystAgent",
+      "score": 46.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "Diligence Bench",
+      "score": 48.6,
+      "metric": "%",
+      "subtask": "best harness",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "GDP.pdf",
+      "score": 16.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "PerceptionBench",
+      "score": 57.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "MMMU Pro",
+      "score": 74.9,
+      "metric": "%",
+      "subtask": "standard",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+      "notes": "Card row 'MMMU Pro Standard 10' (standard setting, 10 samples)."
+    },
+    {
+      "benchmark": "OmniDocBench 1.6",
+      "score": 92.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "ScreenSpot Pro",
+      "score": 76.5,
+      "metric": "%",
+      "subtask": "original",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+      "notes": "Card cell '76.5/87.7%' (original / with Python). Original kept for comparability; with Python tool use: 87.7%."
+    },
+    {
+      "benchmark": "Chartography",
+      "score": 22.1,
+      "metric": "%",
+      "subtask": "original",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+      "notes": "Card cell '22.1/72.5%' (original / with Python). Original kept; with Python tool use: 72.5%."
+    },
+    {
+      "benchmark": "ZeroBench",
+      "score": 17.0,
+      "metric": "%",
+      "subtask": "main set, original",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+      "notes": "Card cell '17.0/34.0%' (main set, original / with Python). Original kept; with Python tool use: 34.0%."
+    },
+    {
+      "benchmark": "MuirBench",
+      "score": 77.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "BVB",
+      "score": 68.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+      "notes": "Recorded under the card's label; card gives no expansion."
+    },
+    {
+      "benchmark": "HLE",
+      "score": 15.2,
+      "metric": "%",
+      "subtask": "Diamond",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+      "notes": "Card row 'HLE-Diamond'; recorded as the HLE family with the subset in subtask."
+    },
+    {
+      "benchmark": "CritPt",
+      "score": 31.4,
+      "metric": "%",
+      "subtask": "v2 Full",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+      "notes": "Card cell '31.4/17.0%' (Full / Hard). Full kept; Hard subset: 17.0%."
+    },
+    {
+      "benchmark": "Apex",
+      "score": 34.4,
+      "metric": "%",
+      "subtask": "2025 edition",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+      "notes": "Card row 'Apex 2025'."
+    },
+    {
+      "benchmark": "ARC-AGI v1",
+      "score": 84.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "ARC-AGI v2",
+      "score": 49.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "LongBench-v2",
+      "score": 66.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+      "notes": "Card row 'LongBench v2'."
+    },
+    {
+      "benchmark": "GraphWalks",
+      "score": 69.7,
+      "metric": "%",
+      "subtask": "BFS, 256K context",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "MRCR v2",
+      "score": 46.4,
+      "metric": "%",
+      "subtask": "8-needle, 256K-512K",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "AA-Omniscience Index",
+      "score": -8.6,
+      "metric": "idx",
+      "subtask": "v1.1",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+      "notes": "Card row 'AA-Omniscience v1.1 score'; negative values are normal."
+    },
+    {
+      "benchmark": "AA-Omniscience Non-Hallucination",
+      "score": 63.4,
+      "metric": "%",
+      "subtask": "v1.1",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "ComplexConstraints 1.1",
+      "score": 33.4,
+      "metric": "%",
+      "subtask": "OpenHands v1.45.0",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "FORTRESS",
+      "score": 89.5,
+      "metric": "%",
+      "subtask": "adversarial, public set",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+      "notes": "Benign set: 96.4% (card reports both variants of the same benchmark)."
+    },
+    {
+      "benchmark": "StrongREJECT",
+      "score": 97.8,
+      "metric": "%",
+      "subtask": "none",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "Misbehavior",
+      "score": 9.8,
+      "metric": "% (lower is better)",
+      "subtask": "internal eval",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "Covert Misbehavior",
+      "score": 8.3,
+      "metric": "% (lower is better)",
+      "subtask": "internal eval",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "Destructive Actions",
+      "score": 10.2,
+      "metric": "% (lower is better)",
+      "subtask": "internal eval",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "benchmark": "Terminal-Bench Science 0.1",
+      "score": 1.4,
+      "metric": "%",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/inkling-2-mini",
+      "notes": "AA row 'Terminal-Bench-Science 0.1'; AA's own run, no vendor figure on the card."
+    },
+    {
+      "benchmark": "AA-Omniscience Accuracy",
+      "subtask": "v1.1",
+      "score": 20.5,
+      "metric": "%",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/inkling-2-mini",
+      "notes": "AA's accuracy component; the card reported only the index and the non-hallucination rate."
+    }
+  ],
+  "gaps": [
+    "MMLU-Pro",
+    "GPQA Diamond",
+    "IFEval",
+    "AIME 2026",
+    "AA-LCR",
+    "SciCode",
+    "τ³-bench",
+    "Vals Index v2.2 and Vals Finance Index: aggregate indexes, not tracked",
+    "AA cross-check 2026-11-21: AA publishes no MMLU-Pro, GPQA, IFEval, AIME, AA-LCR, SciCode or τ³-bench value for this model."
+  ],
+  "conflicts": [],
+  "retrieved_at": "2026-11-21T12:00:00Z"
+}

@@ -1,0 +1,277 @@
+{
+  "model_id": "google/gemma-4-26B-A4B-it",
+  "scores": [
+    {
+      "benchmark": "MMLU-Pro",
+      "score": 82.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-26B-A4B-it",
+      "retrieved_at": "2026-11-21T19:45:00Z"
+    },
+    {
+      "benchmark": "AIME 2026",
+      "score": 88.3,
+      "metric": "%",
+      "subtask": "no tools",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-26B-A4B-it",
+      "retrieved_at": "2026-11-21T19:45:00Z"
+    },
+    {
+      "benchmark": "LiveCodeBench v6",
+      "score": 77.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-26B-A4B-it",
+      "retrieved_at": "2026-11-21T19:45:00Z"
+    },
+    {
+      "benchmark": "Codeforces ELO",
+      "score": 1718,
+      "metric": "rating",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-26B-A4B-it",
+      "retrieved_at": "2026-11-21T19:45:00Z"
+    },
+    {
+      "benchmark": "GPQA Diamond",
+      "score": 82.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-26B-A4B-it",
+      "retrieved_at": "2026-11-21T19:45:00Z"
+    },
+    {
+      "benchmark": "Tau2",
+      "score": 68.2,
+      "metric": "%",
+      "subtask": "average over 3",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-26B-A4B-it",
+      "retrieved_at": "2026-11-21T19:45:00Z"
+    },
+    {
+      "benchmark": "HLE",
+      "score": 8.7,
+      "metric": "%",
+      "subtask": "no tools",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-26B-A4B-it",
+      "retrieved_at": "2026-11-21T19:45:00Z"
+    },
+    {
+      "benchmark": "BigBench Extra Hard",
+      "score": 64.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-26B-A4B-it",
+      "retrieved_at": "2026-11-21T19:45:00Z"
+    },
+    {
+      "benchmark": "MMMLU",
+      "score": 86.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-26B-A4B-it",
+      "retrieved_at": "2026-11-21T19:45:00Z"
+    },
+    {
+      "benchmark": "MMMU Pro",
+      "score": 73.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-26B-A4B-it",
+      "retrieved_at": "2026-11-21T19:45:00Z"
+    },
+    {
+      "benchmark": "OmniDocBench 1.5",
+      "score": 0.149,
+      "metric": "avg edit distance",
+      "notes": "lower is better",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-26B-A4B-it",
+      "retrieved_at": "2026-11-21T19:45:00Z"
+    },
+    {
+      "benchmark": "MATH-Vision",
+      "score": 82.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-26B-A4B-it",
+      "retrieved_at": "2026-11-21T19:45:00Z"
+    },
+    {
+      "benchmark": "MedXPertQA MM",
+      "score": 58.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-26B-A4B-it",
+      "retrieved_at": "2026-11-21T19:45:00Z"
+    },
+    {
+      "benchmark": "MRCR v2",
+      "score": 44.1,
+      "metric": "%",
+      "subtask": "8 needle 128k (average)",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-26B-A4B-it",
+      "retrieved_at": "2026-11-21T19:45:00Z"
+    },
+    {
+      "benchmark": "Terminal-Bench 2.1",
+      "score": 38.95,
+      "metric": "%",
+      "subtask": "AA run",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/gemma-4-26b-a4b",
+      "notes": "Artificial Analysis' own run (0.3895); the model card reports no Terminal-Bench figure."
+    },
+    {
+      "benchmark": "Terminal-Bench Hard",
+      "score": 13.64,
+      "metric": "%",
+      "subtask": "AA run",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/gemma-4-26b-a4b",
+      "notes": "Artificial Analysis' own run (0.1364); not on the card."
+    },
+    {
+      "benchmark": "Terminal-Bench 4",
+      "score": 0.0,
+      "metric": "%",
+      "subtask": "AA run, Terminal-Bench 4.0",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/gemma-4-26b-a4b",
+      "notes": "AA's Terminal-Bench 4.0 run recorded 0; the card has no Terminal-Bench 4 figure."
+    },
+    {
+      "benchmark": "Terminal-Bench Science 0.1",
+      "score": 0.0,
+      "metric": "%",
+      "subtask": "AA run",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/gemma-4-26b-a4b",
+      "notes": "AA recorded 0 on this eval; the card reports no Terminal-Bench Science figure."
+    },
+    {
+      "benchmark": "SciCode",
+      "score": 40.05,
+      "metric": "%",
+      "subtask": "AA run",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/gemma-4-26b-a4b",
+      "notes": "Artificial Analysis' independent run (0.4005); not on the card."
+    },
+    {
+      "benchmark": "AA-LCR",
+      "score": 65.67,
+      "metric": "%",
+      "subtask": "AA run",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/gemma-4-26b-a4b",
+      "notes": "Artificial Analysis' long-context reasoning eval (0.6567); not on the card."
+    },
+    {
+      "benchmark": "IFBench",
+      "score": 72.45,
+      "metric": "%",
+      "subtask": "AA run",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/gemma-4-26b-a4b",
+      "notes": "Artificial Analysis' independent run (0.7245); not on the card."
+    },
+    {
+      "benchmark": "GDPval",
+      "score": 572.54,
+      "metric": "Elo",
+      "subtask": "AA run",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/gemma-4-26b-a4b",
+      "notes": "AA's GDPval Elo (572.54; interval 553.64-591.45); not on the card."
+    },
+    {
+      "benchmark": "GDP.pdf",
+      "score": 2.6,
+      "metric": "%",
+      "subtask": "AA all-pass",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/gemma-4-26b-a4b",
+      "notes": "AA's GDP.pdf all-pass rate (0.026); not on the card."
+    },
+    {
+      "benchmark": "AA-Omniscience Index",
+      "score": -52.03,
+      "metric": "idx",
+      "subtask": "v1.1",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/gemma-4-26b-a4b",
+      "notes": "AA v1.1 index; negative values are normal."
+    },
+    {
+      "benchmark": "AA-Omniscience Accuracy",
+      "score": 18.4,
+      "metric": "%",
+      "subtask": "v1.1",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/gemma-4-26b-a4b"
+    },
+    {
+      "benchmark": "AA-Omniscience Non-Hallucination",
+      "score": 13.7,
+      "metric": "%",
+      "subtask": "v1.1",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/gemma-4-26b-a4b"
+    },
+    {
+      "benchmark": "AA-Briefcase 1.1",
+      "score": 318,
+      "metric": "Elo",
+      "subtask": "overall",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/gemma-4-26b-a4b",
+      "notes": "AA Elo (briefcase, overall, reasoning variant). AA's independent run."
+    }
+  ],
+  "gaps": [
+    "HLE with search: the card reports 17.2 for the search-augmented variant; only the no-tools HLE is recorded so the column stays comparable.",
+    "CoVoST and FLEURS: the card reports '-' for 26B A4B (no audio modality on this size).",
+    "No AA Intelligence Index: AA publishes none for this model (intelligenceIndex null)."
+  ],
+  "conflicts": [
+    {
+      "benchmark": "Tau2",
+      "values": [
+        { "score": 68.2, "source": "huggingface-model-card (average over 3)" },
+        { "score": 43.57, "source": "artificial-analysis (their own run)" }
+      ],
+      "resolution": "Very wide gap (AA's run 0.4357 vs the card's 68.2 average). The card value stays primary; both are logged."
+    },
+    {
+      "benchmark": "GPQA Diamond",
+      "values": [
+        { "score": 82.3, "source": "huggingface-model-card" },
+        { "score": 79.19, "source": "artificial-analysis (their own run)" }
+      ],
+      "resolution": "AA's independent run is 3.1 points lower. The card value stays primary; both are logged."
+    },
+    {
+      "benchmark": "HLE",
+      "values": [
+        { "score": 8.7, "source": "huggingface-model-card (no tools)" },
+        { "score": 19.32, "source": "artificial-analysis (their own run)" }
+      ],
+      "resolution": "Different settings: the card reports no-tools HLE, AA reports its own run. The card figure stays as the recorded HLE score."
+    },
+    {
+      "benchmark": "MMMU Pro",
+      "values": [
+        { "score": 73.8, "source": "huggingface-model-card" },
+        { "score": 69.25, "source": "artificial-analysis (their own run)" }
+      ],
+      "resolution": "AA's run is 4.6 points lower. The card value stays primary; both are logged."
+    }
+  ],
+  "retrieved_at": "2026-11-21T19:45:00Z"
+}

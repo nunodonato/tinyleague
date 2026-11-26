@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "changelog.json",
+  "description": "Site changelog for the dashboard, newest entry first. Display-only; not part of the score data.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["date", "text"],
+    "additionalProperties": false,
+    "properties": {
+      "date": {
+        "type": "string",
+        "description": "human-readable date, e.g. '7 Sept 2026'"
+      },
+      "text": {
+        "type": "string",
+        "description": "a single sentence describing the change"
+      }
+    }
+  }
+}

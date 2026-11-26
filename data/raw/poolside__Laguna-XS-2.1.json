@@ -1,0 +1,51 @@
+{
+  "model_id": "poolside/Laguna-XS-2.1",
+  "scores": [
+    {
+      "benchmark": "SWE-bench Verified",
+      "subtask": "pass@1 (avg over 4 attempts)",
+      "score": 70.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/poolside/Laguna-XS-2.1",
+      "notes": "Harbor framework + pool agent harness, 256K ctx, thinking enabled."
+    },
+    {
+      "benchmark": "SWE-bench Multilingual",
+      "subtask": "pass@1 (avg over 4 attempts)",
+      "score": 63.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/poolside/Laguna-XS-2.1",
+      "notes": "Harbor framework. +5.4% jump vs prior Laguna XS.2 (57.7%)."
+    },
+    {
+      "benchmark": "SWE-bench Pro",
+      "subtask": "Public Dataset, pass@1 (avg over 2 attempts)",
+      "score": 47.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/poolside/Laguna-XS-2.1",
+      "notes": "Public dataset split."
+    },
+    {
+      "benchmark": "Terminal-Bench 2.0",
+      "subtask": "pass@1 (avg over 5 attempts)",
+      "score": 37.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/poolside/Laguna-XS-2.1",
+      "notes": "48 GB RAM / 32 CPUs."
+    }
+  ],
+  "gaps": [
+    "MMLU / MMLU-Pro (not reported; agentic coding model)",
+    "GPQA Diamond (not reported)",
+    "AIME (not reported)",
+    "LiveCodeBench (not reported)",
+    "IFEval (not reported)",
+    "Arena (not reported)"
+  ],
+  "conflicts": [],
+  "retrieved_at": "2026-09-05T10:30:00Z"
+}

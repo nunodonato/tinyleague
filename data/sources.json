@@ -1,0 +1,83 @@
+{
+  "sources": [
+    {
+      "key": "huggingface-model-card",
+      "name": "Hugging Face model card",
+      "type": "official-card",
+      "url": "https://huggingface.co/",
+      "reliability": "high",
+      "priority": 1,
+      "notes": "Vendor's own model card / README. PRIMARY source of truth for reported scores."
+    },
+    {
+      "key": "tech-report",
+      "name": "Official tech report / arXiv paper",
+      "type": "tech-report",
+      "url": "https://arxiv.org/",
+      "reliability": "high",
+      "priority": 1,
+      "notes": "Peer-style technical report. Tied with model card as primary; cross-check numbers."
+    },
+    {
+      "key": "artificial-analysis",
+      "name": "Artificial Analysis",
+      "type": "aggregator",
+      "url": "https://artificialanalysis.ai/",
+      "reliability": "high",
+      "priority": 2,
+      "notes": "Independently-reproduced benchmark scores (AA-LCR, τ³-bench, etc.). Fills gaps; its eval settings may differ from the vendor's. The AA Intelligence Index is not tracked. Newest models often only carry AA's newer index evals (AA-Briefcase, AA-Omniscience, Terminal-Bench Science, …) and have no GPQA/MMLU-Pro/AIME numbers yet — check /models/<slug> and record the absence in gaps."
+    },
+    {
+      "key": "vendor-blog",
+      "name": "Vendor blog / official announcement",
+      "type": "website",
+      "reliability": "high",
+      "priority": 2,
+      "notes": "Official company blog or launch page."
+    },
+    {
+      "key": "vendor-comparison-table",
+      "name": "Another vendor's comparison table",
+      "type": "website",
+      "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+      "reliability": "medium",
+      "priority": 3,
+      "notes": "Benchmark table on a different vendor's model card that lists this model under the same harness. Not the model's own card: usable to fill a column, always record the table's URL and say so in the score's notes."
+    },
+    {
+      "key": "x-official",
+      "name": "X (Twitter) official org post",
+      "type": "social",
+      "url": "https://x.com/",
+      "reliability": "medium",
+      "priority": 3,
+      "notes": "Official org announcement."
+    },
+    {
+      "key": "lmarena",
+      "name": "LMArena (formerly Chatbot Arena)",
+      "type": "leaderboard",
+      "url": "https://lmarena.ai/",
+      "reliability": "medium",
+      "priority": 3,
+      "notes": "Crowdsourced Elo / Arena score. Treat as a distinct benchmark, not a check on others."
+    },
+    {
+      "key": "open-llm-leaderboard",
+      "name": "Open LLM Leaderboard v2",
+      "type": "leaderboard",
+      "url": "https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard",
+      "reliability": "medium",
+      "priority": 3,
+      "notes": "HF-hosted eval leaderboard."
+    },
+    {
+      "key": "other-website",
+      "name": "Other reputable website",
+      "type": "website",
+      "reliability": "medium",
+      "priority": 4,
+      "notes": "Catch-all for a reputable non-listed source; always record source_url."
+    }
+  ]
+}

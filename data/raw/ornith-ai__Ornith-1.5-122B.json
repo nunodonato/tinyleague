@@ -1,0 +1,126 @@
+{
+  "model_id": "ornith-ai/Ornith-1.5-122B",
+  "scores": [
+    {
+      "benchmark": "Terminal-Bench 2.1",
+      "subtask": "Claude Code 2.1.126, avg of 5 runs",
+      "score": 81.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B",
+      "notes": "Card row 'TerminalBench 2.1'. Claude Code 2.1.126, parser=json, temperature=1.0, top_p=1.0, max_new_tokens=131072, averaged over 5 runs."
+    },
+    {
+      "benchmark": "CyberGym",
+      "score": 80.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B"
+    },
+    {
+      "benchmark": "NL2Repo-Bench",
+      "subtask": "400K context, 48K output",
+      "score": 51.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B",
+      "notes": "Card row 'NL2Repo'. temperature=1.0, top_p=1.0, 400K context, 48K output; GitHub/pip access blocked to prevent reward hacking."
+    },
+    {
+      "benchmark": "SWE-bench Pro",
+      "subtask": "no-hack, OpenHands harness",
+      "score": 76.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B",
+      "notes": "Card row 'SWE-bench Pro (no-hack)'. OpenHands harness, temperature=1.0, top_p=0.95, 256K context, anti-reward-hacking safeguards applied."
+    },
+    {
+      "benchmark": "SWE-bench Verified",
+      "subtask": "non-hack, OpenHands harness",
+      "score": 84.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B",
+      "notes": "Card row 'SWE-bench Verified (non-hack)'. OpenHands harness, 256K context, anti-reward-hacking safeguards applied."
+    },
+    {
+      "benchmark": "SWE-bench Multilingual",
+      "subtask": "non-hack, OpenHands harness",
+      "score": 76.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B",
+      "notes": "Card row 'SWE-bench Multilingual (non-hack)'. OpenHands harness, 256K context, anti-reward-hacking safeguards applied."
+    },
+    {
+      "benchmark": "HLE",
+      "subtask": "with tools",
+      "score": 48.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B",
+      "notes": "Card reports HLE twice: 48.0 with tools and 37.68 without. The with-tools figure matches the convention used for the other Ornith-1.5 entries; the no-tools figure also appears (rounded to 37.6) in the card's headline eval figure. Judge: Claude 4.6 Opus."
+    },
+    {
+      "benchmark": "SciCode",
+      "score": 53.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B"
+    },
+    {
+      "benchmark": "WideSearch",
+      "score": 75.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B"
+    },
+    {
+      "benchmark": "BrowseComp",
+      "score": 78.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B"
+    },
+    {
+      "benchmark": "MCP-Atlas",
+      "subtask": "thinking mode, 500-task public subset",
+      "score": 74.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B",
+      "notes": "Public 500-task subset, 10-minute timeout per task, judge Claude 4.8 Opus."
+    },
+    {
+      "benchmark": "Toolathlon-Verified",
+      "subtask": "128K max tokens",
+      "score": 70.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B",
+      "notes": "Official evaluation service, maximum token limit 128K."
+    },
+    {
+      "benchmark": "ClawEval",
+      "subtask": "256K context",
+      "score": 79.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B",
+      "notes": "Agentic code benchmark over real-user task distributions; temp=0.6, 256K context."
+    }
+  ],
+  "gaps": [
+    "GPQA Diamond",
+    "AIME 2026",
+    "MMLU-Pro",
+    "LiveCodeBench",
+    "HumanEval",
+    "MBPP",
+    "Arena",
+    "HLE w/o tools (37.68, card only — with-tools value kept per family convention)"
+  ],
+  "conflicts": [],
+  "retrieved_at": "2026-10-20T22:40:00Z"
+}

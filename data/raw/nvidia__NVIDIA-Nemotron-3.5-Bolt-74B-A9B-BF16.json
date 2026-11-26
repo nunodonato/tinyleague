@@ -1,0 +1,171 @@
+{
+  "model_id": "nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16",
+  "scores": [
+    {
+      "benchmark": "GPQA Diamond",
+      "score": 88.83,
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16",
+      "notes": "Card column 'Nemotron 3.5 Bolt 74B-A9B (BF16)'. Measured by NVIDIA under its own harness (NeMo Gym / Evaluator SDK)."
+    },
+    {
+      "benchmark": "HLE",
+      "subtask": "no tools",
+      "score": 28.73,
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16",
+      "notes": "AA independently measured 24.65 on this model (card: 28.73 no tools)."
+    },
+    {
+      "benchmark": "AA-Omniscience Accuracy",
+      "score": 21.8,
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16"
+    },
+    {
+      "benchmark": "AA-Omniscience Non-Hallucination",
+      "score": 56.14,
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16",
+      "notes": "Card row 'AA-Omniscience non-hallucination'."
+    },
+    {
+      "benchmark": "SciCode",
+      "score": 44.49,
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16",
+      "notes": "AA measured 39.70 (card 44.49)."
+    },
+    {
+      "benchmark": "AA-LCR",
+      "score": 67.38,
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16",
+      "notes": "Card states no index version; left unversioned like the other AA-LCR entries. AA's current run: 69.67."
+    },
+    {
+      "benchmark": "BrowseComp",
+      "score": 70.0,
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16"
+    },
+    {
+      "benchmark": "Terminal-Bench 2.1",
+      "score": 53.93,
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16"
+    },
+    {
+      "benchmark": "τ³-bench",
+      "subtask": "Banking",
+      "score": 17.01,
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16",
+      "notes": "Card row 'Tau3 Banking'."
+    },
+    {
+      "benchmark": "PinchBench",
+      "score": 90.35,
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16"
+    },
+    {
+      "benchmark": "MCP-Atlas",
+      "score": 55.6,
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16"
+    },
+    {
+      "benchmark": "WebArena",
+      "subtask": "vision",
+      "score": 50.25,
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16",
+      "notes": "Card row 'WebArena (vision)'; harness not stated, kept distinct from WebArena-Verified."
+    },
+    {
+      "benchmark": "GDPval-AA-V2",
+      "subtask": "overall, AA run (AA labels this GDPval-AA v2.1)",
+      "score": 979.03,
+      "metric": "points",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/nemotron-3-5-bolt-74b-a9b",
+      "notes": "Artificial Analysis' own GDPval-AA run (979.03 points) - the point-total unit the other roster entries use. The NVIDIA card's 'GDPVal-AA-V2 31.13' is a normalized 0-100 figure, not a point total, so it is not recorded. Note AA and NVIDIA harnesses disagree by a lot on this benchmark (AA measures Lightning at 639 vs 832 on its own card), and AA now runs v2.1 while the cards report v2.",
+      "retrieved_at": "2026-10-15T22:51:42Z"
+    },
+    {
+      "benchmark": "CritPt",
+      "score": 4.29,
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/nemotron-3-5-bolt-74b-a9b",
+      "metric": "%",
+      "notes": "Artificial Analysis measured 3/70 tasks; same percentage scale as the cards (AA puts Super VL at 10.57 vs 10.86 on its own card).",
+      "retrieved_at": "2026-10-15T22:53:48Z"
+    },
+    {
+      "benchmark": "Terminal-Bench 4",
+      "score": 0.0,
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/nemotron-3-5-bolt-74b-a9b",
+      "subtask": "AA run, labeled Terminal-Bench 4.0",
+      "metric": "%",
+      "notes": "AA's Terminal-Bench 4.0 run scored 0; NVIDIA reports the same release as 'Terminal Bench 4 [offline]' on the Super VL card (1.0).",
+      "retrieved_at": "2026-10-15T22:53:48Z"
+    },
+    {
+      "benchmark": "GDP.pdf",
+      "score": 2.8,
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/nemotron-3-5-bolt-74b-a9b",
+      "subtask": "AA all-pass",
+      "metric": "%",
+      "notes": "AA's GDP.pdf all-pass rate. Same percentage scale the cards use (Super VL card: 6.6, AA now measures 8.0).",
+      "retrieved_at": "2026-10-15T22:53:48Z"
+    },
+    {
+      "benchmark": "AA-Omniscience Index",
+      "score": -19.17,
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/nemotron-3-5-bolt-74b-a9b",
+      "metric": "idx",
+      "notes": "AA's own Omniscience index (accuracy 17.08, hallucination rate 43.72).",
+      "retrieved_at": "2026-10-15T22:53:48Z"
+    }
+  ],
+  "gaps": [
+    "SWE-bench Verified",
+    "SWE-bench Pro",
+    "SWE-bench Multilingual",
+    "LiveCodeBench v6",
+    "IFBench",
+    "IFEval",
+    "MMLU-Pro",
+    "AIME 2026",
+    "HMMT Feb 2026",
+    "BFCL v4",
+    "MRCR",
+    "Terminal-Bench 2.0",
+    "MMMU",
+    "MMMU Pro",
+    "MathVision",
+    "MathVista",
+    "AutomationBench-AA — AA only exposes a partial score (15.46), which is not the task-resolution figure NVIDIA reports under that name (Super VL 32.44); left unrecorded rather than mixed."
+  ],
+  "conflicts": [
+    {
+      "benchmark": "GDPval-AA-V2",
+      "values": [
+        {
+          "score": 31.13,
+          "source": "huggingface-model-card (normalized 0-100)"
+        },
+        {
+          "score": 979.03,
+          "source": "artificial-analysis (point total)"
+        }
+      ],
+      "resolution": "NVIDIA's card reports GDPval-AA v2 normalized to 0-100 (it gives Lightning 18.26 while Lightning's own card reports 832 AA points), so the units are not comparable. Kept AA's point total, which matches the unit used by the rest of this column."
+    }
+  ],
+  "retrieved_at": "2026-10-15T00:00:00Z"
+}

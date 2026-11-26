@@ -1,0 +1,160 @@
+{
+  "model_id": "IFM/K2-Horizon-MoVA-36B-A4B",
+  "display_name": "K2-Horizon-MoVA-36B-A4B",
+  "url": "https://huggingface.co/IFM/K2-Horizon-MoVA-36B-A4B",
+  "retrieved_at": "2026-09-07T12:16:18Z",
+  "html_tables": [
+    [
+      [
+        "",
+        "",
+        "Open-weight models"
+      ],
+      [
+        "",
+        "K2-Horizon-MoVA-36B-A4B",
+        "Nemotron 3 Ultra",
+        "Nemotron 3 Super",
+        "G9v3-39A5B",
+        "Qwen3.6-35B-A3B",
+        "Muse Glimmer-30B",
+        "Gemma 4 31B-it"
+      ],
+      [
+        "# Params",
+        "36B",
+        "550B",
+        "120B",
+        "39B",
+        "35B",
+        "30B",
+        "31B"
+      ],
+      [
+        "# Activated params",
+        "4B",
+        "55B",
+        "12B",
+        "5B",
+        "3B",
+        "30B",
+        "31B"
+      ],
+      [
+        "Architecture",
+        "MoE",
+        "MoE",
+        "MoE",
+        "MoE",
+        "MoE",
+        "Dense",
+        "Dense"
+      ],
+      [
+        "Agents"
+      ],
+      [
+        "tau3-Banking Agentic tool use",
+        "26.8",
+        "14.2",
+        "10.3",
+        "22.1",
+        "9.3",
+        "23.5",
+        "14.8"
+      ],
+      [
+        "Coding"
+      ],
+      [
+        "Terminal-Bench 2.1 Agentic terminal use",
+        "58.6",
+        "53.9",
+        "38.6",
+        "32.6",
+        "44.9",
+        "51.7",
+        "43.4"
+      ],
+      [
+        "SciCode Scientific coding",
+        "38.9",
+        "39.9",
+        "36.0",
+        "34.0",
+        "35.8",
+        "43.6",
+        "43.4"
+      ],
+      [
+        "Scientific Reasoning"
+      ],
+      [
+        "Humanity's Last Exam (without tools) Expert-level reasoning",
+        "25.2",
+        "28.4",
+        "20.8",
+        "17.5",
+        "22.2",
+        "22.0",
+        "23.6"
+      ],
+      [
+        "GPQA Diamond Graduate-level science QA",
+        "80.8",
+        "86.7",
+        "80.0",
+        "80.5",
+        "84.1",
+        "83.5",
+        "85.7"
+      ],
+      [
+        "CritPt Frontier physics reasoning",
+        "2.1",
+        "3.1",
+        "3.1",
+        "0.3",
+        "0.3",
+        "2.6",
+        "1.4"
+      ],
+      [
+        "General"
+      ],
+      [
+        "AA-LCR Long-context reasoning",
+        "66.3",
+        "71.0",
+        "60.3",
+        "62.0",
+        "66.7",
+        "80.0",
+        "68.3"
+      ],
+      [
+        "AA-Omniscience Accuracy Factual accuracy",
+        "18.8",
+        "22.6",
+        "24.3",
+        "14.9",
+        "18.8",
+        "27.0",
+        "20.0"
+      ],
+      [
+        "AA-Omniscience Non-Hallucination Non-hallucination rate",
+        "69.2",
+        "70.3",
+        "13.0",
+        "87.0",
+        "49.5",
+        "18.1",
+        "15.0"
+      ]
+    ]
+  ],
+  "markdown_tables": [],
+  "sections": [],
+  "raw_chars": 25478
+}

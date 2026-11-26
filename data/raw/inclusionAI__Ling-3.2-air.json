@@ -1,0 +1,237 @@
+{
+  "model_id": "inclusionAI/Ling-3.2-air",
+  "scores": [
+    {
+      "benchmark": "CritPt",
+      "score": 15.71,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+      "notes": "Card evaluation table row 'CritPt' (AA-run numbers); the card does not state the CritPt version."
+    },
+    {
+      "benchmark": "HLE",
+      "score": 31.42,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+      "notes": "Card row 'HLE' (AA-run numbers); no tool use stated."
+    },
+    {
+      "benchmark": "SciCode",
+      "score": 51.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air"
+    },
+    {
+      "benchmark": "Terminal-Bench 4",
+      "score": 27.0,
+      "metric": "%",
+      "subtask": "AA run, card row 'Terminal-Bench-4.0'",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+      "notes": "AA spells the same release '4.0'. Prose: pass rate rises from 0% (Ling-3.0-flash-VL) to 27%."
+    },
+    {
+      "benchmark": "SWE-bench Pro",
+      "score": 58.28,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air"
+    },
+    {
+      "benchmark": "DeepSWE",
+      "score": 42.48,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+      "notes": "Card row 'DeepSWE'; version not stated, so left unversioned."
+    },
+    {
+      "benchmark": "NL2Repo-Bench",
+      "score": 45.66,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+      "notes": "Card row 'NL2Repo'."
+    },
+    {
+      "benchmark": "ProgramBench",
+      "score": 11.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air"
+    },
+    {
+      "benchmark": "τ³-bench",
+      "score": 50.51,
+      "metric": "%",
+      "subtask": "Banking",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+      "notes": "Card row 'TAU3-Banking' (AA run)."
+    },
+    {
+      "benchmark": "AutomationBench",
+      "score": 61.0,
+      "metric": "%",
+      "subtask": "AA run, card row 'AutomationBench-AA'",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+      "notes": "Card does not state the AutomationBench version; AA's index evaluates v1.0.6. Prose: rises from 15.7% (Ling-3.0-flash-VL)."
+    },
+    {
+      "benchmark": "SkillsBench",
+      "score": 67.82,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+      "notes": "Card row 'SkillsBench' (AA run)."
+    },
+    {
+      "benchmark": "MCP-Atlas",
+      "score": 79.93,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+      "notes": "Card row 'Mcp-Atlas' (AA run)."
+    },
+    {
+      "benchmark": "Harvey LAB-AA v1.1",
+      "score": 8.3,
+      "metric": "%",
+      "subtask": "hallucination-gated all-pass",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+      "notes": "Card table value; prose adds 87.7% criterion pass rate, all-pass 8.3% before and 0.8% after the material hallucination check."
+    },
+    {
+      "benchmark": "BrowseComp",
+      "score": 85.47,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air"
+    },
+    {
+      "benchmark": "Finance Agent V2",
+      "score": 52.31,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+      "notes": "Card row 'Finance Agent V2' (AA run)."
+    },
+    {
+      "benchmark": "MMMU Pro",
+      "score": 79.02,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+      "notes": "Card row 'MMMU-Pro'."
+    },
+    {
+      "benchmark": "BabyVision",
+      "score": 66.49,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+      "notes": "Card row 'Babyvision'."
+    },
+    {
+      "benchmark": "ZeroBench",
+      "score": 15.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+      "notes": "Card row 'ZEROBench'; no tool use stated."
+    },
+    {
+      "benchmark": "MathVision",
+      "score": 95.66,
+      "metric": "%",
+      "subtask": "with CI",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+      "notes": "Card row 'MathVision (w/CI)'."
+    },
+    {
+      "benchmark": "OmniDocBench 1.5",
+      "score": 92.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+      "notes": "Card row 'OmniDocBench1.5'."
+    },
+    {
+      "benchmark": "CharXiv",
+      "score": 84.5,
+      "metric": "%",
+      "subtask": "RQ",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+      "notes": "Card row 'CharXiv_RQ'."
+    },
+    {
+      "benchmark": "GDP.pdf",
+      "score": 16.0,
+      "metric": "%",
+      "subtask": "AA all-pass",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+      "notes": "Card row 'GDP.pdf' (all-pass rate); prose: 8.4% (Ling-3.0-flash-VL) to 16%."
+    },
+    {
+      "benchmark": "GDPval-AA-V2",
+      "score": 1538.15,
+      "metric": "points",
+      "subtask": "v2.1, overall",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+      "notes": "Card row 'GDPval-AA v2.1' (Elo-style score)."
+    },
+    {
+      "benchmark": "AA-Briefcase 1.1",
+      "score": 1340.0,
+      "metric": "points",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+      "notes": "Elo-style score; prose: rises from 987 (Ling-3.0-flash-VL), a gain of 353 points."
+    },
+    {
+      "benchmark": "Vision2Web",
+      "score": 80.73,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+      "notes": "Card row 'Vision2web'."
+    },
+    {
+      "benchmark": "AndroidWorld",
+      "score": 79.31,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air"
+    }
+  ],
+  "gaps": [
+    "GPQA Diamond",
+    "MMLU-Pro",
+    "IFEval",
+    "IFBench",
+    "AIME 2026",
+    "SWE-bench Verified",
+    "LiveCodeBench",
+    "AA-LCR",
+    "AA-Omniscience Accuracy",
+    "AA-Omniscience Non-Hallucination",
+    "FrontierCode 2.0",
+    "Terminal-Bench Science 0.1",
+    "AA-AnalystAgent",
+    "ClawEval",
+    "MRCR v2",
+    "The card reports Artificial Analysis Intelligence Index v5.0.1 = 23 — an aggregate index, not tracked.",
+    "AA cross-check 2026-11-23: the AA model page confirms 124B total / 5.5B active, 1M context, text+image input, and the index score of 23, but exposes the per-evaluation numbers only in charts (no readable values) for AA-Omniscience v1.1, FrontierCode-AA 2.0, HLE-Diamond, CritPt v2, Terminal-Bench-Science 0.1 and AA-AnalystAgent."
+  ],
+  "conflicts": [],
+  "retrieved_at": "2026-11-23T16:20:00Z"
+}

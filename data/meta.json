@@ -1,0 +1,28 @@
+{
+  "project": "tinyleague",
+  "description": "Knowledge base of benchmark scores for recent open-weight AI models (1.5B-285B, official weights, current versions only).",
+  "generated_at": "2026-09-05T00:00:00Z",
+  "retrieved_at": "2026-09-05T00:00:00Z",
+  "cutoff_date": "2026-04-05",
+  "min_params_b": 1.5,
+  "max_params_b": 285,
+  "max_age_months": 5,
+  "min_models": 20,
+  "criteria": {
+    "official_only": true,
+    "no_quantizations": true,
+    "current_version_only": true,
+    "include_families": [
+      "Ornith",
+      "Ling",
+      "Spark X"
+    ],
+    "param_exemptions": [
+      "openbmb/MiniCPM5-2B"
+    ],
+    "age_exemptions": [
+      "google/gemma-4-26B-A4B-it"
+    ],
+    "notes": "Official weights only (no GGUF/AWQ/FP8/bnb/LoRA/finetune/merge). Skip models superseded by a newer version of the same family/size (e.g. skip Qwen3.6-27B if 3.8-27B exists). Score source-of-truth: official model card / tech report first; other sources fill gaps with attribution. age_exemptions lists model_ids kept despite the release cutoff, on explicit request (each is still logged in its models.json notes)."
+  }
+}

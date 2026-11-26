@@ -1,0 +1,128 @@
+{
+  "model_id": "openbmb/MiniCPM-V-4.7-35B-A3B",
+  "display_name": "MiniCPM-V-4.7-35B-A3B",
+  "url": "https://huggingface.co/openbmb/MiniCPM-V-4.7-35B-A3B",
+  "retrieved_at": "2026-10-12T17:41:00Z",
+  "html_tables": [
+    [
+      [
+        "35B-A3B iPhone 17 Pro Max",
+        "35B-A3B iPad M4"
+      ],
+      [
+        "",
+        ""
+      ]
+    ]
+  ],
+  "markdown_tables": [
+    [
+      [
+        "Parameter",
+        "Default",
+        "Applies to",
+        "Description"
+      ],
+      [
+        "`downsample_mode`",
+        "`\"16x\"`",
+        "Image & Video",
+        "Visual token downsampling. `\"16x\"` merges tokens for efficiency; `\"4x\"` keeps four times as many tokens for finer detail. **Must also be passed to `generate()`**."
+      ],
+      [
+        "`max_slice_nums`",
+        "`9`",
+        "Image & Video",
+        "Maximum number of slices when splitting a high-resolution image. Higher values preserve more detail for large images. Recommended: `36` for image, `1` for video."
+      ],
+      [
+        "`max_num_frames`",
+        "`128`",
+        "Video only",
+        "Maximum number of main frames sampled from the video."
+      ],
+      [
+        "`stack_frames`",
+        "`1`",
+        "Video only",
+        "Total sample points per second. `1` = main frame only (no stacking). `N` (N>1) = 1 main frame + N−1 sub-frames per second; the sub-frames are composited into a grid image and interleaved with main frames. Recommended: `3` or `5`."
+      ],
+      [
+        "`use_image_id`",
+        "`True`",
+        "Image & Video",
+        "Whether to prepend `<image_id>N</image_id>` tags before each image/frame placeholder. Recommended: `True` for image, `False` for video."
+      ]
+    ],
+    [
+      [
+        "Method",
+        "Guide"
+      ],
+      [
+        "GGUF",
+        "[Quantization guide](https://github.com/OpenSQZ/MiniCPM-V-CookBook/blob/main/quantization/gguf/minicpm-v4_7_gguf_quantize.md)"
+      ],
+      [
+        "BNB",
+        "[Quantization guide](https://github.com/OpenSQZ/MiniCPM-V-CookBook/blob/main/quantization/bnb/minicpm-v4_7_bnb_quantize.md)"
+      ],
+      [
+        "AWQ",
+        "[Quantization guide](https://github.com/OpenSQZ/MiniCPM-V-CookBook/blob/main/quantization/awq/minicpm-v4_7_awq_quantize.md)"
+      ],
+      [
+        "GPTQ",
+        "[Quantization guide](https://github.com/OpenSQZ/MiniCPM-V-CookBook/blob/main/quantization/gptq/minicpm-v4_7_gptq_quantize.md)"
+      ],
+      [
+        "FP8 / INT4",
+        "[Quantization guide](https://github.com/OpenSQZ/MiniCPM-V-CookBook/blob/main/quantization/llmcompressor/minicpm-v4_7_llmcompressor_quantize.md)"
+      ]
+    ],
+    [
+      [
+        "Model",
+        "Description",
+        "Download"
+      ],
+      [
+        "MiniCPM-V 4.7 35B-A3B",
+        "The first open-source MoE model to run smoothly on-device without compromising performance, raising the bar for on-device performance.",
+        "[🤗](https://huggingface.co/openbmb/MiniCPM-V-4.7-35B-A3B) &nbsp;&nbsp; [<img src=\"https://raw.githubusercontent.com/OpenBMB/MiniCPM-o/main/assets/modelscope_logo.png\" width=\"20px\"></img>](https://modelscope.cn/models/OpenBMB/MiniCPM-V-4.7-35B-A3B)"
+      ],
+      [
+        "MiniCPM-V 4.7 35B-A3B FP8",
+        "FP8 quantized version with lower GPU memory usage.",
+        "[🤗](https://huggingface.co/openbmb/MiniCPM-V-4.7-35B-A3B-FP8) &nbsp;&nbsp; [<img src=\"https://raw.githubusercontent.com/OpenBMB/MiniCPM-o/main/assets/modelscope_logo.png\" width=\"20px\"></img>](https://modelscope.cn/models/OpenBMB/MiniCPM-V-4.7-35B-A3B-FP8)"
+      ],
+      [
+        "MiniCPM-V 4.7 35B-A3B int4",
+        "int4 quantized version with lower GPU memory usage.",
+        "[🤗](https://huggingface.co/openbmb/MiniCPM-V-4.7-35B-A3B-int4) &nbsp;&nbsp; [<img src=\"https://raw.githubusercontent.com/OpenBMB/MiniCPM-o/main/assets/modelscope_logo.png\" width=\"20px\"></img>](https://modelscope.cn/models/OpenBMB/MiniCPM-V-4.7-35B-A3B-int4)"
+      ],
+      [
+        "MiniCPM-V 4.7 35B-A3B AWQ",
+        "AWQ (W4A16) quantized version with lower GPU memory usage.",
+        "[🤗](https://huggingface.co/openbmb/MiniCPM-V-4.7-35B-A3B-AWQ) &nbsp;&nbsp; [<img src=\"https://raw.githubusercontent.com/OpenBMB/MiniCPM-o/main/assets/modelscope_logo.png\" width=\"20px\"></img>](https://modelscope.cn/models/OpenBMB/MiniCPM-V-4.7-35B-A3B-AWQ)"
+      ],
+      [
+        "MiniCPM-V 4.7 35B-A3B GPTQ",
+        "GPTQ (W4A16) quantized version with lower GPU memory usage.",
+        "[🤗](https://huggingface.co/openbmb/MiniCPM-V-4.7-35B-A3B-GPTQ) &nbsp;&nbsp; [<img src=\"https://raw.githubusercontent.com/OpenBMB/MiniCPM-o/main/assets/modelscope_logo.png\" width=\"20px\"></img>](https://modelscope.cn/models/OpenBMB/MiniCPM-V-4.7-35B-A3B-GPTQ)"
+      ],
+      [
+        "MiniCPM-V 4.7 35B-A3B GGUF",
+        "GGUF version with lower memory usage for CPU inference.",
+        "[🤗](https://huggingface.co/openbmb/MiniCPM-V-4.7-35B-A3B-gguf) &nbsp;&nbsp; [<img src=\"https://raw.githubusercontent.com/OpenBMB/MiniCPM-o/main/assets/modelscope_logo.png\" width=\"20px\"></img>](https://modelscope.cn/models/OpenBMB/MiniCPM-V-4.7-35B-A3B-gguf)"
+      ],
+      [
+        "MiniCPM-V 4.7 35B-A3B DSpark",
+        "DSpark draft model for speculative decoding.",
+        "[🤗](https://huggingface.co/openbmb/MiniCPM-V-4.7-35B-A3B-DSpark) &nbsp;&nbsp; [<img src=\"https://raw.githubusercontent.com/OpenBMB/MiniCPM-o/main/assets/modelscope_logo.png\" width=\"20px\"></img>](https://modelscope.cn/models/OpenBMB/MiniCPM-V-4.7-35B-A3B-DSpark)"
+      ]
+    ]
+  ],
+  "sections": [],
+  "raw_chars": 22127
+}

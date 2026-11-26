@@ -1,0 +1,60 @@
+{
+  "model_id": "Qwen/Qwen-AgentWorld-35B-A3B",
+  "scores": [
+    {
+      "benchmark": "AgentWorldBench",
+      "subtask": "OS",
+      "score": 65.92,
+      "metric": "0-100 (rubric mean)",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Qwen/Qwen-AgentWorld-35B-A3B"
+    }
+  ],
+  "gaps": [
+    "MMLU / MMLU-Pro (not reported; specialized world model)",
+    "GPQA Diamond (not reported)",
+    "AIME (not reported)",
+    "Arena (not reported)"
+  ],
+  "conflicts": [
+    {
+      "benchmark": "AgentWorldBench",
+      "values": [
+        {
+          "score": 56.39,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 64.79,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 36.69,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 53.96,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 65.63,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 58.17,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 49.55,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 65.92,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (65.92) per the highest-reasoning-level policy. Kept entries: Android; MCP; OS; Overall; SWE; Search; Terminal; Web."
+    }
+  ],
+  "retrieved_at": "2026-09-05T18:45:19Z"
+}

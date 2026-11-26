@@ -1,0 +1,243 @@
+{
+  "model_id": "meituan-longcat/LongCat-Flash-Lite-Sparse",
+  "display_name": "LongCat-Flash-Lite-Sparse",
+  "url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+  "retrieved_at": "2026-09-05T09:07:22Z",
+  "html_tables": [],
+  "markdown_tables": [
+    [
+      [
+        "Benchmark",
+        "Lite-Dense",
+        "Lite-Sparse (w/o HI)",
+        "Lite-Sparse (w/ HI)"
+      ],
+      [
+        "**Agentic Coding**",
+        "",
+        "",
+        ""
+      ],
+      [
+        "SWE-Bench Verified(acc)",
+        "54.40",
+        "68.20",
+        "65.20"
+      ],
+      [
+        "SWE-Bench Pro(acc)",
+        "-",
+        "40.63",
+        "39.40"
+      ],
+      [
+        "SWE-Bench Multilingual(acc)",
+        "38.10",
+        "59.33",
+        "56.00"
+      ],
+      [
+        "TerminalBench 2.0(acc)",
+        "33.75",
+        "33.70",
+        "32.58"
+      ],
+      [
+        "**Agentic Tool Use**",
+        "",
+        "",
+        ""
+      ],
+      [
+        "τ²-Telecom(avg@4)",
+        "72.80",
+        "95.18",
+        "96.05"
+      ],
+      [
+        "VitaBench(avg@4)",
+        "7.00",
+        "21.67",
+        "20.42"
+      ],
+      [
+        "MCP-Atlas",
+        "-",
+        "45.60",
+        "45.00"
+      ],
+      [
+        "**Agentic Search**",
+        "",
+        "",
+        ""
+      ],
+      [
+        "BrowseComp(pass@1)",
+        "-",
+        "48.62",
+        "48.18"
+      ],
+      [
+        "BrowseComp-zh(pass@1)",
+        "-",
+        "61.94",
+        "61.59"
+      ],
+      [
+        "RWSearch(pass@1)",
+        "-",
+        "68.50",
+        "66.00"
+      ],
+      [
+        "**General Domains**",
+        "",
+        "",
+        ""
+      ],
+      [
+        "MMLU(acc)",
+        "85.52",
+        "85.31",
+        "85.14"
+      ],
+      [
+        "MMLU-Pro(acc)",
+        "78.29",
+        "79.24",
+        "78.68"
+      ],
+      [
+        "CMMLU(acc)",
+        "82.48",
+        "84.25",
+        "84.51"
+      ],
+      [
+        "C-Eval(acc)",
+        "86.55",
+        "85.76",
+        "85.71"
+      ],
+      [
+        "**Mathematical Reasoning**",
+        "",
+        "",
+        ""
+      ],
+      [
+        "GPQA-Diamond(avg@16)",
+        "66.78",
+        "69.49",
+        "69.03"
+      ],
+      [
+        "MATH500(acc)",
+        "96.80",
+        "95.80",
+        "96.80"
+      ],
+      [
+        "AIME 2026(avg@32)",
+        "-",
+        "65.73",
+        "64.90"
+      ],
+      [
+        "HMMT 2026 Feb(avg@32)",
+        "-",
+        "40.53",
+        "41.47"
+      ],
+      [
+        "BeyondAIME(avg@10)",
+        "-",
+        "44.20",
+        "42.30"
+      ],
+      [
+        "IMO AnswerBench(avg@4)",
+        "-",
+        "49.38",
+        "46.69"
+      ]
+    ],
+    [
+      [
+        "Capability Dimension",
+        "Benchmark",
+        "Lite-Sparse (w/o HI)",
+        "Lite-Sparse (w/ HI)"
+      ],
+      [
+        "**Foundational**",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Retrieval",
+        "MRCR (8-needle)",
+        "44.66",
+        "44.47"
+      ],
+      [
+        "Aggregation",
+        "OOLong-Synth",
+        "38.42",
+        "37.88"
+      ],
+      [
+        "Multi-step Reasoning",
+        "GraphWalks Extend",
+        "66.27",
+        "65.63"
+      ],
+      [
+        "**Application**",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Question Answering",
+        "LOFT Retrieval Extend",
+        "43.75",
+        "44.38"
+      ],
+      [
+        "In-context Learning",
+        "HELMET-ICL Extend",
+        "91.63",
+        "90.50"
+      ],
+      [
+        "Code Understanding",
+        "LongCodeQA",
+        "62.30",
+        "59.37"
+      ],
+      [
+        "Long-range Memory",
+        "AMemBench-ACU",
+        "33.25",
+        "33.13"
+      ],
+      [
+        "Holistic Assessment",
+        "LongBench-v2",
+        "52.50",
+        "53.64"
+      ],
+      [
+        "Holistic Assessment",
+        "AA-LCR",
+        "48.00",
+        "47.33"
+      ]
+    ]
+  ],
+  "sections": [],
+  "raw_chars": 9762
+}

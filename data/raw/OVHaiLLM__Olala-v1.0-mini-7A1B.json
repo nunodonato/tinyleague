@@ -1,0 +1,137 @@
+{
+  "model_id": "OVHaiLLM/Olala-v1.0-mini-7A1B",
+  "scores": [
+    {
+      "benchmark": "IFBench",
+      "score": 57.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/OVHaiLLM/Olala-v1.0-mini-7A1B",
+      "notes": "Instruction following. high reasoning effort (reasoning_effort=\"high\"), zero-shot, one sample per question, inspect_ai against vLLM.",
+      "retrieved_at": "2026-11-19T12:40:00Z"
+    },
+    {
+      "benchmark": "Multi-IF",
+      "score": 71.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/OVHaiLLM/Olala-v1.0-mini-7A1B",
+      "notes": "Three turns, eight languages, prompt-level strict accuracy averaged over turns and languages. High reasoning effort.",
+      "retrieved_at": "2026-11-19T12:40:00Z"
+    },
+    {
+      "benchmark": "LIFEbench",
+      "score": 79.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/OVHaiLLM/Olala-v1.0-mini-7A1B",
+      "notes": "Card spells it 'LIFEBench': answers of a requested length. High reasoning effort.",
+      "retrieved_at": "2026-11-19T12:40:00Z"
+    },
+    {
+      "benchmark": "GPQA Diamond",
+      "score": 50.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/OVHaiLLM/Olala-v1.0-mini-7A1B",
+      "notes": "High reasoning effort.",
+      "retrieved_at": "2026-11-19T12:40:00Z"
+    },
+    {
+      "benchmark": "TruthfulQA",
+      "score": 66.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/OVHaiLLM/Olala-v1.0-mini-7A1B",
+      "notes": "High reasoning effort.",
+      "retrieved_at": "2026-11-19T12:40:00Z"
+    },
+    {
+      "benchmark": "DROP",
+      "score": 83.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/OVHaiLLM/Olala-v1.0-mini-7A1B",
+      "notes": "Reading comprehension. High reasoning effort.",
+      "retrieved_at": "2026-11-19T12:40:00Z"
+    },
+    {
+      "benchmark": "HumanEval+",
+      "score": 88.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/OVHaiLLM/Olala-v1.0-mini-7A1B",
+      "notes": "pass@1 averaged over 5 samples per problem. High reasoning effort.",
+      "retrieved_at": "2026-11-19T12:40:00Z"
+    },
+    {
+      "benchmark": "MBPP+",
+      "score": 75.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/OVHaiLLM/Olala-v1.0-mini-7A1B",
+      "notes": "pass@1 averaged over 5 samples per problem. High reasoning effort.",
+      "retrieved_at": "2026-11-19T12:40:00Z"
+    },
+    {
+      "benchmark": "AIME 2024",
+      "score": 60.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/OVHaiLLM/Olala-v1.0-mini-7A1B",
+      "notes": "pass@1 averaged over 5 samples per problem. High reasoning effort.",
+      "retrieved_at": "2026-11-19T12:40:00Z"
+    },
+    {
+      "benchmark": "AIME 2025",
+      "score": 61.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/OVHaiLLM/Olala-v1.0-mini-7A1B",
+      "notes": "pass@1 averaged over 5 samples per problem. High reasoning effort.",
+      "retrieved_at": "2026-11-19T12:40:00Z"
+    },
+    {
+      "benchmark": "AIME 2026",
+      "score": 52.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/OVHaiLLM/Olala-v1.0-mini-7A1B",
+      "notes": "pass@1 averaged over 5 samples per problem. High reasoning effort.",
+      "retrieved_at": "2026-11-19T12:40:00Z"
+    },
+    {
+      "benchmark": "MGSM",
+      "score": 68.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/OVHaiLLM/Olala-v1.0-mini-7A1B",
+      "notes": "11 languages. High reasoning effort.",
+      "retrieved_at": "2026-11-19T12:40:00Z"
+    },
+    {
+      "benchmark": "BFCL v3",
+      "score": 59.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/OVHaiLLM/Olala-v1.0-mini-7A1B",
+      "notes": "Card spells it 'BFCL V3': all 23 categories (4,981 samples). High reasoning effort.",
+      "retrieved_at": "2026-11-19T12:40:00Z"
+    }
+  ],
+  "gaps": [
+    "HLE",
+    "MMLU-Pro",
+    "SWE-bench Verified",
+    "Terminal-Bench",
+    "IFEval",
+    "LiveCodeBench",
+    "AA-LCR",
+    "SciCode",
+    "τ³-bench",
+    "Safety rows on the card (guard attack success rate, over-refusal, reasoning overflow) are a custom vendor eval with no roster counterpart, so they are not recorded",
+    "AA cross-check 2026-11-21: no Artificial Analysis model page exists, so no AA gap-fill was possible."
+  ],
+  "conflicts": [],
+  "retrieved_at": "2026-11-21T12:00:00Z"
+}

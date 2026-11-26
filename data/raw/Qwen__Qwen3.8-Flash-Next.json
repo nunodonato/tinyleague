@@ -1,0 +1,276 @@
+{
+  "model_id": "Qwen/Qwen3.8-Flash-Next",
+  "scores": [
+    {
+      "benchmark": "DeepSWE 1.1",
+      "score": 58.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "SWE-bench Pro",
+      "score": 62.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "SWE-bench Multilingual",
+      "score": 81.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "NL2Repo-Bench",
+      "score": 48.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "CoWorkBench",
+      "score": 73.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "JobBench",
+      "score": 55.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "Agents' Last Exam",
+      "subtask": "Score",
+      "score": 51.2,
+      "metric": "score",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "Toolathlon",
+      "subtask": "Verified, Pass@1",
+      "score": 73.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "IFBench",
+      "score": 81.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "GPQA Diamond",
+      "score": 91.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "HLE",
+      "score": 35.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "LiveCodeBench v6",
+      "score": 91.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "ClawEval-MM",
+      "subtask": "Pass@3",
+      "score": 64.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "RecreationBench",
+      "score": 49.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "AndroidWorld",
+      "score": 84.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "OSWorld",
+      "subtask": "2.0, Partial",
+      "score": 52.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "Vision2Web",
+      "score": 64.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "ERQA",
+      "score": 72.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "LVBench",
+      "score": 76.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "RealWorldQA",
+      "score": 88.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "MathVision",
+      "subtask": "with CI",
+      "score": 95.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "CharXiv",
+      "subtask": "RQ, with CI",
+      "score": 90.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "τ³-bench",
+      "subtask": "Banking",
+      "score": 45.36,
+      "metric": "%",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/qwen3-8-flash-next",
+      "notes": "Artificial Analysis independent run (τ³-Banking = 0.4536); not reported on the model card.",
+      "retrieved_at": "2026-10-22T09:33:31Z"
+    }
+  ],
+  "gaps": [
+    "AIME",
+    "MMLU-Pro",
+    "IFEval",
+    "Arena"
+  ],
+  "conflicts": [
+    {
+      "benchmark": "Agents' Last Exam",
+      "values": [
+        {
+          "score": 24.3,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 51.2,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (51.2) per the highest-reasoning-level policy. Kept entries: Pass@1; Score."
+    },
+    {
+      "benchmark": "ClawEval-MM",
+      "values": [
+        {
+          "score": 64.4,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 60.4,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (64.4) per the highest-reasoning-level policy. Kept entries: Average; Pass@3."
+    },
+    {
+      "benchmark": "OSWorld",
+      "values": [
+        {
+          "score": 19.4,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 52.3,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (52.3) per the highest-reasoning-level policy. Kept entries: 2.0, Binary; 2.0, Partial."
+    },
+    {
+      "benchmark": "MathVision",
+      "values": [
+        {
+          "score": 90.6,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 95.7,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (95.7) per the highest-reasoning-level policy. Kept entries: with CI; without CI."
+    },
+    {
+      "benchmark": "CharXiv",
+      "values": [
+        {
+          "score": 84.6,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 90.6,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (90.6) per the highest-reasoning-level policy. Kept entries: RQ, with CI; RQ, without CI."
+    }
+  ],
+  "retrieved_at": "2026-09-05T09:13:28Z"
+}

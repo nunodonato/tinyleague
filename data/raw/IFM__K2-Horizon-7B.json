@@ -1,0 +1,103 @@
+{
+  "model_id": "IFM/K2-Horizon-7B",
+  "scores": [
+    {
+      "benchmark": "SWE-bench Verified",
+      "score": 70.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/IFM/K2-Horizon-7B",
+      "notes": "High reasoning effort. Vendor note: an audited run produced an inflated 82 via SWE-bench answer lookup (reward hacking); the reported 70.6 is the clean figure.",
+      "retrieved_at": "2026-09-07T12:19:00Z"
+    },
+    {
+      "benchmark": "Terminal-Bench 2.1",
+      "score": 39.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/IFM/K2-Horizon-7B",
+      "notes": "Terminal-Bench 2.1, agentic terminal use (blog full-results: 39.06). High reasoning effort.",
+      "retrieved_at": "2026-09-07T12:19:00Z"
+    },
+    {
+      "benchmark": "τ³-bench",
+      "subtask": "Banking",
+      "score": 25.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/IFM/K2-Horizon-7B",
+      "notes": "Card lists it as 'tau3-Banking', agentic tool use. High reasoning effort.",
+      "retrieved_at": "2026-09-07T12:19:00Z"
+    },
+    {
+      "benchmark": "BrowseComp",
+      "score": 59.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/IFM/K2-Horizon-7B",
+      "notes": "Deep web research. High reasoning effort.",
+      "retrieved_at": "2026-09-07T12:19:00Z"
+    },
+    {
+      "benchmark": "AA-LCR",
+      "subtask": "Overall",
+      "score": 68.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/IFM/K2-Horizon-7B",
+      "notes": "Long-context reasoning (LCR). High reasoning effort.",
+      "retrieved_at": "2026-09-07T12:19:00Z"
+    },
+    {
+      "benchmark": "HMMT Feb 2026",
+      "score": 73.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/IFM/K2-Horizon-7B",
+      "notes": "Competition mathematics. High reasoning effort.",
+      "retrieved_at": "2026-09-07T12:19:00Z"
+    },
+    {
+      "benchmark": "SciCode",
+      "subtask": "Overall",
+      "score": 31.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/IFM/K2-Horizon-7B",
+      "notes": "Scientific coding. High reasoning effort.",
+      "retrieved_at": "2026-09-07T12:19:00Z"
+    },
+    {
+      "benchmark": "HLE",
+      "score": 18.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/IFM/K2-Horizon-7B",
+      "notes": "Humanity's Last Exam, expert-level reasoning. High reasoning effort.",
+      "retrieved_at": "2026-09-07T12:19:00Z"
+    }
+  ],
+  "gaps": [
+    "GPQA Diamond (not reported on card)",
+    "LiveCodeBench (not reported)",
+    "Arena (not reported)"
+  ],
+  "conflicts": [
+    {
+      "benchmark": "τ³-bench",
+      "subtask": "Banking",
+      "values": [
+        {
+          "score": 25.8,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 27.63,
+          "source": "artificial-analysis"
+        }
+      ],
+      "resolution": "Card reports tau3-Banking = 25.8; AA independently measured 27.63. Card value kept as primary (different harness)."
+    }
+  ],
+  "retrieved_at": "2026-09-07T12:19:00Z"
+}

@@ -1,0 +1,79 @@
+{
+  "model_id": "sensenova/SenseNova-Loop-9B",
+  "scores": [
+    {
+      "benchmark": "Terminal-Bench 2.1",
+      "score": 59.55,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/sensenova/SenseNova-Loop-9B",
+      "notes": "Card's only benchmark table is a figure (assets/release_benchmark_iuua.png); value read from the 'SenseNova Loop 9B' bar. Reasoning level for the agentic rows is not stated on the card.",
+      "retrieved_at": "2026-11-17T00:00:00Z"
+    },
+    {
+      "benchmark": "NL2Repo-Bench",
+      "score": 41.36,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/sensenova/SenseNova-Loop-9B",
+      "notes": "Card row 'NL2Repo' (text also states 41.36 vs Qwen3.8-27B 44.60).",
+      "retrieved_at": "2026-11-17T00:00:00Z"
+    },
+    {
+      "benchmark": "AutomationBench",
+      "score": 36.67,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/sensenova/SenseNova-Loop-9B",
+      "notes": "Card does not state a benchmark version. Text states it matches Qwen3.8-27B's 36.67.",
+      "retrieved_at": "2026-11-17T00:00:00Z"
+    },
+    {
+      "benchmark": "GAIA",
+      "score": 69.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/sensenova/SenseNova-Loop-9B",
+      "notes": "Card sub-split not stated (no verbosity level or text-only/vision label).",
+      "retrieved_at": "2026-11-17T00:00:00Z"
+    },
+    {
+      "benchmark": "τ³-bench",
+      "subtask": "Banking",
+      "score": 30.93,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/sensenova/SenseNova-Loop-9B",
+      "notes": "Card row 'τ³-Banking' (Banking domain split only). Reasoning level not stated on the card.",
+      "retrieved_at": "2026-11-17T00:00:00Z"
+    },
+    {
+      "benchmark": "BirdBench",
+      "score": 72.34,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/sensenova/SenseNova-Loop-9B",
+      "notes": "Card row 'BIRD' (BIRD-SQL); folded onto the roster's BirdBench column via CANON_BENCH. Text notes 72.34 vs Preview 71.38.",
+      "retrieved_at": "2026-11-17T00:00:00Z"
+    },
+    {
+      "benchmark": "AIDABench",
+      "score": 65.31,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/sensenova/SenseNova-Loop-9B",
+      "notes": "SenseNova's own data-analysis benchmark; no other roster model reports it, so the column stays single-model (hidden by the >=2 display rule). Text states 65.31 vs Qwen3.8-27B 65.01.",
+      "retrieved_at": "2026-11-17T00:00:00Z"
+    }
+  ],
+  "gaps": [
+    "LiveCodeBench v6 — the card only quotes a relative gain (+1.04 pp going from 2 to 4 loops), never an absolute score",
+    "AIDABench-QA / AIDABench data-visualization splits — mentioned only as loop-scaling deltas, no values for this checkpoint",
+    "No general-knowledge / reasoning suite (MMLU-Pro, GPQA Diamond, AIME) on the card",
+    "No SWE-bench Verified or other coding-agent suite",
+    "No AIME/HMMT math scores",
+    "AA cross-check 2026-11-21: no Artificial Analysis model page exists, so no AA gap-fill was possible."
+  ],
+  "conflicts": [],
+  "retrieved_at": "2026-11-21T12:00:00Z"
+}

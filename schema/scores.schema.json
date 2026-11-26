@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "scores.json / per-model score record",
+  "description": "scores.schema.json validates BOTH a single per-model score record (data/raw/<model_id>.json) AND the merged scores.json when the root is an object with a 'models' array.",
+  "oneOf": [
+    { "$ref": "#/$defs/score_file" },
+    { "$ref": "#/$defs/score_record" }
+  ],
+  "$defs": {
+    "score_file": {
+      "type": "object",
+      "required": ["generated_at", "models"],
+      "properties": {
+        "generated_at": { "type": "string" },
+        "source": { "type": "string" },
+        "models": { "type": "array", "items": { "$ref": "#/$defs/score_record" } }
+      }
+    },
+    "score_record": {
+      "type": "object",
+      "required": ["model_id", "scores", "retrieved_at"],
+      "properties": {
+        "model_id": { "type": "string" },
+        "scores": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["benchmark", "score", "source"],
+            "properties": {
+              "benchmark": { "type": "string", "description": "canonical benchmark name, e.g. MMLU-Pro, GPQA Diamond, SWE-bench Verified, IFEval. Versioned (non-comparable) benchmarks carry the version in the name: Terminal-Bench 2.1, AIME 2026, HMMT Feb 2026, BFCL v4, LiveCodeBench v6, MRCR v2, AA-Intelligence-Index-v4.3. If a card states no version, leave it unversioned (DeepSWE, LiveCodeBench). Harness/effort/k/domain go in subtask, not the name." },
+              "subtask": { "type": "string", "description": "e.g. 'avg@32', 'pass@1', 'vision'" },
+              "score": { "type": ["number", "null"], "description": "null only if the source explicitly reported N/A" },
+              "metric": { "type": "string", "description": "e.g. '%', 'points', 'idx', 'score'" },
+              "source": { "type": "string", "description": "key into data/sources.json" },
+              "source_url": { "type": "string", "format": "uri" },
+              "notes": { "type": "string" },
+              "retrieved_at": { "type": "string" }
+            }
+          }
+        },
+        "gaps": { "type": "array", "items": { "type": "string" }, "description": "benchmarks expected for this class of model but not found in any source" },
+        "conflicts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["benchmark"],
+            "properties": {
+              "benchmark": { "type": "string" },
+              "values": { "type": "array", "items": { "type": "object", "properties": { "score": { "type": "number" }, "source": { "type": "string" } } } },
+              "resolution": { "type": "string" }
+            }
+          }
+        },
+        "retrieved_at": { "type": "string" }
+      }
+    }
+  }
+}

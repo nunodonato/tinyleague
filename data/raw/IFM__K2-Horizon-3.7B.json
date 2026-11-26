@@ -1,0 +1,101 @@
+{
+  "model_id": "IFM/K2-Horizon-3.7B",
+  "scores": [
+    {
+      "benchmark": "HMMT Feb 2026",
+      "score": 70.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/IFM/K2-Horizon-3.7B",
+      "notes": "Competition mathematics.",
+      "retrieved_at": "2026-09-14T11:39:31Z"
+    },
+    {
+      "benchmark": "SWE-bench Verified",
+      "score": 68.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/IFM/K2-Horizon-3.7B",
+      "notes": "Software engineering.",
+      "retrieved_at": "2026-09-14T11:39:31Z"
+    },
+    {
+      "benchmark": "GPQA Diamond",
+      "score": 65.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/IFM/K2-Horizon-3.7B",
+      "notes": "Graduate-level science QA.",
+      "retrieved_at": "2026-09-14T11:39:31Z"
+    },
+    {
+      "benchmark": "HLE",
+      "score": 12.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/IFM/K2-Horizon-3.7B",
+      "notes": "Humanity's Last Exam, expert-level reasoning.",
+      "retrieved_at": "2026-09-14T11:39:31Z"
+    },
+    {
+      "benchmark": "SciCode",
+      "subtask": "Overall",
+      "score": 25.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/IFM/K2-Horizon-3.7B",
+      "notes": "Scientific coding.",
+      "retrieved_at": "2026-09-14T11:39:31Z"
+    },
+    {
+      "benchmark": "Terminal-Bench 2.1",
+      "score": 25.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/IFM/K2-Horizon-3.7B",
+      "notes": "Terminal-Bench 2.1, agentic terminal use.",
+      "retrieved_at": "2026-09-14T11:39:31Z"
+    },
+    {
+      "benchmark": "τ³-bench",
+      "subtask": "Banking",
+      "score": 17.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/IFM/K2-Horizon-3.7B",
+      "notes": "Card lists it as 'tau3-Banking', agentic tool use.",
+      "retrieved_at": "2026-09-14T11:39:31Z"
+    },
+    {
+      "benchmark": "BFCL v4",
+      "score": 50.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/IFM/K2-Horizon-3.7B",
+      "notes": "Function calling.",
+      "retrieved_at": "2026-09-14T11:39:31Z"
+    }
+  ],
+  "gaps": [
+    "LiveCodeBench (not reported on card)",
+    "Arena (not reported on card)"
+  ],
+  "conflicts": [
+    {
+      "benchmark": "τ³-bench",
+      "subtask": "Banking",
+      "values": [
+        {
+          "score": 17.7,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 19.59,
+          "source": "artificial-analysis"
+        }
+      ],
+      "resolution": "Card reports tau3-Banking = 17.7; AA independently measured 19.59. Card value kept as primary (different harness)."
+    }
+  ],
+  "retrieved_at": "2026-09-14T11:39:31Z"
+}

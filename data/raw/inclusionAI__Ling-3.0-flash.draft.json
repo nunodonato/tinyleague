@@ -1,0 +1,65 @@
+{
+  "model_id": "inclusionAI/Ling-3.0-flash",
+  "display_name": "Ling-3.0-flash",
+  "url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+  "retrieved_at": "2026-09-05T09:07:30Z",
+  "html_tables": [],
+  "markdown_tables": [
+    [
+      [
+        "Architecture",
+        "Hybrid-linear MoE"
+      ],
+      [
+        "Parameter Scale",
+        "Total 124B, Activated 5.1B"
+      ],
+      [
+        "Transformer Layers",
+        "35 KDA + 7 Gated MLA (5:1)"
+      ],
+      [
+        "Number of Dense Layers",
+        "2"
+      ],
+      [
+        "Number of Routed Experts",
+        "512"
+      ],
+      [
+        "Number of Shared Experts",
+        "1"
+      ],
+      [
+        "Number of Activated Experts",
+        "8"
+      ],
+      [
+        "Attention Heads",
+        "32"
+      ],
+      [
+        "Hidden Size",
+        "2560"
+      ],
+      [
+        "Expert Intermediate Size",
+        "768"
+      ],
+      [
+        "Dense Intermediate Size",
+        "6144"
+      ],
+      [
+        "Vocabulary Size",
+        "157184"
+      ],
+      [
+        "Context Training Schedule",
+        "8K -> 32K -> 256K"
+      ]
+    ]
+  ],
+  "sections": [],
+  "raw_chars": 10193
+}

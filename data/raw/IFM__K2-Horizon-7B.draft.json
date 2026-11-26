@@ -1,0 +1,102 @@
+{
+  "model_id": "IFM/K2-Horizon-7B",
+  "display_name": "K2-Horizon-7B",
+  "url": "https://huggingface.co/IFM/K2-Horizon-7B",
+  "retrieved_at": "2026-09-07T12:19:00Z",
+  "html_tables": [
+    [
+      [
+        "",
+        "",
+        "Reference models · weak to strong"
+      ],
+      [
+        "Benchmark",
+        "K2-Horizon-7B",
+        "Reference 1",
+        "Reference 2",
+        "Reference 3"
+      ],
+      [
+        "Math"
+      ],
+      [
+        "HMMT Feb 2026 Competition mathematics",
+        "73.3",
+        "Gemma 4-12B 63.1",
+        "Qwen3.5-9B 65.7",
+        "Granite 4.2-8B 66.5"
+      ],
+      [
+        "Coding"
+      ],
+      [
+        "SWE-bench Verified Software engineering",
+        "70.6",
+        "Gemma 4-12B 30.6",
+        "Granite 4.2-8B 47.7",
+        "Qwen3.5-9B 50.8"
+      ],
+      [
+        "Scientific Reasoning"
+      ],
+      [
+        "HLE Expert-level reasoning",
+        "18.6",
+        "Granite 4.2-8B 9.7",
+        "Qwen3.5-9B 14.9",
+        "Gemma 4-12B 15.7"
+      ],
+      [
+        "Coding"
+      ],
+      [
+        "SciCode Scientific coding",
+        "31.6",
+        "Qwen3.5-9B 27.5",
+        "Mistral Small 4 28.0",
+        "Granite 4.2-8B 30.4"
+      ],
+      [
+        "General"
+      ],
+      [
+        "LCR Long-context reasoning",
+        "68.0",
+        "Granite 4.2-8B 43.3",
+        "Gemma 4-12B 61.7",
+        "Qwen3.5-9B 65.3"
+      ],
+      [
+        "Coding"
+      ],
+      [
+        "Terminal-Bench 2.1 Agentic terminal use",
+        "39.1",
+        "Granite 4.2-8B 18.4",
+        "Gemma 4-12B 27.3",
+        "Qwen3.5-9B 29.2"
+      ],
+      [
+        "Agents"
+      ],
+      [
+        "tau3-Banking Agentic tool use",
+        "25.8",
+        "Qwen3.5-9B 7.0",
+        "Granite 4.2-8B 7.6",
+        "Muse Glimmer-30B 24.0"
+      ],
+      [
+        "BrowseComp Web browsing",
+        "59.0",
+        "DeepSeek V4 Flash-0423 53.5",
+        "GPT-5 54.9",
+        "LongCat Flash Thinking-2601 56.6"
+      ]
+    ]
+  ],
+  "markdown_tables": [],
+  "sections": [],
+  "raw_chars": 18337
+}

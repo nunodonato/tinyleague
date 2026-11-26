@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "sources.json",
+  "type": "object",
+  "required": ["sources"],
+  "properties": {
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["key", "name", "type", "reliability"],
+        "properties": {
+          "key": { "type": "string", "description": "stable id used in score records, e.g. 'huggingface-model-card'" },
+          "name": { "type": "string" },
+          "type": { "type": "string", "enum": ["official-card", "tech-report", "aggregator", "social", "website", "leaderboard", "api"] },
+          "url": { "type": "string", "format": "uri" },
+          "reliability": { "type": "string", "enum": ["high", "medium", "low"] },
+          "priority": { "type": "integer", "description": "lower = preferred when scores conflict" },
+          "notes": { "type": "string" }
+        }
+      }
+    }
+  }
+}

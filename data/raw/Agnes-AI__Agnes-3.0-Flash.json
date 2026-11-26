@@ -1,0 +1,50 @@
+{
+  "model_id": "Agnes-AI/Agnes-3.0-Flash",
+  "scores": [
+    {
+      "benchmark": "GPQA Diamond",
+      "score": 85.05,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Agnes-AI/Agnes-3.0-Flash",
+      "notes": "Card reference table; reasoning effort not stated."
+    },
+    {
+      "benchmark": "IFBench",
+      "score": 74.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Agnes-AI/Agnes-3.0-Flash"
+    },
+    {
+      "benchmark": "SciCode",
+      "score": 38.08,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Agnes-AI/Agnes-3.0-Flash"
+    },
+    {
+      "benchmark": "AA-LCR",
+      "score": 68.33,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Agnes-AI/Agnes-3.0-Flash"
+    },
+    {
+      "benchmark": "AA-Omniscience Accuracy",
+      "score": 23.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Agnes-AI/Agnes-3.0-Flash"
+    }
+  ],
+  "gaps": [
+    "MMLU-Pro",
+    "LiveCodeBench",
+    "SWE-bench Verified",
+    "IFEval",
+    "Arena"
+  ],
+  "conflicts": [],
+  "retrieved_at": "2026-09-12T12:20:00Z"
+}

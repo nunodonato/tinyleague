@@ -1,0 +1,29 @@
+# Tiny League
+
+> Benchmark scores for 43 recent small open-weight models (1.5B to 285B, official weights only, current versions, released since 5 Apr 2026): 115 benchmarks, a sortable coverage heatmap, and each model's derived KV-cache cost at 128K tokens.
+
+Tiny League is a curated league table of benchmark scores for small open-weight
+language models. Scope: 1.5B to 285B total parameters, official developer-org weights
+only (no GGUF/AWQ/FP8/GPTQ/LoRA/finetunes/merges), current versions only, released on
+or after 5 Apr 2026. 43 models and 115 benchmark columns as of 26 Nov 2026.
+
+## Sections
+
+- [Models](https://tinyleague.org/#models): one row per model with parameters, active parameters, native
+  context, license, release date and derived KV-cache size at 128K tokens.
+- [Scores heatmap](https://tinyleague.org/#heatmap): models x benchmarks, colour-scaled within each column.
+  Each cell is a score reported by the model's own card or tech report; missing values
+  are absent, never estimated.
+- [Scatter](https://tinyleague.org/#charts): one metric plotted against another.
+- [Comparisons](https://tinyleague.org/#compare): a sorted leaderboard per benchmark.
+
+## Notes
+
+- KV @128K is derived from each model's config.json (BF16, batch 1, tensor-parallel 1)
+  and verified against the released weights; it is not a benchmark.
+- Decode fresh / Decode @128K are estimated single-stream output speeds on one
+  NVIDIA RTX 4090 at 50% of its 1008 GB/s bandwidth (memory-bandwidth bound), before
+  and after the KV read at 128K; the @128K column also shows the share retained.
+  Both are estimates, not measurements.
+- Benchmark names carry their version (e.g. Terminal-Bench 2.0 vs 2.1); versions are
+  never pooled.

@@ -1,0 +1,117 @@
+{
+  "model_id": "sensenova/SenseNova-Loop-9B",
+  "display_name": "SenseNova-Loop-9B",
+  "url": "https://huggingface.co/sensenova/SenseNova-Loop-9B",
+  "retrieved_at": "2026-11-17T15:12:53Z",
+  "html_tables": [],
+  "markdown_tables": [
+    [
+      [
+        "Property",
+        "SenseNova-Loop-9B"
+      ],
+      [
+        "-",
+        "-"
+      ],
+      [
+        "Architecture",
+        "Autoregressive multimodal decoder; looped block with two-stream mHC"
+      ],
+      [
+        "Parameter scale",
+        "Approximately 9B total parameters; approximately 14.6B inference-equivalent parameters"
+      ],
+      [
+        "Input / output",
+        "Text and images / text"
+      ],
+      [
+        "Distinct decoder layers",
+        "32"
+      ],
+      [
+        "Looped layer range / passes",
+        "[4, 28) / 2, with shared weights"
+      ],
+      [
+        "Decoder layer executions",
+        "56 per forward pass"
+      ],
+      [
+        "mHC residual streams",
+        "2"
+      ],
+      [
+        "Context length",
+        "512K tokens"
+      ],
+      [
+        "Weight precision",
+        "BF16 backbone; FP32 mHC routing parameters"
+      ]
+    ],
+    [
+      [
+        "Configuration",
+        "Value"
+      ],
+      [
+        "-",
+        "-"
+      ],
+      [
+        "Distinct decoder layers / executions",
+        "32 / 56"
+      ],
+      [
+        "Looped layer range / passes",
+        "[4, 28) / 2"
+      ],
+      [
+        "Hidden dimension",
+        "4,096"
+      ],
+      [
+        "Feed-forward dimension",
+        "12,288"
+      ],
+      [
+        "Vocabulary size",
+        "248,320"
+      ],
+      [
+        "Full-attention heads / KV heads",
+        "16 / 4"
+      ],
+      [
+        "mHC residual streams / Sinkhorn iterations",
+        "2 / 20"
+      ]
+    ],
+    [
+      [
+        "Context length",
+        "8-bit KV cache",
+        "4-bit KV cache"
+      ],
+      [
+        "64K",
+        "~10 GiB",
+        "~9 GiB"
+      ],
+      [
+        "128K",
+        "~12 GiB",
+        "~10 GiB"
+      ],
+      [
+        "256K",
+        "~15 GiB",
+        "~12 GiB"
+      ]
+    ]
+  ],
+  "sections": [],
+  "raw_chars": 16092
+}

@@ -1,0 +1,22 @@
+Tiny League
+Copyright (c) 2026 Nuno Donato
+https://tinyleague.org
+
+Scope of the licenses
+---------------------
+
+MIT (LICENSE) covers the source code: scripts/, schema/, scripts/web/ and the
+build tooling.
+
+CC BY 4.0 (LICENSE-DATA) covers the benchmark data: data/, out/ and the
+generated dashboard. Attribution phrase:
+
+    Benchmark data from Tiny League (https://tinyleague.org), CC BY 4.0.
+
+Trademark
+---------
+
+The "Tiny League" name, wordmark and trophy mark are not licensed under either
+of the above. Forks and derivative sites must use a different name and identity
+so that users can tell which project they are looking at. Reusing the data with
+attribution is expressly allowed and encouraged.

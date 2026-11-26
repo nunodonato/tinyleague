@@ -1,0 +1,244 @@
+{
+  "model_id": "deepseek-ai/DeepSeek-V4-Flash-DSpark",
+  "scores": [
+    {
+      "benchmark": "MMLU-Pro",
+      "score": 86.2,
+      "metric": "%",
+      "subtask": "EM",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "notes": "DSpark is the same checkpoint as DeepSeek-V4-Flash plus a DSpark speculative decoding module (no new weights); values are the V4-Flash 'Think Max' mode column.",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "SimpleQA-Verified",
+      "score": 34.1,
+      "metric": "%",
+      "subtask": "Pass@1",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "notes": "V4-Flash Think Max mode.",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "Chinese-SimpleQA",
+      "score": 78.9,
+      "metric": "%",
+      "subtask": "Pass@1",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "notes": "V4-Flash Think Max mode.",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "GPQA Diamond",
+      "score": 88.1,
+      "metric": "%",
+      "subtask": "Pass@1",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "notes": "V4-Flash Think Max mode.",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "HLE",
+      "subtask": "with tools, Pass@1",
+      "score": 45.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "notes": "V4-Flash Think Max mode.",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "LiveCodeBench",
+      "score": 91.6,
+      "metric": "%",
+      "subtask": "Pass@1",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "notes": "V4-Flash Think Max mode.",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "Codeforces ELO",
+      "score": 3052,
+      "metric": "rating",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "notes": "V4-Flash Think Max mode.",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "HMMT Feb 2026",
+      "score": 94.8,
+      "metric": "%",
+      "subtask": "Pass@1",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "notes": "V4-Flash Think Max mode.",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "IMO AnswerBench",
+      "score": 88.4,
+      "metric": "%",
+      "subtask": "Pass@1",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "notes": "V4-Flash Think Max mode.",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "Apex",
+      "score": 33.0,
+      "metric": "%",
+      "subtask": "Pass@1",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "notes": "V4-Flash Think Max mode.",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "Apex Shortlist",
+      "score": 85.7,
+      "metric": "%",
+      "subtask": "Pass@1",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "notes": "V4-Flash Think Max mode.",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "MRCR",
+      "subtask": "1M",
+      "score": 78.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "notes": "MMR metric, V4-Flash Think Max mode.",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "CorpusQA",
+      "subtask": "1M",
+      "score": 60.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "notes": "ACC metric, V4-Flash Think Max mode.",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "Terminal-Bench 2.0",
+      "score": 56.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "notes": "Acc, V4-Flash Think Max mode.",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "SWE-bench Verified",
+      "score": 79.0,
+      "metric": "%",
+      "subtask": "Resolved",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "notes": "V4-Flash Think Max mode.",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "SWE-bench Pro",
+      "score": 52.6,
+      "metric": "%",
+      "subtask": "Resolved",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "notes": "V4-Flash Think Max mode.",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "SWE-bench Multilingual",
+      "score": 73.3,
+      "metric": "%",
+      "subtask": "Resolved",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "notes": "V4-Flash Think Max mode.",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "BrowseComp",
+      "score": 73.2,
+      "metric": "%",
+      "subtask": "Pass@1",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "notes": "V4-Flash Think Max mode.",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "MCP-Atlas",
+      "score": 69.0,
+      "metric": "%",
+      "subtask": "Pass@1",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "notes": "V4-Flash Think Max mode.",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "GDPval-AA",
+      "score": 1395,
+      "metric": "Elo",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "notes": "V4-Flash Think Max mode.",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "Toolathlon",
+      "score": 47.8,
+      "metric": "%",
+      "subtask": "Pass@1",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "notes": "V4-Flash Think Max mode.",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "τ³-bench",
+      "subtask": "Banking, max reasoning (highest)",
+      "score": 39.38,
+      "metric": "%",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/deepseek-v4-flash",
+      "notes": "Artificial Analysis independent run (τ³-Banking = 0.3938); not reported on the model card.",
+      "retrieved_at": "2026-10-22T09:33:31Z"
+    }
+  ],
+  "gaps": [
+    "AIME",
+    "MMLU",
+    "Arena"
+  ],
+  "conflicts": [
+    {
+      "benchmark": "HLE",
+      "values": [
+        {
+          "score": 34.8,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 45.1,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (45.1) per the highest-reasoning-level policy. Kept entries: Pass@1; with tools, Pass@1."
+    }
+  ],
+  "retrieved_at": "2026-09-05T09:13:28Z"
+}

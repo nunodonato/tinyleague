@@ -1,0 +1,332 @@
+{
+  "model_id": "LiquidAI/LFM3-1.7B",
+  "scores": [
+    {
+      "benchmark": "LiveClaw",
+      "score": 45.6,
+      "metric": "%",
+      "subtask": "OpenClaw agent harness",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+      "notes": "vLLM BF16 at full 262,144-token context; OpenClaw agent, up to 8,192 output tokens per turn."
+    },
+    {
+      "benchmark": "ClawEval",
+      "subtask": "General (EN), average",
+      "score": 68.64,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+      "notes": "Greedy decoding, 3 trials per task. pass^3 variant: 51.40."
+    },
+    {
+      "benchmark": "BrowseComp-Plus",
+      "subtask": "OpenClaw subset",
+      "score": 37.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+      "notes": "OpenClaw agent, greedy decoding, up to 8,192 output tokens per turn."
+    },
+    {
+      "benchmark": "WebArena-Verified",
+      "score": 38.42,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+      "notes": "Up to 40 steps."
+    },
+    {
+      "benchmark": "EnterpriseOps-Gym",
+      "score": 28.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+      "notes": "Up to 50 turns."
+    },
+    {
+      "benchmark": "AutomationBench",
+      "subtask": "public",
+      "score": 41.29,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+      "notes": "Card row 'AutomationBench (public)'. Up to 50 turns."
+    },
+    {
+      "benchmark": "BFCL v4",
+      "score": 71.39,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+      "notes": "Card row 'BFCL V4'. Greedy decoding, up to 32,768 output tokens."
+    },
+    {
+      "benchmark": "ToolSandbox",
+      "score": 80.36,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+      "notes": "Greedy decoding, up to 1,024 output tokens per turn."
+    },
+    {
+      "benchmark": "MCP-Atlas",
+      "score": 32.57,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+      "notes": "Up to 256 turns."
+    },
+    {
+      "benchmark": "τ³-bench",
+      "subtask": "4 domains, average",
+      "score": 68.01,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+      "notes": "Card row 'τ³-bench (4 domains), average'."
+    },
+    {
+      "benchmark": "SWE-bench Verified",
+      "subtask": "OpenCode harness",
+      "score": 43.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+      "notes": "Card row 'SWE-bench Verified (OpenCode)' — vendor harness is OpenCode, up to 250 turns; temperature 0.6, top_p 0.95, full context length."
+    },
+    {
+      "benchmark": "SWE-bench Multilingual",
+      "subtask": "OpenCode harness",
+      "score": 23.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+      "notes": "Card row 'SWE-bench Multilingual (OpenCode)'; same harness settings as SWE-bench Verified."
+    },
+    {
+      "benchmark": "Terminal-Bench 2.1",
+      "subtask": "OpenCode harness",
+      "score": 12.92,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+      "notes": "Card row 'Terminal-Bench 2.1 (OpenCode)'; up to 100 turns."
+    },
+    {
+      "benchmark": "LiveCodeBench v6",
+      "score": 73.46,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B"
+    },
+    {
+      "benchmark": "LiveCodeBench Pro 25Q2",
+      "score": 31.74,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B"
+    },
+    {
+      "benchmark": "SciCode",
+      "score": 28.47,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B"
+    },
+    {
+      "benchmark": "IFEval",
+      "score": 96.66,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B"
+    },
+    {
+      "benchmark": "IFBench",
+      "score": 73.03,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B"
+    },
+    {
+      "benchmark": "IFStruct",
+      "score": 93.72,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B"
+    },
+    {
+      "benchmark": "Multi-IF",
+      "score": 89.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B"
+    },
+    {
+      "benchmark": "GPQA Diamond",
+      "score": 63.37,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B"
+    },
+    {
+      "benchmark": "HLE",
+      "subtask": "no tools",
+      "score": 7.17,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+      "notes": "With tools: 13.90."
+    },
+    {
+      "benchmark": "AA-Omniscience Index",
+      "subtask": "public set",
+      "score": 0.5,
+      "metric": "idx",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+      "notes": "Card row 'AA-Omniscience (public)'; negative values are normal for this index."
+    },
+    {
+      "benchmark": "AA-Omniscience Accuracy",
+      "subtask": "public set",
+      "score": 7.07,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B"
+    },
+    {
+      "benchmark": "AA-Omniscience Non-Hallucination",
+      "subtask": "public set",
+      "score": 92.93,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B"
+    },
+    {
+      "benchmark": "AA-LCR",
+      "score": 52.83,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B"
+    },
+    {
+      "benchmark": "RULER",
+      "subtask": "128K",
+      "score": 65.56,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM3-1.7B"
+    },
+    {
+      "benchmark": "AA-Briefcase 1.1",
+      "score": 225,
+      "metric": "points",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/lfm3-1-7b",
+      "notes": "AA Elo (briefcase, overall). AA's independent run."
+    },
+    {
+      "benchmark": "FrontierCode 2.0",
+      "subtask": "AA FrontierCode-AA 2.0",
+      "score": 0.0,
+      "metric": "%",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/lfm3-1-7b"
+    },
+    {
+      "benchmark": "Terminal-Bench 4",
+      "subtask": "AA run",
+      "score": 0.0,
+      "metric": "%",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/lfm3-1-7b",
+      "notes": "AA's independent run; the card has no Terminal-Bench 4 figure."
+    },
+    {
+      "benchmark": "Terminal-Bench Science 0.1",
+      "score": 0.0,
+      "metric": "%",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/lfm3-1-7b"
+    },
+    {
+      "benchmark": "GDP.pdf",
+      "subtask": "AA all-pass",
+      "score": 0.4,
+      "metric": "%",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/lfm3-1-7b"
+    }
+  ],
+  "gaps": [
+    "MMLU-Pro",
+    "MMLU",
+    "AIME 2026",
+    "HMMT Feb 2026",
+    "MATH500",
+    "HumanEval",
+    "MBPP",
+    "Arena-Hard-V2",
+    "AA cross-check 2026-11-21: AA publishes no MMLU-Pro, AIME, MATH500, HumanEval, MBPP or Arena-Hard-V2 value for this model."
+  ],
+  "conflicts": [
+    {
+      "benchmark": "AA-Omniscience Index",
+      "values": [
+        {
+          "score": 0.5,
+          "source": "huggingface-model-card (public set)"
+        },
+        {
+          "score": -1.23,
+          "source": "artificial-analysis (v1.1)"
+        }
+      ],
+      "resolution": "The card and AA's live index disagree for this release; the card value is kept as primary and both are logged."
+    },
+    {
+      "benchmark": "AA-Omniscience Accuracy",
+      "values": [
+        {
+          "score": 7.07,
+          "source": "huggingface-model-card (public set)"
+        },
+        {
+          "score": 6.63,
+          "source": "artificial-analysis (v1.1)"
+        }
+      ],
+      "resolution": "Card reports 7.07; AA's current accuracy is 6.63. Card value kept."
+    },
+    {
+      "benchmark": "AA-Omniscience Non-Hallucination",
+      "values": [
+        {
+          "score": 92.93,
+          "source": "huggingface-model-card (public set)"
+        },
+        {
+          "score": 91.57,
+          "source": "artificial-analysis (v1.1)"
+        }
+      ],
+      "resolution": "Card reports 92.93; AA's current non-hallucination rate is 91.57. Card value kept."
+    },
+    {
+      "benchmark": "HLE",
+      "values": [
+        {
+          "score": 7.17,
+          "source": "huggingface-model-card (no tools)"
+        },
+        {
+          "score": 3.8,
+          "source": "artificial-analysis (HLE-Diamond)"
+        }
+      ],
+      "resolution": "Both are no-tools figures but run on different subsets (card full vs AA Diamond); the card value is kept."
+    }
+  ],
+  "retrieved_at": "2026-11-21T12:00:00Z"
+}

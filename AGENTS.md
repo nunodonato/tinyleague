@@ -1,0 +1,374 @@
+# Tiny League — agent guide
+
+Knowledge base of **benchmark scores for recent open-weight AI models**, designed to
+support comparisons, tables, and charts, and published as a single shareable page.
+
+> **Most common task: "add a new model".** Jump to [Add a new model](#add-a-new-model).
+> You are usually given just a name or a Hugging Face URL.
+
+## Criteria (pinned in `data/meta.json`)
+- **Params:** 4B–285B inclusive (total parameters).
+- **Official weights only:** no GGUF / AWQ / FP8 / GPTQ / bnb / torchao / LoRA /
+  finetune / merge / abliterated / uncensored re-uploads. Repo must be the developer org.
+- **Age:** released on/after the cutoff (5 months back → currently `2026-04-05`).
+- **Current version preferred:** a newer release normally supersedes the older one of
+  the same family/size (e.g. `granite-4.1`→`4.2`, `Qwen3.6`→`3.8`), but two
+  closely-timed releases may both stay when each is independently comparable.
+- **Relevance — ≥ 5 existing benchmarks.** A model must report **at least 5 benchmarks
+  that another model in the roster also reports** (`MIN_SHARED_BENCH = 5` in
+  `validate.py`, printed as the `[relevance]` block). Below that it adds a row nobody can
+  compare, so **warn the user and ask for confirmation before adding it** — state how
+  many shared benchmarks it would contribute and which. This is a judgment gate, not a
+  hard rule: the user may still want it.
+- **≥ 20 models**, and always include the **Ornith**, **Ling** and **Spark X** families.
+
+## Source-of-truth policy (for SCORES)
+Priority: **official HF model card / tech report first** → Artificial Analysis /
+vendor blog fill gaps → official X posts / leaderboards
+corroborate. Rules:
+- Every score MUST carry a `source` (keyed in `data/sources.json`) and, where possible,
+  a `source_url`.
+- **Cross-check AA for every model you add.** After recording the card, fetch
+  `https://artificialanalysis.ai/models/<slug>` and add any roster benchmark it publishes
+  that the card omits (`source: "artificial-analysis"`, with `source_url`). When both
+  report the same benchmark, keep the card as primary and log the disagreement under
+  `conflicts`; when AA has no number, say so in `gaps`. AA lags on new releases — its
+  newer index evals (AA-Briefcase, AA-Omniscience, Terminal-Bench Science, …) are often
+  the only ones available, and very new/small models may have no AA page at all.
+- **Never fabricate.** Missing = absent or `null`; put it in `gaps`.
+- **Reasoning levels:** for reasoning/thinking models that report a benchmark in
+  several reasoning levels (e.g. `no reasoning` / `low` / `high`, or `thinking` vs
+  `non-thinking`), ALWAYS take the **highest reasoning level** value. Record the level
+  in `subtask`/`notes` (e.g. `subtask: "high reasoning"`).
+- **No AA Intelligence Index.** The index was dropped from the dataset: AA no longer
+  covers small models well, and newer releases consistently lack it. Do not reintroduce
+  it (or a renamed variant of it) as a benchmark column. Individual AA benchmarks
+  (`AA-LCR`, `AA-Omniscience`, ...) are still valid gap-fillers.
+- If two sources disagree, keep the primary value and log both under `conflicts`
+  (do not silently overwrite).
+- Benchmark names are **canonical**: reuse the same spelling across models
+  (`MMLU-Pro`, `GPQA Diamond`, `SWE-bench Verified`, `IFEval`, `GPQA Diamond`, ...).
+  Eval specifics (harness, effort/`w/ HI`, k, context length, tool mode, domain) go in
+  `subtask`/`notes`, never in the name.
+- **Versioned benchmarks carry the version in the NAME** so non-comparable versions
+   become distinct columns: `Terminal-Bench 2.0` / `2.1` / `Hard`, `AIME 2025` /
+   `2026`, `HMMT Feb 2025` / `Feb 2026`, `BFCL v3` / `v4`, `LiveCodeBench v6` / `2408-2505`,
+   `DeepSWE 1.1`, `MRCR` / `MRCR v2`. When a card does not
+   state the version, leave the benchmark unversioned (e.g. `DeepSWE`, `LiveCodeBench`)
+   rather than guessing. **Version aliases that name the same release are folded onto one
+   column, not split** (e.g. `Terminal-Bench v2` is the same release as `2.0`; a bare
+   `v2` is a spelling variant, not a new version). Each versioned name maps to its family
+   in `BENCH_FAMILY` (`generate_html.py`) — add a new multi-version family there so its rare
+   versions are not hidden (see the visibility rule below). Spelling-variant / alias synonyms
+   of a versioned name are normalized centrally in `scripts/merge.py` → `CANON_BENCH`
+   (add new ones there).
+
+## Repository layout
+| Path | What it is |
+|---|---|
+| `data/models.json` | Roster: per-model definition, params, architecture, **vision support** (`supports_vision`), release date, HF link, officiality evidence. |
+| `data/scores.json` | Merged per-model scores + `gaps` + `conflicts` (generated; do not hand-edit). |
+| `data/sources.json` | Source registry (type, reliability, priority). |
+| `data/meta.json` | Criteria: cutoff, param range, required families, min models. |
+| `data/changelog.json` | Site changelog (newest first; rendered on the page). **One bullet per day** — fold that day's changes into one short entry. HARD LIMIT: **one sentence, ~15 words max**, naming only what changed (model id(s) + a 3–4 word descriptor, or the feature). NEVER include benchmark numbers, score rundowns, eval settings, rationale, "not tracked by X" notes, or verification details — those live in `scores.json`/`raw/`. e.g. `Added InternScience/Sage-A1.5 (36B MoE, vision).` |
+| `data/configs/<org>__<name>.json` | Snapshot of each model's HF `config.json` pinned to a commit SHA (auto, by `kv_cache.py`); the audit trail for the derived KV-cache numbers. |
+| `data/raw/<org>__<name>.json` | One researched score record per model (**double underscore**). |
+| `data/raw/<org>__<name>.draft.json` | Cleaned table extraction of the card (intermediate, auto). |
+| `schema/*.json` | JSON Schemas — enforced by `validate.py`. |
+| `out/index.html` | Self-contained dashboard (data + CSS + JS + Chart.js inlined, zero external deps). |
+| `out/robots.txt`, `out/llms.txt`, `out/sitemap.xml` | Crawler/agent metadata, emitted by `generate_html.py` beside the page. |
+| `out/og.png` | 1200×630 social card (Open Graph / Twitter), built from the data at generate time (`build_og_svg` → `rsvg-convert`; skipped with a warning if that tool is missing, keeping the previous PNG). |
+| `scripts/web/style.css` | The dashboard's design system (tokens, layout, tables, heatmap, charts, responsive). Read and inlined at build time. |
+| `scripts/web/app.js` | The dashboard's front-end (sorting, filters, URL state, heatmap recolouring, charts). Read and inlined at build time. |
+
+## Scripts (all run with `.venv/bin/python`, from the repo root)
+| Script | Purpose |
+|---|---|
+| `scripts/add_model.py <id\|name\|url>` | **Add one model** to `models.json` (resolves id, fetches metadata, enforces criteria). Normal path. |
+| `scripts/finalize_roster.py` | (Re)build the whole `models.json` from its curated `CURATED` list. Bulk/initial builds only. |
+| `scripts/extract_card.py [ids...]` | Fetch + clean model card(s) → `data/raw/*.draft.json`. |
+| `scripts/merge.py` | `data/raw/*.json` → `data/scores.json` (canonicalizes benchmark names). |
+| `scripts/validate.py` | Schema + criteria + coverage + conflicts. Prints `PASS`/`FAIL`, exit 0/1. |
+| `scripts/generate_html.py` | → `out/index.html` (+ `robots.txt`, `llms.txt`, `sitemap.xml`). Inlines `scripts/web/style.css` and `scripts/web/app.js`. |
+| `scripts/kv_cache.py [--verify] [--apply] [--jobs N] [--force]` | Derive each model's **KV-cache footprint** from its `config.json` into `models.json` → `kv_cache` (see [KV cache](#kv-cache-derived-not-a-benchmark)). Dry-run prints a table; `--verify` cross-checks per-layer widths against real safetensors tensor shapes; `--refresh` re-fetches configs; unchanged models are reused and fetched in parallel. |
+| `scripts/perf.py [--apply]` | Derive each model's **decode speed** into `models.json` → `perf` (see [Decode speed](#decode-speed-derived-not-a-benchmark)). Needs `kv_cache` and `active_params_b`, so run it **after** `kv_cache.py`. Dry-run prints a table. |
+
+## Add a new model
+Given a name, HF id, or URL (e.g. `Qwen/Qwen3.9-32B`, `gemma-4`, or a full URL):
+
+1. **Add the model**
+   ```
+   .venv/bin/python scripts/add_model.py "<name-or-id-or-url>"
+   ```
+   It resolves the id (searches HF for bare names), fetches live metadata, and enforces
+   the criteria. Read its output:
+   - `ALREADY PRESENT` → nothing to do.
+   - `HARD: ...` (out of range / before cutoff / not official) → **do not** force it in;
+     tell the user why it's out of scope. Use `--force` only if the user explicitly wants
+     the exception.
+   - `warn: confirm this is the CURRENT version` → **verify** there's no newer
+     same-family/size release (check the org's repos on HF). If superseded, stop and say so.
+    - On success it prints the exact next commands.
+    - The vision flag (`supports_vision`, the **V** badge) is set automatically from the
+      HF `config.json` (a `vision_config` entry ⇒ vision-capable).
+
+2. **Extract the card**
+   ```
+   .venv/bin/python scripts/extract_card.py <org/name>
+   ```
+   Produces `data/raw/<org>__<name>.draft.json`.
+
+3. **Research the scores (you do this — it's judgment, not a script).**
+   - Read the draft. In comparison tables **columns = models, rows = benchmarks**; take
+     the column whose header matches the target model's display name, per benchmark row.
+     Single-cell rows are group headers. `--`/empty = no data (→ `gaps`).
+   - If the draft has 0 tables, fetch the raw card: `curl -s https://huggingface.co/<org/name>/raw/main/README.md`
+     (scores may be in prose, markdown, or a figure caption).
+   - Write `data/raw/<org>__<name>.json` matching `schema/scores.schema.json` (the
+     `score_record` form: `{model_id, scores:[{benchmark, subtask?, score, metric?,
+     source, source_url?, notes?}], gaps:[...], conflicts:[...], retrieved_at}`).
+      Primary source is `huggingface-model-card` + the HF URL. Fill gaps from AA/X **only
+      if you can actually read a number**; otherwise list them under `gaps`.
+    - Validate it: `.venv/bin/python -c "import json,jsonschema; jsonschema.validate(json.load(open('data/raw/<org>__<name>.json')), json.load(open('schema/scores.schema.json'))); print('ok')"`
+    - Cross-check AA before regenerating (see the [source-of-truth
+      policy](#source-of-truth-policy-for-scores)): add any roster benchmark AA reports
+      that the card omits, log disagreements in `conflicts`, and note in `gaps` where AA
+      has nothing (including "no AA model page").
+
+   **Relevance gate — before regenerating.** Count how many of the recorded benchmarks
+   already exist in the roster (canonical names, after `merge.py`; `validate.py` prints
+   this as `[relevance]`). If the new model shares **fewer than 5**, **stop and ask the
+   user**: name the model, say how many shared benchmarks it would add (and list the
+   leftovers that would be single-model columns), and get an explicit OK. On "no", follow
+   [Remove a model](#remove-a-model). `Qwen-AgentWorld-35B-A3B` (1) and `Laguna-XS-2.1`
+   (4) are the current roster's only sub-5 members — accepted on request.
+
+4. **Regenerate**
+   ```
+   .venv/bin/python scripts/kv_cache.py --verify --apply
+   .venv/bin/python scripts/perf.py --apply
+   .venv/bin/python scripts/merge.py && .venv/bin/python scripts/validate.py && .venv/bin/python scripts/generate_html.py
+   ```
+   `kv_cache.py --verify --apply` derives the new model's KV-cache footprint and checks
+   it against the repo's real tensor shapes (see [KV cache](#kv-cache-derived-not-a-benchmark)).
+   `perf.py --apply` then derives its **decode speed** (see
+   [Decode speed](#decode-speed-derived-not-a-benchmark)); it runs *after* `kv_cache.py`
+   because it reads the KV rate. Both blocks are **derived, never scraped**: if the card
+   states an active-parameter count (e.g. "35B total, 3B active"), set `active_params_b` +
+   `active_params_source: "vendor model card"` in `models.json` **before** running
+   `perf.py` — without it the speed falls back to "all parameters active" and is flagged.
+   `validate.py` FAILs when either derived block is missing, so a skipped step surfaces.
+   `validate.py` MUST print `PASS`. If it reports new benchmark-name duplicates, add the
+    synonym to `CANON_BENCH` in `merge.py` and re-run.
+    **Update `data/changelog.json` first (one bullet per day; one sentence, ~15 words
+    max — see the file-layout row), THEN run `generate_html.py`** — the changelog is
+    baked into the HTML at generate time, so
+    editing it after generating ships a stale changelog (re-run `generate_html.py`
+    and re-deploy if you forget).
+
+5. **Ask the user before deploying.** Say it's ready and the link
+   (`https://tinyleague.org`), and **ask whether to upload**. Do NOT
+   upload without their explicit OK. On "yes", deploy it (maintainers: the private
+   `OPS.md` has the commands).
+
+## Remove a model
+When a model must be dropped from the roster (out of scope, superseded, retracted, …):
+1. Remove its entry from `data/models.json` (filter out its `model_id`).
+2. Delete its research files `data/raw/<org>__<name>.json` and
+   `data/raw/<org>__<name>.draft.json`.
+3. Regenerate exactly as [step 4](#add-a-new-model) — `merge.py` rebuilds `scores.json`
+   without the model and `generate_html.py` drops it from the page. `validate.py` must
+   still print `PASS` (the roster must keep ≥ 20 models and the required families).
+ Then ask before deploying, as usual.
+
+## KV cache (derived, not a benchmark)
+Every model's `models.json` entry carries a `kv_cache` block computed by
+`scripts/kv_cache.py` — **never scraped or hand-typed**. It answers "how much VRAM does
+a long context cost?" and is shown only in the Scores Heatmap, as the **KV @128K**
+column (it is not a benchmark, so it does not sit in the Models table).
+
+- **Source:** the model's own `config.json`, fetched at a pinned commit SHA and
+  snapshotted under `data/configs/`. The SHA is stored in `kv_cache.config_revision`.
+- **Formula (BF16, batch 1, no TP):** per KV-bearing layer, `2 × n_kv_heads × head_dim × 2`
+  bytes per token (K + V). MLA layers (DeepSeek, Ling, LongCat) instead store one
+  `kv_lora_rank + qk_rope_head_dim` latent per token (no factor 2). Sliding-window
+  layers saturate at their window. Linear/KDA/conv/Mamba layers store no growing KV
+  (constant recurrent state, **not** included in the number). Compressed attention
+  (DeepSeek-V4 CSA/HCA) pools entries by `compress_ratios`, keeping the rolling window
+  at full resolution.
+- **Cache copies:** the per-layer geometry is multiplied by everything that allocates
+  separate KV slots for the same weights — `attention_modules_per_layer` (LongCat's two
+  MLA branches) and `cache_copies` (a looped stack such as Nanbeige's `num_loops: 2`
+  indexes the cache per pass, `layer_idx + loop_idx * num_hidden_layers`, unless
+  `loop_share_kv` is set). Both come from the config, not from the tensors, so `--verify`
+  cannot confirm them.
+- **Layer structure** comes from `layer_types` / `layers_block_type` where present; else
+  `full_attention_interval`, `layer_group_size` (Ling), or all-layers-attention as a
+  last resort (recorded in `provenance`).
+- **`--verify` is the reliability check:** it reads the safetensors index (complete
+  layer→tensor map) and the header of a few shards (real tensor shapes), asserts that
+  the layers computed as KV-bearing are exactly the layers that own KV tensors, and that
+  each projection's `out_features` equals the computed width. It also counts attention
+  branches per layer (LongCat has two MLA branches per layer → 2× the cache). Multimodal
+  towers and MTP/speculative heads are excluded by name. A clean run sets
+  `verified: true` and `confidence: high`; problems print to stderr and leave
+  `verify_notes`. Run it after adding a model; if it reports a mismatch, fix the geometry
+  rule in the script rather than editing the number. A plain `--apply` keeps a previous
+  verification (same `config_revision`), so it never silently downgrades a checked model —
+  but run `--verify --apply` after changing the formula.
+- **Runs are incremental and parallel.** A stored block is reused untouched when its
+  `config_revision` and `formula_version` still match, and only models needing work are
+  fetched (6 at a time, `--jobs N`), so a repeat full-roster run is local and instant and
+  after adding a model only that model hits the network. Therefore **bump
+  `FORMULA_VERSION` in `kv_cache.py` whenever you change the geometry rules**, or cached
+  blocks stay stale; `--force` recomputes everything, and `--verify --force` re-checks
+  every model against the weights.
+- **Scope:** excludes sparse-attention indexer caches (DeepSeek-V4, LongCat, Qwen3.8-Flash-
+  Next), page/block padding, tensor-parallel sharding, and an FP8 KV cache (which halves
+  these numbers). The headline column is the total at **128K tokens** so models with
+  different native contexts stay comparable — capped at a model's own maximum when that
+  is shorter (never extrapolated); the tooltip carries the per-token rate and the cost at
+  each model's own maximum context.
+- **KV @128K is the first column of the Scores Heatmap**: `kv_cache.gib_at_ref_ctx` in GiB.
+  Lower is better. The cell colour uses the heatmap's ramp on a **fixed log scale**
+  (≤ 0.5 GiB = deepest blue, ≥ 32 GiB = palest), so the column reads the same way as the
+  benchmark columns without depending on the current roster. A 256K column was tried and
+  dropped: for most architectures the cache is simply 2× the 128K figure, so it added
+  width without adding information. No active-parameter normalisation: the column answers
+  "what has to fit in VRAM beside the weights", which is what people plan with.
+  `active_params_b` (vendor-stated for MoE, equal to total for dense;
+  `models.json` → `active_params_b` + `active_params_source`) is still recorded and
+  still appears in the cell tooltip as "GiB per active-B", but it no longer drives the
+  column — **never** invent an active count.
+
+## Decode speed (derived, not a benchmark)
+Each model's `perf` block answers "how fast will this feel on a known GPU?" — computed by
+`scripts/perf.py`, **never scraped or hand-typed**. Decode at batch 1 is memory-bandwidth
+bound: every generated token streams the weights that participate plus the KV cache read
+so far.
+
+- **Formula (BF16, batch 1, one sequence, no tensor parallel):**
+  `bytes_per_token = active_B × 1e9 × 2 + ctx × kv_kib_per_token × 1024`, then
+  `tok/s = effective_bandwidth / bytes_per_token`. `ctx` is capped at the model's native
+  context (never extrapolated).
+- **Two points are recorded:** `decode_tok_s_fresh` (empty context — weights only) and
+  `decode_tok_s_at_ref_ctx` (weights + KV read at 128K), plus `retained_pct`, the share of
+  fresh speed kept at long context. Shown in the **Models** table as *Decode fresh* /
+  *Decode @128K* (with a bar) and in the **Speed** chart preset.
+- **Reference card:** one NVIDIA RTX 4090 (1008 GB/s peak) at a deliberately conservative
+  **50%** efficiency = 504 GB/s effective; the GPU, peak, efficiency and effective
+  bandwidth are all written into each record so the number is auditable rather than a
+  magic constant.
+- **`active_params_b` is the input that must be right.** Vendor-stated when the card gives
+  it (`35B total, 3B active`); equal to total for dense models
+  (`active_params_source: "dense: active = total parameters"`). When no active count is
+  published the script falls back to "all parameters active", sets
+  `active_params_assumed: true`, and the page shows an asterisk — that **overstates cost
+  for a MoE**, so it is a fallback, not a substitute. **Never invent an active count.**
+- **`perf` is required and checked.** `validate.py` FAILs if a model is missing `perf` or
+  `kv_cache`, which is exactly the symptom of forgetting to re-run a derivation script
+  after adding a model.
+
+## Local preview
+To show the user the page, open `out/index.html` in **their default browser** —
+`xdg-open out/index.html` (from the repo root). Do **NOT** use the chrome-devtools
+browser tools for this; that opens a headless/managed Chrome instance, not the user's
+own browser.
+
+## Dashboard & filtering (`generate_html.py` + `scripts/web/`)
+`out/index.html` is one self-contained page; its CSS and JS live in `scripts/web/` and are
+inlined at build. Interactive filters live in the floating **Params** and **Models** panels
+and re-render the tables + charts on the fly.
+- **Core vs All heatmap.** The heatmap opens on **Core** — benchmarks reported by
+  `CORE_MIN_MODELS = 5` or more models, plus a small curated `CORE_ALWAYS` list
+  (`DeepSWE 1.1`, `AutomationBench`) that stays pinned however thin its column gets.
+  Most of the roster's benchmark columns are thin (median ~2 models) and a full matrix
+  is unreadable. **All** shows every column;
+  a benchmark search always reaches every column. Each header carries its model count.
+- **Shareable state.** Param range, vision/MoE toggles, model selection, chart tab,
+  benchmark search and Core/All are written to the query string
+  (`?min=8&vision=1&sel=…&chart=preset-kv&bf=swe&hv=all`) and restored on load, so any
+  filtered view can be linked. A **Share** button (the third floating control, left of
+  Models/Params) appears only while that query string is non-empty and copies the view's
+  absolute URL; it hides again when the view returns to the default.
+- **Discord button.** The masthead carries a Discord-blurple button (`#5865f2` — the one
+  deliberately non-theme colour, since it is a third-party brand mark) linking to the
+  **permanent** invite `https://discord.gg/DQ6E6eJZVJ`; the footer repeats it as a small
+  inline link beside the author credit. White on blurple is 4.6:1 (AA);
+  under 700px it collapses to an icon-only 38px control. Always use a never-expiring
+  invite — the first one (`DdjCPSdnY`) silently expired after 30 days.
+- **Vision / multimodal — the `(V)` badge.** Each model carries a boolean
+  `supports_vision` (in `models.json`; auto-detected from a `vision_config` in the HF
+  `config.json`, else from `modalities`). Vision-capable models show a small **V** badge
+  next to their name in the **Models** table and the **Scores Heatmap**.
+- **"Only models with vision" toggle.** A checkbox in the panel restricts the Models
+  table, heatmap and bar charts to `supports_vision` models (stacks with the param
+  range; **reset** clears it).
+- **Param-range filter.** The min/max slider hides out-of-range models across every
+  table and chart.
+- **Benchmark visibility — needs ≥ 2 models per column.** A benchmark column is hidden
+  (heatmap and bar charts) unless **at least 2 models report that exact
+  benchmark** (`MIN_BENCH_MODELS = 2` in `generate_html.py`). Versions are **not pooled**:
+  `Terminal-Bench Hard` (1 model) is hidden even though `Terminal-Bench 2.1` has 20, since
+  the versions are not comparable. It is a *display* rule only — those scores remain in
+  `data/scores.json`.
+  **Bar charts need ≥ 4 models** (`MIN_CHART_MODELS = 4` in the front-end JS): a
+  per-benchmark comparison chart is only drawn when at least four models report that
+  benchmark *within the current filters*, since two- or three-bar charts are not a
+  meaningful comparison. This is independent of the heatmap's ≥ 2 column rule.
+  **Dynamically, once a filter is active** (param range, vision/MoE toggle, model
+  selection, benchmark search) the heatmap re-counts coverage over the *visible* models
+  and hides any column with fewer than 2 of them (`MIN_BENCH_LIVE = 2`), so filtering
+  never leaves empty or single-entry columns behind. The counter next to the benchmark
+  search reports how many columns were hidden.
+- **Comparisons are curated.** `DEFAULT_CHARTS = 12` bar charts (the best-covered
+  benchmarks) are drawn, with a **Show all** control for the rest — 40 unlabelled charts
+  made the page 10,000 px long and duplicated the heatmap.
+- **Versioned columns** render a two-line header (family on top, version emphasized below)
+  via `bench_header_html` in `generate_html.py`, so sibling versions stay visually distinct.
+- **Column order — family-grouped, most data first.** Heatmap columns (and the bar charts,
+  which reuse the same order) are grouped by family and ordered by each
+  family's **total** coverage, with sibling versions adjacent within a family (e.g.
+  `Terminal-Bench 2.1/2.0/4` sit side by side). Set by the `fam_members` grouping in
+  `generate_html.py`.
+- **Click any header to sort** (sets `aria-sort`); a **benchmark search box** filters the
+  heatmap columns. Before any click the rows open **newest first** (`newest_first()`:
+  `official_release_date` descending, ties in roster order), the same order as the Models
+  table, so the latest models are at the top and a benchmark header re-ranks by score.
+- **Colour is contrast-checked.** `heat_style()` / `heatStyle()` pick white or ink per cell
+  and nudge mid-ramp steps darker so every value clears WCAG AA. Keep the Python and JS
+  versions in sync — the page renders cells server-side and re-colours them on filter.
+
+## Deployment (not in this repo)
+
+This repository is the **public** project: data, pipeline, dashboard. Deployment,
+hosting and traffic stats live in a private ops folder
+(`~/Projects/tinyleague-ops/`, with its own `OPS.md`) because they contain the
+server host, the Caddy config and the stats auth hash. `out/` is the deployable
+artifact — a fork only needs to serve it statically.
+
+## Setup (only if the venv is missing)
+```
+python3 -m venv .venv && .venv/bin/pip install -q -r requirements.txt
+```
+Deps: `requests`, `jsonschema`, `beautifulsoup4`, `lxml`.
+
+## Reliability rules (summary)
+- Official-only: developer-org repo, real non-quant safetensors, name not a
+  quant/finetune/merge. Log evidence in `officiality_evidence`.
+- Age: from `official_release_date` (prefer the vendor's stated date over HF
+  `createdAt`) vs the cutoff.
+- X: official org posts corroborate a score; if `x.com` is unreachable, fall back to
+  the vendor blog or a leaderboard rather than guessing.
+
+## Parallelizing (optional)
+For adding many models at once, fan out research across **opencode subagents in herdr**
+sibling panes (`herdr pane split` + `herdr agent start <name> --kind opencode`), ~5–7
+models each, each writing its own `data/raw/<org>__<name>.json`. One builder agent can
+write/refresh the scripts. A single agent is fine for a lone model.
+
+## Known quirks
+- Some cards are thin (agent-specialized models); their missing standard metrics live in
+  `gaps`.
+- Opening `out/index.html` via `file://` logs a harmless "unique security origin"
+  console warning; it renders fine.

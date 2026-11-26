@@ -1,0 +1,281 @@
+{
+  "model_id": "Nanbeige/Nanbeige4.2-3B",
+  "display_name": "Nanbeige4.2-3B",
+  "url": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B",
+  "retrieved_at": "2026-09-05T09:07:16Z",
+  "html_tables": [
+    [
+      [
+        "-",
+        "-",
+        "Nanbeige4.2-3B 1",
+        "Qwen3.5-9B",
+        "Qwen3.5-4B",
+        "Gemma4-12B",
+        "Gemma4-E4B"
+      ],
+      [
+        "Parameters",
+        "Total Params",
+        "4B",
+        "10B",
+        "5B",
+        "12B",
+        "8B"
+      ],
+      [
+        "Non-embedding Params",
+        "3B",
+        "8B",
+        "4B",
+        "10B",
+        "4B"
+      ],
+      [
+        "General Agent 2",
+        "GDPval rubrics",
+        "74.3",
+        "61.9",
+        "46.7",
+        "68.5",
+        "31.5"
+      ],
+      [
+        "Agent-IF-Oneday",
+        "67.5",
+        "60.4",
+        "56.9",
+        "—",
+        "—"
+      ],
+      [
+        "Office-QA-Pro 3",
+        "21.1",
+        "15.8",
+        "8.3",
+        "15.3",
+        "3.1"
+      ],
+      [
+        "Pinch-Bench-V2",
+        "74.7",
+        "68.2",
+        "63.9",
+        "53.8",
+        "33.3"
+      ],
+      [
+        "Claw-Gym",
+        "65.0",
+        "56.1",
+        "53.0",
+        "40.8",
+        "16.4"
+      ],
+      [
+        "Claw-Eval pass^3",
+        "52.2",
+        "47.1",
+        "36.9",
+        "25.5",
+        "15.9"
+      ],
+      [
+        "MCP-Atlas",
+        "57.8",
+        "47.4",
+        "40.8",
+        "30.5",
+        "15.0"
+      ],
+      [
+        "Code Agent 4",
+        "SWE-Bench Verified",
+        "63.6",
+        "53.1",
+        "38.8",
+        "44.2",
+        "14.0"
+      ],
+      [
+        "SWE-Bench Pro",
+        "46.9",
+        "33.8",
+        "29.4",
+        "21.9",
+        "4.0"
+      ],
+      [
+        "Terminal-Bench 2.0",
+        "44.1",
+        "29.2",
+        "25.8",
+        "21.1",
+        "12.4"
+      ],
+      [
+        "Reasoning",
+        "HLE w/o Search",
+        "17.8",
+        "12.5",
+        "6.8",
+        "14.8",
+        "4.0"
+      ],
+      [
+        "SciCode",
+        "35.6",
+        "32.7",
+        "22.7",
+        "38.2",
+        "24.9"
+      ],
+      [
+        "GPQA-Diamond",
+        "87.4",
+        "81.7",
+        "78.2",
+        "78.8",
+        "60.6"
+      ],
+      [
+        "HMMT-Feb-2026",
+        "82.8",
+        "69.6",
+        "60.6",
+        "51.5",
+        "24.2"
+      ],
+      [
+        "IMO-Answer-Bench",
+        "67.3",
+        "56.3",
+        "46.8",
+        "54.5",
+        "24.0"
+      ],
+      [
+        "LiveCodeBench-V6",
+        "72.5",
+        "65.6",
+        "55.8",
+        "72.0",
+        "55.3"
+      ],
+      [
+        "Alignment",
+        "AA-LCR",
+        "58.7",
+        "58.0",
+        "52.0",
+        "55.3",
+        "30.7"
+      ],
+      [
+        "IF-Bench",
+        "54.6",
+        "54.1",
+        "41.4",
+        "73.5",
+        "44.0"
+      ],
+      [
+        "Recruit-Bench 5",
+        "63.3",
+        "59.0",
+        "40.7",
+        "69.4",
+        "57.9"
+      ]
+    ],
+    [
+      [
+        "Capability",
+        "Benchmark",
+        "Nanbeige4.2-3B",
+        "Qwen3.5-9B",
+        "Qwen3.5-4B"
+      ],
+      [
+        "Daily Tasks",
+        "Pinch-Bench-V2",
+        "74.7",
+        "68.2",
+        "63.9"
+      ],
+      [
+        "Claw-Gym",
+        "65.0",
+        "56.1",
+        "53.0"
+      ],
+      [
+        "Office Tasks",
+        "GDPval",
+        "68.8",
+        "38.0",
+        "37.0"
+      ],
+      [
+        "Agent-IF-Oneday",
+        "58.9",
+        "32.1",
+        "27.0"
+      ],
+      [
+        "Deep Research",
+        "DeepResearch Bench II",
+        "33.4",
+        "28.3",
+        "26.0"
+      ],
+      [
+        "ResearchRubrics",
+        "44.8",
+        "37.2",
+        "35.1"
+      ]
+    ]
+  ],
+  "markdown_tables": [
+    [
+      [
+        "Scenario",
+        "Temperature",
+        "Max New Tokens"
+      ],
+      [
+        "Agentic and tool-use tasks",
+        "1.0",
+        "65,536"
+      ],
+      [
+        "Reasoning and chat tasks",
+        "0.6",
+        "131,072"
+      ]
+    ],
+    [
+      [
+        "Path",
+        "Model format",
+        "Backend",
+        "Typical use"
+      ],
+      [
+        "**llama-server**",
+        "GGUF",
+        "llama.cpp (Metal / CUDA / ...)",
+        "Traditional GGUF quantized deployment"
+      ],
+      [
+        "**MLX**",
+        "HuggingFace safetensors",
+        "MLX (Apple Metal, etc.)",
+        "Run BF16 or quantized safetensors directly"
+      ]
+    ]
+  ],
+  "sections": [],
+  "raw_chars": 16735
+}

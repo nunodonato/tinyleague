@@ -1,0 +1,61 @@
+{
+  "model_id": "poolside/Laguna-S-2.1",
+  "scores": [
+    {
+      "benchmark": "Terminal-Bench 2.1",
+      "score": 70.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/poolside/Laguna-S-2.1",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "SWE-bench Multilingual",
+      "score": 78.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/poolside/Laguna-S-2.1",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "SWE-bench Pro",
+      "subtask": "Public Dataset",
+      "score": 59.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/poolside/Laguna-S-2.1",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "DeepSWE",
+      "score": 40.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/poolside/Laguna-S-2.1",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "SWE Atlas",
+      "subtask": "Codebase QnA",
+      "score": 46.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/poolside/Laguna-S-2.1",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "Toolathlon",
+      "subtask": "Verified",
+      "score": 49.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/poolside/Laguna-S-2.1",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    }
+  ],
+  "gaps": [
+    "Arena"
+  ],
+  "conflicts": [],
+  "retrieved_at": "2026-09-05T09:13:28Z"
+}

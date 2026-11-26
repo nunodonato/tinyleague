@@ -1,0 +1,145 @@
+{
+  "model_id": "google/gemma-4-12B-it",
+  "scores": [
+    {
+      "benchmark": "MMLU-Pro",
+      "score": 77.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-12B-it",
+      "retrieved_at": "2026-09-05T09:10:05Z"
+    },
+    {
+      "benchmark": "AIME 2026",
+      "score": 77.5,
+      "metric": "%",
+      "subtask": "no tools",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-12B-it",
+      "retrieved_at": "2026-09-05T09:10:05Z"
+    },
+    {
+      "benchmark": "LiveCodeBench v6",
+      "score": 72.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-12B-it",
+      "retrieved_at": "2026-09-05T09:10:05Z"
+    },
+    {
+      "benchmark": "Codeforces ELO",
+      "score": 1659,
+      "metric": "rating",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-12B-it",
+      "retrieved_at": "2026-09-05T09:10:05Z"
+    },
+    {
+      "benchmark": "GPQA Diamond",
+      "score": 78.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-12B-it",
+      "retrieved_at": "2026-09-05T09:10:05Z"
+    },
+    {
+      "benchmark": "Tau2",
+      "score": 69.0,
+      "metric": "%",
+      "subtask": "average over 3",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-12B-it",
+      "retrieved_at": "2026-09-05T09:10:05Z"
+    },
+    {
+      "benchmark": "HLE",
+      "score": 5.2,
+      "metric": "%",
+      "subtask": "no tools",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-12B-it",
+      "retrieved_at": "2026-09-05T09:10:05Z"
+    },
+    {
+      "benchmark": "BigBench Extra Hard",
+      "score": 53.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-12B-it",
+      "retrieved_at": "2026-09-05T09:10:05Z"
+    },
+    {
+      "benchmark": "MMMLU",
+      "score": 83.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-12B-it",
+      "retrieved_at": "2026-09-05T09:10:05Z"
+    },
+    {
+      "benchmark": "MMMU Pro",
+      "score": 69.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-12B-it",
+      "retrieved_at": "2026-09-05T09:10:05Z"
+    },
+    {
+      "benchmark": "OmniDocBench 1.5",
+      "score": 0.164,
+      "metric": "avg edit distance",
+      "notes": "lower is better",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-12B-it",
+      "retrieved_at": "2026-09-05T09:10:05Z"
+    },
+    {
+      "benchmark": "MATH-Vision",
+      "score": 79.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-12B-it",
+      "retrieved_at": "2026-09-05T09:10:05Z"
+    },
+    {
+      "benchmark": "MedXPertQA MM",
+      "score": 48.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-12B-it",
+      "retrieved_at": "2026-09-05T09:10:05Z"
+    },
+    {
+      "benchmark": "CoVoST",
+      "score": 38.5,
+      "metric": "%",
+      "notes": "value carries * footnote on card (12B Unified audio)",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-12B-it",
+      "retrieved_at": "2026-09-05T09:10:05Z"
+    },
+    {
+      "benchmark": "FLEURS",
+      "score": 0.069,
+      "metric": "error",
+      "notes": "lower is better; value carries * footnote on card",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-12B-it",
+      "retrieved_at": "2026-09-05T09:10:05Z"
+    },
+    {
+      "benchmark": "MRCR v2",
+      "score": 43.4,
+      "metric": "%",
+      "subtask": "8 needle 128k (average)",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/google/gemma-4-12B-it",
+      "retrieved_at": "2026-09-05T09:10:05Z"
+    }
+  ],
+  "gaps": [
+    "HLE with search (reported '-' on card for 12B Unified)"
+  ],
+  "conflicts": [],
+  "retrieved_at": "2026-09-05T09:10:05Z"
+}

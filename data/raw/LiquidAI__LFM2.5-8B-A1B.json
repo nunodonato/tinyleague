@@ -1,0 +1,150 @@
+{
+  "model_id": "LiquidAI/LFM2.5-8B-A1B",
+  "scores": [
+    {
+      "benchmark": "AA-Omniscience Index",
+      "score": -24.7,
+      "metric": "idx",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-8B-A1B"
+    },
+    {
+      "benchmark": "AA-Omniscience Accuracy",
+      "score": 8.67,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-8B-A1B"
+    },
+    {
+      "benchmark": "AA-Omniscience Non-Hallucination Rate",
+      "score": 63.47,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-8B-A1B"
+    },
+    {
+      "benchmark": "IFEval",
+      "score": 91.84,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-8B-A1B"
+    },
+    {
+      "benchmark": "IFBench",
+      "score": 56.47,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-8B-A1B"
+    },
+    {
+      "benchmark": "Multi-IF",
+      "score": 79.93,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-8B-A1B"
+    },
+    {
+      "benchmark": "MATH500",
+      "score": 88.76,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-8B-A1B"
+    },
+    {
+      "benchmark": "AIME 2025",
+      "score": 42.53,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-8B-A1B",
+      "notes": "AIME25"
+    },
+    {
+      "benchmark": "AIME 2026",
+      "score": 50.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-8B-A1B",
+      "notes": "AIME26 (from cross-model table)"
+    },
+    {
+      "benchmark": "BFCL v3",
+      "score": 64.79,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-8B-A1B",
+      "notes": "BFCLv3. Value confirmed by the headline benchmark image (qUZVGkns1bg3sZUShBbhv.png) and the cross-model table; the LFM2-vs-LFM2.5 delta table lists 64.36."
+    },
+    {
+      "benchmark": "BFCL v4",
+      "score": 49.73,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-8B-A1B",
+      "notes": "BFCLv4. Value confirmed by the headline benchmark image (qUZVGkns1bg3sZUShBbhv.png) and the cross-model table; the LFM2-vs-LFM2.5 delta table lists 48.50."
+    },
+    {
+      "benchmark": "τ²-bench",
+      "subtask": "Telecom",
+      "score": 88.07,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-8B-A1B",
+      "notes": "Tau2 Telecom"
+    }
+  ],
+  "gaps": [
+    "MMLU-Pro",
+    "GPQA Diamond",
+    "LiveCodeBench",
+    "HumanEval",
+    "SWE-bench Verified",
+    "Terminal-Bench"
+  ],
+  "conflicts": [
+    {
+      "benchmark": "BFCL",
+      "subtask": "v3",
+      "values": [
+        {
+          "score": 64.79,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 64.36,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Card has two tables: the 'Math and agentic workflows' cross-model table reports BFCLv3 = 64.79 and the headline benchmark image (qUZVGkns1bg3sZUShBbhv.png) also shows 64.79; the 'Improvements over LFM2-8B-A1B' delta table reports 64.36. Preferring 64.79 (two agreeing sources incl. the headline figure)."
+    },
+    {
+      "benchmark": "BFCL",
+      "subtask": "v4",
+      "values": [
+        {
+          "score": 49.73,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 48.5,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Card has two tables: the cross-model table reports BFCLv4 = 49.73 and the headline benchmark image (qUZVGkns1bg3sZUShBbhv.png) also shows 49.73; the delta table reports 48.50. Preferring 49.73 (two agreeing sources incl. the headline figure)."
+    },
+    {
+      "benchmark": "τ²-bench",
+      "values": [
+        {
+          "score": 88.07,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 39.82,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (88.07) per the highest-reasoning-level policy. Kept entries: Retail; Telecom."
+    }
+  ],
+  "retrieved_at": "2026-09-05T18:53:54Z"
+}

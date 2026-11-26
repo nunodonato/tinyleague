@@ -1,0 +1,450 @@
+{
+  "model_id": "maxwell-model/Maxwell-V1-Flash",
+  "scores": [
+    {
+      "benchmark": "GPQA Diamond",
+      "score": 86.52,
+      "metric": "%",
+      "subtask": "pass@1",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "MMLU-Pro",
+      "score": 85.46,
+      "metric": "%",
+      "subtask": "accuracy",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "MMLU-Redux",
+      "score": 93.59,
+      "metric": "%",
+      "subtask": "accuracy",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "HLE",
+      "score": 24.79,
+      "metric": "%",
+      "subtask": "no tools, 128K context",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "HLE w/Tools",
+      "score": 46.1,
+      "metric": "%",
+      "subtask": "pass@1, with tools",
+      "notes": "55.10 with context management enabled.",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "AIME 2025",
+      "score": 96.25,
+      "metric": "%",
+      "subtask": "mean@8",
+      "notes": "pass@8: 100.00.",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "AIME 2026",
+      "score": 95.0,
+      "metric": "%",
+      "subtask": "mean@8",
+      "notes": "pass@8: 96.67.",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "HMMT Feb 2025",
+      "score": 96.25,
+      "metric": "%",
+      "subtask": "mean@8",
+      "notes": "pass@8: 100.00.",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "HMMT Nov 2025",
+      "score": 90.83,
+      "metric": "%",
+      "subtask": "mean@8",
+      "notes": "pass@8: 100.00.",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "HMMT Feb 2026",
+      "score": 91.29,
+      "metric": "%",
+      "subtask": "mean@8",
+      "notes": "pass@8: 100.00.",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "IMO AnswerBench",
+      "score": 86.03,
+      "metric": "%",
+      "subtask": "mean@8",
+      "notes": "pass@8: 95.50.",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "LiveCodeBench v6",
+      "score": 85.66,
+      "metric": "%",
+      "subtask": "pass@1, 64K context",
+      "notes": "pass@8: 93.74.",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "Terminal-Bench 2.1",
+      "score": 58.65,
+      "metric": "%",
+      "subtask": "mean@5, Terminus-2 harness",
+      "notes": "Harbor framework, 256K context, 32K max tokens, 2h timeout per task.",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "SWE-bench Verified",
+      "score": 65.4,
+      "metric": "%",
+      "subtask": "pass@1, Claude Code harness",
+      "notes": "Claude Code 2.1.212, 256K context, 240 turns max.",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "τ³-bench",
+      "score": 67.37,
+      "metric": "%",
+      "subtask": "pass@1",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "MCP-Mark",
+      "score": 37.3,
+      "metric": "%",
+      "subtask": "mean@8",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "BrowseComp",
+      "score": 76.3,
+      "metric": "%",
+      "subtask": "pass@1",
+      "notes": "82.20 with context management enabled.",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "WideSearch",
+      "score": 74.4,
+      "metric": "%",
+      "subtask": "max@4",
+      "notes": "75.80 with context management enabled.",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "DeepSearchQA",
+      "score": 83.3,
+      "metric": "%",
+      "subtask": "pass@1",
+      "notes": "89.50 with context management enabled.",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "Bamboogle",
+      "score": 92.1,
+      "metric": "%",
+      "subtask": "mean@8",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "WebWalkerQA-300",
+      "score": 70.5,
+      "metric": "%",
+      "subtask": "mean@8",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "2WikiMultihopQA-300",
+      "score": 89.8,
+      "metric": "%",
+      "subtask": "mean@8",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "MuSiQue-300",
+      "score": 63.0,
+      "metric": "%",
+      "subtask": "mean@8",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "HotpotQA-300",
+      "score": 84.7,
+      "metric": "%",
+      "subtask": "mean@8",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "PopQA-300",
+      "score": 70.1,
+      "metric": "%",
+      "subtask": "mean@8",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "AA-LCR",
+      "score": 75.6,
+      "metric": "%",
+      "subtask": "mean@5",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "LongBench-v2",
+      "score": 59.4,
+      "metric": "%",
+      "subtask": "score",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "RULER",
+      "score": 95.81,
+      "metric": "%",
+      "subtask": "post-trained, score",
+      "notes": "Base model averages 94.80 at 8K and 93.35 at 256K.",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "IFBench",
+      "score": 64.8,
+      "metric": "%",
+      "subtask": "score",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "IFEval",
+      "score": 93.0,
+      "metric": "%",
+      "subtask": "score",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "AdvancedIF",
+      "score": 71.3,
+      "metric": "%",
+      "subtask": "score",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "MultiChallenge",
+      "score": 72.2,
+      "metric": "%",
+      "subtask": "pass@1",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "MT-Bench-101",
+      "score": 93.3,
+      "metric": "%",
+      "subtask": "score",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "MT-RAG",
+      "score": 65.74,
+      "metric": "%",
+      "subtask": "average",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "LongMemEval",
+      "score": 86.18,
+      "metric": "%",
+      "subtask": "score",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "CoSER",
+      "score": 53.54,
+      "metric": "%",
+      "subtask": "pass@1",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "RoleBench",
+      "score": 89.92,
+      "metric": "%",
+      "subtask": "pass@1",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "MLogiQA",
+      "score": 81.5,
+      "metric": "%",
+      "subtask": "score",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "C-Eval",
+      "score": 91.0,
+      "metric": "%",
+      "subtask": "score",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "MMMLU",
+      "score": 92.0,
+      "metric": "%",
+      "subtask": "score",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "INCLUDE",
+      "score": 84.7,
+      "metric": "%",
+      "subtask": "score",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "Belebele",
+      "score": 92.8,
+      "metric": "%",
+      "subtask": "score",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "Global-PIQA",
+      "score": 92.3,
+      "metric": "%",
+      "subtask": "score",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "MGSM",
+      "score": 93.0,
+      "metric": "%",
+      "subtask": "score",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "BBH",
+      "score": 91.02,
+      "metric": "%",
+      "subtask": "pass@1",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "BigBench Extra Hard",
+      "score": 52.51,
+      "metric": "%",
+      "subtask": "pass@1 (BBEH)",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    },
+    {
+      "benchmark": "KOR-Bench",
+      "score": 77.2,
+      "metric": "%",
+      "subtask": "pass@1",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
+      "retrieved_at": "2026-11-24T10:05:00Z"
+    }
+  ],
+  "gaps": [
+    "No Artificial Analysis model page exists for Maxwell-V1-Flash, so no AA benchmarks (AA-LCR aside, which the card itself reports) could be added.",
+    "No DeepSWE, SWE-bench Pro, BFCL, AA-Omniscience, MRCR, SciCode or GDPval results published.",
+    "The card's base-model table (MMLU, MATH-500, HumanEval, CMMLU, RULER/HELMET by context length, ...) is the pre-trained checkpoint, not the post-trained model this roster tracks, so those figures are deliberately not recorded.",
+    "Category averages (instruction-following, multi-turn, long-context, multilingual, role-playing, mathematical, scientific, logical) are aggregates of rows already recorded and are not stored as benchmarks."
+  ],
+  "conflicts": [],
+  "retrieved_at": "2026-11-24T10:05:00Z"
+}

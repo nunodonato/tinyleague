@@ -1,0 +1,140 @@
+{
+  "model_id": "LiquidAI/LFM2.5-24B-A2B",
+  "scores": [
+    {
+      "benchmark": "AutomationBench",
+      "score": 27.69,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B",
+      "notes": "Card does not state a benchmark version. vLLM, temperature=0.6, top_p=0.95, max_turns=50, no output-token cap. Always-thinking reasoning model."
+    },
+    {
+      "benchmark": "BFCL v4",
+      "score": 65.01,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B",
+      "notes": "Card row 'BFCLv4'. vLLM, temperature=0.001, max output 4096."
+    },
+    {
+      "benchmark": "ToolSandbox",
+      "score": 80.71,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B",
+      "notes": "vLLM, temperature=0, max output 1024; user simulator GPT-4o-2024-08-06 (temperature=0, 1024 tokens)."
+    },
+    {
+      "benchmark": "LiveClaw",
+      "score": 48.09,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B",
+      "notes": "temperature=1.0 (vLLM default; the agent sets none), max output 8192."
+    },
+    {
+      "benchmark": "PinchBench",
+      "score": 83.18,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B"
+    },
+    {
+      "benchmark": "τ³-bench",
+      "subtask": "Banking",
+      "score": 8.04,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B",
+      "notes": "Card row 'τ³-Bench Banking': official user model (GPT-5.2, low reasoning effort), default BM25 retrieval, temperature=0, 16384 output tokens per turn."
+    },
+    {
+      "benchmark": "WebArena-Verified",
+      "score": 26.75,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B",
+      "notes": "temperature=0.6, top_p=0.95, max_turns=40."
+    },
+    {
+      "benchmark": "GPQA Diamond",
+      "score": 74.42,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B"
+    },
+    {
+      "benchmark": "AA-Omniscience Index",
+      "score": -24.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B",
+      "notes": "Card row 'AA-Omniscience'; negative values are normal for this index."
+    },
+    {
+      "benchmark": "HLE",
+      "score": 7.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B",
+      "notes": "Card does not state a tools setting for HLE (evaluation settings fall under 'other evals': temperature=0.6, 32768 max output)."
+    },
+    {
+      "benchmark": "IFEval",
+      "score": 96.75,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B"
+    },
+    {
+      "benchmark": "IFBench",
+      "score": 74.69,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B"
+    },
+    {
+      "benchmark": "Multi-IF",
+      "score": 84.38,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B"
+    },
+    {
+      "benchmark": "MATH500",
+      "score": 96.04,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B",
+      "notes": "Card row 'MATH-500'."
+    },
+    {
+      "benchmark": "SWE-bench Verified",
+      "subtask": "OpenCode harness",
+      "score": 51.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B",
+      "notes": "Card row 'SWE-Bench Verified (OpenCode)' — vendor harness is OpenCode, not the standard SWE-bench scaffold; temperature=0.6, 32768 max output."
+    },
+    {
+      "benchmark": "SciCode",
+      "score": 32.71,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B"
+    }
+  ],
+  "gaps": [
+    "MMLU-Pro",
+    "LiveCodeBench",
+    "HumanEval",
+    "MBPP",
+    "Terminal-Bench 2.1",
+    "AIME 2026",
+    "Arena"
+  ],
+  "conflicts": [],
+  "retrieved_at": "2026-10-20T23:05:00Z"
+}

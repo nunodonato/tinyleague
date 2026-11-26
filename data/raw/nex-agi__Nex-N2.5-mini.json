@@ -1,0 +1,126 @@
+{
+  "model_id": "nex-agi/Nex-N2.5-mini",
+  "scores": [
+    {
+      "benchmark": "Terminal-Bench 2.1",
+      "score": 73.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nex-agi/Nex-N2.5-mini"
+    },
+    {
+      "benchmark": "SWE-bench Pro",
+      "score": 43.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nex-agi/Nex-N2.5-mini"
+    },
+    {
+      "benchmark": "DeepSWE 1.1",
+      "score": 36.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nex-agi/Nex-N2.5-mini"
+    },
+    {
+      "benchmark": "AutomationBench v1.0.6",
+      "score": 32.3,
+      "metric": "%",
+      "subtask": "Public version",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nex-agi/Nex-N2.5-mini"
+    },
+    {
+      "benchmark": "Toolathlon-Verified",
+      "score": 54.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nex-agi/Nex-N2.5-mini"
+    },
+    {
+      "benchmark": "GDPval-AA-V2",
+      "score": 1446,
+      "metric": "points",
+      "subtask": "Overall",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nex-agi/Nex-N2.5-mini",
+      "notes": "Reported as a point total, not %."
+    },
+    {
+      "benchmark": "JobBench",
+      "score": 28.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nex-agi/Nex-N2.5-mini"
+    },
+    {
+      "benchmark": "BrowseComp",
+      "score": 83.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nex-agi/Nex-N2.5-mini"
+    },
+    {
+      "benchmark": "OSWorld-Verified",
+      "score": 71.2,
+      "metric": "%",
+      "subtask": "NexCUA harness",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nex-agi/Nex-N2.5-mini"
+    },
+    {
+      "benchmark": "OSWorld-2",
+      "score": 30.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nex-agi/Nex-N2.5-mini"
+    },
+    {
+      "benchmark": "WebTest",
+      "score": 48.6,
+      "metric": "%",
+      "subtask": "oracle mode",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nex-agi/Nex-N2.5-mini"
+    },
+    {
+      "benchmark": "WebArena-Verified",
+      "score": 63.4,
+      "metric": "%",
+      "subtask": "NexCUA harness",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nex-agi/Nex-N2.5-mini"
+    },
+    {
+      "benchmark": "OSWorld-G",
+      "score": 82.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nex-agi/Nex-N2.5-mini"
+    },
+    {
+      "benchmark": "Vision2Web",
+      "score": 52.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nex-agi/Nex-N2.5-mini"
+    },
+    {
+      "benchmark": "SWE-MM",
+      "score": 25.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nex-agi/Nex-N2.5-mini"
+    },
+    {
+      "benchmark": "OmniDoc",
+      "score": 89.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nex-agi/Nex-N2.5-mini"
+    }
+  ],
+  "gaps": [],
+  "conflicts": [],
+  "retrieved_at": "2026-09-09T07:59:31Z"
+}

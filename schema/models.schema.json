@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "models.json",
+  "type": "object",
+  "required": ["criteria", "models"],
+  "properties": {
+    "criteria": {
+      "type": "object",
+      "properties": {
+        "cutoff_date": { "type": "string", "format": "date" },
+        "min_params_b": { "type": "number" },
+        "max_params_b": { "type": "number" },
+        "max_age_months": { "type": "number" },
+        "min_models": { "type": "integer" },
+        "official_only": { "type": "boolean" },
+        "current_version_only": { "type": "boolean" },
+        "include_families": { "type": "array", "items": { "type": "string" } },
+        "param_exemptions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "model_ids manually allowed outside the param range (e.g. sub-4B special cases)"
+        },
+        "age_exemptions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "model_ids kept despite being released before cutoff_date, on explicit request"
+        }
+      }
+    },
+    "models": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/model" }
+    }
+  },
+  "$defs": {
+    "model": {
+      "type": "object",
+      "required": ["model_id", "display_name", "param_count_b", "official_release_date", "hf_url"],
+      "properties": {
+        "model_id": { "type": "string", "description": "HF repo id, e.g. org/name" },
+        "display_name": { "type": "string" },
+        "org": { "type": "string", "description": "developer org / author" },
+        "family": { "type": "string", "description": "model family, e.g. DeepSeek-V, Qwen3.6, Ling" },
+        "param_count_b": { "type": "number", "description": "total parameters in billions" },
+        "param_count_note": { "type": "string", "description": "e.g. '30B total (A3B active) MoE'" },
+        "active_params_b": {
+          "type": ["number", "null"],
+          "description": "parameters used per token in billions (MoE: activated; dense: = total); denominator of the KV-efficiency rating. null when the vendor publishes no active-param count"
+        },
+        "active_params_source": { "type": "string", "description": "where active_params_b came from (vendor card / model name / dense model)" },
+        "architecture": {
+          "type": "object",
+          "properties": {
+            "type": { "type": "string", "enum": ["dense", "moe", "hybrid", "other", "unknown"] },
+            "experts": { "type": "integer" },
+            "active_experts": { "type": "integer" },
+            "context_length": { "type": "integer" },
+            "modalities": { "type": "array", "items": { "type": "string" } },
+            "license": { "type": "string" }
+          }
+        },
+        "supports_vision": { "type": "boolean", "default": false, "description": "true if the model accepts image / visual input (vision tower present); shown as a (V) badge on the dashboard" },
+        "kv_cache": {
+          "type": "object",
+          "description": "KV-cache footprint derived from config.json by scripts/kv_cache.py (not a benchmark); BF16, batch 1, no tensor parallel",
+          "properties": {
+            "dtype": { "type": "string", "description": "dtype the cache was sized at (bf16)" },
+            "ref_ctx": { "type": "integer", "description": "context used for gib_at_ref_ctx (131072 = 128K), capped at the model's native context when that is shorter" },
+            "gib_at_ref_ctx": { "type": "number", "description": "total KV cache in GiB at ref_ctx tokens" },
+            "gib_at_native_ctx": { "type": "number", "description": "total KV cache in GiB at the model's own max context" },
+            "native_ctx": { "type": ["integer", "null"] },
+            "native_ctx_source": { "type": "string", "description": "where native_ctx came from: the vendor-stated architecture.context_length, else config.json max_position_embeddings" },
+            "kib_per_token_marginal": { "type": "number", "description": "additional KiB of cache per extra context token once windows are full" },
+            "kv_layers": { "type": "integer", "description": "layers that keep a growing KV cache" },
+            "total_layers": { "type": "integer" },
+            "cache_copies": { "type": "integer", "description": "copies of the stack's KV the cache holds (num_loops for looped stacks without loop_share_kv, else 1)" },
+            "looped_layers": { "type": "integer", "description": "how many KV layers run more than one pass (partially looped stacks such as Inkling-2's loop_config); absent when no layer loops twice" },
+            "attention_modules_per_layer": { "type": "integer", "description": "attention branches per layer that each keep a cache (e.g. 2 for LongCat)" },
+            "window": { "type": ["integer", "null"], "description": "sliding-window size, when the model uses one" },
+            "method": { "type": "string" },
+            "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+            "provenance": { "type": "string", "description": "which config field supplied the layer structure" },
+            "verified": { "type": "boolean", "description": "true when per-layer widths were checked against real safetensors shapes" },
+            "verify_checked": { "type": "integer" },
+            "verify_notes": { "type": "string" },
+            "config_revision": { "type": ["string", "null"], "description": "commit SHA the config.json was read at" },
+            "notes": { "type": ["string", "null"], "description": "per-architecture caveats (MLA latent, sliding window, compressed attention)" }
+          }
+        },
+        "perf": {
+          "type": "object",
+          "description": "Estimated decode throughput derived by scripts/perf.py (not a benchmark); memory-bandwidth bound, BF16, batch 1",
+          "properties": {
+            "decode_tok_s_fresh": { "type": "number", "description": "estimated output tokens/s with an empty context (weights only, no KV read)" },
+            "decode_tok_s_at_ref_ctx": { "type": "number", "description": "estimated output tokens/s at ref_ctx context" },
+            "retained_pct": { "type": "number", "description": "share of fresh-context decode speed still available at ref_ctx" },
+            "ref_ctx": { "type": "integer", "description": "context used for the estimate (128K, capped at native context)" },
+            "active_params_assumed": { "type": "boolean", "description": "true when no active-param count was published and all parameters were assumed active" },
+            "weight_bytes_per_param": { "type": "number" },
+            "reference_gpu": { "type": "string", "description": "hardware the estimate assumes (one card, no tensor parallel)" },
+            "peak_bandwidth_gbs": { "type": "number" },
+            "achieved_fraction": { "type": "number", "description": "share of peak bandwidth assumed achievable in single-stream decode" },
+            "effective_bandwidth_gbs": { "type": "number", "description": "reference memory bandwidth the estimate assumes" },
+            "method": { "type": "string" }
+          }
+        },
+        "official_release_date": { "type": "string", "format": "date" },
+        "hf_url": { "type": "string", "format": "uri" },
+        "likes": { "type": "integer" },
+        "is_official": { "type": "boolean", "default": true },
+        "officiality_evidence": { "type": "string" },
+        "current_version": { "type": "boolean", "default": true, "description": "false if superseded by a newer version of the same family/size" },
+        "superseded_by": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

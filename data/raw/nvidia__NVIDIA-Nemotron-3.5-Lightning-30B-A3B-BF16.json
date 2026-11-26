@@ -1,0 +1,137 @@
+{
+  "model_id": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+  "scores": [
+    {
+      "benchmark": "MMLU-Pro",
+      "subtask": "Overall",
+      "score": 81.94,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+      "notes": "General Knowledge row. Measured by NVIDIA under NeMo Gym / Nemo Evaluator harness."
+    },
+    {
+      "benchmark": "GPQA Diamond",
+      "subtask": "no tools",
+      "score": 75.44,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+      "notes": "Reasoning row, no tools."
+    },
+    {
+      "benchmark": "HLE",
+      "subtask": "text-only, no tools",
+      "score": 11.72,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+      "notes": "Humanity's Last Exam, text-only no tools."
+    },
+    {
+      "benchmark": "SciCode",
+      "subtask": "Overall",
+      "score": 32.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+      "notes": "Reasoning row."
+    },
+    {
+      "benchmark": "SWE-bench Verified",
+      "subtask": "Overall",
+      "score": 51.56,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+      "notes": "Coding & Agentic row; NeMo Evaluator harness. An additional harness-level figure (agentic_coding_benchmarks.png) is also on the card but image-only."
+    },
+    {
+      "benchmark": "SWE-bench Multilingual",
+      "subtask": "Overall",
+      "score": 39.33,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+      "notes": "Coding & Agentic row."
+    },
+    {
+      "benchmark": "Terminal-Bench 2.1",
+      "score": 24.58,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+      "notes": "Coding & Agentic row; NeMo Evaluator harness."
+    },
+    {
+      "benchmark": "PinchBench",
+      "subtask": "Overall",
+      "score": 85.37,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+      "notes": "Coding & Agentic row (model-specific benchmark)."
+    },
+    {
+      "benchmark": "BrowseComp",
+      "subtask": "Overall",
+      "score": 36.97,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+      "notes": "Coding & Agentic row."
+    },
+    {
+      "benchmark": "τ³-bench",
+      "subtask": "Banking",
+      "score": 9.28,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+      "notes": "Card lists it as 'τ³-bench (Banking)'."
+    },
+    {
+      "benchmark": "GDPval-AA-V2",
+      "subtask": "Overall",
+      "score": 832,
+      "metric": "points",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+      "notes": "AA GDPval v2, reported as a point total (not %)."
+    },
+    {
+      "benchmark": "IFBench",
+      "subtask": "loose",
+      "score": 71.88,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+      "notes": "Instruction Following row, loose constraint."
+    },
+    {
+      "benchmark": "AA-Omniscience",
+      "subtask": "Overall",
+      "score": 17.5,
+      "metric": "idx",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+      "notes": "Artificial Analysis Omniscience index as reported on the card."
+    },
+    {
+      "benchmark": "AA-LCR",
+      "subtask": "Overall",
+      "score": 52.0,
+      "metric": "idx",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+      "notes": "Artificial Analysis Long Context (LCR) index as reported on the card."
+    }
+  ],
+  "gaps": [
+    "AIME (not reported on card)",
+    "LiveCodeBench (not reported; SciCode is the card's coding-generation benchmark)",
+    "Arena (not reported)"
+  ],
+  "conflicts": [],
+  "retrieved_at": "2026-09-05T10:20:00Z"
+}

@@ -1,0 +1,354 @@
+{
+  "model_id": "IFM/K2-Horizon-3.7B",
+  "display_name": "K2-Horizon-3.7B",
+  "url": "https://huggingface.co/IFM/K2-Horizon-3.7B",
+  "retrieved_at": "2026-09-14T11:39:31Z",
+  "html_tables": [
+    [
+      [
+        "",
+        "Open-weight dense models"
+      ],
+      [
+        "",
+        "K2-Horizon-3.7B",
+        "Qwen3.5-4B",
+        "G9v3-3B",
+        "Granite 4.2-3B",
+        "Nemotron 3 Nano-4B"
+      ],
+      [
+        "# Params",
+        "3.7B",
+        "4B",
+        "3B",
+        "3B",
+        "4B"
+      ],
+      [
+        "# Activated params",
+        "3.7B",
+        "4B",
+        "3B",
+        "3B",
+        "4B"
+      ],
+      [
+        "Architecture",
+        "Dense",
+        "Dense",
+        "Dense",
+        "Dense",
+        "Dense"
+      ],
+      [
+        "Math"
+      ],
+      [
+        "HMMT Feb 2026 Competition mathematics",
+        "70.5",
+        "61.6",
+        "34.1",
+        "57.2",
+        "34.7"
+      ],
+      [
+        "Coding"
+      ],
+      [
+        "SWE-bench Verified Software engineering",
+        "68.6",
+        "41.2",
+        "16.4",
+        "32.2",
+        "1.8"
+      ],
+      [
+        "Scientific Reasoning"
+      ],
+      [
+        "GPQA Diamond Graduate-level science QA",
+        "65.4",
+        "77.1",
+        "43.8",
+        "55.9",
+        "51.3"
+      ],
+      [
+        "HLE Expert-level reasoning",
+        "12.9",
+        "9.9",
+        "4.5",
+        "6.6",
+        "4.9"
+      ],
+      [
+        "Coding"
+      ],
+      [
+        "SciCode Scientific coding",
+        "25.9",
+        "16.1",
+        "17.7",
+        "24.9",
+        "16.4"
+      ],
+      [
+        "Terminal-Bench 2.1 Agentic terminal use",
+        "25.1",
+        "25.8",
+        "6.0",
+        "13.9",
+        "3.7"
+      ],
+      [
+        "Agents"
+      ],
+      [
+        "tau3-Banking Agentic tool use",
+        "17.7",
+        "6.8",
+        "—",
+        "5.6",
+        "—"
+      ],
+      [
+        "BFCL v4 Function calling",
+        "50.9",
+        "55.7",
+        "47.9",
+        "50.8",
+        "36.8"
+      ]
+    ]
+  ],
+  "markdown_tables": [
+    [
+      [
+        "Training stage",
+        "Training steps",
+        "Training tokens",
+        "Sequence length",
+        "Purpose"
+      ],
+      [
+        "Pretraining",
+        "1100000",
+        "22.9T",
+        "8K",
+        "Pretraining."
+      ],
+      [
+        "Midtraining — Stage 1",
+        "55000",
+        "1.1T",
+        "32K",
+        "Context extension."
+      ],
+      [
+        "Midtraining — Stage 2",
+        "25000",
+        "498B",
+        "128K",
+        "Context extension."
+      ],
+      [
+        "Midtraining — Stage 3",
+        "5500",
+        "110B",
+        "512K",
+        "Context extension."
+      ],
+      [
+        "Midtraining — Stage 4",
+        "10000",
+        "199B",
+        "512K",
+        "Continued context extension from Stage 3, with the data mix shifted toward agentic and reasoning SFT data."
+      ],
+      [
+        "RL",
+        "To be updated",
+        "To be updated",
+        "512K",
+        "We trained three expert models from the final checkpoint of Midtraining Stage 4: math, code, and stem. We then merged the expert models."
+      ],
+      [
+        "SFT — Phase 1",
+        "10000",
+        "199B",
+        "512K",
+        "SFT for better domain coverage, starting from the merged RL checkpoint."
+      ],
+      [
+        "SFT — Phase 2",
+        "2500",
+        "50B",
+        "512K",
+        "SFT on a high-quality subset of the data used in Phase 1, with learning rate decay."
+      ]
+    ],
+    [
+      [
+        "Artifact",
+        "Link",
+        "Status",
+        "Remaining items / expected availability"
+      ],
+      [
+        "Model card",
+        "[Hugging Face](https://huggingface.co/IFM/K2-Horizon-3.7B)",
+        "Available",
+        "N/A"
+      ],
+      [
+        "Training logs",
+        "[W&B](https://wandb.ai/llm360/K2-Horizon-3.7B)",
+        "Available",
+        "N/A"
+      ],
+      [
+        "Blog post",
+        "[Blog post](https://ifm.ai/blog/k2/)",
+        "Available",
+        "N/A"
+      ],
+      [
+        "Checkpoints",
+        "[Checkpoint inventory](#checkpoint-inventory)",
+        "Partial",
+        "See details below"
+      ],
+      [
+        "Technical report",
+        "Not yet available",
+        "In Progress",
+        "End of September 2026"
+      ],
+      [
+        "Code repository",
+        "[GitHub](https://github.com/ifm-ai/xllm)",
+        "In Progress",
+        "End of September 2026"
+      ]
+    ],
+    [
+      [
+        "Checkpoint",
+        "Branch / repository",
+        "Status",
+        "Remaining items / expected availability"
+      ],
+      [
+        "Pretrain Intermediate Checkpoints",
+        "`pretrain_*`",
+        "Available",
+        "N/A"
+      ],
+      [
+        "Pretrain Final Checkpoint",
+        "`pretrain_1100000`",
+        "Available",
+        "N/A"
+      ],
+      [
+        "Midtrain Stage 1 Intermediate Checkpoints",
+        "`mid_1_*`",
+        "Available",
+        "N/A"
+      ],
+      [
+        "Midtrain Stage 1 Final Checkpoint",
+        "`mid_1_55000`",
+        "Available",
+        "N/A"
+      ],
+      [
+        "Midtrain Stage 2 Intermediate Checkpoints",
+        "`mid_2_*`",
+        "Available",
+        "N/A"
+      ],
+      [
+        "Midtrain Stage 2 Final Checkpoint",
+        "`mid_2_25000`",
+        "Available",
+        "N/A"
+      ],
+      [
+        "Midtrain Stage 3 Intermediate Checkpoints",
+        "`mid_3_*`",
+        "Available",
+        "N/A"
+      ],
+      [
+        "Midtrain Stage 3 Final Checkpoint",
+        "`mid_3_5500`",
+        "Available",
+        "N/A"
+      ],
+      [
+        "Midtrain Stage 4 Intermediate Checkpoints",
+        "`mid_4_*`",
+        "Available",
+        "N/A"
+      ],
+      [
+        "Midtrain Stage 4 Final Checkpoint",
+        "`mid_4_10000`",
+        "Available",
+        "N/A"
+      ],
+      [
+        "RL Math Expert Checkpoint",
+        "`rl_math`",
+        "In Progress",
+        "Mid-September 2026"
+      ],
+      [
+        "RL Code Expert Checkpoint",
+        "`rl_code`",
+        "In Progress",
+        "Mid-September 2026"
+      ],
+      [
+        "RL Stem Expert Checkpoint",
+        "`rl_stem`",
+        "In Progress",
+        "Mid-September 2026"
+      ],
+      [
+        "RL Merged Final Checkpoint",
+        "`rl_merged`",
+        "Available",
+        "N/A"
+      ],
+      [
+        "SFT Phase 1 Intermediate Checkpoints",
+        "`sft_1_*`",
+        "Available",
+        "N/A"
+      ],
+      [
+        "SFT Phase 1 Final Checkpoint",
+        "`sft_1_11000`",
+        "Available",
+        "N/A"
+      ],
+      [
+        "SFT Phase 2 Intermediate Checkpoints",
+        "`sft_2_*`",
+        "In Progress",
+        "N/A"
+      ],
+      [
+        "SFT Phase 2 Final Checkpoint",
+        "`sft_2_2500`",
+        "In Progress",
+        "N/A"
+      ]
+    ]
+  ],
+  "sections": [],
+  "raw_chars": 24720
+}

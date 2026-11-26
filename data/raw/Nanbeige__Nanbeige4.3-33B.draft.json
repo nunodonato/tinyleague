@@ -1,0 +1,185 @@
+{
+  "model_id": "Nanbeige/Nanbeige4.3-33B",
+  "display_name": "Nanbeige4.3-33B",
+  "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
+  "retrieved_at": "2026-11-02T18:16:56Z",
+  "html_tables": [
+    [
+      [
+        "Category",
+        "Benchmark",
+        "Nanbeige4.3-33B 1",
+        "Qwen3.8-27B",
+        "Muse-Glimmer-30B",
+        "Gemma4-31B"
+      ],
+      [
+        "Agentic Coding",
+        "Terminal-Bench 2.1 2",
+        "80.9",
+        "73.0",
+        "61.8",
+        "47.2"
+      ],
+      [
+        "Terminal-Bench 4.0 3",
+        "23.8",
+        "6.3",
+        "1.6",
+        "0.0"
+      ],
+      [
+        "DeepSWE 3",
+        "65.5",
+        "42.5",
+        "4.4",
+        "2.7"
+      ],
+      [
+        "SWE-Bench Pro 3",
+        "60.3",
+        "61.7",
+        "51.2",
+        "36.9"
+      ],
+      [
+        "SWE-Atlas-QnA 4",
+        "50.8",
+        "41.9",
+        "17.7",
+        "3.3"
+      ],
+      [
+        "NL2Repo 5",
+        "53.0",
+        "48.3",
+        "27.4",
+        "33.8"
+      ],
+      [
+        "Scicode",
+        "52.6",
+        "46.7",
+        "44.9",
+        "45.5"
+      ],
+      [
+        "SkillsBench",
+        "61.1",
+        "56.4",
+        "39.7",
+        "28.9"
+      ],
+      [
+        "Agentic Cowork",
+        "Automation Bench 6",
+        "54.2",
+        "38.3",
+        "15.2",
+        "9.7"
+      ],
+      [
+        "JobBench 7",
+        "44.8",
+        "34.5",
+        "16.6",
+        "9.0"
+      ],
+      [
+        "GDPval 8",
+        "84.8",
+        "86.4",
+        "75.8",
+        "71.4"
+      ],
+      [
+        "Claw-Eval pass^3 9",
+        "78.3",
+        "75.2",
+        "57.3",
+        "44.2"
+      ],
+      [
+        "Toolathlon-Verified 10",
+        "70.4",
+        "68.5",
+        "47.2",
+        "27.8"
+      ],
+      [
+        "DeepPlanning 12",
+        "63.3",
+        "49.2",
+        "21.4",
+        "19.4"
+      ],
+      [
+        "EnterpriseOps-Gym 12",
+        "41.0",
+        "40.2",
+        "30.5",
+        "27.3"
+      ],
+      [
+        "YC-bench 11",
+        "$1,025,437",
+        "$641,290",
+        "$513,978",
+        "$265,152"
+      ],
+      [
+        "Tau3-Bench 12",
+        "48.8",
+        "48.5",
+        "33.7",
+        "18.6"
+      ],
+      [
+        "Reasoning",
+        "GPQA Diamond",
+        "89.5",
+        "89.2",
+        "83.5",
+        "91.3"
+      ],
+      [
+        "AIME 2026",
+        "95.2",
+        "94.5",
+        "94.7",
+        "89.2"
+      ],
+      [
+        "AA-LCR",
+        "84.0",
+        "82.0",
+        "83.3",
+        "72.0"
+      ]
+    ]
+  ],
+  "markdown_tables": [
+    [
+      [
+        "Scenario",
+        "Temperature",
+        "Top_p",
+        "Max New Tokens"
+      ],
+      [
+        "Agentic and tool-use tasks",
+        "1.0",
+        "0.95",
+        "65,536"
+      ],
+      [
+        "Reasoning and chat tasks",
+        "0.6",
+        "0.95",
+        "262,144"
+      ]
+    ]
+  ],
+  "sections": [],
+  "raw_chars": 8884
+}

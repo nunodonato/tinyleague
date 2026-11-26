@@ -1,0 +1,196 @@
+{
+  "model_id": "Nanbeige/Nanbeige4.2-3B",
+  "scores": [
+    {
+      "benchmark": "GDPval",
+      "score": 74.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B",
+      "notes": "'GDPval rubrics' from main comparison table"
+    },
+    {
+      "benchmark": "Agent-IF-Oneday",
+      "score": 67.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B",
+      "notes": "main comparison table (General Agent)"
+    },
+    {
+      "benchmark": "Office-QA-Pro",
+      "score": 21.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B"
+    },
+    {
+      "benchmark": "Pinch-Bench-V2",
+      "score": 74.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B"
+    },
+    {
+      "benchmark": "Claw-Gym",
+      "score": 65.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B"
+    },
+    {
+      "benchmark": "Claw-Eval",
+      "subtask": "pass^3",
+      "score": 52.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B"
+    },
+    {
+      "benchmark": "MCP-Atlas",
+      "score": 57.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B"
+    },
+    {
+      "benchmark": "SWE-bench Verified",
+      "score": 63.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B"
+    },
+    {
+      "benchmark": "SWE-bench Pro",
+      "score": 46.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B"
+    },
+    {
+      "benchmark": "Terminal-Bench 2.0",
+      "score": 44.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B"
+    },
+    {
+      "benchmark": "HLE",
+      "subtask": "w/o search",
+      "score": 17.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B"
+    },
+    {
+      "benchmark": "SciCode",
+      "score": 35.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B"
+    },
+    {
+      "benchmark": "GPQA Diamond",
+      "score": 87.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B"
+    },
+    {
+      "benchmark": "HMMT Feb 2026",
+      "score": 82.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B"
+    },
+    {
+      "benchmark": "IMO-AnswerBench",
+      "score": 67.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B"
+    },
+    {
+      "benchmark": "LiveCodeBench v6",
+      "score": 72.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B"
+    },
+    {
+      "benchmark": "AA-LCR",
+      "score": 58.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B"
+    },
+    {
+      "benchmark": "IFBench",
+      "score": 54.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B"
+    },
+    {
+      "benchmark": "Recruit-Bench",
+      "score": 63.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B"
+    },
+    {
+      "benchmark": "DeepResearch Bench II",
+      "score": 33.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B",
+      "notes": "from task-scenario table"
+    },
+    {
+      "benchmark": "ResearchRubrics",
+      "score": 44.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B",
+      "notes": "from task-scenario table"
+    }
+  ],
+  "gaps": [
+    "MMLU-Pro",
+    "AIME",
+    "HumanEval",
+    "MBPP",
+    "Arena"
+  ],
+  "conflicts": [
+    {
+      "benchmark": "GDPval",
+      "values": [
+        {
+          "score": 74.3,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 68.8,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Card has two tables: main comparison table reports GDPval (rubrics) = 74.3; task-scenario table reports GDPval = 68.8. Keeping the main comparison-table value."
+    },
+    {
+      "benchmark": "Agent-IF-Oneday",
+      "values": [
+        {
+          "score": 67.5,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 58.9,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Card has two tables reporting different Agent-IF-Oneday values (67.5 main comparison vs 58.9 task-scenario). Keeping the main comparison-table value."
+    }
+  ],
+  "retrieved_at": "2026-09-05T09:09:41Z"
+}

@@ -1,0 +1,256 @@
+{
+  "model_id": "tencent/Hy4-flash",
+  "scores": [
+    {
+      "benchmark": "DeepSWE 1.1",
+      "subtask": "mini-swe-agent",
+      "score": 64.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/tencent/Hy4-flash",
+      "notes": "Card appendix row 'DeepSWE v1.1'; 8 CPU cores / 16 GB RAM sandbox per task."
+    },
+    {
+      "benchmark": "ProgramBench",
+      "subtask": "almost solved, mini-swe-agent",
+      "score": 16.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/tencent/Hy4-flash",
+      "notes": "Card row 'ProgramBench (almost solved)' — not full solves."
+    },
+    {
+      "benchmark": "Terminal-Bench 4",
+      "subtask": "Claude Code harness",
+      "score": 19.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/tencent/Hy4-flash",
+      "notes": "Card row 'Terminal-Bench 4.0' (same release). Up to 500 turns and a 13-hour timeout per trial."
+    },
+    {
+      "benchmark": "APEX-Agents v1.1",
+      "subtask": "pass@1, reference harness",
+      "score": 63.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/tencent/Hy4-flash",
+      "notes": "Max 250 steps per trial; 2-swe-main + world environment."
+    },
+    {
+      "benchmark": "AutomationBench",
+      "subtask": "v1.0.6, public tasks",
+      "score": 52.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/tencent/Hy4-flash",
+      "notes": "Card row 'AutomationBench v1.0.6'; the 600 publicly released tasks."
+    },
+    {
+      "benchmark": "HLE",
+      "subtask": "with tools (HLE-Full)",
+      "score": 55.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/tencent/Hy4-flash",
+      "notes": "Card row 'HLE-Full (with tools)'. Highest available reasoning setting; the card reports no no-tools figure."
+    },
+    {
+      "benchmark": "OSWorld 2.1",
+      "subtask": "full set, partial score",
+      "score": 68.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/tencent/Hy4-flash",
+      "notes": "Card row 'OSWorld 2.1 (full, partial score)'."
+    },
+    {
+      "benchmark": "MMMU Pro",
+      "score": 75.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/tencent/Hy4-flash",
+      "notes": "Card appendix row 'MMMU-Pro'; instruct figure (the base table states Standard / 10 options)."
+    },
+    {
+      "benchmark": "ZeroBench",
+      "subtask": "main set, with tools, pass@5",
+      "score": 45.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/tencent/Hy4-flash",
+      "notes": "Card row 'ZeroBench-main (with tools, pass@5)'; network-isolated Jupyter, max 80 tool rounds, evaluated over 10 runs."
+    },
+    {
+      "benchmark": "PPTGenBench",
+      "score": 54.2,
+      "metric": "points",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/tencent/Hy4-flash",
+      "notes": "Tencent-internal WorkIndex benchmark (no other roster model reports it). Agentic text-to-PPT generation, pairwise win rate vs human-authored slides."
+    },
+    {
+      "benchmark": "PPTCoEditBench",
+      "score": 74.0,
+      "metric": "points",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/tencent/Hy4-flash",
+      "notes": "Tencent-internal WorkIndex benchmark (no other roster model reports it). 100 real-world PPT edit tasks, multi-turn."
+    },
+    {
+      "benchmark": "PPTFixBench",
+      "score": 23.7,
+      "metric": "points",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/tencent/Hy4-flash",
+      "notes": "Tencent-internal WorkIndex benchmark (no other roster model reports it). 50 tasks: find and fix 25+ formatting/content issues."
+    },
+    {
+      "benchmark": "MdCoEditBench",
+      "score": 56.9,
+      "metric": "points",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/tencent/Hy4-flash",
+      "notes": "Tencent-internal WorkIndex benchmark (no other roster model reports it). 65 markdown co-editing tasks."
+    },
+    {
+      "benchmark": "WordEditBench",
+      "score": 46.2,
+      "metric": "points",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/tencent/Hy4-flash",
+      "notes": "Tencent-internal WorkIndex benchmark (no other roster model reports it). 100 real-world .docx editing tasks across four scenarios."
+    },
+    {
+      "benchmark": "ExcelFixBench",
+      "score": 15.6,
+      "metric": "points",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/tencent/Hy4-flash",
+      "notes": "Tencent-internal WorkIndex benchmark (no other roster model reports it). 60 spreadsheet repair tasks."
+    },
+    {
+      "benchmark": "AudioVideoBench",
+      "score": 17.8,
+      "metric": "points",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/tencent/Hy4-flash",
+      "notes": "Tencent-internal WorkIndex benchmark (no other roster model reports it). Audio/video editing, transcribing, caption understanding."
+    },
+    {
+      "benchmark": "BuddyVQA Atlas",
+      "subtask": "without tools",
+      "score": 48.5,
+      "metric": "points",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/tencent/Hy4-flash",
+      "notes": "Tencent-internal WorkIndex benchmark (no other roster model reports it). Image question answering; strong on small text, thin lines, local targets."
+    },
+    {
+      "benchmark": "AA-Briefcase 1.1",
+      "score": 1445,
+      "metric": "points",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/tencent-hy4",
+      "notes": "AA Elo (briefcase, overall). AA's independent run."
+    },
+    {
+      "benchmark": "FrontierCode 2.0",
+      "subtask": "AA FrontierCode-AA 2.0",
+      "score": 31.4,
+      "metric": "%",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/tencent-hy4",
+      "notes": "AA's independent run; the card has no FrontierCode figure."
+    },
+    {
+      "benchmark": "Terminal-Bench Science 0.1",
+      "score": 12.9,
+      "metric": "%",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/tencent-hy4",
+      "notes": "AA row 'Terminal-Bench-Science 0.1'; AA's own run."
+    },
+    {
+      "benchmark": "GDP.pdf",
+      "subtask": "AA all-pass",
+      "score": 21.6,
+      "metric": "%",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/tencent-hy4"
+    },
+    {
+      "benchmark": "AA-Omniscience Index",
+      "score": 5.4,
+      "metric": "idx",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/tencent-hy4",
+      "notes": "AA v1.1 index; negative values are normal."
+    },
+    {
+      "benchmark": "AA-Omniscience Accuracy",
+      "subtask": "v1.1",
+      "score": 50.0,
+      "metric": "%",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/tencent-hy4"
+    },
+    {
+      "benchmark": "AA-Omniscience Non-Hallucination",
+      "subtask": "v1.1",
+      "score": 10.9,
+      "metric": "%",
+      "source": "artificial-analysis",
+      "source_url": "https://artificialanalysis.ai/models/tencent-hy4"
+    }
+  ],
+  "gaps": [
+    "GPQA Diamond",
+    "AIME 2026",
+    "HMMT Feb 2026",
+    "SWE-bench Verified",
+    "SWE-bench Pro",
+    "IFEval",
+    "IFBench",
+    "τ³-bench",
+    "SciCode",
+    "LiveCodeBench v6",
+    "AA-LCR",
+    "MATH500",
+    "MMLU-Pro",
+    "HLE (no tools): the card only reports the HLE-Full with-tools figure",
+    "Base-model few-shot table exists on the card but belongs to Hy4 flash-base, not this instruct checkpoint",
+    "AA cross-check 2026-11-21: AA publishes no GPQA, MMLU-Pro, IFEval, AIME, SciCode, AA-LCR or τ³-bench value for this model."
+  ],
+  "retrieved_at": "2026-11-21T12:00:00Z",
+  "conflicts": [
+    {
+      "benchmark": "Terminal-Bench 4",
+      "values": [
+        {
+          "score": 19.2,
+          "source": "huggingface-model-card (Claude Code harness)"
+        },
+        {
+          "score": 37.37,
+          "source": "artificial-analysis (Terminal-Bench 4.0)"
+        }
+      ],
+      "resolution": "The card reports 19.2 under a Claude Code harness; AA's own run scores 37.37. Harness choice moves this benchmark a lot, so the card value stays primary and both are logged."
+    },
+    {
+      "benchmark": "HLE",
+      "values": [
+        {
+          "score": 55.2,
+          "source": "huggingface-model-card (HLE-Full, with tools)"
+        },
+        {
+          "score": 32.7,
+          "source": "artificial-analysis (HLE-Diamond, no tools)"
+        }
+      ],
+      "resolution": "Different settings rather than a contradiction: the card reports HLE-Full with tools, AA the no-tools Diamond subset. The card figure stays as the recorded HLE score."
+    }
+  ]
+}

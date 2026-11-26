@@ -1,0 +1,309 @@
+{
+  "model_id": "google/gemma-4-26B-A4B-it",
+  "display_name": "gemma-4-26B-A4B-it",
+  "url": "https://huggingface.co/google/gemma-4-26B-A4B-it",
+  "retrieved_at": "2026-11-21T19:38:49Z",
+  "html_tables": [],
+  "markdown_tables": [
+    [
+      [
+        "Property",
+        "E2B",
+        "E4B",
+        "12B Unified",
+        "31B Dense"
+      ],
+      [
+        "**Total Parameters**",
+        "2.3B effective <br> (5.1B with embeddings)",
+        "4.5B effective <br> (8B with embeddings)",
+        "11.95B",
+        "30.7B"
+      ],
+      [
+        "**Layers**",
+        "35",
+        "42",
+        "48",
+        "60"
+      ],
+      [
+        "**Sliding Window**",
+        "512 tokens",
+        "512 tokens",
+        "1024 tokens",
+        "1024 tokens"
+      ],
+      [
+        "**Context Length**",
+        "128K tokens",
+        "128K tokens",
+        "256K tokens",
+        "256K tokens"
+      ],
+      [
+        "**Vocabulary Size**",
+        "262K",
+        "262K",
+        "262K",
+        "262K"
+      ],
+      [
+        "**Supported Modalities**",
+        "Text, Image, Audio",
+        "Text, Image, Audio",
+        "Text, Image, Audio",
+        "Text, Image"
+      ],
+      [
+        "**Vision Encoder Parameters**",
+        "*~150M*",
+        "*~150M*",
+        "-",
+        "*~550M*"
+      ],
+      [
+        "**Audio Encoder Parameters**",
+        "*~300M*",
+        "*~300M*",
+        "-",
+        "No Audio"
+      ]
+    ],
+    [
+      [
+        "Property",
+        "26B A4B MoE"
+      ],
+      [
+        "**Total Parameters**",
+        "25.2B"
+      ],
+      [
+        "**Active Parameters**",
+        "3.8B"
+      ],
+      [
+        "**Layers**",
+        "30"
+      ],
+      [
+        "**Sliding Window**",
+        "1024 tokens"
+      ],
+      [
+        "**Context Length**",
+        "256K tokens"
+      ],
+      [
+        "**Vocabulary Size**",
+        "262K"
+      ],
+      [
+        "**Expert Count**",
+        "8 active / 128 total and 1 shared"
+      ],
+      [
+        "**Supported Modalities**",
+        "Text, Image"
+      ],
+      [
+        "**Vision Encoder Parameters**",
+        "*~550M*"
+      ]
+    ],
+    [
+      [
+        "",
+        "Gemma 4  31B",
+        "Gemma 4  26B A4B",
+        "Gemma 4 12B Unified",
+        "Gemma 4  E4B",
+        "Gemma 4  E2B",
+        "Gemma 3  27B (no think)"
+      ],
+      [
+        "MMLU Pro",
+        "85.2%",
+        "82.6%",
+        "77.2%",
+        "69.4%",
+        "60.0%",
+        "67.6%"
+      ],
+      [
+        "AIME 2026 no tools",
+        "89.2%",
+        "88.3%",
+        "77.5%",
+        "42.5%",
+        "37.5%",
+        "20.8%"
+      ],
+      [
+        "LiveCodeBench v6",
+        "80.0%",
+        "77.1%",
+        "72.0%",
+        "52.0%",
+        "44.0%",
+        "29.1%"
+      ],
+      [
+        "Codeforces ELO",
+        "2150",
+        "1718",
+        "1659",
+        "940",
+        "633",
+        "110"
+      ],
+      [
+        "GPQA Diamond",
+        "84.3%",
+        "82.3%",
+        "78.8%",
+        "58.6%",
+        "43.4%",
+        "42.4%"
+      ],
+      [
+        "Tau2 (average over 3)",
+        "76.9%",
+        "68.2%",
+        "69.0%",
+        "42.2%",
+        "24.5%",
+        "16.2%"
+      ],
+      [
+        "HLE no tools",
+        "19.5%",
+        "8.7%",
+        "5.2%",
+        "-",
+        "-",
+        "-"
+      ],
+      [
+        "HLE with search",
+        "26.5%",
+        "17.2%",
+        "-",
+        "-",
+        "-",
+        "-"
+      ],
+      [
+        "BigBench Extra Hard",
+        "74.4%",
+        "64.8%",
+        "53.0%",
+        "33.1%",
+        "21.9%",
+        "19.3%"
+      ],
+      [
+        "MMMLU",
+        "88.4%",
+        "86.3%",
+        "83.4%",
+        "76.6%",
+        "67.4%",
+        "70.7%"
+      ],
+      [
+        "**Vision**",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "MMMU Pro",
+        "76.9%",
+        "73.8%",
+        "69.1%",
+        "52.6%",
+        "44.2%",
+        "49.7%"
+      ],
+      [
+        "OmniDocBench 1.5 (average edit distance, lower is better)",
+        "0.131",
+        "0.149",
+        "0.164",
+        "0.181",
+        "0.290",
+        "0.365"
+      ],
+      [
+        "MATH-Vision",
+        "85.6%",
+        "82.4%",
+        "79.7%",
+        "59.5%",
+        "52.4%",
+        "46.0%"
+      ],
+      [
+        "MedXPertQA MM",
+        "61.3%",
+        "58.1%",
+        "48.7%",
+        "28.7%",
+        "23.5%",
+        "-"
+      ],
+      [
+        "**Audio**",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "CoVoST",
+        "-",
+        "-",
+        "38.5<sup>*</sup>",
+        "35.54",
+        "33.47",
+        "-"
+      ],
+      [
+        "FLEURS (lower is better)",
+        "-",
+        "-",
+        "0.069<sup>*</sup>",
+        "0.08",
+        "0.09",
+        "-"
+      ],
+      [
+        "**Long Context**",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "MRCR v2 8 needle 128k (average)",
+        "66.4%",
+        "44.1%",
+        "43.4%",
+        "25.4%",
+        "19.1%",
+        "13.5%"
+      ]
+    ]
+  ],
+  "sections": [],
+  "raw_chars": 27945
+}

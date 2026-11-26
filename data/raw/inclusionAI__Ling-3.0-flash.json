@@ -1,0 +1,255 @@
+{
+  "model_id": "inclusionAI/Ling-3.0-flash",
+  "scores": [
+    {
+      "benchmark": "SWE-bench Pro",
+      "score": 56.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "notes": "Thinking mode on by default.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "SWE-bench Multilingual",
+      "score": 72.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "notes": "OpenHands harness.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "Terminal-Bench 2.1",
+      "score": 57.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "notes": "AA protocol, Terminus 2 harness, mean of 3 runs.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "ArtifactsBench",
+      "score": 77.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "MiniAppBench",
+      "score": 25.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "AntSWEBench",
+      "score": 52.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "notes": "InclusionAI internal benchmark.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "τ³-bench",
+      "score": 28.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "retrieved_at": "2026-09-05T18:39:41Z",
+      "notes": "Domain=Banking; value is the Artificial Analysis 'tau3-banking' figure (AA-sourced).",
+      "subtask": "Banking"
+    },
+    {
+      "benchmark": "MCP-Atlas",
+      "score": 65.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "notes": "500-task public set, official v1 harness, 20-turn limit.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "SkillsBench",
+      "score": 44.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "notes": "kilo-code, 87 tasks, avg of 3 runs.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "BFCL v4",
+      "score": 73.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "GDPval-AA",
+      "subtask": "v2",
+      "score": 1107,
+      "metric": "points",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "notes": "220-task public benchmark, official Stirrup harness, 250-turn limit.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "WideSearch",
+      "score": 73.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "notes": "Official prompt + GPT-4.1 judge, corrected dataset.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "BrowseComp",
+      "subtask": "multi-agent",
+      "score": 82.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "notes": "avg pass@1; internal SearchSwarm-style multi-agent harness.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "Draco",
+      "score": 70.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "notes": "Official rubrics, Claude Opus 4.6 scorer.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "IFBench",
+      "score": 74.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "SysBench",
+      "score": 93.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "LIFEbench",
+      "score": 77.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "AIME 2026",
+      "score": 93.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "HMMT Feb 2026",
+      "score": 87.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "IMO AnswerBench",
+      "score": 83.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "HLE",
+      "score": 22.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "LiveCodeBench 2408-2505",
+      "score": 82.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "notes": "Card labels the window '2408-2505'.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "MRCR",
+      "subtask": "128K",
+      "score": 90.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "AA-LCR",
+      "score": 65.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "Multi-IF",
+      "score": 87.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    }
+  ],
+  "gaps": [
+    "Arena"
+  ],
+  "conflicts": [
+    {
+      "benchmark": "BrowseComp",
+      "values": [
+        {
+          "score": 72.2,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 82.0,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (82.0) per the highest-reasoning-level policy. Kept entries: multi-agent; single-agent (w/ ctx)."
+    },
+    {
+      "benchmark": "MRCR",
+      "values": [
+        {
+          "score": 90.8,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 81.1,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (90.8) per the highest-reasoning-level policy. Kept entries: 128K; 256K."
+    }
+  ],
+  "retrieved_at": "2026-09-05T18:39:41Z"
+}

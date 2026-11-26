@@ -1,0 +1,197 @@
+{
+  "model_id": "InternScience/Sage-A1.5",
+  "scores": [
+    {
+      "benchmark": "GAIA",
+      "score": 95.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/InternScience/Sage-A1.5",
+      "retrieved_at": "2026-10-22T08:45:00Z"
+    },
+    {
+      "benchmark": "BrowseComp",
+      "subtask": "w/ agentic orchestration",
+      "score": 82.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/InternScience/Sage-A1.5",
+      "notes": "Card lists 81.7 w/o agentic orchestration and 82.8 w/ agentic orchestration; the higher setting is recorded.",
+      "retrieved_at": "2026-10-22T08:45:00Z"
+    },
+    {
+      "benchmark": "DeepResearch Bench II",
+      "subtask": "w/ agentic orchestration",
+      "score": 47.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/InternScience/Sage-A1.5",
+      "notes": "Card spells it \"DeepResearch-Bench2\"; 43.7 w/o agentic orchestration and 47.5 w/ agentic orchestration — the higher setting is recorded.",
+      "retrieved_at": "2026-10-22T08:45:00Z"
+    },
+    {
+      "benchmark": "XBench-DS-2510",
+      "score": 92.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/InternScience/Sage-A1.5",
+      "retrieved_at": "2026-10-22T08:45:00Z"
+    },
+    {
+      "benchmark": "MLE-Lite",
+      "score": 65.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/InternScience/Sage-A1.5",
+      "retrieved_at": "2026-10-22T08:45:00Z"
+    },
+    {
+      "benchmark": "SciCode",
+      "score": 44.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/InternScience/Sage-A1.5",
+      "retrieved_at": "2026-10-22T08:45:00Z"
+    },
+    {
+      "benchmark": "SWE-bench Pro",
+      "score": 61.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/InternScience/Sage-A1.5",
+      "notes": "mini-SWE-agent harness, temperature 1.0, top-p 0.95, 200K context, offline.",
+      "retrieved_at": "2026-10-22T08:45:00Z"
+    },
+    {
+      "benchmark": "SWE-bench Multilingual",
+      "score": 72.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/InternScience/Sage-A1.5",
+      "notes": "mini-SWE-agent harness, temperature 1.0, top-p 0.95, 200K context, offline.",
+      "retrieved_at": "2026-10-22T08:45:00Z"
+    },
+    {
+      "benchmark": "IFBench",
+      "score": 81.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/InternScience/Sage-A1.5",
+      "retrieved_at": "2026-10-22T08:45:00Z"
+    },
+    {
+      "benchmark": "AA-LCR",
+      "score": 81.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/InternScience/Sage-A1.5",
+      "retrieved_at": "2026-10-22T08:45:00Z"
+    },
+    {
+      "benchmark": "FrontierScience-Olympiad",
+      "score": 81.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/InternScience/Sage-A1.5",
+      "retrieved_at": "2026-10-22T08:45:00Z"
+    },
+    {
+      "benchmark": "FrontierScience-Research",
+      "score": 48.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/InternScience/Sage-A1.5",
+      "retrieved_at": "2026-10-22T08:45:00Z"
+    },
+    {
+      "benchmark": "HiPhO",
+      "score": 45.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/InternScience/Sage-A1.5",
+      "retrieved_at": "2026-10-22T08:45:00Z"
+    },
+    {
+      "benchmark": "HLE",
+      "subtask": "w/ tools",
+      "score": 55.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/InternScience/Sage-A1.5",
+      "retrieved_at": "2026-10-22T08:45:00Z"
+    },
+    {
+      "benchmark": "CMT",
+      "score": 80.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/InternScience/Sage-A1.5",
+      "retrieved_at": "2026-10-22T08:45:00Z"
+    },
+    {
+      "benchmark": "CritPt",
+      "score": 20.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/InternScience/Sage-A1.5",
+      "retrieved_at": "2026-10-22T08:45:00Z"
+    },
+    {
+      "benchmark": "Agents' Last Exam",
+      "subtask": "ALE-CLI",
+      "score": 19.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/InternScience/Sage-A1.5",
+      "retrieved_at": "2026-10-22T08:45:00Z"
+    },
+    {
+      "benchmark": "VitaBench",
+      "score": 45.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/InternScience/Sage-A1.5",
+      "retrieved_at": "2026-10-22T08:45:00Z"
+    },
+    {
+      "benchmark": "PinchBench",
+      "score": 90.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/InternScience/Sage-A1.5",
+      "retrieved_at": "2026-10-22T08:45:00Z"
+    },
+    {
+      "benchmark": "ChemCOTBench",
+      "score": 66.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/InternScience/Sage-A1.5",
+      "retrieved_at": "2026-10-22T08:45:00Z"
+    },
+    {
+      "benchmark": "MatTools",
+      "score": 42.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/InternScience/Sage-A1.5",
+      "retrieved_at": "2026-10-22T08:45:00Z"
+    },
+    {
+      "benchmark": "OmniDocBench",
+      "score": 91.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/InternScience/Sage-A1.5",
+      "notes": "Card reports the benchmark without a version, so it is left unversioned.",
+      "retrieved_at": "2026-10-22T08:45:00Z"
+    }
+  ],
+  "gaps": [
+    "No standard reasoning/knowledge benchmarks on the card (MMLU-Pro, GPQA Diamond, AIME 2026, HMMT Feb 2026).",
+    "No Terminal-Bench, SWE-bench Verified, τ³-bench, MCP-Atlas or BFCL results.",
+    "Card is agentic/scientific-research oriented; no vision-leaderboard suites besides OmniDocBench."
+  ],
+  "conflicts": [],
+  "retrieved_at": "2026-10-22T08:45:00Z"
+}

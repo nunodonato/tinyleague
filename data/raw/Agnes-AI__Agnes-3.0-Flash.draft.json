@@ -1,0 +1,220 @@
+{
+  "model_id": "Agnes-AI/Agnes-3.0-Flash",
+  "display_name": "Agnes-3.0-Flash",
+  "url": "https://huggingface.co/Agnes-AI/Agnes-3.0-Flash",
+  "retrieved_at": "2026-09-12T12:19:41Z",
+  "html_tables": [
+    [
+      [
+        "Benchmark",
+        "Agnes-3.0-Flash",
+        "Qwen3.6-35B-A3B 35B / 3B active",
+        "Kimi K2.5 1T / 32B active",
+        "Muse Glimmer 30B",
+        "Qwen3.5 27B",
+        "DeepSeek V4 Flash 0731 284B / 13B active",
+        "Qwen3.8 27B",
+        "Gemini 3.5 Flash undisclosed",
+        "Qwen3.8 Flash Next 125B / 6B active",
+        "MiniMax M3 428B / 23B active"
+      ],
+      [
+        "IFBench",
+        "74.20",
+        "64.4",
+        "43.7",
+        "77.0",
+        "75.6",
+        "75.8",
+        "79.5",
+        "76.3",
+        "81.3",
+        "82.9"
+      ],
+      [
+        "SciCode",
+        "38.08",
+        "35.8",
+        "39.6",
+        "43.6",
+        "39.5",
+        "50.3",
+        "46.6",
+        "53.1",
+        "50.6",
+        "45.4"
+      ],
+      [
+        "GPQA Diamond",
+        "85.05",
+        "84.1",
+        "78.9",
+        "83.5",
+        "85.8",
+        "90.8",
+        "90.5",
+        "92.2",
+        "92.3",
+        "92.9"
+      ],
+      [
+        "AA-LCR",
+        "68.33",
+        "66.7",
+        "59.0",
+        "80.0",
+        "72.3",
+        "79.7",
+        "82.0",
+        "81.0",
+        "79.7",
+        "74.0"
+      ],
+      [
+        "AA-Omniscience Accuracy",
+        "23.00",
+        "18.8",
+        "22.9",
+        "27.0",
+        "20.7",
+        "40.4",
+        "18.4",
+        "51.4",
+        "24.5",
+        "16.7"
+      ]
+    ]
+  ],
+  "markdown_tables": [
+    [
+      [
+        "",
+        ""
+      ],
+      [
+        "Context length",
+        "**262 144** tokens"
+      ],
+      [
+        "Decoder layers",
+        "72 = 54 delta-rule recurrent + 18 global attention, alternating 3 : 1"
+      ],
+      [
+        "Hidden size",
+        "5120"
+      ],
+      [
+        "Global attention",
+        "24 query heads / 4 KV heads (6 : 1 GQA), head dim 256; RMS-norm on q and k, sigmoid-gated output"
+      ],
+      [
+        "Delta-rule layers",
+        "16 key heads / 48 value heads, head dim 128; causal conv (kernel 4) in front, gated RMS-norm; recurrent state in fp32"
+      ],
+      [
+        "Feed-forward",
+        "SwiGLU, intermediate size 17408; plus a parallel SwiGLU 2048 branch in every layer"
+      ],
+      [
+        "Positions",
+        "3-axis rotary (text / height / width), interleaved mrope sections 11 : 11 : 10, base 1e7, applied to the first 25 % of each head dim (64 dims)"
+      ],
+      [
+        "Vocabulary",
+        "248 320"
+      ],
+      [
+        "Vision tower",
+        "27 layers, hidden 1152, patch 16, 2 × 2 spatial merge, projected to 5120"
+      ]
+    ],
+    [
+      [
+        "Resource",
+        "Recommendation"
+      ],
+      [
+        "GPUs",
+        "1 × NVIDIA H200 141 GB or NVIDIA H100 80 GB (or equivalent) at bf16"
+      ],
+      [
+        "Tensor parallel",
+        "`--tp 1`; `--tp 2` for maximum context and concurrency"
+      ],
+      [
+        "Weights on disk",
+        "Approximately 66 GB for the bf16 checkpoint"
+      ],
+      [
+        "Host memory",
+        "128 GB or more recommended"
+      ]
+    ],
+    [
+      [
+        "Setting",
+        "Recommended"
+      ],
+      [
+        "`temperature`",
+        "1.0"
+      ],
+      [
+        "`top_p`",
+        "0.95"
+      ],
+      [
+        "`top_k`",
+        "20"
+      ],
+      [
+        "`reasoning_effort`",
+        "`high` for hard reasoning, `low` for latency-sensitive traffic"
+      ],
+      [
+        "`max_tokens`",
+        "2000 or higher"
+      ]
+    ],
+    [
+      [
+        "Capability",
+        "Support"
+      ],
+      [
+        "Advanced reasoning",
+        "Yes, with `high` / `medium` / `low` effort levels"
+      ],
+      [
+        "Coding and debugging",
+        "Yes"
+      ],
+      [
+        "Long-context analysis",
+        "262 144 tokens"
+      ],
+      [
+        "Image understanding",
+        "Yes"
+      ],
+      [
+        "Video understanding",
+        "Yes"
+      ],
+      [
+        "Tool calling",
+        "Yes (`<tool_call>` / `<tool_response>`)"
+      ],
+      [
+        "Streaming",
+        "Yes"
+      ],
+      [
+        "OpenAI-compatible APIs",
+        "Chat Completions via sglang"
+      ]
+    ]
+  ],
+  "sections": [],
+  "raw_chars": 14944
+}

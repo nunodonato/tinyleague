@@ -1,0 +1,175 @@
+{
+  "model_id": "Nanbeige/Nanbeige4.3-33B",
+  "scores": [
+    {
+      "benchmark": "Terminal-Bench 2.1",
+      "subtask": "Terminus 2",
+      "score": 80.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
+      "notes": "Agentic Coding table; highest thinking effort, preserve_thinking=true"
+    },
+    {
+      "benchmark": "Terminal-Bench 4",
+      "score": 23.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
+      "notes": "Card row 'Terminal-Bench 4.0'; mini-swe-agent v2.4.6 harness"
+    },
+    {
+      "benchmark": "DeepSWE",
+      "score": 65.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
+      "notes": "mini-swe-agent v2.4.6 harness"
+    },
+    {
+      "benchmark": "SWE-bench Pro",
+      "score": 60.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B"
+    },
+    {
+      "benchmark": "SWE Atlas",
+      "subtask": "QnA",
+      "score": 50.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
+      "notes": "Card row 'SWE-Atlas-QnA'; mini-swe-agent v2.4.6 harness, answers scored against 1,304 rubrics by GPT-6 Sol as judge"
+    },
+    {
+      "benchmark": "NL2Repo-Bench",
+      "score": 53.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
+      "notes": "Evaluated using the Claude Code harness"
+    },
+    {
+      "benchmark": "SciCode",
+      "score": 52.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B"
+    },
+    {
+      "benchmark": "SkillsBench",
+      "score": 61.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B"
+    },
+    {
+      "benchmark": "AutomationBench",
+      "subtask": "v1.0.6",
+      "score": 54.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
+      "notes": "Automation Bench v1.0.6, 600 publicly released tasks"
+    },
+    {
+      "benchmark": "JobBench",
+      "score": 44.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
+      "notes": "Claude Code harness with a search tool; 35 occupations"
+    },
+    {
+      "benchmark": "GDPval",
+      "score": 84.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
+      "notes": "Scored using revised rubrics"
+    },
+    {
+      "benchmark": "ClawEval",
+      "subtask": "pass^3, General subset",
+      "score": 78.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
+      "notes": "Claw-Eval General subset, 157 single-turn user-interaction tasks"
+    },
+    {
+      "benchmark": "Toolathlon-Verified",
+      "score": 70.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
+      "notes": "No max_tokens limit for individual model requests"
+    },
+    {
+      "benchmark": "DeepPlanning",
+      "score": 63.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
+      "notes": "Evaluated with the official repository"
+    },
+    {
+      "benchmark": "EnterpriseOps-Gym",
+      "score": 41.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
+      "notes": "Evaluated with the official repository"
+    },
+    {
+      "benchmark": "YC-bench",
+      "score": 1025437,
+      "metric": "USD",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
+      "notes": "Dollar-denominated outcome ($1,025,437); only the most recent 10 user turns kept as context"
+    },
+    {
+      "benchmark": "τ³-bench",
+      "score": 48.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
+      "notes": "Evaluated with the official repository"
+    },
+    {
+      "benchmark": "GPQA Diamond",
+      "score": 89.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B"
+    },
+    {
+      "benchmark": "AIME 2026",
+      "score": 95.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B"
+    },
+    {
+      "benchmark": "AA-LCR",
+      "score": 84.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B"
+    }
+  ],
+  "gaps": [
+    "MMLU-Pro",
+    "MMLU-Redux",
+    "HLE",
+    "SWE-bench Verified",
+    "LiveCodeBench",
+    "Arena / Elo",
+    "IFBench",
+    "independent reproduction (all scores self-reported; no Artificial Analysis page as of 2026-11-02)"
+  ],
+  "conflicts": [],
+  "retrieved_at": "2026-11-02T18:20:00Z"
+}

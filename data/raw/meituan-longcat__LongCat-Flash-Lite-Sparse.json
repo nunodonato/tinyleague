@@ -1,0 +1,678 @@
+{
+  "model_id": "meituan-longcat/LongCat-Flash-Lite-Sparse",
+  "scores": [
+    {
+      "benchmark": "SWE-bench Verified",
+      "subtask": "w/o HI",
+      "score": 68.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "SWE-bench Pro",
+      "subtask": "w/o HI",
+      "score": 40.63,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "SWE-bench Multilingual",
+      "subtask": "w/o HI",
+      "score": 59.33,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "Terminal-Bench 2.0",
+      "subtask": "w/o HI",
+      "score": 33.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "τ²-bench",
+      "subtask": "Telecom, avg@4, w/ HI",
+      "score": 96.05,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "VitaBench",
+      "subtask": "avg@4, w/o HI",
+      "score": 21.67,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "MCP-Atlas",
+      "subtask": "w/o HI",
+      "score": 45.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "BrowseComp",
+      "subtask": "pass@1, w/o HI",
+      "score": 48.62,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "BrowseComp-zh",
+      "subtask": "pass@1, w/o HI",
+      "score": 61.94,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "RWSearch",
+      "subtask": "pass@1, w/o HI",
+      "score": 68.5,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "MMLU",
+      "subtask": "w/o HI",
+      "score": 85.31,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "MMLU-Pro",
+      "subtask": "w/o HI",
+      "score": 79.24,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "CMMLU",
+      "subtask": "w/ HI",
+      "score": 84.51,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "C-Eval",
+      "subtask": "w/o HI",
+      "score": 85.76,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "GPQA Diamond",
+      "subtask": "avg@16, w/o HI",
+      "score": 69.49,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "MATH500",
+      "subtask": "w/ HI",
+      "score": 96.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "AIME 2026",
+      "subtask": "avg@32, w/o HI",
+      "score": 65.73,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "HMMT Feb 2026",
+      "subtask": "avg@32, w/ HI",
+      "score": 41.47,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "BeyondAIME",
+      "subtask": "avg@10, w/o HI",
+      "score": 44.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "IMO AnswerBench",
+      "subtask": "avg@4, w/o HI",
+      "score": 49.38,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "MRCR",
+      "subtask": "8-needle, w/o HI",
+      "score": 44.66,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "OOLong-Synth",
+      "subtask": "w/o HI",
+      "score": 38.42,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "GraphWalks Extend",
+      "subtask": "w/o HI",
+      "score": 66.27,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "LOFT Retrieval Extend",
+      "subtask": "w/ HI",
+      "score": 44.38,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "HELMET-ICL Extend",
+      "subtask": "w/o HI",
+      "score": 91.63,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "LongCodeQA",
+      "subtask": "w/o HI",
+      "score": 62.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "AMemBench-ACU",
+      "subtask": "w/o HI",
+      "score": 33.25,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "LongBench-v2",
+      "subtask": "w/ HI",
+      "score": 53.64,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    },
+    {
+      "benchmark": "AA-LCR",
+      "subtask": "w/o HI",
+      "score": 48.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse",
+      "retrieved_at": "2026-09-05T09:13:28Z"
+    }
+  ],
+  "gaps": [
+    "Arena"
+  ],
+  "conflicts": [
+    {
+      "benchmark": "SWE-bench Verified",
+      "values": [
+        {
+          "score": 68.2,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 65.2,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (68.2) per the highest-reasoning-level policy. Kept entries: w/ HI; w/o HI."
+    },
+    {
+      "benchmark": "SWE-bench Pro",
+      "values": [
+        {
+          "score": 40.63,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 39.4,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (40.63) per the highest-reasoning-level policy. Kept entries: w/ HI; w/o HI."
+    },
+    {
+      "benchmark": "SWE-bench Multilingual",
+      "values": [
+        {
+          "score": 59.33,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 56.0,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (59.33) per the highest-reasoning-level policy. Kept entries: w/ HI; w/o HI."
+    },
+    {
+      "benchmark": "Terminal-Bench 2.0",
+      "values": [
+        {
+          "score": 33.7,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 32.58,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (33.7) per the highest-reasoning-level policy. Kept entries: w/ HI; w/o HI."
+    },
+    {
+      "benchmark": "τ²-bench",
+      "values": [
+        {
+          "score": 95.18,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 96.05,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (96.05) per the highest-reasoning-level policy. Kept entries: Telecom, avg@4, w/ HI; Telecom, avg@4, w/o HI."
+    },
+    {
+      "benchmark": "VitaBench",
+      "values": [
+        {
+          "score": 21.67,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 20.42,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (21.67) per the highest-reasoning-level policy. Kept entries: avg@4, w/ HI; avg@4, w/o HI."
+    },
+    {
+      "benchmark": "MCP-Atlas",
+      "values": [
+        {
+          "score": 45.6,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 45.0,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (45.6) per the highest-reasoning-level policy. Kept entries: w/ HI; w/o HI."
+    },
+    {
+      "benchmark": "BrowseComp",
+      "values": [
+        {
+          "score": 48.62,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 48.18,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (48.62) per the highest-reasoning-level policy. Kept entries: pass@1, w/ HI; pass@1, w/o HI."
+    },
+    {
+      "benchmark": "BrowseComp-zh",
+      "values": [
+        {
+          "score": 61.94,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 61.59,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (61.94) per the highest-reasoning-level policy. Kept entries: pass@1, w/ HI; pass@1, w/o HI."
+    },
+    {
+      "benchmark": "RWSearch",
+      "values": [
+        {
+          "score": 68.5,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 66.0,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (68.5) per the highest-reasoning-level policy. Kept entries: pass@1, w/ HI; pass@1, w/o HI."
+    },
+    {
+      "benchmark": "MMLU",
+      "values": [
+        {
+          "score": 85.31,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 85.14,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (85.31) per the highest-reasoning-level policy. Kept entries: w/ HI; w/o HI."
+    },
+    {
+      "benchmark": "MMLU-Pro",
+      "values": [
+        {
+          "score": 79.24,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 78.68,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (79.24) per the highest-reasoning-level policy. Kept entries: w/ HI; w/o HI."
+    },
+    {
+      "benchmark": "CMMLU",
+      "values": [
+        {
+          "score": 84.25,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 84.51,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (84.51) per the highest-reasoning-level policy. Kept entries: w/ HI; w/o HI."
+    },
+    {
+      "benchmark": "C-Eval",
+      "values": [
+        {
+          "score": 85.76,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 85.71,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (85.76) per the highest-reasoning-level policy. Kept entries: w/ HI; w/o HI."
+    },
+    {
+      "benchmark": "GPQA Diamond",
+      "values": [
+        {
+          "score": 69.49,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 69.03,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (69.49) per the highest-reasoning-level policy. Kept entries: avg@16, w/ HI; avg@16, w/o HI."
+    },
+    {
+      "benchmark": "MATH500",
+      "values": [
+        {
+          "score": 95.8,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 96.8,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (96.8) per the highest-reasoning-level policy. Kept entries: w/ HI; w/o HI."
+    },
+    {
+      "benchmark": "AIME 2026",
+      "values": [
+        {
+          "score": 65.73,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 64.9,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (65.73) per the highest-reasoning-level policy. Kept entries: avg@32, w/ HI; avg@32, w/o HI."
+    },
+    {
+      "benchmark": "HMMT Feb 2026",
+      "values": [
+        {
+          "score": 40.53,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 41.47,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (41.47) per the highest-reasoning-level policy. Kept entries: avg@32, w/ HI; avg@32, w/o HI."
+    },
+    {
+      "benchmark": "BeyondAIME",
+      "values": [
+        {
+          "score": 44.2,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 42.3,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (44.2) per the highest-reasoning-level policy. Kept entries: avg@10, w/ HI; avg@10, w/o HI."
+    },
+    {
+      "benchmark": "IMO AnswerBench",
+      "values": [
+        {
+          "score": 49.38,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 46.69,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (49.38) per the highest-reasoning-level policy. Kept entries: avg@4, w/ HI; avg@4, w/o HI."
+    },
+    {
+      "benchmark": "MRCR",
+      "values": [
+        {
+          "score": 44.66,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 44.47,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (44.66) per the highest-reasoning-level policy. Kept entries: 8-needle, w/ HI; 8-needle, w/o HI."
+    },
+    {
+      "benchmark": "OOLong-Synth",
+      "values": [
+        {
+          "score": 38.42,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 37.88,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (38.42) per the highest-reasoning-level policy. Kept entries: w/ HI; w/o HI."
+    },
+    {
+      "benchmark": "GraphWalks Extend",
+      "values": [
+        {
+          "score": 66.27,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 65.63,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (66.27) per the highest-reasoning-level policy. Kept entries: w/ HI; w/o HI."
+    },
+    {
+      "benchmark": "LOFT Retrieval Extend",
+      "values": [
+        {
+          "score": 43.75,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 44.38,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (44.38) per the highest-reasoning-level policy. Kept entries: w/ HI; w/o HI."
+    },
+    {
+      "benchmark": "HELMET-ICL Extend",
+      "values": [
+        {
+          "score": 91.63,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 90.5,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (91.63) per the highest-reasoning-level policy. Kept entries: w/ HI; w/o HI."
+    },
+    {
+      "benchmark": "LongCodeQA",
+      "values": [
+        {
+          "score": 62.3,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 59.37,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (62.3) per the highest-reasoning-level policy. Kept entries: w/ HI; w/o HI."
+    },
+    {
+      "benchmark": "AMemBench-ACU",
+      "values": [
+        {
+          "score": 33.25,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 33.13,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (33.25) per the highest-reasoning-level policy. Kept entries: w/ HI; w/o HI."
+    },
+    {
+      "benchmark": "LongBench-v2",
+      "values": [
+        {
+          "score": 52.5,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 53.64,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (53.64) per the highest-reasoning-level policy. Kept entries: w/ HI; w/o HI."
+    },
+    {
+      "benchmark": "AA-LCR",
+      "values": [
+        {
+          "score": 48.0,
+          "source": "huggingface-model-card"
+        },
+        {
+          "score": 47.33,
+          "source": "huggingface-model-card"
+        }
+      ],
+      "resolution": "Duplicate benchmark entries in the record; kept the highest value (48.0) per the highest-reasoning-level policy. Kept entries: w/ HI; w/o HI."
+    }
+  ],
+  "retrieved_at": "2026-09-05T09:13:28Z"
+}

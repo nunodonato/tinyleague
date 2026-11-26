@@ -1,0 +1,167 @@
+{
+  "model_id": "inclusionAI/Ling-3.0-tiny",
+  "scores": [
+    {
+      "benchmark": "AA-Agentic-Index",
+      "score": 16,
+      "metric": "idx",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-tiny",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "GDPval-AA",
+      "subtask": "v2",
+      "score": 772,
+      "metric": "points",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-tiny",
+      "notes": "Thinking mode.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "τ³-bench",
+      "score": 20.8,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-tiny",
+      "notes": "Thinking mode.",
+      "retrieved_at": "2026-09-05T18:39:41Z",
+      "subtask": "Banking"
+    },
+    {
+      "benchmark": "BFCL v4",
+      "score": 62.72,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-tiny",
+      "notes": "FC (Function Calling). Thinking mode.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "Terminal-Bench 2.1",
+      "score": 27.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-tiny",
+      "notes": "AA protocol, Terminus 2 harness, mean of 3 runs. Thinking mode.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "ArtifactsBench",
+      "score": 47.93,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-tiny",
+      "notes": "Thinking mode.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "SciCode",
+      "score": 24.2,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-tiny",
+      "notes": "Thinking mode.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "AA-LCR",
+      "score": 58.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-tiny",
+      "notes": "Thinking mode.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "AA-Omniscience-Accuracy",
+      "score": 8.52,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-tiny",
+      "notes": "Thinking mode.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "AA-Omniscience-Non-Hallucination",
+      "score": 69.54,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-tiny",
+      "notes": "Thinking mode.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "GPQA Diamond",
+      "score": 73.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-tiny",
+      "notes": "Thinking mode.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "HLE",
+      "score": 9.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-tiny",
+      "notes": "Thinking mode.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "HMMT Feb 2026",
+      "score": 70.31,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-tiny",
+      "notes": "Thinking mode.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "IMO AnswerBench",
+      "score": 71.03,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-tiny",
+      "notes": "Thinking mode.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "IFBench",
+      "score": 63.61,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-tiny",
+      "notes": "Thinking mode.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "LIFEbench",
+      "score": 62.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-tiny",
+      "notes": "Thinking mode.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    },
+    {
+      "benchmark": "Multi-IF",
+      "score": 83.15,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.0-tiny",
+      "notes": "Thinking mode.",
+      "retrieved_at": "2026-09-05T18:39:41Z"
+    }
+  ],
+  "gaps": [
+    "LiveCodeBench",
+    "AIME",
+    "MMLU-Pro",
+    "IFEval"
+  ],
+  "conflicts": [],
+  "retrieved_at": "2026-09-05T18:39:41Z"
+}

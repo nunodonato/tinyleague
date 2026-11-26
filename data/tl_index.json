@@ -1,0 +1,764 @@
+{
+ "generated_at": "2026-10-28T12:08:15Z",
+ "index_version": "TL-Index-1.0",
+ "method": {
+  "weights": "editorial",
+  "completeness": "strict — all benchmarks required, no renormalization",
+  "normalization": "clip((score - floor) / (ceiling - floor) * 100, 0, 100)",
+  "aggregation": "weighted mean (weights sum to 100)",
+  "comparability": "one flavour per column (HLE no-tools, τ³ Banking, BrowseComp single-agent)"
+ },
+ "benchmarks": [
+  {
+   "benchmark": "Terminal-Bench 2.1",
+   "domain": "agentic coding",
+   "weight": 15.0,
+   "floor": 5.0,
+   "ceiling": 85.0
+  },
+  {
+   "benchmark": "HLE",
+   "domain": "frontier reasoning",
+   "weight": 15.0,
+   "floor": 0.0,
+   "ceiling": 55.0
+  },
+  {
+   "benchmark": "τ³-bench",
+   "domain": "tool use / agentic",
+   "weight": 13.0,
+   "floor": 5.0,
+   "ceiling": 65.0
+  },
+  {
+   "benchmark": "GPQA Diamond",
+   "domain": "science knowledge",
+   "weight": 12.0,
+   "floor": 45.0,
+   "ceiling": 95.0
+  },
+  {
+   "benchmark": "SWE-bench Pro",
+   "domain": "software engineering",
+   "weight": 10.0,
+   "floor": 10.0,
+   "ceiling": 80.0
+  },
+  {
+   "benchmark": "IFBench",
+   "domain": "instruction following",
+   "weight": 10.0,
+   "floor": 40.0,
+   "ceiling": 85.0
+  },
+  {
+   "benchmark": "BrowseComp",
+   "domain": "web research",
+   "weight": 10.0,
+   "floor": 30.0,
+   "ceiling": 85.0
+  },
+  {
+   "benchmark": "AA-LCR",
+   "domain": "long context",
+   "weight": 10.0,
+   "floor": 40.0,
+   "ceiling": 85.0
+  },
+  {
+   "benchmark": "SciCode",
+   "domain": "scientific coding",
+   "weight": 5.0,
+   "floor": 15.0,
+   "ceiling": 60.0
+  }
+ ],
+ "models": [
+  {
+   "model_id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16",
+   "display_name": "NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16",
+   "benchmarks": 9,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": 65.4,
+   "coverage_pct": 100.0,
+   "components": {
+    "GPQA Diamond": 89.0,
+    "HLE": 57.8,
+    "SciCode": 71.4,
+    "AA-LCR": 63.6,
+    "IFBench": 68.6,
+    "τ³-bench": 23.1,
+    "BrowseComp": 87.3,
+    "SWE-bench Pro": 59.7,
+    "Terminal-Bench 2.1": 77.1
+   },
+   "missing": [],
+   "rank": 1
+  },
+  {
+   "model_id": "openbmb/MiniCPM5-2B",
+   "display_name": "MiniCPM5-2B",
+   "benchmarks": 9,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": 26.3,
+   "coverage_pct": 100.0,
+   "components": {
+    "SciCode": 25.1,
+    "IFBench": 58.4,
+    "HLE": 16.2,
+    "GPQA Diamond": 50.4,
+    "AA-LCR": 42.2,
+    "τ³-bench": 26.3,
+    "SWE-bench Pro": 6.3,
+    "Terminal-Bench 2.1": 4.5,
+    "BrowseComp": 17.6
+   },
+   "missing": [],
+   "rank": 2
+  },
+  {
+   "model_id": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+   "display_name": "NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+   "benchmarks": 8,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 90.0,
+   "components": {},
+   "missing": [
+    "SWE-bench Pro"
+   ]
+  },
+  {
+   "model_id": "meta-models/Muse-Glimmer-30B",
+   "display_name": "Muse-Glimmer-30B",
+   "benchmarks": 8,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 90.0,
+   "components": {},
+   "missing": [
+    "BrowseComp"
+   ]
+  },
+  {
+   "model_id": "inclusionAI/Ling-3.0-tiny",
+   "display_name": "Ling-3.0-tiny",
+   "benchmarks": 7,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 80.0,
+   "components": {},
+   "missing": [
+    "SWE-bench Pro",
+    "BrowseComp"
+   ]
+  },
+  {
+   "model_id": "nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16",
+   "display_name": "NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16",
+   "benchmarks": 7,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 80.0,
+   "components": {},
+   "missing": [
+    "SWE-bench Pro",
+    "IFBench"
+   ]
+  },
+  {
+   "model_id": "XHToken/Spark-X2.6-4B",
+   "display_name": "Spark-X2.6-4B",
+   "benchmarks": 7,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 72.0,
+   "components": {},
+   "missing": [
+    "Terminal-Bench 2.1",
+    "τ³-bench"
+   ]
+  },
+  {
+   "model_id": "Qwen/Qwen3.8-27B",
+   "display_name": "Qwen3.8-27B",
+   "benchmarks": 6,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 75.0,
+   "components": {},
+   "missing": [
+    "BrowseComp",
+    "AA-LCR",
+    "SciCode"
+   ]
+  },
+  {
+   "model_id": "inclusionAI/Ling-3.0-flash",
+   "display_name": "Ling-3.0-flash",
+   "benchmarks": 6,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 73.0,
+   "components": {},
+   "missing": [
+    "GPQA Diamond",
+    "BrowseComp",
+    "SciCode"
+   ]
+  },
+  {
+   "model_id": "IFM/K2-Horizon-MoVA-36B-A4B",
+   "display_name": "K2-Horizon-MoVA-36B-A4B",
+   "benchmarks": 6,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 70.0,
+   "components": {},
+   "missing": [
+    "SWE-bench Pro",
+    "IFBench",
+    "BrowseComp"
+   ]
+  },
+  {
+   "model_id": "IFM/K2-Horizon-7B",
+   "display_name": "K2-Horizon-7B",
+   "benchmarks": 6,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 68.0,
+   "components": {},
+   "missing": [
+    "GPQA Diamond",
+    "SWE-bench Pro",
+    "IFBench"
+   ]
+  },
+  {
+   "model_id": "LiquidAI/LFM3-1.7B",
+   "display_name": "LFM3-1.7B",
+   "benchmarks": 6,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 67.0,
+   "components": {},
+   "missing": [
+    "τ³-bench",
+    "SWE-bench Pro",
+    "BrowseComp"
+   ]
+  },
+  {
+   "model_id": "CohereLabs/North-Mini-Code-1.0",
+   "display_name": "North-Mini-Code-1.0",
+   "benchmarks": 6,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 65.0,
+   "components": {},
+   "missing": [
+    "Terminal-Bench 2.1",
+    "BrowseComp",
+    "AA-LCR"
+   ]
+  },
+  {
+   "model_id": "Nanbeige/Nanbeige4.2-3B",
+   "display_name": "Nanbeige4.2-3B",
+   "benchmarks": 6,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 62.0,
+   "components": {},
+   "missing": [
+    "Terminal-Bench 2.1",
+    "τ³-bench",
+    "BrowseComp"
+   ]
+  },
+  {
+   "model_id": "InternScience/Sage-A1.5",
+   "display_name": "Sage-A1.5",
+   "benchmarks": 6,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 60.0,
+   "components": {},
+   "missing": [
+    "Terminal-Bench 2.1",
+    "τ³-bench",
+    "GPQA Diamond"
+   ]
+  },
+  {
+   "model_id": "Qwen/Qwen3.8-Flash-Next",
+   "display_name": "Qwen3.8-Flash-Next",
+   "benchmarks": 5,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 60.0,
+   "components": {},
+   "missing": [
+    "Terminal-Bench 2.1",
+    "BrowseComp",
+    "AA-LCR",
+    "SciCode"
+   ]
+  },
+  {
+   "model_id": "IFM/K2-Horizon-3.7B",
+   "display_name": "K2-Horizon-3.7B",
+   "benchmarks": 5,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 60.0,
+   "components": {},
+   "missing": [
+    "SWE-bench Pro",
+    "IFBench",
+    "BrowseComp",
+    "AA-LCR"
+   ]
+  },
+  {
+   "model_id": "LiquidAI/LFM2.5-24B-A2B",
+   "display_name": "LFM2.5-24B-A2B",
+   "benchmarks": 5,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 55.0,
+   "components": {},
+   "missing": [
+    "Terminal-Bench 2.1",
+    "SWE-bench Pro",
+    "BrowseComp",
+    "AA-LCR"
+   ]
+  },
+  {
+   "model_id": "ibm-granite/granite-4.2-30b",
+   "display_name": "granite-4.2-30b",
+   "benchmarks": 5,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 52.0,
+   "components": {},
+   "missing": [
+    "HLE",
+    "τ³-bench",
+    "BrowseComp",
+    "AA-LCR"
+   ]
+  },
+  {
+   "model_id": "ibm-granite/granite-4.2-8b",
+   "display_name": "granite-4.2-8b",
+   "benchmarks": 5,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 52.0,
+   "components": {},
+   "missing": [
+    "HLE",
+    "τ³-bench",
+    "BrowseComp",
+    "AA-LCR"
+   ]
+  },
+  {
+   "model_id": "ornith-ai/Ornith-1.5-9B",
+   "display_name": "Ornith-1.5-9B",
+   "benchmarks": 4,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 47.0,
+   "components": {},
+   "missing": [
+    "HLE",
+    "τ³-bench",
+    "IFBench",
+    "AA-LCR",
+    "SciCode"
+   ]
+  },
+  {
+   "model_id": "ornith-ai/Ornith-1.5-35B-A3B",
+   "display_name": "Ornith-1.5-35B-A3B",
+   "benchmarks": 4,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 47.0,
+   "components": {},
+   "missing": [
+    "HLE",
+    "τ³-bench",
+    "IFBench",
+    "AA-LCR",
+    "SciCode"
+   ]
+  },
+  {
+   "model_id": "deepseek-ai/DeepSeek-V4-Flash-DSpark",
+   "display_name": "DeepSeek-V4-Flash-DSpark",
+   "benchmarks": 4,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 45.0,
+   "components": {},
+   "missing": [
+    "Terminal-Bench 2.1",
+    "HLE",
+    "IFBench",
+    "AA-LCR",
+    "SciCode"
+   ]
+  },
+  {
+   "model_id": "meituan-longcat/LongCat-Flash-Lite-Sparse",
+   "display_name": "LongCat-Flash-Lite-Sparse",
+   "benchmarks": 4,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 42.0,
+   "components": {},
+   "missing": [
+    "Terminal-Bench 2.1",
+    "HLE",
+    "τ³-bench",
+    "IFBench",
+    "SciCode"
+   ]
+  },
+  {
+   "model_id": "ornith-ai/Ornith-1.5-122B",
+   "display_name": "Ornith-1.5-122B",
+   "benchmarks": 4,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 40.0,
+   "components": {},
+   "missing": [
+    "HLE",
+    "τ³-bench",
+    "GPQA Diamond",
+    "IFBench",
+    "AA-LCR"
+   ]
+  },
+  {
+   "model_id": "Agnes-AI/Agnes-3.0-Flash",
+   "display_name": "Agnes-3.0-Flash",
+   "benchmarks": 4,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 37.0,
+   "components": {},
+   "missing": [
+    "Terminal-Bench 2.1",
+    "HLE",
+    "τ³-bench",
+    "SWE-bench Pro",
+    "BrowseComp"
+   ]
+  },
+  {
+   "model_id": "nex-agi/Nex-N2.5-mini",
+   "display_name": "Nex-N2.5-mini",
+   "benchmarks": 3,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 35.0,
+   "components": {},
+   "missing": [
+    "HLE",
+    "τ³-bench",
+    "GPQA Diamond",
+    "IFBench",
+    "AA-LCR",
+    "SciCode"
+   ]
+  },
+  {
+   "model_id": "Kwaipilot/KAT-Coder-V2.5-Dev",
+   "display_name": "KAT-Coder-V2.5-Dev",
+   "benchmarks": 3,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 30.0,
+   "components": {},
+   "missing": [
+    "HLE",
+    "τ³-bench",
+    "GPQA Diamond",
+    "IFBench",
+    "BrowseComp",
+    "AA-LCR"
+   ]
+  },
+  {
+   "model_id": "google/gemma-4-12B-it",
+   "display_name": "gemma-4-12B-it",
+   "benchmarks": 2,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 27.0,
+   "components": {},
+   "missing": [
+    "Terminal-Bench 2.1",
+    "τ³-bench",
+    "SWE-bench Pro",
+    "IFBench",
+    "BrowseComp",
+    "AA-LCR",
+    "SciCode"
+   ]
+  },
+  {
+   "model_id": "poolside/Laguna-S-2.1",
+   "display_name": "Laguna-S-2.1",
+   "benchmarks": 2,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 25.0,
+   "components": {},
+   "missing": [
+    "HLE",
+    "τ³-bench",
+    "GPQA Diamond",
+    "IFBench",
+    "BrowseComp",
+    "AA-LCR",
+    "SciCode"
+   ]
+  },
+  {
+   "model_id": "google/diffusiongemma-26B-A4B-it",
+   "display_name": "diffusiongemma-26B-A4B-it",
+   "benchmarks": 1,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 12.0,
+   "components": {},
+   "missing": [
+    "Terminal-Bench 2.1",
+    "HLE",
+    "τ³-bench",
+    "SWE-bench Pro",
+    "IFBench",
+    "BrowseComp",
+    "AA-LCR",
+    "SciCode"
+   ]
+  },
+  {
+   "model_id": "poolside/Laguna-XS-2.1",
+   "display_name": "Laguna-XS-2.1",
+   "benchmarks": 1,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 10.0,
+   "components": {},
+   "missing": [
+    "Terminal-Bench 2.1",
+    "HLE",
+    "τ³-bench",
+    "GPQA Diamond",
+    "IFBench",
+    "BrowseComp",
+    "AA-LCR",
+    "SciCode"
+   ]
+  },
+  {
+   "model_id": "LiquidAI/LFM2.5-8B-A1B",
+   "display_name": "LFM2.5-8B-A1B",
+   "benchmarks": 1,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 10.0,
+   "components": {},
+   "missing": [
+    "Terminal-Bench 2.1",
+    "HLE",
+    "τ³-bench",
+    "GPQA Diamond",
+    "SWE-bench Pro",
+    "BrowseComp",
+    "AA-LCR",
+    "SciCode"
+   ]
+  },
+  {
+   "model_id": "openbmb/MiniCPM-V-4.7-35B-A3B",
+   "display_name": "MiniCPM-V-4.7-35B-A3B",
+   "benchmarks": 1,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 10.0,
+   "components": {},
+   "missing": [
+    "Terminal-Bench 2.1",
+    "HLE",
+    "τ³-bench",
+    "GPQA Diamond",
+    "SWE-bench Pro",
+    "BrowseComp",
+    "AA-LCR",
+    "SciCode"
+   ]
+  },
+  {
+   "model_id": "Qwen/Qwen-AgentWorld-35B-A3B",
+   "display_name": "Qwen-AgentWorld-35B-A3B",
+   "benchmarks": 0,
+   "benchmarks_total": 9,
+   "params_b": null,
+   "supports_vision": false,
+   "index": null,
+   "coverage_pct": 0.0,
+   "components": {},
+   "missing": [
+    "Terminal-Bench 2.1",
+    "HLE",
+    "τ³-bench",
+    "GPQA Diamond",
+    "SWE-bench Pro",
+    "IFBench",
+    "BrowseComp",
+    "AA-LCR",
+    "SciCode"
+   ]
+  }
+ ],
+ "excluded_rows": [
+  {
+   "model_id": "google/diffusiongemma-26B-A4B-it",
+   "benchmark": "HLE",
+   "score": 11.9,
+   "reason": "variant: with search"
+  },
+  {
+   "model_id": "deepseek-ai/DeepSeek-V4-Flash-DSpark",
+   "benchmark": "HLE",
+   "score": 45.1,
+   "reason": "variant: with tools, Pass@1"
+  },
+  {
+   "model_id": "ibm-granite/granite-4.2-30b",
+   "benchmark": "τ³-bench",
+   "score": 62.0,
+   "reason": "subset mismatch: avg"
+  },
+  {
+   "model_id": "ibm-granite/granite-4.2-8b",
+   "benchmark": "τ³-bench",
+   "score": 58.06,
+   "reason": "subset mismatch: avg"
+  },
+  {
+   "model_id": "ornith-ai/Ornith-1.5-9B",
+   "benchmark": "HLE",
+   "score": 30.5,
+   "reason": "variant: with tools"
+  },
+  {
+   "model_id": "ornith-ai/Ornith-1.5-35B-A3B",
+   "benchmark": "HLE",
+   "score": 33.4,
+   "reason": "variant: with tools"
+  },
+  {
+   "model_id": "inclusionAI/Ling-3.0-flash",
+   "benchmark": "BrowseComp",
+   "score": 82.0,
+   "reason": "variant: multi-agent"
+  },
+  {
+   "model_id": "XHToken/Spark-X2.6-4B",
+   "benchmark": "τ³-bench",
+   "score": 34.7,
+   "reason": "subset mismatch: high reasoning"
+  },
+  {
+   "model_id": "ornith-ai/Ornith-1.5-122B",
+   "benchmark": "HLE",
+   "score": 48.0,
+   "reason": "variant: with tools"
+  },
+  {
+   "model_id": "LiquidAI/LFM3-1.7B",
+   "benchmark": "τ³-bench",
+   "score": 68.01,
+   "reason": "subset mismatch: 4 domains, average"
+  }
+ ]
+}

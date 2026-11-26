@@ -1,0 +1,148 @@
+{
+  "model_id": "KRAFTON/Raon-1-mini",
+  "scores": [
+    {
+      "benchmark": "MMLU-Pro",
+      "score": 82.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/KRAFTON/Raon-1-mini",
+      "notes": "Card row 'MMLU Pro'. Card states reasoning effort was tuned per benchmark."
+    },
+    {
+      "benchmark": "AA-Omniscience Index",
+      "score": 1.0,
+      "metric": "idx",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/KRAFTON/Raon-1-mini",
+      "notes": "Card row 'AA-Omniscience'; index scale (negatives are normal for the AA index)."
+    },
+    {
+      "benchmark": "GPQA Diamond",
+      "score": 86.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/KRAFTON/Raon-1-mini",
+      "notes": "Card states reasoning effort was tuned per benchmark."
+    },
+    {
+      "benchmark": "AIME 2026",
+      "score": 96.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/KRAFTON/Raon-1-mini",
+      "notes": "Card states reasoning effort was tuned per benchmark."
+    },
+    {
+      "benchmark": "HMMT Feb 2026",
+      "score": 87.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/KRAFTON/Raon-1-mini",
+      "notes": "Card states reasoning effort was tuned per benchmark."
+    },
+    {
+      "benchmark": "IFBench",
+      "score": 84.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/KRAFTON/Raon-1-mini"
+    },
+    {
+      "benchmark": "MultiChallenge",
+      "score": 64.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/KRAFTON/Raon-1-mini"
+    },
+    {
+      "benchmark": "LiveCodeBench v6",
+      "score": 81.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/KRAFTON/Raon-1-mini"
+    },
+    {
+      "benchmark": "SciCode",
+      "score": 41.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/KRAFTON/Raon-1-mini"
+    },
+    {
+      "benchmark": "SWE-bench Verified",
+      "score": 71.0,
+      "metric": "%",
+      "subtask": "mini-SWE-agent harness",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/KRAFTON/Raon-1-mini",
+      "notes": "Card row 'SWE-Verified' with footnote: evaluated with the mini-SWE-agent harness."
+    },
+    {
+      "benchmark": "Terminal-Bench Lite",
+      "score": 52.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/KRAFTON/Raon-1-mini",
+      "notes": "Card row 'Terminal-Bench Lite'; the Lite subset is a different (smaller) release than Terminal-Bench 2.x/4, so it stays its own column."
+    },
+    {
+      "benchmark": "GDPval",
+      "score": 72.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/KRAFTON/Raon-1-mini",
+      "notes": "Card row 'GDPVal' with footnote: the metric is a judge score (0-100), not Elo."
+    },
+    {
+      "benchmark": "AutomationBench",
+      "score": 39.9,
+      "metric": "%",
+      "subtask": "public split",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/KRAFTON/Raon-1-mini",
+      "notes": "Card footnote: measured on the public split, not the official evaluation set."
+    },
+    {
+      "benchmark": "BrowseComp-Plus",
+      "score": 55.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/KRAFTON/Raon-1-mini",
+      "notes": "Card row 'BrowseComp Plus'."
+    },
+    {
+      "benchmark": "BFCL v4",
+      "score": 61.6,
+      "metric": "%",
+      "subtask": "Overall",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/KRAFTON/Raon-1-mini",
+      "notes": "Card row 'BFCL v4 Overall'."
+    },
+    {
+      "benchmark": "AA-LCR",
+      "score": 70.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/KRAFTON/Raon-1-mini"
+    },
+    {
+      "benchmark": "GDP.pdf",
+      "score": 7.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/KRAFTON/Raon-1-mini",
+      "notes": "Card footnote: Artificial Analysis' GDP.pdf text-only version; PDFs OCR-ed beforehand, no image input."
+    }
+  ],
+  "gaps": [
+    "No Artificial Analysis model page: https://artificialanalysis.ai/models/raon-1-mini returns 404 and the model is absent from AA's /models index, so AA's own runs (Terminal-Bench, AA-LCR, τ³-bench, AA-Briefcase, …) could not be used to fill gaps.",
+    "Chatbot Korean (internal): the card reports 92.7, but it is an internal, unreleased Korean conversational benchmark, so it is not recorded as a comparable column.",
+    "Korean CSAT (2027 mock exam): the card reports section-wise and per-question scores (e.g. 371.8/450 per section) but the column is not normalised as a percentage and is unique to this card; not recorded.",
+    "HLE, τ³-bench, AIME 2025, IFEval, MMLU, MMMU/MathVision and other vision evals: not reported (the model is text-only).",
+    "Reasoning effort: the card exposes six levels (none/low/medium/high/xhigh/max) but publishes a single score per benchmark, stating effort was tuned per benchmark; no per-level table to pick the highest level from."
+  ],
+  "conflicts": [],
+  "retrieved_at": "2026-11-24T21:20:00Z"
+}
