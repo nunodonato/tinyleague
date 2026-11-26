@@ -6,6 +6,27 @@ support comparisons, tables, and charts, and published as a single shareable pag
 > **Most common task: "add a new model".** Jump to [Add a new model](#add-a-new-model).
 > You are usually given just a name or a Hugging Face URL.
 
+## Live build (v2) — and the v1 generator
+
+The published site is the **v2 multi-page build**:
+
+```
+.venv/bin/python scripts/build_v2.py     # -> out-v2/
+```
+
+It emits `index.html` (home), `models.html`, `matrix.html` (the scores matrix),
+`benchmarks.html` + one leaderboard per benchmark under `benchmarks/`, `compare.html`,
+`about.html`, and the crawler/social files (`robots.txt`, `sitemap.xml`, `llms.txt`,
+`og.png`). **`out-v2/` is the deployable artifact and what is live.**
+
+`scripts/generate_html.py` is the **v1 single-page generator**. It is no longer what serves
+the site, but it remains the source of the colour tokens in `scripts/web/style.css` (v2
+imports them, so the palettes cannot drift) and of `out/og.png`. `out/` is the frozen v1
+build.
+
+Deploy: `rsync -a --delete out-v2/ nunodonato.com:~/tinyleague/` (no sudo; Caddy serves the
+directory directly).
+
 ## Criteria (pinned in `data/meta.json`)
 - **Params:** 4B–285B inclusive (total parameters).
 - **Official weights only:** no GGUF / AWQ / FP8 / GPTQ / bnb / torchao / LoRA /
