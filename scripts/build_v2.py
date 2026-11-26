@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Tiny League v2 — prototype multi-page build.
+"""Tiny League — static multi-page build.
 
 Writes into out/ — the deployable artifact. Run:
 
@@ -930,8 +930,6 @@ bandwidth — a model of what the hardware can do, not a measurement.</p>
 <p>Code is MIT; the data is CC BY 4.0 — reuse it with credit. The name and logo are not
 licensed, so forks should use their own identity.</p>
 
-<p class="small muted">Prototype: this v2 layout is being evaluated against the current
-single-page build. The heatmap and scatter charts still live on the live site.</p>
 """
     return layout("About — Tiny League", body, "about", desc="Criteria, sources and method.", path="about.html")
 
@@ -979,7 +977,7 @@ def main():
     for b in BENCHES:
         write("benchmarks/%s.html" % BENCH_SLUG[b], page_benchmark(b))
         n += 1
-    print("v2 built into %s" % OUT)
+    print("built into %s" % OUT)
     for name, size in written:
         print("  %-20s %7d bytes" % (name, size))
     # crawler + social artefacts, same set the v1 build ships
