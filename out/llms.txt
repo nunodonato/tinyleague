@@ -1,13 +1,13 @@
 # Tiny League
 
-> Benchmark scores for 44 recent small open-weight models (1.5B to 285B,
-> official weights only, current versions), with 115 benchmarks, a
+> Benchmark scores for 45 recent small open-weight models (1.5B to 285B,
+> official weights only, current versions), with 117 benchmarks, a
 > sortable scores matrix, and each model's derived KV-cache cost at 128K tokens.
 
 Tiny League is a curated league table of benchmark scores for small open-weight
 language models. Scope: 1.5B to 285B total parameters, official developer-org
-weights only, current versions only. 44 models and 115
-benchmarks as of 2026-11-26.
+weights only, current versions only. 45 models and 117
+benchmarks as of 2026-11-27.
 
 ## Sections
 

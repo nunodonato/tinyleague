@@ -5,9 +5,16 @@
   <link>https://tinyleague.org/</link>
   <description>New models, benchmarks and updates: benchmark scores for recent small open-weight models.</description>
   <language>en</language>
-  <lastBuildDate>Thu, 26 Nov 2026 00:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Fri, 27 Nov 2026 00:00:00 +0000</lastBuildDate>
   <atom:link href="https://tinyleague.org/feed.xml" rel="self" type="application/rss+xml"/>
   <ttl>1440</ttl>
+  <item>
+    <title>Added Surogate3.7-35B-A3B (36B MoE, 3B active, agentic, vision).</title>
+    <link>https://tinyleague.org/#changes</link>
+    <guid isPermaLink="false">tinyleague:2026-11-27</guid>
+    <pubDate>Fri, 27 Nov 2026 00:00:00 +0000</pubDate>
+    <description>Added Surogate3.7-35B-A3B (36B MoE, 3B active, agentic, vision).</description>
+  </item>
   <item>
     <title>Added GigaChat4-37B-A4B (37B MoE, hybrid attention); moved to tinyleague.org; added Discord and GitHub buttons.</title>
     <link>https://tinyleague.org/#changes</link>

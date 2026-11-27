@@ -1,0 +1,121 @@
+{
+  "model_id": "surogate/Surogate3.7-35B-A3B",
+  "scores": [
+    {
+      "benchmark": "AutomationBench",
+      "score": 34.3,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/surogate/Surogate3.7-35B-A3B",
+      "notes": "Card comparison table row 'AutomationBench'; the card does not state the AutomationBench version."
+    },
+    {
+      "benchmark": "Terminal-Bench 2.1",
+      "score": 76.4,
+      "metric": "%",
+      "subtask": "best of 2 attempts, 3h agent time limit",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/surogate/Surogate3.7-35B-A3B",
+      "notes": "Card footnote: tasks that failed the first attempt were run once more; a task passed if either attempt passed. First-attempt-only score: 61.8."
+    },
+    {
+      "benchmark": "BFCL v4",
+      "score": 68.7,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/surogate/Surogate3.7-35B-A3B",
+      "notes": "Card comparison table row 'BFCL v4'."
+    },
+    {
+      "benchmark": "IFEval",
+      "score": 94.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/surogate/Surogate3.7-35B-A3B",
+      "notes": "Card comparison table row 'IFEval'."
+    },
+    {
+      "benchmark": "SWE-bench Verified",
+      "score": 78.0,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/surogate/Surogate3.7-35B-A3B",
+      "notes": "Card comparison table row 'SWE-bench Verified'."
+    },
+    {
+      "benchmark": "Office-QA-Pro",
+      "score": 51.9,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/surogate/Surogate3.7-35B-A3B",
+      "notes": "Card row 'OfficeQA Pro'; version not stated, so left unversioned."
+    },
+    {
+      "benchmark": "τ²-bench",
+      "score": 93.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/surogate/Surogate3.7-35B-A3B",
+      "notes": "Card comparison table row 'τ²-Bench'; domain/harness not stated."
+    },
+    {
+      "benchmark": "ClawEval",
+      "score": 82.4,
+      "metric": "%",
+      "subtask": "average",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/surogate/Surogate3.7-35B-A3B",
+      "notes": "Card comparison table row 'Claw-Eval (average)'."
+    },
+    {
+      "benchmark": "GPQA Diamond",
+      "score": 91.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/surogate/Surogate3.7-35B-A3B",
+      "notes": "Card comparison table row 'GPQA Diamond'."
+    },
+    {
+      "benchmark": "EnterpriseOps-Gym",
+      "score": 38.1,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/surogate/Surogate3.7-35B-A3B",
+      "notes": "Card comparison table row 'EnterpriseOps-Gym'."
+    },
+    {
+      "benchmark": "WildClawBench",
+      "score": 54.6,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/surogate/Surogate3.7-35B-A3B",
+      "notes": "Card comparison table row 'WildClawBench'."
+    },
+    {
+      "benchmark": "CommerceAgentBench",
+      "score": 39.4,
+      "metric": "%",
+      "source": "huggingface-model-card",
+      "source_url": "https://huggingface.co/surogate/Surogate3.7-35B-A3B",
+      "notes": "Card comparison table row 'CommerceAgentBench'; not reported by any other roster model."
+    }
+  ],
+  "gaps": [
+    "HLE",
+    "MMLU-Pro",
+    "IFBench",
+    "AIME 2026",
+    "LiveCodeBench v6",
+    "MCP-Atlas",
+    "τ³-bench",
+    "AA-LCR",
+    "AA-Omniscience Accuracy",
+    "AA-Omniscience Non-Hallucination",
+    "AA-Briefcase 1.1",
+    "AA-Omniscience Index",
+    "The card reports only agentic/enterprise benchmarks (one 12-row table); no standard reasoning, math, knowledge, long-context or vision evaluations are given.",
+    "AA cross-check 2026-11-27: no Artificial Analysis model page for Surogate3.7-35B-A3B (surogate3-7-35b-a3b / surogate-3-7-35b-a3b return 404; AA only lists the Qwen3.5 35B A3B base model). No AA gap-filling available."
+  ],
+  "conflicts": [],
+  "retrieved_at": "2026-11-27T12:45:00Z"
+}

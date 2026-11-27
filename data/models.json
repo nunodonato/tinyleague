@@ -2715,6 +2715,67 @@
         "effective_bandwidth_gbs": 504.0,
         "method": "bandwidth-bound decode estimate"
       }
+    },
+    {
+      "model_id": "surogate/Surogate3.7-35B-A3B",
+      "display_name": "Surogate3.7-35B-A3B",
+      "org": "surogate",
+      "family": "Surogate3.7-35B-A3B",
+      "param_count_b": 36.0,
+      "active_params_b": 3.0,
+      "active_params_source": "vendor model card: 'activates approximately 3B parameters per token out of a ~35B-parameter model'",
+      "param_count_note": "36B total MoE",
+      "architecture": {
+        "type": "moe",
+        "modalities": [
+          "text",
+          "vision"
+        ],
+        "license": "apache-2.0"
+      },
+      "supports_vision": true,
+      "official_release_date": "2026-10-03",
+      "hf_url": "https://huggingface.co/surogate/Surogate3.7-35B-A3B",
+      "likes": 143,
+      "is_official": true,
+      "officiality_evidence": "owned by surogate org; 36B safetensors (non-quant); 143 likes; created 2026-10-03",
+      "current_version": true,
+      "notes": "",
+      "kv_cache": {
+        "dtype": "bf16",
+        "ref_ctx": 131072,
+        "gib_at_ref_ctx": 2.5,
+        "gib_at_native_ctx": 5.0,
+        "native_ctx": 262144,
+        "kib_per_token_marginal": 20.0,
+        "kv_layers": 10,
+        "total_layers": 40,
+        "cache_copies": 1,
+        "attention_modules_per_layer": 1,
+        "window": null,
+        "method": "formula",
+        "formula_version": 4,
+        "confidence": "high",
+        "provenance": "layer_types",
+        "native_ctx_source": "config.json max_position_embeddings",
+        "verified": true,
+        "config_revision": "29246e71346881fb906d2ede3511dd8b07708caf",
+        "notes": "10 of 40 layers cache KV (30 use linear/recurrent state)",
+        "verify_checked": 3
+      },
+      "perf": {
+        "decode_tok_s_fresh": 84.0,
+        "decode_tok_s_at_ref_ctx": 58.0,
+        "retained_pct": 69.1,
+        "ref_ctx": 131072,
+        "active_params_assumed": false,
+        "weight_bytes_per_param": 2,
+        "reference_gpu": "NVIDIA RTX 4090 (24 GB)",
+        "peak_bandwidth_gbs": 1008.0,
+        "achieved_fraction": 0.5,
+        "effective_bandwidth_gbs": 504.0,
+        "method": "bandwidth-bound decode estimate"
+      }
     }
   ]
 }
