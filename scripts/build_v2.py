@@ -344,6 +344,9 @@ def layout(title, body, nav, depth=0, script="", desc="", path="index.html"):
   <div class="actions">
     <a class="icon-btn" href="{REPO}" target="_blank" rel="noopener noreferrer" title="Source on GitHub">{GH_MARK}<span class="label">GitHub</span></a>
     <a class="icon-btn discord" href="{DISCORD}" target="_blank" rel="noopener noreferrer" title="Join the Discord">{DISCORD_MARK}<span class="label">Discord</span></a>
+    <a class="icon-btn square" href="{SITE}feed.xml" title="Subscribe to the changelog (RSS)" aria-label="Subscribe to the changelog (RSS)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1.6" fill="currentColor" stroke="none"></circle></svg>
+    </a>
     <button class="icon-btn" id="theme" type="button" title="Theme: auto / light / dark">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg>
       <span class="label">Auto</span>
