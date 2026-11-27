@@ -58,6 +58,10 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 /* Discord keeps its brand fill in both themes — it is a third-party mark, not a theme colour. */
 .icon-btn.discord { background: #5865f2; color: #fff; border-color: transparent; }
 .icon-btn.discord:hover { background: #4752c4; color: #fff; border-color: transparent; }
+/* RSS keeps the feed-orange too, a shade deeper than the classic #f26522 so the
+   white glyph clears 3:1 (non-text contrast) with room to spare. */
+.icon-btn.rss { background: #e8590c; color: #fff; border-color: transparent; }
+.icon-btn.rss:hover { background: #c2410c; color: #fff; border-color: transparent; }
 .icon-btn svg { flex: none; }
 .icon-btn.square { width: 36px; padding: 0; }
 
