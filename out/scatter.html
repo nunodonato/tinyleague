@@ -1,0 +1,1047 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scatter — Tiny League</title>
+<meta name="description" content="Scatter charts of any two metrics: benchmark scores, parameters, KV-cache cost and decode speed.">
+<link rel="canonical" href="https://tinyleague.org/scatter.html">
+<link rel="alternate" type="application/rss+xml" title="Tiny League changelog" href="https://tinyleague.org/feed.xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tiny League">
+<meta property="og:title" content="Scatter — Tiny League">
+<meta property="og:description" content="Scatter charts of any two metrics: benchmark scores, parameters, KV-cache cost and decode speed.">
+<meta property="og:url" content="https://tinyleague.org/scatter.html">
+<meta property="og:image" content="https://tinyleague.org/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script>
+(function(){try{var m=localStorage.getItem('tl-theme')||'auto';
+var dark=m==='dark'||(m==='auto'&&matchMedia('(prefers-color-scheme: dark)').matches);
+var r=document.documentElement;r.dataset.theme=dark?'dark':'light';r.dataset.themeMode=m;}catch(e){}})();
+</script>
+<style>
+/* Tiny League — colour tokens (light default, dark via data-theme on <html>).
+   Every surface a visitor can see must have a token here, or it glares in one mode. */
+
+:root {
+  color-scheme: light;
+  --ink: #101828;
+  --ink-2: #344054;
+  --muted: #667085;
+  --faint: #98a2b3;
+  --paper: #fcfcfd;
+  --surface: #ffffff;
+  --line: #eaecf0;
+  --line-2: #f2f4f7;
+  --accent: #3538cd;
+  --accent-dark: #2d31a6;
+  --accent-soft: #eef0ff;
+  --accent-soft-2: #f7f8ff;
+  --medal: #7a2e0e;
+  --medal-bg: #fef0c7;
+  --medal-line: #fec84b;
+  --good: #027a48;
+  --good-bg: #ecfdf3;
+  --rose: #c11574;
+  --rose-bg: #fdf2fa;
+  --amber: #b54708;
+  --amber-bg: #fffaeb;
+  /* surfaces that used to be hard-coded */
+  --head-bg: rgba(252, 252, 253, .88);
+  --head-bg-solid: rgba(252, 252, 253, .97);
+  --th-bg: #fafbfc;
+  --row-hover: #fbfcff;
+  --absent: #d0d5dd;
+  --focus-ring: #eef0ff;
+  --ring-shadow: 0 1px 2px rgba(16, 24, 40, .12);
+  --fab-bg: #101828;
+  --fab-fg: #ffffff;
+  --fab-hover-bg: #1d2939;
+  --fab-badge: rgba(255, 255, 255, .2);
+  --fab-copied: #027a48;
+  --scroll-bg: rgba(255, 255, 255, .94);
+  --scroll-bg-hover: #ffffff;
+  /* Chart.js reads these at draw time (canvas cannot use var()) */
+  --chart-bar-1: #3538cd;
+  --chart-bar-2: #a5a8ef;
+  --chart-point: rgba(53, 56, 205, .85);
+  --chart-point-border: #ffffff;
+  --chart-grid: #eaecf0;
+  --chart-tick: #667085;
+  --chart-tick-strong: #344054;
+  --chart-label: #475467;
+  --chart-halo: rgba(255, 255, 255, .92);
+  --glow-good: 2, 122, 72;
+  --glow-warn: 180, 35, 24;
+  --tooltip-bg: #101828;
+  --tooltip-fg: #f6f7f9;
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 2px rgba(16, 24, 40, .05);
+  --shadow-lg: 0 10px 32px rgba(16, 24, 40, .14);
+  --head-h: 56px;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #e9ecf4;
+  --ink-2: #c6ccda;
+  --muted: #98a2b3;
+  --faint: #6b7587;
+  --paper: #0b0e13;
+  --surface: #131820;
+  --line: #242d3b;
+  --line-2: #1c2432;
+  --accent: #4f52e8;
+  --accent-dark: #a9abff;
+  --accent-soft: #1c2142;
+  --accent-soft-2: #161b2e;
+  --medal: #ffe0a3;
+  --medal-bg: #3a2a0a;
+  --medal-line: #7a5a12;
+  --good: #34d399;
+  --good-bg: #062a1d;
+  --rose: #f472b6;
+  --rose-bg: #2f0d22;
+  --amber: #fbbf24;
+  --amber-bg: #2e2004;
+  --head-bg: rgba(11, 14, 19, .86);
+  --head-bg-solid: rgba(11, 14, 19, .97);
+  --th-bg: #161d28;
+  --row-hover: #171e2b;
+  --absent: #4d5768;
+  --focus-ring: #2b3160;
+  --ring-shadow: 0 1px 2px rgba(0, 0, 0, .5);
+  --fab-bg: #222b3a;
+  --fab-fg: #eef1f8;
+  --fab-hover-bg: #2c3747;
+  --fab-badge: rgba(255, 255, 255, .14);
+  --fab-copied: #15803d;
+  --scroll-bg: rgba(19, 24, 32, .94);
+  --scroll-bg-hover: #1b2330;
+  --chart-bar-1: #7d80ff;
+  --chart-bar-2: #3b3f8f;
+  --chart-point: rgba(141, 144, 255, .9);
+  --chart-point-border: #0b0e13;
+  --chart-grid: #242d3b;
+  --chart-tick: #98a2b3;
+  --chart-tick-strong: #c6ccda;
+  --chart-label: #c6ccda;
+  --chart-halo: rgba(11, 14, 19, .9);
+  --glow-good: 52, 211, 153;
+  --glow-warn: 248, 113, 113;
+  --tooltip-bg: #242d3b;
+  --tooltip-fg: #e9ecf4;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .5);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, .62);
+}
+
+/* Tiny League v2 — layout layer.
+   The colour tokens come from scripts/web/style.css (inlined by the builder);
+   this file only adds structure, so v2 and v1 can never drift on palette. */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent-dark); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px;
+}
+
+/* ---------- top bar ---------- */
+
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--head-bg);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--line);
+  height: 58px;
+}
+.topbar .inner {
+  max-width: 1180px; margin: 0 auto; padding: 0 22px; height: 100%;
+  display: flex; align-items: center; gap: 22px;
+}
+.brand { display: inline-flex; align-items: center; gap: 8px;
+  font-weight: 800; font-size: 16px; letter-spacing: -.02em; color: var(--ink); }
+.brand:hover { text-decoration: none; }
+.nav { display: flex; gap: 2px; flex: 1 1 auto; }
+.nav a {
+  color: var(--ink-2); font-size: 13.5px; font-weight: 600;
+  padding: 7px 11px; border-radius: 8px; white-space: nowrap;
+}
+.nav a:hover { background: var(--accent-soft); color: var(--accent-dark); text-decoration: none; }
+.nav a[aria-current="page"] { background: var(--accent-soft); color: var(--accent-dark); }
+
+/* Sections with more than one view (Scores -> Table / Scatter) open a dropdown. */
+.navgrp { position: relative; display: flex; }
+.navbtn {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: none; border: 0; font: inherit; font-size: 13.5px; font-weight: 600;
+  color: var(--ink-2); padding: 7px 11px; border-radius: 8px; cursor: pointer;
+}
+.navbtn:hover, .navbtn[aria-expanded="true"], .navbtn.on {
+  background: var(--accent-soft); color: var(--accent-dark);
+}
+.navbtn .caret { transition: transform .16s ease; }
+.navbtn[aria-expanded="true"] .caret { transform: rotate(180deg); }
+.navmenu {
+  position: absolute; top: calc(100% + 6px); left: 0; min-width: 168px; padding: 5px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  box-shadow: var(--shadow-lg); display: none; z-index: 60;
+}
+.navbtn[aria-expanded="true"] + .navmenu { display: block; }
+.navmenu a {
+  display: block; padding: 8px 11px; border-radius: 7px;
+  color: var(--ink-2); font-size: 13.5px; font-weight: 600;
+}
+.navmenu a:hover { background: var(--accent-soft); color: var(--accent-dark); }
+.navmenu a[aria-current="page"] { background: var(--accent-soft); color: var(--accent-dark); }
+
+.actions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+.icon-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 36px; padding: 0 10px; gap: 7px;
+  background: var(--surface); color: var(--ink-2);
+  border: 1px solid var(--line); border-radius: 8px;
+  font: inherit; font-size: 12.5px; font-weight: 650; cursor: pointer; white-space: nowrap;
+}
+.icon-btn:hover { background: var(--accent-soft); color: var(--accent-dark); text-decoration: none; }
+/* Discord keeps its brand fill in both themes — it is a third-party mark, not a theme colour. */
+.icon-btn.discord { background: #5865f2; color: #fff; border-color: transparent; }
+.icon-btn.discord:hover { background: #4752c4; color: #fff; border-color: transparent; }
+/* RSS keeps the feed-orange too, a shade deeper than the classic #f26522 so the
+   white glyph clears 3:1 (non-text contrast) with room to spare. */
+.icon-btn.rss { background: #e8590c; color: #fff; border-color: transparent; }
+.icon-btn.rss:hover { background: #c2410c; color: #fff; border-color: transparent; }
+.icon-btn svg { flex: none; }
+.icon-btn.square { width: 36px; padding: 0; }
+
+/* ---------- page frame ---------- */
+
+.wrap { max-width: 1180px; margin: 0 auto; padding: 34px 22px 72px; }
+.crumb { font-size: 12.5px; color: var(--muted); margin-bottom: 10px; }
+.crumb a { color: var(--muted); }
+.crumb a:hover { color: var(--accent-dark); }
+
+h1 { font-size: clamp(28px, 4.4vw, 40px); line-height: 1.12; letter-spacing: -.03em;
+     font-weight: 800; margin: 0 0 10px; }
+h2 { font-size: 20px; letter-spacing: -.02em; margin: 40px 0 12px; }
+h3 { font-size: 15px; margin: 0 0 6px; }
+.lede { color: var(--muted); font-size: 15.5px; max-width: 62ch; margin: 0 0 6px; }
+.muted { color: var(--muted); }
+.wrap > p, .wrap > ul { max-width: 74ch; }
+.small { font-size: 12.5px; }
+
+/* ---------- home ---------- */
+
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+         gap: 12px; margin: 26px 0 8px; }
+.stat { background: var(--surface); border: 1px solid var(--line);
+        border-radius: 12px; padding: 14px 16px; }
+.stat .v { display: block; font-size: 26px; font-weight: 800; letter-spacing: -.03em;
+           font-variant-numeric: tabular-nums; }
+.stat .k { color: var(--muted); font-size: 12.5px; }
+
+.cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.card {
+  display: block; background: var(--surface); border: 1px solid var(--line);
+  border-radius: 14px; padding: 18px; color: var(--ink);
+}
+a.card:hover { border-color: var(--accent); text-decoration: none; }
+.card .kicker { font-size: 11.5px; font-weight: 700; letter-spacing: .08em;
+                text-transform: uppercase; color: var(--faint); }
+.card p { margin: 6px 0 0; color: var(--muted); font-size: 13.5px; }
+.card .arrow { color: var(--accent); font-weight: 700; }
+
+.feed-link {
+  display: inline-block; margin-left: 8px; padding: 2px 8px;
+  border: 1px solid var(--line); border-radius: 999px;
+  font-size: 10.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--muted); vertical-align: middle;
+}
+.feed-link:hover { border-color: var(--accent); color: var(--accent-dark); text-decoration: none; }
+
+.changes { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.changes li { display: flex; gap: 14px; padding: 10px 2px; border-bottom: 1px solid var(--line-2);
+              font-size: 13.5px; }
+.changes time { color: var(--faint); white-space: nowrap; min-width: 96px;
+                font-variant-numeric: tabular-nums; }
+
+/* ---------- category jump chips ---------- */
+
+.jump {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin: 16px 0 2px; padding: 8px 0;
+  position: sticky; top: 58px; z-index: 20;
+  background: var(--paper);
+}
+.jump-link {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 5px 11px; border-radius: 999px;
+  background: var(--surface); border: 1px solid var(--line);
+  color: var(--ink-2); font-size: 12.5px; font-weight: 650; white-space: nowrap;
+}
+.jump-link:hover { border-color: var(--accent); color: var(--accent-dark); text-decoration: none; }
+.jump-link b { color: var(--muted); font-weight: 700; font-variant-numeric: tabular-nums; }
+.domain-block { scroll-margin-top: 132px; }
+
+/* ---------- global filter bar ---------- */
+
+.filters {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px;
+  margin: 18px 0 4px; padding: 10px 14px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  font-size: 12.5px; color: var(--ink-2);
+}
+.filters .flabel { font-size: 11px; font-weight: 700; letter-spacing: .08em;
+                   text-transform: uppercase; color: var(--faint); }
+.filters label { display: inline-flex; align-items: center; gap: 6px; }
+.filters input[type="number"] {
+  width: 68px; height: 30px; padding: 0 8px; background: var(--paper); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 6px; font: inherit; font-size: 13px;
+}
+.filters input[type="checkbox"], .chk input { accent-color: var(--accent); }
+.filters .count { margin-left: auto; }
+.select { height: 32px; padding: 0 8px; background: var(--surface); color: var(--ink-2);
+          border: 1px solid var(--line); border-radius: 8px; font: inherit; font-size: 12.5px; }
+.chk { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--ink-2); }
+
+/* ---------- score views (Table / Scatter tabs) ---------- */
+
+.views {
+  display: inline-flex; gap: 3px; padding: 4px; margin: 2px 0 12px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
+}
+.views a {
+  padding: 6px 15px; border-radius: 999px; font-size: 13px; font-weight: 650;
+  color: var(--muted);
+}
+.views a:hover { color: var(--accent-dark); text-decoration: none; }
+.views a[aria-current="page"] { background: var(--accent-soft); color: var(--accent-dark); }
+
+/* ---------- scatter ---------- */
+
+.sc-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 12px; }
+.sc-tabs button {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 5px 12px; border-radius: 999px; cursor: pointer;
+  background: var(--surface); border: 1px solid var(--line);
+  color: var(--ink-2); font: inherit; font-size: 12.5px; font-weight: 650; white-space: nowrap;
+}
+.sc-tabs button:hover { border-color: var(--accent); color: var(--accent-dark); }
+.sc-tabs button[aria-selected="true"] {
+  background: var(--accent-soft); border-color: var(--accent); color: var(--accent-dark);
+}
+.sc-custom {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px;
+  margin: 0 0 12px; font-size: 12.5px; color: var(--ink-2);
+}
+.sc-custom label { display: inline-flex; align-items: center; gap: 7px; }
+.sc-custom[hidden] { display: none; }
+.sc-wrap {
+  position: relative; padding: 6px 8px 2px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+}
+.sc-wrap svg { display: block; width: 100%; height: auto; }
+.sc-grid line { stroke: var(--chart-grid); stroke-width: 1; }
+.sc-tick text { fill: var(--chart-tick); font-size: 11px; }
+.sc-axis-title { fill: var(--chart-tick); font-size: 11.5px; font-weight: 600; }
+.sc-pt circle { fill: var(--chart-point); stroke: var(--chart-point-border); stroke-width: 1.5; }
+.sc-pt text {
+  fill: var(--chart-label); font-size: 11px; pointer-events: none;
+  paint-order: stroke; stroke: var(--chart-halo); stroke-width: 3; stroke-linejoin: round;
+}
+.sc-pt:hover circle, .sc-pt.hot circle { stroke: var(--ink); stroke-width: 2; }
+.sc-pt:hover text, .sc-pt.hot text { fill: var(--ink); }
+.sc-wrap stop.g-good { stop-color: rgb(var(--glow-good)); stop-opacity: .22; }
+.sc-wrap stop.g-warn { stop-color: rgb(var(--glow-warn)); stop-opacity: .22; }
+.sc-wrap stop.g-good.e, .sc-wrap stop.g-warn.e { stop-opacity: 0; }
+.sc-tip {
+  position: absolute; z-index: 5; pointer-events: none; opacity: 0;
+  transition: opacity .1s ease; max-width: 260px;
+  padding: 6px 9px; border-radius: 8px;
+  background: var(--tooltip-bg); color: var(--tooltip-fg);
+  font-size: 12px; line-height: 1.45;
+}
+.sc-tip.on { opacity: 1; }
+.sc-tip b { font-weight: 700; }
+.sc-note { color: var(--muted); font-size: 12.5px; margin: 10px 0 0; max-width: 86ch; }
+.sc-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 10px; }
+.sc-foot button {
+  background: none; border: 0; padding: 0; cursor: pointer;
+  color: var(--accent-dark); font: inherit; font-size: 12.5px; font-weight: 650;
+}
+.sc-empty { padding: 46px 12px; text-align: center; color: var(--muted); margin: 0; }
+
+/* ---------- tables ---------- */
+
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 18px 0 12px; }
+.search {
+  flex: 1 1 260px; max-width: 320px; height: 36px; padding: 0 12px;
+  background: var(--surface); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 8px; font: inherit; font-size: 13.5px;
+}
+.search::placeholder { color: var(--faint); }
+.count { color: var(--muted); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+
+.tbl-wrap { border: 1px solid var(--line); border-radius: 12px; overflow: auto;
+            background: var(--surface); }
+table.tbl { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.tbl th, .tbl td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--line-2); }
+.tbl thead th {
+  position: sticky; top: 0; z-index: 1;
+  background: var(--th-bg); color: var(--muted);
+  font-size: 11.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  white-space: nowrap; border-bottom: 1px solid var(--line);
+}
+.tbl th.num, .tbl td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tbl tbody tr:hover { background: var(--row-hover); }
+.tbl tbody tr:last-child td { border-bottom: 0; }
+.tbl td.name a { font-weight: 650; color: var(--ink); }
+.tbl td.name a:hover { color: var(--accent-dark); }
+.tbl th.plain { text-transform: none; letter-spacing: 0; font-size: 12.5px;
+                font-weight: 700; color: var(--ink-2); }
+.tbl th[data-sort] { cursor: pointer; user-select: none; }
+.tbl th[data-sort]:hover { color: var(--ink-2); }
+.tbl:not(.mx) th[aria-sort="descending"]::after { content: " ↓"; }
+.tbl:not(.mx) th[aria-sort="ascending"]::after { content: " ↑"; }
+
+.pill { display: inline-block; padding: 1px 7px; border-radius: 999px;
+        font-size: 10.5px; font-weight: 700; letter-spacing: .02em;
+        background: var(--line-2); color: var(--ink-2); }
+.pill.v { background: var(--good-bg); color: var(--good); }
+.pill.moe { background: var(--accent-soft); color: var(--accent-dark); }
+.pill.domain { background: var(--accent-soft-2); color: var(--accent-dark); text-transform: none; }
+.best { font-weight: 700; color: var(--good); }
+.tbl td a { text-decoration: underline; text-decoration-color: var(--line); }
+.tbl td a:hover { text-decoration-color: currentColor; }
+
+.empty { padding: 26px; text-align: center; color: var(--muted); }
+
+/* ---------- benchmark index ---------- */
+
+.domain-block { margin: 26px 0 0; }
+.domain-head { display: flex; align-items: baseline; gap: 10px; margin: 0 0 8px; }
+.domain-head h2 { margin: 0; font-size: 15px; letter-spacing: .04em; text-transform: uppercase;
+                  color: var(--muted); }
+.domain-head .n { font-size: 12px; color: var(--faint); }
+
+/* ---------- matrix ---------- */
+
+.mxbar { margin: 12px 0 10px; }
+.mx-wrap { max-height: 80vh; }
+.mx { border-collapse: separate; border-spacing: 0; }
+.mx thead th {
+  position: sticky; top: 0; z-index: 4; vertical-align: bottom;
+  min-width: 104px; max-width: 128px; white-space: normal; line-height: 1.25;
+  font-size: 10.5px; letter-spacing: 0; text-transform: none;
+}
+.mx thead th a { color: var(--ink-2); font-weight: 700; }
+
+.mx .thsort {
+  display: block; width: 100%; padding: 0 14px 0 0; text-align: left;
+  background: none; border: 0; font: inherit; font-weight: 700;
+  color: var(--ink-2); cursor: pointer;
+}
+.mx .thsort:hover { color: var(--accent-dark); text-decoration: underline; }
+.mx .thopen { position: absolute; bottom: 4px; right: 5px;
+              color: var(--faint); text-decoration: none; font-weight: 700;
+              font-size: 11px; line-height: 1; }
+.mx .thopen:hover { color: var(--accent-dark); }
+.mx .thopen:hover { color: var(--accent-dark); }
+.mx th[aria-sort] .thsort { color: var(--accent-dark); }
+.mx .thsort::after { content: attr(data-arrow); color: var(--accent-dark); }
+.mx th.m, .mx td.m {
+  position: sticky; left: 0; z-index: 3; background: var(--surface);
+  text-align: left; white-space: nowrap; box-shadow: 1px 0 0 var(--line);
+  min-width: 214px; font-size: 12.5px;
+}
+.mx thead th.m { z-index: 5; }
+.mx td.m .pill { margin-left: 5px; }
+.mx td.c { text-align: right; padding: 4px 7px; font-size: 11.5px;
+           font-variant-numeric: tabular-nums; border: 1px solid var(--paper); }
+.mx td.empty { background: transparent; color: var(--faint); text-align: center; }
+.mx tbody tr:hover td.m { background: var(--row-hover); }
+
+/* ---------- compare ---------- */
+
+.cmp { display: grid; grid-template-columns: 270px minmax(0, 1fr); gap: 18px; align-items: start; }
+.picker { position: sticky; top: 74px; background: var(--surface);
+          border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
+.picker h3 { margin: 4px 4px 10px; font-size: 12px; letter-spacing: .06em;
+             text-transform: uppercase; color: var(--muted); }
+.picker .search { width: 100%; max-width: none; margin-bottom: 10px; }
+.plist { max-height: 58vh; overflow: auto; margin: 0; padding: 0; list-style: none; }
+.plist li { display: flex; align-items: center; gap: 8px; padding: 5px 4px;
+            border-radius: 6px; font-size: 13px; }
+.plist li:hover { background: var(--row-hover); }
+.plist label { display: flex; align-items: center; gap: 8px; cursor: pointer; width: 100%; }
+.plist input { accent-color: var(--accent); }
+.cmp-actions { display: flex; gap: 8px; margin: 10px 4px 2px; }
+
+/* ---------- footer ---------- */
+
+footer { border-top: 1px solid var(--line); margin-top: 56px; padding: 18px 22px 40px;
+         color: var(--muted); font-size: 12.5px; }
+footer .inner { max-width: 1180px; margin: 0 auto; display: flex; flex-wrap: wrap;
+                gap: 6px 18px; justify-content: space-between; align-items: center; }
+footer a { color: var(--accent-dark); }
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 1000px) {
+  .topbar .inner { gap: 14px; }
+  .nav a { padding: 6px 8px; font-size: 13px; }
+  .icon-btn .label { display: none; }
+  .brand { font-size: 15px; white-space: nowrap; }
+}
+@media (max-width: 1000px) {
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .cards { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cmp { grid-template-columns: 1fr; }
+  .picker { position: static; }
+  .plist { max-height: 220px; }
+}
+@media (max-width: 420px) {
+  /* five 36px controls + the brand do not fit a 360px phone at the normal rhythm */
+  .topbar .inner { padding: 0 12px; gap: 8px; }
+  .brand { font-size: 14px; gap: 6px; }
+  .actions { gap: 5px; }
+  .icon-btn { height: 34px; padding: 0 8px; }
+  .icon-btn.square { width: 34px; padding: 0; }
+}
+@media (max-width: 720px) {
+  .nav { display: none; }
+  .nav.open { display: flex; position: absolute; top: 58px; left: 0; right: 0;
+              flex-direction: column; padding: 8px 16px 12px; background: var(--surface);
+              border-bottom: 1px solid var(--line); box-shadow: var(--shadow-lg); }
+  .nav.open a { padding: 11px 10px; font-size: 15px; }
+  .nav.open .navgrp { display: block; }
+  .nav.open .navbtn { width: 100%; justify-content: space-between;
+                      padding: 11px 10px; font-size: 15px; }
+  .nav.open .navmenu {
+    position: static; min-width: 0; box-shadow: none;
+    background: transparent; border: 0; padding: 0 0 4px 10px; border-radius: 0;
+  }
+  .nav.open .navmenu a { padding: 9px 10px; font-size: 14.5px; }
+  .menu-btn { display: inline-flex; }
+  .icon-btn .label { display: none; }
+  .wrap { padding: 24px 16px 56px; }
+  .tbl th, .tbl td { padding: 8px 9px; }
+}
+@media (min-width: 721px) { .menu-btn { display: none; } }
+
+.h0{background:rgb(238,240,255);color:#101828}.h1{background:rgb(228,230,251);color:#101828}.h2{background:rgb(219,221,246);color:#101828}.h3{background:rgb(209,211,242);color:#101828}.h4{background:rgb(199,202,237);color:#101828}.h5{background:rgb(190,192,233);color:#101828}.h6{background:rgb(180,183,228);color:#101828}.h7{background:rgb(170,173,224);color:#101828}.h8{background:rgb(161,164,219);color:#101828}.h9{background:rgb(151,154,215);color:#101828}.h10{background:rgb(142,144,210);color:#101828}.h11{background:rgb(132,135,206);color:#101828}.h12{background:rgb(122,125,202);color:#101828}.h13{background:rgb(108,111,189);color:#ffffff}.h14{background:rgb(103,106,193);color:#ffffff}.h15{background:rgb(93,97,188);color:#ffffff}.h16{background:rgb(84,87,184);color:#ffffff}.h17{background:rgb(74,78,179);color:#ffffff}.h18{background:rgb(64,68,175);color:#ffffff}.h19{background:rgb(55,59,170);color:#ffffff}.h20{background:rgb(45,49,166);color:#ffffff}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="inner">
+  <a class="brand" href="index.html"><span aria-hidden="true">🏆</span><span>Tiny League</span></a>
+  <nav class="nav" id="nav" aria-label="Sections"><a href="index.html">Home</a><a href="models.html">Models</a><div class="navgrp"><button class="navbtn on" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="navmenu-scores">Scores<svg class="caret" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="navmenu" id="navmenu-scores" role="menu"><a role="menuitem" href="matrix.html">Matrix</a><a role="menuitem" href="scatter.html" aria-current="page">Scatter</a></div></div><a href="benchmarks.html">Benchmarks</a><a href="compare.html">Compare</a><a href="about.html">About</a></nav>
+  <div class="actions">
+    <a class="icon-btn" href="https://github.com/nunodonato/tinyleague" target="_blank" rel="noopener noreferrer" title="Source on GitHub"><svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span class="label">GitHub</span></a>
+    <a class="icon-btn discord" href="https://discord.gg/DQ6E6eJZVJ" target="_blank" rel="noopener noreferrer" title="Join the Discord"><svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.445.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg><span class="label">Discord</span></a>
+    <a class="icon-btn square rss" href="https://tinyleague.org/feed.xml" title="Subscribe to the changelog (RSS)" aria-label="Subscribe to the changelog (RSS)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1.6" fill="currentColor" stroke="none"></circle></svg>
+    </a>
+    <button class="icon-btn" id="theme" type="button" title="Theme: auto / light / dark">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg>
+      <span class="label">Auto</span>
+    </button>
+    <button class="icon-btn menu-btn" id="menu" type="button" aria-expanded="false" aria-controls="nav" aria-label="Sections">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </button>
+  </div>
+</div></header>
+<main class="wrap">
+
+<h1>Scores</h1>
+<nav class="views" aria-label="Score view"><a href="matrix.html">Matrix</a><a href="scatter.html" aria-current="page">Scatter</a></nav>
+<p class="lede">One metric against another — benchmark scores, parameters, KV-cache cost and
+decode speed. The filters apply, so the chart always shows the models in view. Hover a point
+for its values; click it to open the model card.</p>
+
+<div class="filters" id="filters">
+  <span class="flabel">Filter</span>
+  <label>min <input id="fmin" type="number" min="0" step="0.5" placeholder="1.5" aria-label="Minimum parameters (B)">B</label>
+  <label>max <input id="fmax" type="number" min="0" step="0.5" placeholder="285" aria-label="Maximum parameters (B)">B</label>
+  <label><input type="checkbox" id="fmoe"> MoE only</label>
+  <label><input type="checkbox" id="fvis"> Vision only</label>
+  <button type="button" class="icon-btn" id="freset">Reset</button>
+  <span class="count" id="fcount"></span>
+</div>
+<div class="sc-tabs" role="tablist" aria-label="Chart preset"><button type="button" role="tab" aria-selected="true" data-mode="b-gpqa-diamond">GPQA Diamond</button><button type="button" role="tab" aria-selected="false" data-mode="b-terminal-bench-2-1">Terminal-Bench 2.1</button><button type="button" role="tab" aria-selected="false" data-mode="b-hle">HLE</button><button type="button" role="tab" aria-selected="false" data-mode="b-ifbench">IFBench</button><button type="button" role="tab" aria-selected="false" data-mode="kv">KV @128K</button><button type="button" role="tab" aria-selected="false" data-mode="speed">Speed</button><button type="button" role="tab" aria-selected="false" data-mode="custom">Custom</button></div>
+<div class="sc-custom" id="sc-custom" hidden>
+  <label>X axis <select class="select" id="sc-x"><optgroup label="Model"><option value="params" selected>Parameters (B)</option><option value="kv">KV cache @128K (GiB)</option><option value="f">Decode fresh (tok/s)</option><option value="r">Decode @128K (tok/s)</option><option value="t">Release date</option></optgroup><optgroup label="Benchmark"><option value="bench:ArtifactsBench">ArtifactsBench</option><option value="bench:BirdBench">BirdBench</option><option value="bench:Codeforces ELO">Codeforces ELO</option><option value="bench:DeepSWE">DeepSWE</option><option value="bench:DeepSWE 1.1">DeepSWE 1.1</option><option value="bench:FrontierCode 2.0">FrontierCode 2.0</option><option value="bench:LiveCodeBench Pro 25Q2">LiveCodeBench Pro 25Q2</option><option value="bench:LiveCodeBench v6">LiveCodeBench v6</option><option value="bench:NL2Repo-Bench">NL2Repo-Bench</option><option value="bench:ProgramBench">ProgramBench</option><option value="bench:SWE Atlas">SWE Atlas</option><option value="bench:SWE-MM">SWE-MM</option><option value="bench:SWE-bench Multilingual">SWE-bench Multilingual</option><option value="bench:SWE-bench Pro">SWE-bench Pro</option><option value="bench:SWE-bench Verified">SWE-bench Verified</option><option value="bench:SWebBench">SWebBench</option><option value="bench:SciCode">SciCode</option><option value="bench:Vision2Web">Vision2Web</option><option value="bench:Agents&#x27; Last Exam">Agents&#x27; Last Exam</option><option value="bench:AndroidWorld">AndroidWorld</option><option value="bench:Apex">Apex</option><option value="bench:Apex Shortlist">Apex Shortlist</option><option value="bench:AutomationBench">AutomationBench</option><option value="bench:BFCL v3">BFCL v3</option><option value="bench:BFCL v4">BFCL v4</option><option value="bench:BrowseComp">BrowseComp</option><option value="bench:BrowseComp-Plus">BrowseComp-Plus</option><option value="bench:BrowseComp-zh">BrowseComp-zh</option><option value="bench:Claw-Gym">Claw-Gym</option><option value="bench:ClawEval">ClawEval</option><option value="bench:ClawEval-MM">ClawEval-MM</option><option value="bench:CoWorkBench">CoWorkBench</option><option value="bench:DeepResearch Bench II">DeepResearch Bench II</option><option value="bench:DeepSearchQA">DeepSearchQA</option><option value="bench:EnterpriseOps-Gym">EnterpriseOps-Gym</option><option value="bench:GAIA">GAIA</option><option value="bench:GDPval">GDPval</option><option value="bench:GDPval-AA">GDPval-AA</option><option value="bench:GDPval-AA-V2">GDPval-AA-V2</option><option value="bench:GraphWalks">GraphWalks</option><option value="bench:GraphWalks Extend">GraphWalks Extend</option><option value="bench:JobBench">JobBench</option><option value="bench:LIFEbench">LIFEbench</option><option value="bench:LiveClaw">LiveClaw</option><option value="bench:MCP-Atlas">MCP-Atlas</option><option value="bench:OSWorld-Verified">OSWorld-Verified</option><option value="bench:PAgentBench">PAgentBench</option><option value="bench:PinchBench">PinchBench</option><option value="bench:ProfBench">ProfBench</option><option value="bench:RecreationBench">RecreationBench</option><option value="bench:SkillsBench">SkillsBench</option><option value="bench:Terminal-Bench 2.0">Terminal-Bench 2.0</option><option value="bench:Terminal-Bench 2.1">Terminal-Bench 2.1</option><option value="bench:Terminal-Bench 4">Terminal-Bench 4</option><option value="bench:Terminal-Bench Science 0.1">Terminal-Bench Science 0.1</option><option value="bench:ToolSandbox">ToolSandbox</option><option value="bench:Toolathlon">Toolathlon</option><option value="bench:Toolathlon-Verified">Toolathlon-Verified</option><option value="bench:VitaBench">VitaBench</option><option value="bench:VitaBench2.0">VitaBench2.0</option><option value="bench:WebArena-Verified">WebArena-Verified</option><option value="bench:WideSearch">WideSearch</option><option value="bench:WildClawBench">WildClawBench</option><option value="bench:τ²-bench">τ²-bench</option><option value="bench:τ³-bench">τ³-bench</option><option value="bench:AIME 2025">AIME 2025</option><option value="bench:AIME 2026">AIME 2026</option><option value="bench:BeyondAIME">BeyondAIME</option><option value="bench:CritPt">CritPt</option><option value="bench:Gaokao 2026">Gaokao 2026</option><option value="bench:HMMT Feb 2025">HMMT Feb 2025</option><option value="bench:HMMT Feb 2026">HMMT Feb 2026</option><option value="bench:IMO AnswerBench">IMO AnswerBench</option><option value="bench:MATH500">MATH500</option><option value="bench:MGSM">MGSM</option><option value="bench:AA-Briefcase 1.1">AA-Briefcase 1.1</option><option value="bench:AA-Omniscience Accuracy">AA-Omniscience Accuracy</option><option value="bench:AA-Omniscience Index">AA-Omniscience Index</option><option value="bench:AA-Omniscience Non-Hallucination">AA-Omniscience Non-Hallucination</option><option value="bench:ARC-AGI v1">ARC-AGI v1</option><option value="bench:ARC-AGI v2">ARC-AGI v2</option><option value="bench:BigBench Extra Hard">BigBench Extra Hard</option><option value="bench:C-Eval">C-Eval</option><option value="bench:CMMLU">CMMLU</option><option value="bench:GPQA Diamond">GPQA Diamond</option><option value="bench:HLE">HLE</option><option value="bench:MMLU">MMLU</option><option value="bench:MMLU-Pro">MMLU-Pro</option><option value="bench:MMLU-ProX lite">MMLU-ProX lite</option><option value="bench:MMLU-Redux">MMLU-Redux</option><option value="bench:MMMLU">MMMLU</option><option value="bench:MultiChallenge">MultiChallenge</option><option value="bench:Office-QA-Pro">Office-QA-Pro</option><option value="bench:SuperGPQA">SuperGPQA</option><option value="bench:BabyVision">BabyVision</option><option value="bench:CharXiv">CharXiv</option><option value="bench:ERQA">ERQA</option><option value="bench:GDP.pdf">GDP.pdf</option><option value="bench:MMMU Pro">MMMU Pro</option><option value="bench:MathVision">MathVision</option><option value="bench:MedXPertQA MM">MedXPertQA MM</option><option value="bench:OCRBench 2">OCRBench 2</option><option value="bench:OmniDocBench 1.5">OmniDocBench 1.5</option><option value="bench:OmniDocBench 1.6">OmniDocBench 1.6</option><option value="bench:RealWorldQA">RealWorldQA</option><option value="bench:ScreenSpot Pro">ScreenSpot Pro</option><option value="bench:ZeroBench">ZeroBench</option><option value="bench:Arena-Hard-V2">Arena-Hard-V2</option><option value="bench:IFBench">IFBench</option><option value="bench:IFEval">IFEval</option><option value="bench:Multi-IF">Multi-IF</option><option value="bench:AA-LCR">AA-LCR</option><option value="bench:LongBench-v2">LongBench-v2</option><option value="bench:LongBenchPro">LongBenchPro</option><option value="bench:MRCR">MRCR</option><option value="bench:MRCR v2">MRCR v2</option><option value="bench:RULER">RULER</option></optgroup></select></label>
+  <label>Y axis <select class="select" id="sc-y"><optgroup label="Model"><option value="params">Parameters (B)</option><option value="kv">KV cache @128K (GiB)</option><option value="f">Decode fresh (tok/s)</option><option value="r">Decode @128K (tok/s)</option><option value="t">Release date</option></optgroup><optgroup label="Benchmark"><option value="bench:ArtifactsBench">ArtifactsBench</option><option value="bench:BirdBench">BirdBench</option><option value="bench:Codeforces ELO">Codeforces ELO</option><option value="bench:DeepSWE">DeepSWE</option><option value="bench:DeepSWE 1.1">DeepSWE 1.1</option><option value="bench:FrontierCode 2.0">FrontierCode 2.0</option><option value="bench:LiveCodeBench Pro 25Q2">LiveCodeBench Pro 25Q2</option><option value="bench:LiveCodeBench v6">LiveCodeBench v6</option><option value="bench:NL2Repo-Bench">NL2Repo-Bench</option><option value="bench:ProgramBench">ProgramBench</option><option value="bench:SWE Atlas">SWE Atlas</option><option value="bench:SWE-MM">SWE-MM</option><option value="bench:SWE-bench Multilingual">SWE-bench Multilingual</option><option value="bench:SWE-bench Pro">SWE-bench Pro</option><option value="bench:SWE-bench Verified">SWE-bench Verified</option><option value="bench:SWebBench">SWebBench</option><option value="bench:SciCode">SciCode</option><option value="bench:Vision2Web">Vision2Web</option><option value="bench:Agents&#x27; Last Exam">Agents&#x27; Last Exam</option><option value="bench:AndroidWorld">AndroidWorld</option><option value="bench:Apex">Apex</option><option value="bench:Apex Shortlist">Apex Shortlist</option><option value="bench:AutomationBench">AutomationBench</option><option value="bench:BFCL v3">BFCL v3</option><option value="bench:BFCL v4">BFCL v4</option><option value="bench:BrowseComp">BrowseComp</option><option value="bench:BrowseComp-Plus">BrowseComp-Plus</option><option value="bench:BrowseComp-zh">BrowseComp-zh</option><option value="bench:Claw-Gym">Claw-Gym</option><option value="bench:ClawEval">ClawEval</option><option value="bench:ClawEval-MM">ClawEval-MM</option><option value="bench:CoWorkBench">CoWorkBench</option><option value="bench:DeepResearch Bench II">DeepResearch Bench II</option><option value="bench:DeepSearchQA">DeepSearchQA</option><option value="bench:EnterpriseOps-Gym">EnterpriseOps-Gym</option><option value="bench:GAIA">GAIA</option><option value="bench:GDPval">GDPval</option><option value="bench:GDPval-AA">GDPval-AA</option><option value="bench:GDPval-AA-V2">GDPval-AA-V2</option><option value="bench:GraphWalks">GraphWalks</option><option value="bench:GraphWalks Extend">GraphWalks Extend</option><option value="bench:JobBench">JobBench</option><option value="bench:LIFEbench">LIFEbench</option><option value="bench:LiveClaw">LiveClaw</option><option value="bench:MCP-Atlas">MCP-Atlas</option><option value="bench:OSWorld-Verified">OSWorld-Verified</option><option value="bench:PAgentBench">PAgentBench</option><option value="bench:PinchBench">PinchBench</option><option value="bench:ProfBench">ProfBench</option><option value="bench:RecreationBench">RecreationBench</option><option value="bench:SkillsBench">SkillsBench</option><option value="bench:Terminal-Bench 2.0">Terminal-Bench 2.0</option><option value="bench:Terminal-Bench 2.1">Terminal-Bench 2.1</option><option value="bench:Terminal-Bench 4">Terminal-Bench 4</option><option value="bench:Terminal-Bench Science 0.1">Terminal-Bench Science 0.1</option><option value="bench:ToolSandbox">ToolSandbox</option><option value="bench:Toolathlon">Toolathlon</option><option value="bench:Toolathlon-Verified">Toolathlon-Verified</option><option value="bench:VitaBench">VitaBench</option><option value="bench:VitaBench2.0">VitaBench2.0</option><option value="bench:WebArena-Verified">WebArena-Verified</option><option value="bench:WideSearch">WideSearch</option><option value="bench:WildClawBench">WildClawBench</option><option value="bench:τ²-bench">τ²-bench</option><option value="bench:τ³-bench">τ³-bench</option><option value="bench:AIME 2025">AIME 2025</option><option value="bench:AIME 2026">AIME 2026</option><option value="bench:BeyondAIME">BeyondAIME</option><option value="bench:CritPt">CritPt</option><option value="bench:Gaokao 2026">Gaokao 2026</option><option value="bench:HMMT Feb 2025">HMMT Feb 2025</option><option value="bench:HMMT Feb 2026">HMMT Feb 2026</option><option value="bench:IMO AnswerBench">IMO AnswerBench</option><option value="bench:MATH500">MATH500</option><option value="bench:MGSM">MGSM</option><option value="bench:AA-Briefcase 1.1">AA-Briefcase 1.1</option><option value="bench:AA-Omniscience Accuracy">AA-Omniscience Accuracy</option><option value="bench:AA-Omniscience Index">AA-Omniscience Index</option><option value="bench:AA-Omniscience Non-Hallucination">AA-Omniscience Non-Hallucination</option><option value="bench:ARC-AGI v1">ARC-AGI v1</option><option value="bench:ARC-AGI v2">ARC-AGI v2</option><option value="bench:BigBench Extra Hard">BigBench Extra Hard</option><option value="bench:C-Eval">C-Eval</option><option value="bench:CMMLU">CMMLU</option><option value="bench:GPQA Diamond" selected>GPQA Diamond</option><option value="bench:HLE">HLE</option><option value="bench:MMLU">MMLU</option><option value="bench:MMLU-Pro">MMLU-Pro</option><option value="bench:MMLU-ProX lite">MMLU-ProX lite</option><option value="bench:MMLU-Redux">MMLU-Redux</option><option value="bench:MMMLU">MMMLU</option><option value="bench:MultiChallenge">MultiChallenge</option><option value="bench:Office-QA-Pro">Office-QA-Pro</option><option value="bench:SuperGPQA">SuperGPQA</option><option value="bench:BabyVision">BabyVision</option><option value="bench:CharXiv">CharXiv</option><option value="bench:ERQA">ERQA</option><option value="bench:GDP.pdf">GDP.pdf</option><option value="bench:MMMU Pro">MMMU Pro</option><option value="bench:MathVision">MathVision</option><option value="bench:MedXPertQA MM">MedXPertQA MM</option><option value="bench:OCRBench 2">OCRBench 2</option><option value="bench:OmniDocBench 1.5">OmniDocBench 1.5</option><option value="bench:OmniDocBench 1.6">OmniDocBench 1.6</option><option value="bench:RealWorldQA">RealWorldQA</option><option value="bench:ScreenSpot Pro">ScreenSpot Pro</option><option value="bench:ZeroBench">ZeroBench</option><option value="bench:Arena-Hard-V2">Arena-Hard-V2</option><option value="bench:IFBench">IFBench</option><option value="bench:IFEval">IFEval</option><option value="bench:Multi-IF">Multi-IF</option><option value="bench:AA-LCR">AA-LCR</option><option value="bench:LongBench-v2">LongBench-v2</option><option value="bench:LongBenchPro">LongBenchPro</option><option value="bench:MRCR">MRCR</option><option value="bench:MRCR v2">MRCR v2</option><option value="bench:RULER">RULER</option></optgroup></select></label>
+</div>
+<div class="sc-wrap" id="scwrap"><div class="sc-tip" id="sctip"></div><div id="scbox"></div></div>
+<p class="sc-note" id="scnote"></p>
+<div class="sc-foot">
+  <span class="count" id="sccount"></span>
+  <button type="button" id="sc-table-btn" aria-expanded="false" aria-controls="sctable">Show as table</button>
+</div>
+<div id="sctable" hidden></div>
+
+</main>
+<footer><div class="inner">
+  <span>Created and maintained by <a href="https://www.nunodonato.com" target="_blank" rel="noopener">www.nunodonato.com</a></span>
+  <span>45 models · 117 benchmarks · <a href="https://github.com/nunodonato/tinyleague" target="_blank" rel="noopener">source</a> · <a href="https://discord.gg/DQ6E6eJZVJ" target="_blank" rel="noopener">Discord</a> · <a href="https://tinyleague.org/feed.xml">RSS</a></span>
+</div></footer>
+<script>
+(function(){var b=document.getElementById('theme');if(!b)return;
+function paint(){var m=document.documentElement.dataset.themeMode||'auto';
+b.querySelector('.label').textContent=m[0].toUpperCase()+m.slice(1);}
+b.addEventListener('click',function(){
+var order=['auto','light','dark'],m=document.documentElement.dataset.themeMode||'auto';
+var next=order[(order.indexOf(m)+1)%3];
+localStorage.setItem('tl-theme',next);
+var dark=next==='dark'||(next==='auto'&&matchMedia('(prefers-color-scheme: dark)').matches);
+document.documentElement.dataset.theme=dark?'dark':'light';
+document.documentElement.dataset.themeMode=next;paint();});
+paint();})();
+
+
+(function(){
+ var nav=document.getElementById('nav'),mb=document.getElementById('menu');
+ if(!nav)return;
+ if(mb){mb.addEventListener('click',function(){
+   var o=nav.classList.toggle('open');
+   mb.setAttribute('aria-expanded',o?'true':'false');});}
+ var groups=[].slice.call(document.querySelectorAll('.navgrp'));
+ function close(g){var b=g.querySelector('.navbtn');
+   g.classList.remove('open');b.setAttribute('aria-expanded','false');}
+ function open(g){groups.forEach(function(o){if(o!==g)close(o);});
+   g.classList.add('open');g.querySelector('.navbtn').setAttribute('aria-expanded','true');}
+ var hover=window.matchMedia&&window.matchMedia('(hover:hover)').matches;
+ groups.forEach(function(g){
+   var b=g.querySelector('.navbtn'),t=null;
+   b.addEventListener('click',function(e){e.stopPropagation();
+     if(g.classList.contains('open'))close(g);else open(g);});
+   b.addEventListener('keydown',function(e){
+     if(e.key==='ArrowDown'){e.preventDefault();open(g);
+       var a=g.querySelector('.navmenu a');if(a)a.focus();}});
+   if(hover){
+     g.addEventListener('pointerenter',function(){clearTimeout(t);open(g);});
+     g.addEventListener('pointerleave',function(){clearTimeout(t);
+       t=setTimeout(function(){close(g);},170);});
+   }
+   g.addEventListener('keydown',function(e){if(e.key==='Escape'){close(g);b.focus();}});
+ });
+ document.addEventListener('click',function(){groups.forEach(close);});
+})();
+
+
+(function(){
+ var el={min:document.getElementById('fmin'),max:document.getElementById('fmax'),
+   moe:document.getElementById('fmoe'),vis:document.getElementById('fvis'),
+   reset:document.getElementById('freset'),count:document.getElementById('fcount')};
+ if(!el.min)return;
+ var st={min:'',max:'',moe:false,vis:false};
+ try{var s=JSON.parse(localStorage.getItem('tl-filters')||'{}');
+     Object.assign(st,s);}catch(e){}
+ el.min.value=st.min;el.max.value=st.max;el.moe.checked=!!st.moe;el.vis.checked=!!st.vis;
+ function apply(){
+   var mn=parseFloat(el.min.value),mx=parseFloat(el.max.value),n=0;
+   var rows=document.querySelectorAll('[data-params]');
+   for(var i=0;i<rows.length;i++){
+     var r=rows[i],p=parseFloat(r.getAttribute('data-params')),ok=true;
+     if(!isNaN(mn)&&p<mn)ok=false;
+     if(!isNaN(mx)&&p>mx)ok=false;
+     if(el.moe.checked&&r.getAttribute('data-moe')!=='1')ok=false;
+     if(el.vis.checked&&r.getAttribute('data-vision')!=='1')ok=false;
+     r.dataset.f=ok?'1':'0';
+     if(ok)n++;
+   }
+   if(el.count){el.count.style.display=rows.length?'':'none';
+     if(rows.length)el.count.textContent=n+' of '+rows.length+' models';}
+   window.TL_FILTER={mn:mn,mx:mx,moe:el.moe.checked,vis:el.vis.checked};
+   try{localStorage.setItem('tl-filters',JSON.stringify({min:el.min.value,
+     max:el.max.value,moe:el.moe.checked,vis:el.vis.checked}));}catch(e){}
+   if(window.TL_APPLY)window.TL_APPLY();
+   else for(var j=0;j<rows.length;j++){rows[j].style.display=rows[j].dataset.f==='1'?'':'none';}
+   document.dispatchEvent(new CustomEvent('tl:filters'));
+ }
+ ['input','change'].forEach(function(ev){
+   [el.min,el.max,el.moe,el.vis].forEach(function(i){i.addEventListener(ev,apply);});});
+ el.reset.addEventListener('click',function(){el.min.value='';el.max.value='';
+   el.moe.checked=false;el.vis.checked=false;apply();});
+ apply();
+})();
+
+
+(function(){
+ var SC={"models": [{"id": "KRAFTON/Raon-1-mini", "n": "Raon-1-mini", "u": "https://huggingface.co/KRAFTON/Raon-1-mini", "p": 28.8, "kv": 0.984, "f": 58.6, "r": 52.2, "t": "2026-11-24", "moe": 1, "v": 0, "s": {"MMLU-Pro": 82.7, "AA-Omniscience Index": 1.0, "GPQA Diamond": 86.0, "AIME 2026": 96.7, "HMMT Feb 2026": 87.1, "IFBench": 84.9, "MultiChallenge": 64.9, "LiveCodeBench v6": 81.7, "SciCode": 41.3, "SWE-bench Verified": 71.0, "Terminal-Bench Lite": 52.0, "GDPval": 72.3, "AutomationBench": 39.9, "BrowseComp-Plus": 55.9, "BFCL v4": 61.6, "AA-LCR": 70.7, "GDP.pdf": 7.7}}, {"id": "inclusionAI/Ling-3.2-air", "n": "Ling-3.2-air", "u": "https://huggingface.co/inclusionAI/Ling-3.2-air", "p": 127.9, "kv": 0.984, "f": 45.8, "r": 41.8, "t": "2026-11-23", "moe": 1, "v": 1, "s": {"CritPt": 15.71, "HLE": 31.42, "SciCode": 51.8, "Terminal-Bench 4": 27.0, "SWE-bench Pro": 58.28, "DeepSWE": 42.48, "NL2Repo-Bench": 45.66, "ProgramBench": 11.5, "τ³-bench": 50.51, "AutomationBench": 61.0, "SkillsBench": 67.82, "MCP-Atlas": 79.93, "Harvey LAB-AA v1.1": 8.3, "BrowseComp": 85.47, "Finance Agent V2": 52.31, "MMMU Pro": 79.02, "BabyVision": 66.49, "ZeroBench": 15.0, "MathVision": 95.66, "OmniDocBench 1.5": 92.3, "CharXiv": 84.5, "GDP.pdf": 16.0, "GDPval-AA-V2": 1538.15, "AA-Briefcase 1.1": 1340.0, "Vision2Web": 80.73, "AndroidWorld": 79.31}}, {"id": "thinkingmachines/Inkling-2-Mini", "n": "Inkling-2-Mini", "u": "https://huggingface.co/thinkingmachines/Inkling-2-Mini", "p": 26.4, "kv": 4.156, "f": 46.7, "r": 33.4, "t": "2026-11-20", "moe": 1, "v": 1, "s": {"FrontierCode 2.0": 15.1, "DeepSWE 1.1": 48.2, "Terminal-Bench 4": 5.6, "Terminal-Bench 2.1": 71.6, "SWE-bench Pro v2": 77.9, "SWE-bench Multilingual": 73.7, "SWE-bench Verified": 79.2, "Vibe Code Bench 1.1": 77.9, "PMPP-Hard": 455.82, "BrowseComp": 79.0, "DeepSearchQA": 85.3, "MCP-Atlas": 82.7, "AA-Briefcase 1.1": 1263, "GDPval-AA-V2": 1319, "JobBench": 49.6, "AutomationBench": 41.8, "EnterpriseOps-Gym": 42.0, "AA-AnalystAgent": 46.3, "Diligence Bench": 48.6, "GDP.pdf": 16.8, "PerceptionBench": 57.5, "MMMU Pro": 74.9, "OmniDocBench 1.6": 92.8, "ScreenSpot Pro": 76.5, "Chartography": 22.1, "ZeroBench": 17.0, "MuirBench": 77.5, "BVB": 68.4, "HLE": 15.2, "CritPt": 31.4, "Apex": 34.4, "ARC-AGI v1": 84.5, "ARC-AGI v2": 49.3, "LongBench-v2": 66.9, "GraphWalks": 69.7, "MRCR v2": 46.4, "AA-Omniscience Index": -8.6, "AA-Omniscience Non-Hallucination": 63.4, "ComplexConstraints 1.1": 33.4, "FORTRESS": 89.5, "StrongREJECT": 97.8, "Misbehavior": 9.8, "Covert Misbehavior": 8.3, "Destructive Actions": 10.2, "Terminal-Bench Science 0.1": 1.4, "AA-Omniscience Accuracy": 20.5}}, {"id": "Aleph-Alpha/Kolibri-1.1", "n": "Kolibri-1.1", "u": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1", "p": 75.1, "kv": 1.039, "f": 73.3, "r": 63.4, "t": "2026-11-20", "moe": 1, "v": 0, "s": {"GPQA Diamond": 87.1, "HLE": 10.5, "AIME 2025": 98.3, "AIME 2026": 95.8, "BeyondAIME": 83.8, "τ²-bench": 79.9, "τ³-bench": 28.6, "BFCL v4": 62.7, "BrowseComp": 34.8, "Terminal-Bench 2.1": 35.6, "LiveCodeBench v6": 93.0, "SciCode": 45.1, "SWE-bench Verified": 70.4, "IFBench": 82.7, "AA-Omniscience Accuracy": 17.3, "AA-Omniscience Index": -14.8, "AA-Omniscience Non-Hallucination": 61.1, "AA-LCR": 71.0, "GraphWalks": 64.4, "LongBenchPro": 65.6, "RULER": 70.8, "MMLU": 80.2, "MMLU-Pro": 59.3, "BrowseComp-Plus": 43.9, "WMT24++ MetricX": 1.8}}, {"id": "ai-sage/GigaChat4-37B-A4B", "n": "GigaChat4-37B-A4B", "u": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B", "p": 38.3, "kv": 1.125, "f": 63.0, "r": 54.7, "t": "2026-11-20", "moe": 1, "v": 0, "s": {"LiveCodeBench v6": 85.0, "SWE-bench Verified": 70.8, "SWE-bench Multilingual": 61.67, "NL2Repo-Bench": 14.89, "Terminal-Bench 2.0": 38.2, "Terminal-Bench 2.1": 39.33, "IFBench": 75.0, "JSONSchemaBench": 96.0, "StructEval Text": 86.0, "GraphWalks": 63.0, "Natural Plan": 92.0, "NIH Complex": 99.0, "AA-LCR": 54.0, "GPQA Diamond": 70.0, "HMMT": 95.0, "AIME 2025": 93.0, "AIME 2026": 93.0, "IMO AnswerBench": 76.0, "HLE": 9.0, "BFCL": 72.0, "τ³-bench": 57.0, "τ²-bench": 73.0, "CoWorkBench": 59.48, "Toolathlon": 39.0, "SkillsBench": 23.8, "JobBench": 23.28}}, {"id": "OVHaiLLM/Olala-v1.0-mini-7A1B", "n": "Olala-v1.0-mini-7A1B", "u": "https://huggingface.co/OVHaiLLM/Olala-v1.0-mini-7A1B", "p": 6.8, "kv": 1.312, "f": 252.0, "r": 147.9, "t": "2026-11-19", "moe": 1, "v": 0, "s": {"IFBench": 57.7, "Multi-IF": 71.2, "LIFEbench": 79.3, "GPQA Diamond": 50.5, "TruthfulQA": 66.6, "DROP": 83.8, "HumanEval+": 88.3, "MBPP+": 75.1, "AIME 2024": 60.7, "AIME 2025": 61.3, "AIME 2026": 52.7, "MGSM": 68.7, "BFCL v3": 59.6}}, {"id": "sensenova/SenseNova-Loop-9B", "n": "SenseNova-Loop-9B", "u": "https://huggingface.co/sensenova/SenseNova-Loop-9B", "p": 9.4, "kv": 7.0, "f": 26.8, "r": 19.2, "t": "2026-11-17", "moe": 0, "v": 1, "s": {"Terminal-Bench 2.1": 59.55, "NL2Repo-Bench": 41.36, "AutomationBench": 36.67, "GAIA": 69.9, "τ³-bench": 30.93, "BirdBench": 72.34, "AIDABench": 65.31}}, {"id": "tencent/Hy4-flash", "n": "Hy4-flash", "u": "https://huggingface.co/tencent/Hy4-flash", "p": 220.3, "kv": 1.704, "f": 21.0, "r": 19.5, "t": "2026-11-17", "moe": 1, "v": 1, "s": {"DeepSWE 1.1": 64.6, "ProgramBench": 16.0, "Terminal-Bench 4": 19.2, "APEX-Agents v1.1": 63.1, "AutomationBench": 52.2, "HLE": 55.2, "OSWorld 2.1": 68.1, "MMMU Pro": 75.8, "ZeroBench": 45.8, "PPTGenBench": 54.2, "PPTCoEditBench": 74.0, "PPTFixBench": 23.7, "MdCoEditBench": 56.9, "WordEditBench": 46.2, "ExcelFixBench": 15.6, "AudioVideoBench": 17.8, "BuddyVQA Atlas": 48.5, "AA-Briefcase 1.1": 1445, "FrontierCode 2.0": 31.4, "Terminal-Bench Science 0.1": 12.9, "GDP.pdf": 21.6, "AA-Omniscience Index": 5.4, "AA-Omniscience Accuracy": 50.0, "AA-Omniscience Non-Hallucination": 10.9}}, {"id": "LiquidAI/LFM3-1.7B", "n": "LFM3-1.7B", "u": "https://huggingface.co/LiquidAI/LFM3-1.7B", "p": 1.7, "kv": 1.502, "f": 148.2, "r": 100.6, "t": "2026-10-27", "moe": 0, "v": 0, "s": {"LiveClaw": 45.6, "ClawEval": 68.64, "BrowseComp-Plus": 37.0, "WebArena-Verified": 38.42, "EnterpriseOps-Gym": 28.2, "AutomationBench": 41.29, "BFCL v4": 71.39, "ToolSandbox": 80.36, "MCP-Atlas": 32.57, "τ³-bench": 68.01, "SWE-bench Verified": 43.4, "SWE-bench Multilingual": 23.0, "Terminal-Bench 2.1": 12.92, "LiveCodeBench v6": 73.46, "LiveCodeBench Pro 25Q2": 31.74, "SciCode": 28.47, "IFEval": 96.66, "IFBench": 73.03, "IFStruct": 93.72, "Multi-IF": 89.1, "GPQA Diamond": 63.37, "HLE": 7.17, "AA-Omniscience Index": 0.5, "AA-Omniscience Accuracy": 7.07, "AA-Omniscience Non-Hallucination": 92.93, "AA-LCR": 52.83, "RULER": 65.56, "AA-Briefcase 1.1": 225, "FrontierCode 2.0": 0.0, "Terminal-Bench 4": 0.0, "Terminal-Bench Science 0.1": 0.0, "GDP.pdf": 0.4}}, {"id": "Nanbeige/Nanbeige4.3-33B", "n": "Nanbeige4.3-33B", "u": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B", "p": 33.1, "kv": 26.0, "f": 7.6, "r": 5.4, "t": "2026-10-24", "moe": 0, "v": 0, "s": {"Terminal-Bench 2.1": 80.9, "Terminal-Bench 4": 23.8, "DeepSWE": 65.5, "SWE-bench Pro": 60.3, "SWE Atlas": 50.8, "NL2Repo-Bench": 53.0, "SciCode": 52.6, "SkillsBench": 61.1, "AutomationBench": 54.2, "JobBench": 44.8, "GDPval": 84.8, "ClawEval": 78.3, "Toolathlon-Verified": 70.4, "DeepPlanning": 63.3, "EnterpriseOps-Gym": 41.0, "YC-bench": 1025437, "τ³-bench": 48.8, "GPQA Diamond": 89.5, "AIME 2026": 95.2, "AA-LCR": 84.0}}, {"id": "XHToken/Spark-X2.6-4B", "n": "Spark-X2.6-4B", "u": "https://huggingface.co/XHToken/Spark-X2.6-4B", "p": 4.1, "kv": 4.553, "f": 61.5, "r": 38.7, "t": "2026-10-19", "moe": 0, "v": 0, "s": {"BFCL v4": 71.8, "τ²-bench": 86.9, "τ³-bench": 34.7, "VitaBench2.0": 30.8, "MCP-Atlas": 62.4, "EnterpriseOps-Gym": 33.6, "ClawEval": 69.9, "BrowseComp": 53.1, "SWebBench": 71.7, "PAgentBench": 74.1, "SWE-bench Pro": 54.3, "SWE-bench Verified": 62.8, "SWE-bench Multilingual": 64.7, "SciCode": 36.8, "Gaokao 2026": 134.9, "AIME 2026": 91.2, "HMMT Feb 2026": 81.3, "IMO AnswerBench": 75.2, "AA-LCR": 67.3, "LongBench-v2": 53.3, "GraphWalks": 92.2, "GraphWalks Extend": 34.2, "MRCR v2": 65.6, "IFEval": 93.6, "IFBench": 75.8, "HLE": 17.9, "GPQA Diamond": 77.1}}, {"id": "XHToken/Spark-X2.6-1.7B", "n": "Spark-X2.6-1.7B", "u": "https://huggingface.co/XHToken/Spark-X2.6-1.7B", "p": 1.7, "kv": 1.771, "f": 148.2, "r": 95.5, "t": "2026-10-19", "moe": 0, "v": 0, "s": {"BFCL v4": 55.2, "τ²-bench": 85.3, "τ³-bench": 21.3, "VitaBench2.0": 22.6, "MCP-Atlas": 41.8, "EnterpriseOps-Gym": 26.1, "ClawEval": 66.9, "BrowseComp": 41.7, "SWebBench": 53.9, "PAgentBench": 58.8, "SWE-bench Pro": 26.7, "SWE-bench Verified": 59.8, "SWE-bench Multilingual": 57.3, "SciCode": 20.1, "Gaokao 2026": 118.9, "AIME 2026": 70.1, "HMMT Feb 2026": 48.8, "IMO AnswerBench": 47.1, "AA-LCR": 48.0, "LongBench-v2": 40.4, "GraphWalks": 85.1, "GraphWalks Extend": 25.7, "MRCR v2": 56.1, "IFEval": 89.4, "IFBench": 65.5, "HLE": 8.7, "GPQA Diamond": 56.1}}, {"id": "ornith-ai/Ornith-1.5-122B", "n": "Ornith-1.5-122B", "u": "https://huggingface.co/ornith-ai/Ornith-1.5-122B", "p": 125.1, "kv": 3.0, "f": 25.2, "r": 21.7, "t": "2026-10-16", "moe": 1, "v": 1, "s": {"Terminal-Bench 2.1": 81.2, "CyberGym": 80.0, "NL2Repo-Bench": 51.2, "SWE-bench Pro": 76.9, "SWE-bench Verified": 84.5, "SWE-bench Multilingual": 76.4, "HLE": 48.0, "SciCode": 53.8, "WideSearch": 75.2, "BrowseComp": 78.5, "MCP-Atlas": 74.6, "Toolathlon-Verified": 70.8, "ClawEval": 79.4}}, {"id": "InternScience/Sage-A1.5", "n": "Sage-A1.5", "u": "https://huggingface.co/InternScience/Sage-A1.5", "p": 36.0, "kv": 2.5, "f": 84.0, "r": 58.0, "t": "2026-10-15", "moe": 1, "v": 1, "s": {"GAIA": 95.1, "BrowseComp": 82.8, "DeepResearch Bench II": 47.5, "XBench-DS-2510": 92.0, "MLE-Lite": 65.2, "SciCode": 44.3, "SWE-bench Pro": 61.2, "SWE-bench Multilingual": 72.7, "IFBench": 81.6, "AA-LCR": 81.0, "FrontierScience-Olympiad": 81.0, "FrontierScience-Research": 48.3, "HiPhO": 45.3, "HLE": 55.1, "CMT": 80.0, "CritPt": 20.0, "Agents' Last Exam": 19.1, "VitaBench": 45.4, "PinchBench": 90.0, "ChemCOTBench": 66.5, "MatTools": 42.6, "OmniDocBench": 91.5}}, {"id": "maxwell-model/Maxwell-V1-Flash", "n": "Maxwell-V1-Flash", "u": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash", "p": 36.8, "kv": 11.25, "f": 84.0, "r": 27.9, "t": "2026-10-13", "moe": 1, "v": 0, "s": {"GPQA Diamond": 86.52, "MMLU-Pro": 85.46, "MMLU-Redux": 93.59, "HLE": 24.79, "HLE w/Tools": 46.1, "AIME 2025": 96.25, "AIME 2026": 95.0, "HMMT Feb 2025": 96.25, "HMMT Nov 2025": 90.83, "HMMT Feb 2026": 91.29, "IMO AnswerBench": 86.03, "LiveCodeBench v6": 85.66, "Terminal-Bench 2.1": 58.65, "SWE-bench Verified": 65.4, "τ³-bench": 67.37, "MCP-Mark": 37.3, "BrowseComp": 76.3, "WideSearch": 74.4, "DeepSearchQA": 83.3, "Bamboogle": 92.1, "WebWalkerQA-300": 70.5, "2WikiMultihopQA-300": 89.8, "MuSiQue-300": 63.0, "HotpotQA-300": 84.7, "PopQA-300": 70.1, "AA-LCR": 75.6, "LongBench-v2": 59.4, "RULER": 95.81, "IFBench": 64.8, "IFEval": 93.0, "AdvancedIF": 71.3, "MultiChallenge": 72.2, "MT-Bench-101": 93.3, "MT-RAG": 65.74, "LongMemEval": 86.18, "CoSER": 53.54, "RoleBench": 89.92, "MLogiQA": 81.5, "C-Eval": 91.0, "MMMLU": 92.0, "INCLUDE": 84.7, "Belebele": 92.8, "Global-PIQA": 92.3, "MGSM": 93.0, "BBH": 91.02, "BigBench Extra Hard": 52.51, "KOR-Bench": 77.2}}, {"id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16", "n": "NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16", "u": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16", "p": 124.5, "kv": 1.0, "f": 21.0, "r": 20.1, "t": "2026-10-12", "moe": 1, "v": 1, "s": {"GPQA Diamond": 89.52, "HLE": 31.79, "MMLU-ProX": 76.91, "AA-Omniscience Accuracy": 26.2, "AA-Omniscience Index": 4.03, "CritPt": 10.86, "Apex Shortlist": 88.36, "LiveCodeBench v6": 88.22, "SciCode": 47.13, "AA-LCR": 68.62, "GraphWalks": 89.71, "IFBench": 70.86, "LMArena v3 proxy": 52.67, "WMT24++": 84.8, "τ²-bench": 73.19, "τ³-bench": 18.88, "GDPval-AA-V2": 1211, "BrowseComp": 78.0, "SWE-bench Verified": 71.1, "SWE-bench Multilingual": 67.72, "SWE-bench Pro": 51.78, "Terminal-Bench 2.1": 66.7, "Terminal-Bench 4": 1.0, "DeepSWE": 24.65, "BabyVision": 29.6, "MMLongBench-Doc": 62.82, "V*": 85.6, "OCR-Reasoning": 65.08, "MathVision": 78.16, "OCRBench 2": 68.12, "CharXiv": 80.82, "VideoMME v2": 32.85, "OSWorld-Verified": 51.14, "WebVoyager": 77.72, "AutomationBench-AA": 32.44, "GDP.pdf": 6.6, "FrontierCode 2.0": 6.1, "ARC-AGI v1": 22.7, "ARC-AGI v2": 1.5}}, {"id": "LiquidAI/LFM2.5-24B-A2B", "n": "LFM2.5-24B-A2B", "u": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B", "p": 24.0, "kv": 2.5, "f": 126.0, "r": 75.4, "t": "2026-10-12", "moe": 1, "v": 0, "s": {"AutomationBench": 27.69, "BFCL v4": 65.01, "ToolSandbox": 80.71, "LiveClaw": 48.09, "PinchBench": 83.18, "τ³-bench": 8.04, "WebArena-Verified": 26.75, "GPQA Diamond": 74.42, "AA-Omniscience Index": -24.9, "HLE": 7.4, "IFEval": 96.75, "IFBench": 74.69, "Multi-IF": 84.38, "MATH500": 96.04, "SWE-bench Verified": 51.0, "SciCode": 32.71}}, {"id": "nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16", "n": "NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16", "u": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16", "p": 74.9, "kv": 1.0, "f": 28.0, "r": 26.4, "t": "2026-10-09", "moe": 1, "v": 1, "s": {"GPQA Diamond": 88.83, "HLE": 28.73, "AA-Omniscience Accuracy": 21.8, "AA-Omniscience Non-Hallucination": 56.14, "SciCode": 44.49, "AA-LCR": 67.38, "BrowseComp": 70.0, "Terminal-Bench 2.1": 53.93, "τ³-bench": 17.01, "PinchBench": 90.35, "MCP-Atlas": 55.6, "WebArena": 50.25, "GDPval-AA-V2": 979.03, "CritPt": 4.29, "Terminal-Bench 4": 0.0, "GDP.pdf": 2.8, "AA-Omniscience Index": -19.17}}, {"id": "openbmb/MiniCPM-V-4.7-35B-A3B", "n": "MiniCPM-V-4.7-35B-A3B", "u": "https://huggingface.co/openbmb/MiniCPM-V-4.7-35B-A3B", "p": 35.2, "kv": 2.5, "f": 84.0, "r": 58.0, "t": "2026-10-07", "moe": 1, "v": 1, "s": {"MMBench": 91.72, "MMStar": 80.67, "MMT-Bench": 75.47, "SimpleVQA": 54.14, "MMMU": 80.22, "MathVista": 88.0, "MMMU Pro": 69.71, "MathVerse": 86.45, "MathVision": 74.24, "OCRBench": 91.2, "OCRBench 2": 68.47, "OmniDocBench 1.6": 94.24, "CharXiv": 75.6, "CCOCR": 81.14, "TextVQA": 84.99, "BLINK": 70.33, "MMSI-Bench": 16.0, "HallusionBench": 63.83, "MMHal-Bench": 4.72, "RefCOCO": 90.93, "ScreenSpot": 86.99, "MM-IFEval": 65.41, "VideoMME": 76.4, "LongVideoBench": 68.9, "MotionBench": 68.12, "CMMLU": 90.21, "MMLU-Pro": 83.45, "SuperGPQA": 61.23, "IFBench": 47.67, "AIME 2026": 76.46, "LiveCodeBench v6": 56.57, "BFCL v4": 60.06, "τ²-bench": 84.65}}, {"id": "surogate/Surogate3.7-35B-A3B", "n": "Surogate3.7-35B-A3B", "u": "https://huggingface.co/surogate/Surogate3.7-35B-A3B", "p": 36.0, "kv": 2.5, "f": 84.0, "r": 58.0, "t": "2026-10-03", "moe": 1, "v": 1, "s": {"AutomationBench": 34.3, "Terminal-Bench 2.1": 76.4, "BFCL v4": 68.7, "IFEval": 94.1, "SWE-bench Verified": 78.0, "Office-QA-Pro": 51.9, "τ²-bench": 93.4, "ClawEval": 82.4, "GPQA Diamond": 91.4, "EnterpriseOps-Gym": 38.1, "WildClawBench": 54.6, "CommerceAgentBench": 39.4}}, {"id": "Agnes-AI/Agnes-3.0-Flash", "n": "Agnes-3.0-Flash", "u": "https://huggingface.co/Agnes-AI/Agnes-3.0-Flash", "p": 33.1, "kv": 9.0, "f": 7.6, "r": 6.6, "t": "2026-09-11", "moe": 0, "v": 1, "s": {"GPQA Diamond": 85.05, "IFBench": 74.2, "SciCode": 38.08, "AA-LCR": 68.33, "AA-Omniscience Accuracy": 23.0}}, {"id": "nex-agi/Nex-N2.5-mini", "n": "Nex-N2.5-mini", "u": "https://huggingface.co/nex-agi/Nex-N2.5-mini", "p": 35.1, "kv": 2.5, "f": 7.2, "r": 6.9, "t": "2026-09-08", "moe": 1, "v": 1, "s": {"Terminal-Bench 2.1": 73.4, "SWE-bench Pro": 43.8, "DeepSWE 1.1": 36.1, "AutomationBench": 32.3, "Toolathlon-Verified": 54.6, "GDPval-AA-V2": 1446, "JobBench": 28.5, "BrowseComp": 83.4, "OSWorld-Verified": 71.2, "OSWorld-2": 30.5, "WebTest": 48.6, "WebArena-Verified": 63.4, "OSWorld-G": 82.9, "Vision2Web": 52.9, "SWE-MM": 25.5, "OmniDoc": 89.7}}, {"id": "openbmb/MiniCPM5-2B", "n": "MiniCPM5-2B", "u": "https://huggingface.co/openbmb/MiniCPM5-2B", "p": 2.5, "kv": 5.25, "f": 100.8, "r": 47.4, "t": "2026-09-06", "moe": 0, "v": 0, "s": {"LiveCodeBench v6": 69.1, "LiveCodeBench Pro 25Q2": 68.0, "OJBench": 32.5, "SciCode": 26.3, "AIME 2025": 86.5, "AIME 2026": 86.5, "HMMT Feb 2026": 63.8, "MATH500": 94.6, "IFBench": 66.3, "IFEval": 86.7, "Multi-IF": 71.8, "MMLU-Pro": 70.8, "MMLU-Redux": 84.7, "HLE": 8.9, "GPQA Diamond": 70.2, "SuperGPQA": 40.8, "AA-LCR": 59.0, "NoLiMa": 68.1, "LongBenchPro": 44.8, "LongBench-v2": 43.7, "τ³-bench": 20.8, "τ²-bench": 97.1, "BFCL v4": 66.6, "SWE-bench Verified": 46.4, "SWE-bench Pro": 14.4, "Terminal-Bench 2.1": 8.6, "BrowseComp-zh": 43.5, "BrowseComp": 39.7, "GAIA": 88.7, "GDPval-AA-V2": 19.6, "Claw-Gym": 59.2, "WildClaw": 23.9, "QwenClaw": 42.9}}, {"id": "IFM/K2-Horizon-MoVA-36B-A4B", "n": "K2-Horizon-MoVA-36B-A4B", "u": "https://huggingface.co/IFM/K2-Horizon-MoVA-36B-A4B", "p": 37.4, "kv": 24.0, "f": 63.0, "r": 14.9, "t": "2026-09-01", "moe": 1, "v": 0, "s": {"τ³-bench": 26.8, "Terminal-Bench 2.1": 58.6, "SciCode": 38.9, "HLE": 25.2, "GPQA Diamond": 80.8, "CritPt": 2.1, "AA-LCR": 66.3, "AA-Omniscience Accuracy": 18.8, "AA-Omniscience Non-Hallucination": 69.2}}, {"id": "IFM/K2-Horizon-7B", "n": "K2-Horizon-7B", "u": "https://huggingface.co/IFM/K2-Horizon-7B", "p": 9.0, "kv": 18.0, "f": 28.0, "r": 13.5, "t": "2026-09-01", "moe": 0, "v": 0, "s": {"SWE-bench Verified": 70.6, "Terminal-Bench 2.1": 39.1, "τ³-bench": 25.8, "BrowseComp": 59.0, "AA-LCR": 68.0, "HMMT Feb 2026": 73.3, "SciCode": 31.6, "HLE": 18.6}}, {"id": "IFM/K2-Horizon-3.7B", "n": "K2-Horizon-3.7B", "u": "https://huggingface.co/IFM/K2-Horizon-3.7B", "p": 5.1, "kv": 18.0, "f": 49.4, "r": 17.1, "t": "2026-09-01", "moe": 0, "v": 0, "s": {"HMMT Feb 2026": 70.5, "SWE-bench Verified": 68.6, "GPQA Diamond": 65.4, "HLE": 12.9, "SciCode": 25.9, "Terminal-Bench 2.1": 25.1, "τ³-bench": 17.7, "BFCL v4": 50.9}}, {"id": "Qwen/Qwen3.8-Flash-Next", "n": "Qwen3.8-Flash-Next", "u": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next", "p": 180.0, "kv": 3.0, "f": 42.0, "r": 33.1, "t": "2026-08-24", "moe": 1, "v": 1, "s": {"DeepSWE 1.1": 58.7, "SWE-bench Pro": 62.5, "SWE-bench Multilingual": 81.0, "NL2Repo-Bench": 48.1, "CoWorkBench": 73.9, "JobBench": 55.7, "Agents' Last Exam": 51.2, "Toolathlon": 73.5, "IFBench": 81.3, "GPQA Diamond": 91.7, "HLE": 35.9, "LiveCodeBench v6": 91.9, "ClawEval-MM": 64.4, "RecreationBench": 49.9, "AndroidWorld": 84.5, "OSWorld": 52.3, "Vision2Web": 64.0, "ERQA": 72.3, "LVBench": 76.6, "RealWorldQA": 88.5, "MathVision": 95.7, "CharXiv": 90.6, "τ³-bench": 45.36}}, {"id": "ornith-ai/Ornith-1.5-9B", "n": "Ornith-1.5-9B", "u": "https://huggingface.co/ornith-ai/Ornith-1.5-9B", "p": 9.7, "kv": 4.0, "f": 26.0, "r": 21.3, "t": "2026-08-18", "moe": 0, "v": 1, "s": {"Terminal-Bench 2.1": 47.0, "SWE-bench Verified": 70.6, "SWE-bench Pro": 47.5, "SWE-bench Multilingual": 54.4, "NL2Repo-Bench": 32.4, "SWE Atlas": 20.6, "HLE": 30.5, "GPQA Diamond": 86.4, "MCP-Atlas": 54.2, "Toolathlon-Verified": 41.2, "WideSearch": 59.5, "BrowseComp": 56.4, "ClawEval": 66.5}}, {"id": "ornith-ai/Ornith-1.5-35B-A3B", "n": "Ornith-1.5-35B-A3B", "u": "https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B", "p": 36.0, "kv": 2.5, "f": 84.0, "r": 58.0, "t": "2026-08-18", "moe": 1, "v": 1, "s": {"Terminal-Bench 2.1": 68.5, "SWE-bench Verified": 79, "SWE-bench Pro": 59.6, "SWE-bench Multilingual": 71.4, "DeepSWE": 22, "Frontier-Bench": 5.1, "NL2Repo-Bench": 46.2, "SWE Atlas": 39.8, "HLE": 33.4, "GPQA Diamond": 89.2, "MCP-Atlas": 70.2, "Toolathlon": 48.7, "WideSearch": 67.8, "BrowseComp": 67.6, "ClawEval": 72.5}}, {"id": "inclusionAI/Ling-3.0-tiny", "n": "Ling-3.0-tiny", "u": "https://huggingface.co/inclusionAI/Ling-3.0-tiny", "p": 7.9, "kv": 0.844, "f": 193.8, "r": 143.8, "t": "2026-08-10", "moe": 1, "v": 0, "s": {"AA-Agentic-Index": 16, "GDPval-AA": 772, "τ³-bench": 20.8, "BFCL v4": 62.72, "Terminal-Bench 2.1": 27.7, "ArtifactsBench": 47.93, "SciCode": 24.2, "AA-LCR": 58.7, "AA-Omniscience Accuracy": 8.52, "AA-Omniscience Non-Hallucination": 69.54, "GPQA Diamond": 73.4, "HLE": 9.3, "HMMT Feb 2026": 70.31, "IMO AnswerBench": 71.03, "IFBench": 63.61, "LIFEbench": 62.3, "Multi-IF": 83.15}}, {"id": "meta-models/Muse-Glimmer-30B", "n": "Muse-Glimmer-30B", "u": "https://huggingface.co/meta-models/Muse-Glimmer-30B", "p": 29.8, "kv": 1.701, "f": 8.5, "r": 8.2, "t": "2026-08-09", "moe": 0, "v": 1, "s": {"MCP-Atlas": 75.5, "DeepSearchQA": 74.6, "τ³-bench": 23.5, "WildClawBench": 47.6, "GDPval-AA-V2": 953, "GAIA2": 43.3, "SkillsBench": 44.3, "OSWorld-Verified": 65.9, "SWE-bench Pro": 51.2, "SWE-bench Verified": 76.0, "Terminal-Bench 2.1": 51.7, "SciCode": 43.6, "CharXiv": 78.8, "ScreenSpot Pro": 75.4, "OmniDocBench 1.5": 75.8, "MMMU Pro": 74, "IFBench": 77.0, "AIME 2026": 94.7, "GPQA Diamond": 83.5, "HLE": 22.0, "AA-LCR": 80.0, "Beam128K": 65.1, "MBCT": 41.5, "HPCT": 52.3, "VCT": 37.0, "WMDP": 86.5, "Lab Bench": 80.2, "FrontierCode 2.0": 1.5}}, {"id": "ibm-granite/granite-4.2-30b", "n": "granite-4.2-30b", "u": "https://huggingface.co/ibm-granite/granite-4.2-30b", "p": 29.3, "kv": 32.0, "f": 8.6, "r": 5.4, "t": "2026-08-07", "moe": 0, "v": 0, "s": {"SWE-bench Multilingual": 41.89, "SWE-bench Pro": 33.29, "SWE-bench Verified": 57.0, "Terminal-Bench 2.1": 29.24, "τ³-bench": 62.0, "BFCL v4": 61.39, "ProfBench": 42.9, "BirdBench": 41.85, "GDPval": 1225, "AIME 2025": 89.17, "HMMT Feb 2025": 89.17, "GPQA Diamond": 66.41, "LiveCodeBench v6": 75.77, "SciCode": 38.76, "MMLU-Pro": 77.6, "MMLU-ProX lite": 66.64, "Arena-Hard-V2": 67.93, "IFBench": 77.17, "RULER": 89.96}}, {"id": "ibm-granite/granite-4.2-8b", "n": "granite-4.2-8b", "u": "https://huggingface.co/ibm-granite/granite-4.2-8b", "p": 8.8, "kv": 20.0, "f": 28.6, "r": 12.9, "t": "2026-08-07", "moe": 0, "v": 0, "s": {"SWE-bench Multilingual": 30.78, "SWE-bench Pro": 19.11, "SWE-bench Verified": 47.67, "Terminal-Bench 2.1": 20.56, "τ³-bench": 58.06, "BFCL v4": 52.39, "ProfBench": 41.2, "BirdBench": 41.07, "GDPval": 1189, "AIME 2025": 86.67, "HMMT Feb 2025": 78.33, "GPQA Diamond": 64.14, "LiveCodeBench v6": 73.24, "SciCode": 36.09, "MMLU-Pro": 74.04, "MMLU-ProX lite": 61.06, "Arena-Hard-V2": 65.19, "IFBench": 79.33, "RULER": 80.99}}, {"id": "Qwen/Qwen3.8-27B", "n": "Qwen3.8-27B", "u": "https://huggingface.co/Qwen/Qwen3.8-27B", "p": 27.8, "kv": 8.0, "f": 9.1, "r": 7.9, "t": "2026-08-05", "moe": 0, "v": 1, "s": {"Terminal-Bench 2.1": 73.0, "SWE-bench Pro": 61.7, "NL2Repo-Bench": 42.3, "DeepSWE 1.1": 42.2, "QwenSWEBench": 79.0, "CoWorkBench": 70.7, "JobBench": 33.4, "Agents' Last Exam": 42.9, "IFBench": 79.5, "GPQA Diamond": 89.2, "HLE": 30.8, "LiveCodeBench v6": 90.3, "OSWorld-Verified": 84.3, "WebArena-Verified": 64.8, "AndroidWorld": 81.9, "RecreationBench": 47.1, "ClawEval-MM": 57.4, "SWE-MM": 38.6, "Vision2Web": 62.9, "MathVision": 94.6, "BabyVision": 85.6, "CharXiv": 90.2, "OmniDocBench 1.5": 91.1, "RealWorldQA": 85.9, "ERQA": 65.5, "τ³-bench": 48.04, "FrontierCode 2.0": 14.9, "ARC-AGI v1": 87.5, "ARC-AGI v2": 42.4}}, {"id": "inclusionAI/Ling-3.0-flash", "n": "Ling-3.0-flash", "u": "https://huggingface.co/inclusionAI/Ling-3.0-flash", "p": 127.5, "kv": 0.984, "f": 49.4, "r": 44.8, "t": "2026-08-02", "moe": 1, "v": 0, "s": {"SWE-bench Pro": 56.6, "SWE-bench Multilingual": 72.4, "Terminal-Bench 2.1": 57.0, "ArtifactsBench": 77.0, "MiniAppBench": 25.3, "AntSWEBench": 52.2, "τ³-bench": 28.0, "MCP-Atlas": 65.5, "SkillsBench": 44.8, "BFCL v4": 73.0, "GDPval-AA": 1107, "WideSearch": 73.6, "BrowseComp": 82.0, "Draco": 70.4, "IFBench": 74.5, "SysBench": 93.6, "LIFEbench": 77.3, "AIME 2026": 93.2, "HMMT Feb 2026": 87.0, "IMO AnswerBench": 83.7, "HLE": 22.7, "LiveCodeBench 2408-2505": 82.8, "MRCR": 90.8, "AA-LCR": 65.1, "Multi-IF": 87.7}}, {"id": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16", "n": "NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16", "u": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16", "p": 31.6, "kv": 0.75, "f": 84.0, "r": 74.1, "t": "2026-08-01", "moe": 1, "v": 0, "s": {"MMLU-Pro": 81.94, "GPQA Diamond": 75.44, "HLE": 11.72, "SciCode": 32.6, "SWE-bench Verified": 51.56, "SWE-bench Multilingual": 39.33, "Terminal-Bench 2.1": 24.58, "PinchBench": 85.37, "BrowseComp": 36.97, "τ³-bench": 9.28, "GDPval-AA-V2": 832, "IFBench": 71.88, "AA-Omniscience": 17.5, "AA-LCR": 52.0}}, {"id": "meituan-longcat/LongCat-Flash-Lite-Sparse", "n": "LongCat-Flash-Lite-Sparse", "u": "https://huggingface.co/meituan-longcat/LongCat-Flash-Lite-Sparse", "p": 69.1, "kv": 3.938, "f": 84.0, "r": 49.3, "t": "2026-07-31", "moe": 1, "v": 0, "s": {"SWE-bench Verified": 68.2, "SWE-bench Pro": 40.63, "SWE-bench Multilingual": 59.33, "Terminal-Bench 2.0": 33.7, "τ²-bench": 96.05, "VitaBench": 21.67, "MCP-Atlas": 45.6, "BrowseComp": 48.62, "BrowseComp-zh": 61.94, "RWSearch": 68.5, "MMLU": 85.31, "MMLU-Pro": 79.24, "CMMLU": 84.51, "C-Eval": 85.76, "GPQA Diamond": 69.49, "MATH500": 96.8, "AIME 2026": 65.73, "HMMT Feb 2026": 41.47, "BeyondAIME": 44.2, "IMO AnswerBench": 49.38, "MRCR": 44.66, "OOLong-Synth": 38.42, "GraphWalks Extend": 66.27, "LOFT Retrieval Extend": 44.38, "HELMET-ICL Extend": 91.63, "LongCodeQA": 62.3, "AMemBench-ACU": 33.25, "LongBench-v2": 53.64, "AA-LCR": 48.0}}, {"id": "Nanbeige/Nanbeige4.2-3B", "n": "Nanbeige4.2-3B", "u": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B", "p": 4.2, "kv": 22.0, "f": 60.0, "r": 15.7, "t": "2026-07-21", "moe": 0, "v": 0, "s": {"GDPval": 74.3, "Agent-IF-Oneday": 67.5, "Office-QA-Pro": 21.1, "Pinch-Bench-V2": 74.7, "Claw-Gym": 65.0, "ClawEval": 52.2, "MCP-Atlas": 57.8, "SWE-bench Verified": 63.6, "SWE-bench Pro": 46.9, "Terminal-Bench 2.0": 44.1, "HLE": 17.8, "SciCode": 35.6, "GPQA Diamond": 87.4, "HMMT Feb 2026": 82.8, "IMO AnswerBench": 67.3, "LiveCodeBench v6": 72.5, "AA-LCR": 58.7, "IFBench": 54.6, "Recruit-Bench": 63.3, "DeepResearch Bench II": 33.4, "ResearchRubrics": 44.8}}, {"id": "poolside/Laguna-S-2.1", "n": "Laguna-S-2.1", "u": "https://huggingface.co/poolside/Laguna-S-2.1", "p": 117.6, "kv": 6.07, "f": 31.5, "r": 22.5, "t": "2026-07-13", "moe": 1, "v": 0, "s": {"Terminal-Bench 2.1": 70.2, "SWE-bench Multilingual": 78.5, "SWE-bench Pro": 59.4, "DeepSWE": 40.4, "SWE Atlas": 46.2, "Toolathlon": 49.7}}, {"id": "deepseek-ai/DeepSeek-V4-Flash-DSpark", "n": "DeepSeek-V4-Flash-DSpark", "u": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark", "p": 284.0, "kv": 0.681, "f": 19.4, "r": 18.9, "t": "2026-06-27", "moe": 1, "v": 0, "s": {"MMLU-Pro": 86.2, "SimpleQA-Verified": 34.1, "Chinese-SimpleQA": 78.9, "GPQA Diamond": 88.1, "HLE": 45.1, "LiveCodeBench": 91.6, "Codeforces ELO": 3052, "HMMT Feb 2026": 94.8, "IMO AnswerBench": 88.4, "Apex": 33.0, "Apex Shortlist": 85.7, "MRCR": 78.7, "CorpusQA": 60.5, "Terminal-Bench 2.0": 56.9, "SWE-bench Verified": 79.0, "SWE-bench Pro": 52.6, "SWE-bench Multilingual": 73.3, "BrowseComp": 73.2, "MCP-Atlas": 69.0, "GDPval-AA": 1395, "Toolathlon": 47.8, "τ³-bench": 39.38}}, {"id": "Qwen/Qwen-AgentWorld-35B-A3B", "n": "Qwen-AgentWorld-35B-A3B", "u": "https://huggingface.co/Qwen/Qwen-AgentWorld-35B-A3B", "p": 34.7, "kv": 2.5, "f": 84.0, "r": 58.0, "t": "2026-06-22", "moe": 1, "v": 1, "s": {"AgentWorldBench": 65.92}}, {"id": "poolside/Laguna-XS-2.1", "n": "Laguna-XS-2.1", "u": "https://huggingface.co/poolside/Laguna-XS-2.1", "p": 33.4, "kv": 5.059, "f": 84.0, "r": 44.3, "t": "2026-06-20", "moe": 1, "v": 0, "s": {"SWE-bench Verified": 70.9, "SWE-bench Multilingual": 63.1, "SWE-bench Pro": 47.6, "Terminal-Bench 2.0": 37.5}}, {"id": "LiquidAI/LFM2.5-8B-A1B", "n": "LFM2.5-8B-A1B", "u": "https://huggingface.co/LiquidAI/LFM2.5-8B-A1B", "p": 8.5, "kv": 1.465, "f": 168.0, "r": 110.2, "t": "2026-05-28", "moe": 1, "v": 0, "s": {"AA-Omniscience Index": -24.7, "AA-Omniscience Accuracy": 8.67, "AA-Omniscience Non-Hallucination": 63.47, "IFEval": 91.84, "IFBench": 56.47, "Multi-IF": 79.93, "MATH500": 88.76, "AIME 2025": 42.53, "AIME 2026": 50.0, "BFCL v3": 64.79, "BFCL v4": 49.73, "τ²-bench": 88.07}}, {"id": "google/gemma-4-12B-it", "n": "gemma-4-12B-it", "u": "https://huggingface.co/google/gemma-4-12B-it", "p": 12.0, "kv": 2.312, "f": 21.0, "r": 19.3, "t": "2026-05-23", "moe": 0, "v": 1, "s": {"MMLU-Pro": 77.2, "AIME 2026": 77.5, "LiveCodeBench v6": 72.0, "Codeforces ELO": 1659, "GPQA Diamond": 78.8, "τ²-bench": 69.0, "HLE": 5.2, "BigBench Extra Hard": 53.0, "MMMLU": 83.4, "MMMU Pro": 69.1, "OmniDocBench 1.5": 0.164, "MathVision": 79.7, "MedXPertQA MM": 48.7, "CoVoST": 38.5, "FLEURS": 0.069, "MRCR v2": 43.4}}, {"id": "google/gemma-4-26B-A4B-it", "n": "gemma-4-26B-A4B-it", "u": "https://huggingface.co/google/gemma-4-26B-A4B-it", "p": 25.8, "kv": 2.695, "f": 66.3, "r": 49.0, "t": "2026-03-11", "moe": 1, "v": 1, "s": {"MMLU-Pro": 82.6, "AIME 2026": 88.3, "LiveCodeBench v6": 77.1, "Codeforces ELO": 1718, "GPQA Diamond": 82.3, "τ²-bench": 68.2, "HLE": 8.7, "BigBench Extra Hard": 64.8, "MMMLU": 86.3, "MMMU Pro": 73.8, "OmniDocBench 1.5": 0.149, "MathVision": 82.4, "MedXPertQA MM": 58.1, "MRCR v2": 44.1, "Terminal-Bench 2.1": 38.95, "Terminal-Bench Hard": 13.64, "Terminal-Bench 4": 0.0, "Terminal-Bench Science 0.1": 0.0, "SciCode": 40.05, "AA-LCR": 65.67, "IFBench": 72.45, "GDPval": 572.54, "GDP.pdf": 2.6, "AA-Omniscience Index": -52.03, "AA-Omniscience Accuracy": 18.4, "AA-Omniscience Non-Hallucination": 13.7, "AA-Briefcase 1.1": 318}}], "axes": [{"k": "params", "l": "Parameters (B)", "log": true, "g": "Model"}, {"k": "kv", "l": "KV cache @128K (GiB)", "log": true, "g": "Model"}, {"k": "f", "l": "Decode fresh (tok/s)", "log": false, "g": "Model"}, {"k": "r", "l": "Decode @128K (tok/s)", "log": false, "g": "Model"}, {"k": "t", "l": "Release date", "log": false, "g": "Model"}, {"k": "bench:ArtifactsBench", "l": "ArtifactsBench", "g": "Benchmark"}, {"k": "bench:BirdBench", "l": "BirdBench", "g": "Benchmark"}, {"k": "bench:Codeforces ELO", "l": "Codeforces ELO", "g": "Benchmark"}, {"k": "bench:DeepSWE", "l": "DeepSWE", "g": "Benchmark"}, {"k": "bench:DeepSWE 1.1", "l": "DeepSWE 1.1", "g": "Benchmark"}, {"k": "bench:FrontierCode 2.0", "l": "FrontierCode 2.0", "g": "Benchmark"}, {"k": "bench:LiveCodeBench Pro 25Q2", "l": "LiveCodeBench Pro 25Q2", "g": "Benchmark"}, {"k": "bench:LiveCodeBench v6", "l": "LiveCodeBench v6", "g": "Benchmark"}, {"k": "bench:NL2Repo-Bench", "l": "NL2Repo-Bench", "g": "Benchmark"}, {"k": "bench:ProgramBench", "l": "ProgramBench", "g": "Benchmark"}, {"k": "bench:SWE Atlas", "l": "SWE Atlas", "g": "Benchmark"}, {"k": "bench:SWE-MM", "l": "SWE-MM", "g": "Benchmark"}, {"k": "bench:SWE-bench Multilingual", "l": "SWE-bench Multilingual", "g": "Benchmark"}, {"k": "bench:SWE-bench Pro", "l": "SWE-bench Pro", "g": "Benchmark"}, {"k": "bench:SWE-bench Verified", "l": "SWE-bench Verified", "g": "Benchmark"}, {"k": "bench:SWebBench", "l": "SWebBench", "g": "Benchmark"}, {"k": "bench:SciCode", "l": "SciCode", "g": "Benchmark"}, {"k": "bench:Vision2Web", "l": "Vision2Web", "g": "Benchmark"}, {"k": "bench:Agents' Last Exam", "l": "Agents' Last Exam", "g": "Benchmark"}, {"k": "bench:AndroidWorld", "l": "AndroidWorld", "g": "Benchmark"}, {"k": "bench:Apex", "l": "Apex", "g": "Benchmark"}, {"k": "bench:Apex Shortlist", "l": "Apex Shortlist", "g": "Benchmark"}, {"k": "bench:AutomationBench", "l": "AutomationBench", "g": "Benchmark"}, {"k": "bench:BFCL v3", "l": "BFCL v3", "g": "Benchmark"}, {"k": "bench:BFCL v4", "l": "BFCL v4", "g": "Benchmark"}, {"k": "bench:BrowseComp", "l": "BrowseComp", "g": "Benchmark"}, {"k": "bench:BrowseComp-Plus", "l": "BrowseComp-Plus", "g": "Benchmark"}, {"k": "bench:BrowseComp-zh", "l": "BrowseComp-zh", "g": "Benchmark"}, {"k": "bench:Claw-Gym", "l": "Claw-Gym", "g": "Benchmark"}, {"k": "bench:ClawEval", "l": "ClawEval", "g": "Benchmark"}, {"k": "bench:ClawEval-MM", "l": "ClawEval-MM", "g": "Benchmark"}, {"k": "bench:CoWorkBench", "l": "CoWorkBench", "g": "Benchmark"}, {"k": "bench:DeepResearch Bench II", "l": "DeepResearch Bench II", "g": "Benchmark"}, {"k": "bench:DeepSearchQA", "l": "DeepSearchQA", "g": "Benchmark"}, {"k": "bench:EnterpriseOps-Gym", "l": "EnterpriseOps-Gym", "g": "Benchmark"}, {"k": "bench:GAIA", "l": "GAIA", "g": "Benchmark"}, {"k": "bench:GDPval", "l": "GDPval", "g": "Benchmark"}, {"k": "bench:GDPval-AA", "l": "GDPval-AA", "g": "Benchmark"}, {"k": "bench:GDPval-AA-V2", "l": "GDPval-AA-V2", "g": "Benchmark"}, {"k": "bench:GraphWalks", "l": "GraphWalks", "g": "Benchmark"}, {"k": "bench:GraphWalks Extend", "l": "GraphWalks Extend", "g": "Benchmark"}, {"k": "bench:JobBench", "l": "JobBench", "g": "Benchmark"}, {"k": "bench:LIFEbench", "l": "LIFEbench", "g": "Benchmark"}, {"k": "bench:LiveClaw", "l": "LiveClaw", "g": "Benchmark"}, {"k": "bench:MCP-Atlas", "l": "MCP-Atlas", "g": "Benchmark"}, {"k": "bench:OSWorld-Verified", "l": "OSWorld-Verified", "g": "Benchmark"}, {"k": "bench:PAgentBench", "l": "PAgentBench", "g": "Benchmark"}, {"k": "bench:PinchBench", "l": "PinchBench", "g": "Benchmark"}, {"k": "bench:ProfBench", "l": "ProfBench", "g": "Benchmark"}, {"k": "bench:RecreationBench", "l": "RecreationBench", "g": "Benchmark"}, {"k": "bench:SkillsBench", "l": "SkillsBench", "g": "Benchmark"}, {"k": "bench:Terminal-Bench 2.0", "l": "Terminal-Bench 2.0", "g": "Benchmark"}, {"k": "bench:Terminal-Bench 2.1", "l": "Terminal-Bench 2.1", "g": "Benchmark"}, {"k": "bench:Terminal-Bench 4", "l": "Terminal-Bench 4", "g": "Benchmark"}, {"k": "bench:Terminal-Bench Science 0.1", "l": "Terminal-Bench Science 0.1", "g": "Benchmark"}, {"k": "bench:ToolSandbox", "l": "ToolSandbox", "g": "Benchmark"}, {"k": "bench:Toolathlon", "l": "Toolathlon", "g": "Benchmark"}, {"k": "bench:Toolathlon-Verified", "l": "Toolathlon-Verified", "g": "Benchmark"}, {"k": "bench:VitaBench", "l": "VitaBench", "g": "Benchmark"}, {"k": "bench:VitaBench2.0", "l": "VitaBench2.0", "g": "Benchmark"}, {"k": "bench:WebArena-Verified", "l": "WebArena-Verified", "g": "Benchmark"}, {"k": "bench:WideSearch", "l": "WideSearch", "g": "Benchmark"}, {"k": "bench:WildClawBench", "l": "WildClawBench", "g": "Benchmark"}, {"k": "bench:τ²-bench", "l": "τ²-bench", "g": "Benchmark"}, {"k": "bench:τ³-bench", "l": "τ³-bench", "g": "Benchmark"}, {"k": "bench:AIME 2025", "l": "AIME 2025", "g": "Benchmark"}, {"k": "bench:AIME 2026", "l": "AIME 2026", "g": "Benchmark"}, {"k": "bench:BeyondAIME", "l": "BeyondAIME", "g": "Benchmark"}, {"k": "bench:CritPt", "l": "CritPt", "g": "Benchmark"}, {"k": "bench:Gaokao 2026", "l": "Gaokao 2026", "g": "Benchmark"}, {"k": "bench:HMMT Feb 2025", "l": "HMMT Feb 2025", "g": "Benchmark"}, {"k": "bench:HMMT Feb 2026", "l": "HMMT Feb 2026", "g": "Benchmark"}, {"k": "bench:IMO AnswerBench", "l": "IMO AnswerBench", "g": "Benchmark"}, {"k": "bench:MATH500", "l": "MATH500", "g": "Benchmark"}, {"k": "bench:MGSM", "l": "MGSM", "g": "Benchmark"}, {"k": "bench:AA-Briefcase 1.1", "l": "AA-Briefcase 1.1", "g": "Benchmark"}, {"k": "bench:AA-Omniscience Accuracy", "l": "AA-Omniscience Accuracy", "g": "Benchmark"}, {"k": "bench:AA-Omniscience Index", "l": "AA-Omniscience Index", "g": "Benchmark"}, {"k": "bench:AA-Omniscience Non-Hallucination", "l": "AA-Omniscience Non-Hallucination", "g": "Benchmark"}, {"k": "bench:ARC-AGI v1", "l": "ARC-AGI v1", "g": "Benchmark"}, {"k": "bench:ARC-AGI v2", "l": "ARC-AGI v2", "g": "Benchmark"}, {"k": "bench:BigBench Extra Hard", "l": "BigBench Extra Hard", "g": "Benchmark"}, {"k": "bench:C-Eval", "l": "C-Eval", "g": "Benchmark"}, {"k": "bench:CMMLU", "l": "CMMLU", "g": "Benchmark"}, {"k": "bench:GPQA Diamond", "l": "GPQA Diamond", "g": "Benchmark"}, {"k": "bench:HLE", "l": "HLE", "g": "Benchmark"}, {"k": "bench:MMLU", "l": "MMLU", "g": "Benchmark"}, {"k": "bench:MMLU-Pro", "l": "MMLU-Pro", "g": "Benchmark"}, {"k": "bench:MMLU-ProX lite", "l": "MMLU-ProX lite", "g": "Benchmark"}, {"k": "bench:MMLU-Redux", "l": "MMLU-Redux", "g": "Benchmark"}, {"k": "bench:MMMLU", "l": "MMMLU", "g": "Benchmark"}, {"k": "bench:MultiChallenge", "l": "MultiChallenge", "g": "Benchmark"}, {"k": "bench:Office-QA-Pro", "l": "Office-QA-Pro", "g": "Benchmark"}, {"k": "bench:SuperGPQA", "l": "SuperGPQA", "g": "Benchmark"}, {"k": "bench:BabyVision", "l": "BabyVision", "g": "Benchmark"}, {"k": "bench:CharXiv", "l": "CharXiv", "g": "Benchmark"}, {"k": "bench:ERQA", "l": "ERQA", "g": "Benchmark"}, {"k": "bench:GDP.pdf", "l": "GDP.pdf", "g": "Benchmark"}, {"k": "bench:MMMU Pro", "l": "MMMU Pro", "g": "Benchmark"}, {"k": "bench:MathVision", "l": "MathVision", "g": "Benchmark"}, {"k": "bench:MedXPertQA MM", "l": "MedXPertQA MM", "g": "Benchmark"}, {"k": "bench:OCRBench 2", "l": "OCRBench 2", "g": "Benchmark"}, {"k": "bench:OmniDocBench 1.5", "l": "OmniDocBench 1.5", "g": "Benchmark"}, {"k": "bench:OmniDocBench 1.6", "l": "OmniDocBench 1.6", "g": "Benchmark"}, {"k": "bench:RealWorldQA", "l": "RealWorldQA", "g": "Benchmark"}, {"k": "bench:ScreenSpot Pro", "l": "ScreenSpot Pro", "g": "Benchmark"}, {"k": "bench:ZeroBench", "l": "ZeroBench", "g": "Benchmark"}, {"k": "bench:Arena-Hard-V2", "l": "Arena-Hard-V2", "g": "Benchmark"}, {"k": "bench:IFBench", "l": "IFBench", "g": "Benchmark"}, {"k": "bench:IFEval", "l": "IFEval", "g": "Benchmark"}, {"k": "bench:Multi-IF", "l": "Multi-IF", "g": "Benchmark"}, {"k": "bench:AA-LCR", "l": "AA-LCR", "g": "Benchmark"}, {"k": "bench:LongBench-v2", "l": "LongBench-v2", "g": "Benchmark"}, {"k": "bench:LongBenchPro", "l": "LongBenchPro", "g": "Benchmark"}, {"k": "bench:MRCR", "l": "MRCR", "g": "Benchmark"}, {"k": "bench:MRCR v2", "l": "MRCR v2", "g": "Benchmark"}, {"k": "bench:RULER", "l": "RULER", "g": "Benchmark"}], "presets": [{"id": "b-gpqa-diamond", "l": "GPQA Diamond", "x": "params", "y": "bench:GPQA Diamond", "note": "Score on GPQA Diamond against model size. Top-left is the sweet spot: a high score on few parameters. Hover a point for its values; click to open the model card."}, {"id": "b-terminal-bench-2-1", "l": "Terminal-Bench 2.1", "x": "params", "y": "bench:Terminal-Bench 2.1", "note": "Score on Terminal-Bench 2.1 against model size. Top-left is the sweet spot: a high score on few parameters. Hover a point for its values; click to open the model card."}, {"id": "b-hle", "l": "HLE", "x": "params", "y": "bench:HLE", "note": "Score on HLE against model size. Top-left is the sweet spot: a high score on few parameters. Hover a point for its values; click to open the model card."}, {"id": "b-ifbench", "l": "IFBench", "x": "params", "y": "bench:IFBench", "note": "Score on IFBench against model size. Top-left is the sweet spot: a high score on few parameters. Hover a point for its values; click to open the model card."}, {"id": "kv", "l": "KV @128K", "x": "params", "y": "kv", "note": "KV-cache size against total model size. Bottom-left is the cheap-context corner: a small model that holds a long context in little VRAM. The shaded top-left corner is the one to avoid: a big KV cost on a small model."}, {"id": "speed", "l": "Speed", "x": "params", "y": "r", "note": "Estimated single-stream decode speed at 128K context against total model size (one RTX 4090 at half its 1008 GB/s bandwidth). Top-left is the sweet spot: high long-context throughput on few parameters. MoE models sit left of dense peers of the same size because only their active parameters are streamed."}]};
+ var wrap=document.getElementById('scwrap'),box=document.getElementById('scbox'),
+     tip=document.getElementById('sctip'),note=document.getElementById('scnote'),
+     cnt=document.getElementById('sccount'),tbl=document.getElementById('sctable'),
+     tblBtn=document.getElementById('sc-table-btn'),
+     custom=document.getElementById('sc-custom'),selX=document.getElementById('sc-x'),
+     selY=document.getElementById('sc-y'),
+     tabs=[].slice.call(document.querySelectorAll('.sc-tabs button'));
+ if(!box)return;
+ var mode=SC.presets.length?SC.presets[0].id:'custom';
+ var pts=[],hot=-1,geo=null,lastW=0;
+
+ function esc(s){return String(s).replace(/[&<>"]/g,function(c){
+   return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+ function isNum(v){return typeof v==='number'&&isFinite(v);}
+ function r1(v){return Math.round(v*10)/10;}
+ function val(m,k){
+   if(k==='params')return isNum(m.p)?m.p:null;
+   if(k==='kv')return isNum(m.kv)?m.kv:null;
+   if(k==='f')return isNum(m.f)?m.f:null;
+   if(k==='r')return isNum(m.r)?m.r:null;
+   if(k==='t')return m.t?Date.parse(m.t+'T00:00:00Z'):null;
+   if(k.indexOf('bench:')===0){var v=m.s[k.slice(6)];return isNum(v)?v:null;}
+   return null;
+ }
+ function meta(k){
+   for(var i=0;i<SC.axes.length;i++){if(SC.axes[i].k===k)return SC.axes[i];}
+   return {k:k,l:k};
+ }
+ function label(k){return meta(k).l||k;}
+ function title(k){
+   var m=meta(k);
+   if(!m.log)return m.l;
+   if(m.l.charAt(m.l.length-1)===')')return m.l.slice(0,-1)+', log)';
+   return m.l+' (log)';
+ }
+
+ function visible(){
+   var f=window.TL_FILTER||{},out=[],i,m,
+       mn=isNum(f.mn)?f.mn:-Infinity,mx=isNum(f.mx)?f.mx:Infinity;
+   for(i=0;i<SC.models.length;i++){
+     m=SC.models[i];
+     if(!isNum(m.p)||m.p<mn||m.p>mx)continue;
+     if(f.moe&&!m.moe)continue;
+     if(f.vis&&!m.v)continue;
+     out.push(m);
+   }
+   return out;
+ }
+ function spec(){
+   for(var i=0;i<SC.presets.length;i++){
+     var p=SC.presets[i];
+     if(p.id===mode)return {x:p.x,y:p.y,note:p.note||'',preset:true};
+   }
+   return {x:(selX&&selX.value)||'params',y:(selY&&selY.value)||'kv',note:'',preset:false};
+ }
+ function pad(lo,hi,log){
+   if(lo===hi){
+     if(log){return [lo/1.4,hi*1.4];}
+     var d=Math.abs(lo)*0.08||1;return [lo-d,hi+d];
+   }
+   if(log){var f=Math.pow(hi/lo,0.05);return [lo/f,hi*f];}
+   var p=(hi-lo)*0.06;return [lo-p,hi+p];
+ }
+ function linTicks(lo,hi){
+   var span=hi-lo||1,raw=span/5,mag=Math.pow(10,Math.floor(Math.log10(raw))),
+       n=raw/mag,step=(n<=1?1:n<=2?2:n<=2.5?2.5:n<=5?5:10)*mag,
+       t=[],v=Math.ceil(lo/step-1e-9)*step;
+   while(v<=hi+1e-9){if(v>=lo-1e-9)t.push(v);v+=step;}
+   return t;
+ }
+ function logTicks(lo,hi){
+   var t=[],e0=Math.floor(Math.log10(lo)),e1=Math.ceil(Math.log10(hi)),e,j,v,ms=[1,2,5];
+   for(e=e0;e<=e1;e++){
+     for(j=0;j<3;j++){
+       v=ms[j]*Math.pow(10,e);
+       if(v>=lo*0.999&&v<=hi*1.001)t.push(v);
+     }
+   }
+   while(t.length>8)t=t.filter(function(_,i){return i%2===0;});
+   return t;
+ }
+ function monthTicks(lo,hi){
+   var d=new Date(lo),t=[];
+   d=new Date(Date.UTC(d.getUTCFullYear(),d.getUTCMonth(),1));
+   while(d.getTime()<lo)d=new Date(Date.UTC(d.getUTCFullYear(),d.getUTCMonth()+1,1));
+   while(d.getTime()<=hi){
+     t.push(d.getTime());
+     d=new Date(Date.UTC(d.getUTCFullYear(),d.getUTCMonth()+1,1));
+   }
+   while(t.length>7)t=t.filter(function(_,i){return i%2===0;});
+   return t;
+ }
+ function ticks(k,lo,hi,log){
+   if(meta(k).date)return monthTicks(lo,hi);
+   return log?logTicks(lo,hi):linTicks(lo,hi);
+ }
+ function fmt(k,v){
+   if(meta(k).date){
+     var d=new Date(v);return isNaN(d.getTime())?'':d.toISOString().slice(0,10);
+   }
+   if(Math.abs(v)>=100)return String(Math.round(v));
+   return String(r1(v));
+ }
+
+ /* Labels are placed after the SVG is in the DOM: it is the only way to get a real
+    text width. Each label takes the first free slot around its dot, or is dropped. */
+ function placeLabels(svg){
+   var narrow=(svg.clientWidth||900)<560;
+   var gs=[].slice.call(svg.querySelectorAll('.sc-pt'));
+   var cs=gs.map(function(g){
+     var c=g.querySelector('circle');
+     return {x:+c.getAttribute('cx'),y:+c.getAttribute('cy')};
+   });
+   var boxes=cs.map(function(p){return {x:p.x-5,y:p.y-5,w:10,h:10};});
+   gs.forEach(function(g,i){
+     var t=g.querySelector('text');
+     if(narrow){t.style.display='none';return;}
+     var w=0;
+     try{w=t.getComputedTextLength();}catch(e){}
+     if(!w)w=52;
+     var h=10.5,p=cs[i],
+         cands=[[8,-4],[8,-17],[8,9],[-8-w,-4],[-8-w,-17],[-8-w,9],[8,-30],[8,22]];
+     for(var k=0;k<cands.length;k++){
+       var bx=p.x+cands[k][0],by=p.y+cands[k][1];
+       if(bx<geo.L+2||bx+w>geo.L+geo.w-2||by<geo.T+2||by+h>geo.T+geo.h-2)continue;
+       var b={x:bx,y:by,w:w,h:h},hit=false;
+       for(var j=0;j<boxes.length;j++){
+         var o=boxes[j];
+         if(b.x<o.x+o.w&&b.x+b.w>o.x&&b.y<o.y+o.h&&b.y+b.h>o.y){hit=true;break;}
+       }
+       if(!hit){
+         boxes.push(b);
+         t.setAttribute('x',r1(bx));
+         t.setAttribute('y',r1(by+9));
+         return;
+       }
+     }
+     t.style.display='none';
+   });
+ }
+
+ function hideTip(){
+   hot=-1;
+   if(tip)tip.classList.remove('on');
+   var gs=box.querySelectorAll('.sc-pt');
+   for(var i=0;i<gs.length;i++)gs[i].classList.remove('hot');
+ }
+
+ function render(){
+   if(!box)return;
+   if(tip)tip.classList.remove('on');
+   hot=-1;
+   lastW=box.clientWidth||760;
+   var sp=spec();
+   if(note){
+     note.textContent=sp.preset&&sp.note?sp.note:
+       'Any two metrics, plotted against each other. Hover a point for its values; click to '+
+       'open the model card.';
+   }
+   var ms=visible(),i;
+   pts=[];
+   for(i=0;i<ms.length;i++){
+     var xv=val(ms[i],sp.x),yv=val(ms[i],sp.y);
+     if(xv!==null&&yv!==null)pts.push({m:ms[i],x:xv,y:yv});
+   }
+   if(cnt)cnt.textContent=pts.length+' of '+ms.length+' models in view have both values';
+   if(!pts.length){
+     box.innerHTML='<p class="sc-empty">No model in this range reports both <b>'+esc(label(sp.x))+
+       '</b> and <b>'+esc(label(sp.y))+'</b>.</p>';
+     if(tbl)tbl.innerHTML='';
+     return;
+   }
+   var W=Math.max(300,box.clientWidth||760),
+       H=Math.round(Math.min(520,Math.max(300,W*0.58))),
+       L=54,R=16,T=16,B=44,
+       w=W-L-R,h=H-T-B;
+   geo={L:L,T:T,w:w,h:h};
+   var xm=meta(sp.x),ym=meta(sp.y),
+       xl=Infinity,xh=-Infinity,yl=Infinity,yh=-Infinity;
+   for(i=0;i<pts.length;i++){
+     if(pts[i].x<xl)xl=pts[i].x;
+     if(pts[i].x>xh)xh=pts[i].x;
+     if(pts[i].y<yl)yl=pts[i].y;
+     if(pts[i].y>yh)yh=pts[i].y;
+   }
+   var xlog=!!xm.log&&xl>0,ylog=!!ym.log&&yl>0,
+       xd=pad(xl,xh,xlog),yd=pad(yl,yh,ylog);
+   var lx=Math.log(xd[1]/xd[0])||1,ly=Math.log(yd[1]/yd[0])||1;
+   function X(v){return xlog?L+w*(Math.log(v/xd[0])/lx):L+w*(v-xd[0])/(xd[1]-xd[0]);}
+   function Y(v){return ylog?T+h-h*(Math.log(v/yd[0])/ly):T+h-h*(v-yd[0])/(yd[1]-yd[0]);}
+   var xt=ticks(sp.x,xd[0],xd[1],xlog),yt=ticks(sp.y,yd[0],yd[1],ylog);
+   var p=[];
+   p.push('<svg viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'" role="img" '+
+          'aria-labelledby="sc-title sc-desc">');
+   p.push('<title id="sc-title">'+esc(label(sp.y))+' vs '+esc(label(sp.x))+'</title>');
+   p.push('<desc id="sc-desc">Scatter plot of '+pts.length+' models. '+
+          esc(title(sp.y))+' against '+esc(title(sp.x))+'.</desc>');
+   /* Params x -> the top-left corner is either the sweet spot (high score, few
+      parameters) or the place to avoid (a small model with a big KV cache). */
+   var glow=sp.x==='params'?(sp.y==='kv'?'warn':'good'):null;
+   if(glow){
+     p.push('<defs><radialGradient id="sc-glow" cx="0" cy="0" r="1">'+
+            '<stop offset="0" class="g-'+glow+'"/>'+
+            '<stop offset="1" class="g-'+glow+' e"/></radialGradient></defs>');
+     p.push('<rect x="'+L+'" y="'+T+'" width="'+w+'" height="'+h+
+            '" fill="url(#sc-glow)" pointer-events="none"/>');
+   }
+   var g=[];
+   xt.forEach(function(v){var x=r1(X(v));
+     g.push('<line x1="'+x+'" y1="'+T+'" x2="'+x+'" y2="'+r1(T+h)+'"/>');});
+   yt.forEach(function(v){var y=r1(Y(v));
+     g.push('<line x1="'+L+'" y1="'+y+'" x2="'+r1(L+w)+'" y2="'+y+'"/>');});
+   p.push('<g class="sc-grid">'+g.join('')+'</g>');
+   var t=[];
+   xt.forEach(function(v){
+     t.push('<text x="'+r1(X(v))+'" y="'+(T+h+17)+'" text-anchor="middle">'+
+            esc(fmt(sp.x,v))+'</text>');
+   });
+   yt.forEach(function(v){
+     t.push('<text x="'+(L-8)+'" y="'+r1(Y(v)+4)+'" text-anchor="end">'+
+            esc(fmt(sp.y,v))+'</text>');
+   });
+   p.push('<g class="sc-tick">'+t.join('')+'</g>');
+   p.push('<text class="sc-axis-title" x="'+r1(L+w/2)+'" y="'+(H-8)+
+          '" text-anchor="middle">'+esc(title(sp.x))+'</text>');
+   p.push('<text class="sc-axis-title" transform="translate(14 '+r1(T+h/2)+
+          ') rotate(-90)" text-anchor="middle">'+esc(title(sp.y))+'</text>');
+   var d=[];
+   pts.forEach(function(pt,i){
+     pt.px=r1(X(pt.x));
+     pt.py=r1(Y(pt.y));
+     d.push('<g class="sc-pt" data-i="'+i+'"><circle cx="'+pt.px+'" cy="'+pt.py+
+            '" r="5"/><text x="'+pt.px+'" y="'+r1(pt.py-9)+'">'+esc(pt.m.n)+
+            '</text></g>');
+   });
+   p.push('<g class="sc-dots">'+d.join('')+'</g></svg>');
+   box.innerHTML=p.join('');
+   var svg=box.querySelector('svg');
+   placeLabels(svg);
+   wire(svg,W,H);
+   buildTable(sp);
+ }
+
+ function wire(svg,W,H){
+   function nearest(e){
+     var r=svg.getBoundingClientRect();
+     if(!r.width)return -1;
+     var k=W/r.width,px=(e.clientX-r.left)*k,py=(e.clientY-r.top)*k,
+         best=-1,bd=1e9,i,dx,dy,dd;
+     for(i=0;i<pts.length;i++){
+       dx=pts[i].px-px;
+       dy=pts[i].py-py;
+       dd=dx*dx+dy*dy;
+       if(dd<bd){bd=dd;best=i;}
+     }
+     return bd<=196?best:-1;
+   }
+   function show(i,e){
+     hot=i;
+     var gs=box.querySelectorAll('.sc-pt');
+     for(var j=0;j<gs.length;j++)gs[j].classList.toggle('hot',j===i);
+     var pt=pts[i];
+     tip.innerHTML='<b>'+esc(pt.m.n)+'</b><br>'+esc(label(specY()))+': '+esc(fmt(specY(),pt.y))+
+       '<br>'+esc(label(specX()))+': '+esc(fmt(specX(),pt.x));
+     tip.classList.add('on');
+     var r=wrap.getBoundingClientRect();
+     var tw=tip.offsetWidth||170,th=tip.offsetHeight||46,
+         tx=e.clientX-r.left+14,ty=e.clientY-r.top+14;
+     if(tx+tw>r.width-6)tx=e.clientX-r.left-tw-14;
+     if(ty+th>r.height-6)ty=e.clientY-r.top-th-14;
+     tip.style.left=Math.max(4,tx)+'px';
+     tip.style.top=Math.max(4,ty)+'px';
+   }
+   svg.addEventListener('pointermove',function(e){
+     var i=nearest(e);
+     if(i<0){hideTip();return;}
+     show(i,e);
+   });
+   svg.addEventListener('pointerdown',function(e){
+     var i=nearest(e);if(i>=0)show(i,e);
+   });
+   svg.addEventListener('pointerleave',hideTip);
+   svg.addEventListener('click',function(){
+     if(hot>=0&&pts[hot]&&pts[hot].m.u)window.open(pts[hot].m.u,'_blank','noopener');
+   });
+   svg.addEventListener('keydown',function(e){
+     if(e.key==='Escape')hideTip();
+   });
+ }
+
+ function specX(){var s=spec();return s.x;}
+ function specY(){var s=spec();return s.y;}
+
+ function buildTable(sp){
+   if(!tbl)return;
+   var rows=pts.slice().sort(function(a,b){return b.y-a.y;}),h=[];
+   h.push('<div class="tbl-wrap" style="margin-top:12px"><table class="tbl"><thead><tr>'+
+          '<th>Model</th><th class="num">'+esc(title(sp.y))+'</th>'+
+          '<th class="num">'+esc(title(sp.x))+'</th></tr></thead><tbody>');
+   rows.forEach(function(pt){
+     h.push('<tr><td class="name"><a href="'+esc(pt.m.u)+'" target="_blank" rel="noopener">'+
+            esc(pt.m.n)+'</a></td><td class="num">'+esc(fmt(sp.y,pt.y))+
+            '</td><td class="num">'+esc(fmt(sp.x,pt.x))+'</td></tr>');
+   });
+   h.push('</tbody></table></div>');
+   tbl.innerHTML=h.join('');
+ }
+
+ if(tblBtn&&tbl){
+   tblBtn.addEventListener('click',function(){
+     var open=tbl.hidden;
+     tbl.hidden=!open;
+     tblBtn.setAttribute('aria-expanded',open?'true':'false');
+     tblBtn.textContent=open?'Hide table':'Show as table';
+   });
+ }
+ tabs.forEach(function(b){
+   b.addEventListener('click',function(){
+     mode=b.getAttribute('data-mode');
+     tabs.forEach(function(o){o.setAttribute('aria-selected',o===b?'true':'false');});
+     if(custom)custom.hidden=(mode!=='custom');
+     try{if(history.replaceState)history.replaceState(null,'','#'+mode);}catch(e){}
+     hideTip();
+     render();
+   });
+ });
+ [selX,selY].forEach(function(s){
+   if(s)s.addEventListener('change',function(){hideTip();render();});
+ });
+ /* Deep link: scatter.html#kv opens that preset, so a chart can be shared. */
+ (function(){
+   var h=(location.hash||'').slice(1),i,found=false;
+   if(!h)return;
+   for(i=0;i<SC.presets.length;i++){if(SC.presets[i].id===h)found=true;}
+   if(h!=='custom'&&!found)return;
+   mode=h;
+   tabs.forEach(function(b){
+     b.setAttribute('aria-selected',b.getAttribute('data-mode')===h?'true':'false');
+   });
+   if(custom)custom.hidden=(h!=='custom');
+ })();
+ window.TL_APPLY=render;
+ var rt=null;
+ window.addEventListener('resize',function(){
+   clearTimeout(rt);rt=setTimeout(function(){hideTip();render();},150);
+ });
+ render();
+ /* First paint can measure a pre-layout width (fonts, scrollbar); re-render once
+    if the real width differs, so label collisions are judged on the final box. */
+ requestAnimationFrame(function(){
+   var w=box.clientWidth||760;
+   if(Math.abs(w-lastW)>8)render();
+ });
+})();
+
+</script>
+</body>
+</html>

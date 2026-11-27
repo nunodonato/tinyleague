@@ -2,7 +2,8 @@
 
 > Benchmark scores for 45 recent small open-weight models (1.5B to 285B,
 > official weights only, current versions), with 117 benchmarks, a
-> sortable scores matrix, and each model's derived KV-cache cost at 128K tokens.
+> sortable scores matrix and scatter charts, and each model's derived KV-cache cost
+> at 128K tokens.
 
 Tiny League is a curated league table of benchmark scores for small open-weight
 language models. Scope: 1.5B to 285B total parameters, official developer-org
@@ -14,6 +15,8 @@ benchmarks as of 2026-11-27.
 - https://tinyleague.org/models.html: one row per model with parameters, active parameters, native
   context, license, release date and derived KV-cache size at 128K tokens.
 - https://tinyleague.org/matrix.html: models x benchmarks heatmap, filterable by parameter size.
+- https://tinyleague.org/scatter.html: scatter charts of any two metrics (benchmark score, parameters,
+  KV-cache cost, decode speed), filterable by parameter size.
 - https://tinyleague.org/benchmarks.html: every benchmark grouped by domain, with coverage and leader.
 - https://tinyleague.org/benchmarks/<slug>.html: one leaderboard per benchmark.
 - https://tinyleague.org/compare.html: side-by-side comparison of up to five models.

@@ -76,7 +76,8 @@ RULES = [
     ("Long context", ["ruler", "mrcr", "longbench", "aa-lcr"]),
     ("Instruction", ["ifeval", "ifbench", "multi-if", "arena-hard"]),
     ("Knowledge", ["gpqa", "mmlu", "hle", "arc-agi", "bigbench", "supergpqa", "c-eval",
-                   "cmmlu", "mmmlu", "aa-omniscience", "aa-briefcase", "multichallenge"]),
+                   "cmmlu", "mmmlu", "aa-omniscience", "aa-briefcase", "multichallenge",
+                   "office-qa", "officeqa"]),
 ]
 
 
@@ -227,6 +228,37 @@ def filter_bar():
 </div>"""
 
 
+NAV_JS = """
+(function(){
+ var nav=document.getElementById('nav'),mb=document.getElementById('menu');
+ if(!nav)return;
+ if(mb){mb.addEventListener('click',function(){
+   var o=nav.classList.toggle('open');
+   mb.setAttribute('aria-expanded',o?'true':'false');});}
+ var groups=[].slice.call(document.querySelectorAll('.navgrp'));
+ function close(g){var b=g.querySelector('.navbtn');
+   g.classList.remove('open');b.setAttribute('aria-expanded','false');}
+ function open(g){groups.forEach(function(o){if(o!==g)close(o);});
+   g.classList.add('open');g.querySelector('.navbtn').setAttribute('aria-expanded','true');}
+ var hover=window.matchMedia&&window.matchMedia('(hover:hover)').matches;
+ groups.forEach(function(g){
+   var b=g.querySelector('.navbtn'),t=null;
+   b.addEventListener('click',function(e){e.stopPropagation();
+     if(g.classList.contains('open'))close(g);else open(g);});
+   b.addEventListener('keydown',function(e){
+     if(e.key==='ArrowDown'){e.preventDefault();open(g);
+       var a=g.querySelector('.navmenu a');if(a)a.focus();}});
+   if(hover){
+     g.addEventListener('pointerenter',function(){clearTimeout(t);open(g);});
+     g.addEventListener('pointerleave',function(){clearTimeout(t);
+       t=setTimeout(function(){close(g);},170);});
+   }
+   g.addEventListener('keydown',function(e){if(e.key==='Escape'){close(g);b.focus();}});
+ });
+ document.addEventListener('click',function(){groups.forEach(close);});
+})();
+"""
+
 FILTER_JS = """
 (function(){
  var el={min:document.getElementById('fmin'),max:document.getElementById('fmax'),
@@ -287,9 +319,42 @@ document.documentElement.dataset.themeMode=next;paint();});
 paint();})();
 """
 
+# A section is ("key", "Label", "page.html") — or a group, where the href is a list
+# of sub-views [("key", "Label", "page.html"), ...]. Groups render as a dropdown, so
+# adding a view (e.g. a radar chart) is one entry in the list.
 NAV = [("home", "Home", "index.html"), ("models", "Models", "models.html"),
-       ("scores", "Scores", "matrix.html"), ("bench", "Benchmarks", "benchmarks.html"),
+       ("scores", "Scores", [("table", "Matrix", "matrix.html"),
+                             ("scatter", "Scatter", "scatter.html")]),
+       ("bench", "Benchmarks", "benchmarks.html"),
        ("compare", "Compare", "compare.html"), ("about", "About", "about.html")]
+
+CARET = ('<svg class="caret" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">'
+         '<path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6" '
+         'stroke-linecap="round" stroke-linejoin="round"/></svg>')
+
+
+def nav_html(nav, up):
+    out = []
+    for item in NAV:
+        key, label, href = item
+        if isinstance(href, list):
+            cur = any(k == nav for k, _l, _h in href)
+            subs = "".join(
+                '<a role="menuitem" href="%s%s"%s>%s</a>'
+                % (up, h, ' aria-current="page"' if k == nav else "", esc(l))
+                for k, l, h in href
+            )
+            out.append(
+                '<div class="navgrp">'
+                '<button class="navbtn%s" type="button" aria-expanded="false" '
+                'aria-haspopup="true" aria-controls="navmenu-%s">%s%s</button>'
+                '<div class="navmenu" id="navmenu-%s" role="menu">%s</div>'
+                '</div>' % (" on" if cur else "", key, esc(label), CARET, key, subs)
+            )
+        else:
+            out.append('<a href="%s%s"%s>%s</a>' % (
+                up, href, ' aria-current="page"' if key == nav else "", esc(label)))
+    return "".join(out)
 
 GH_MARK = ('<svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true">'
            '<path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 '
@@ -307,13 +372,18 @@ DISCORD_MARK = ('<svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="tr
                 '<path fill="currentColor" d="%s"/></svg>' % gh.DISCORD_LOGO)
 
 
+def views_html(cur):
+    """Segmented switch between the score views (tabs on the pages themselves)."""
+    items = [("table", "Matrix", "matrix.html"), ("scatter", "Scatter", "scatter.html")]
+    return '<nav class="views" aria-label="Score view">' + "".join(
+        '<a href="%s"%s>%s</a>' % (h, ' aria-current="page"' if k == cur else "", l)
+        for k, l, h in items) + "</nav>"
+
+
 def layout(title, body, nav, depth=0, script="", desc="", path="index.html"):
     up = "../" * depth
     canon = SITE if path == "index.html" else SITE + path
-    links = "".join(
-        '<a href="%s%s"%s>%s</a>' % (up, href, ' aria-current="page"' if key == nav else "", label)
-        for key, label, href in NAV
-    )
+    links = nav_html(nav, up)
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -364,6 +434,7 @@ def layout(title, body, nav, depth=0, script="", desc="", path="index.html"):
   <span>{len(MODELS)} models · {len(BENCHES)} benchmarks · <a href="{REPO}" target="_blank" rel="noopener">source</a> · <a href="{DISCORD}" target="_blank" rel="noopener">Discord</a> · <a href="{SITE}feed.xml">RSS</a></span>
 </div></footer>
 <script>{TOGGLE_JS}
+{NAV_JS}
 {FILTER_JS}
 {script}
 </script>
@@ -425,7 +496,8 @@ that fit your hardware.</p>
   <a class="card" href="matrix.html">
     <span class="kicker">Scores</span>
     <h3>Matrix</h3>
-    <p>Every model against every benchmark at a glance — the fastest way to see who leads where.</p>
+    <p>Every model against every benchmark at a glance — or plot any two metrics against
+    each other in the scatter view.</p>
     <p class="arrow">Open the matrix →</p>
   </a>
   <a class="card" href="benchmarks.html">
@@ -827,6 +899,7 @@ def page_matrix():
                    for d in DOMAIN_ORDER if BY_DOMAIN.get(d))
     body = f"""
 <h1>Scores</h1>
+{views_html("table")}
 <p class="lede">Every model against every benchmark. Colour is scaled within each column
 across the models currently shown, so a filtered view still reads. Click a column name to
 rank the models by it; the ↗ opens that benchmark's leaderboard.</p>
@@ -901,8 +974,473 @@ rank the models by it; the ↗ opens that benchmark's leaderboard.</p>
  applyAll();
 })();
 """
-    return layout("Scores — Tiny League", body, "scores", script=js,
+    return layout("Scores — Tiny League", body, "table", script=js,
                   desc="Every benchmark score in one matrix, filterable by model size.", path="matrix.html")
+
+
+SCATTER_PRESETS = ["GPQA Diamond", "Terminal-Bench 2.1", "HLE", "IFBench"]
+SCATTER_AXES = [("params", "Parameters (B)", True), ("kv", "KV cache @128K (GiB)", True),
+                ("f", "Decode fresh (tok/s)", False), ("r", "Decode @128K (tok/s)", False),
+                ("t", "Release date", False)]
+
+
+def scatter_payload():
+    models = []
+    for m in MODELS:
+        mid = m["model_id"]
+        kvb = m.get("kv_cache") or {}
+        pf = m.get("perf") or {}
+        models.append({
+            "id": mid,
+            "n": model_name(m),
+            "u": m.get("hf_url") or "",
+            "p": m.get("param_count_b"),
+            "kv": kvb.get("gib_at_ref_ctx"),
+            "f": pf.get("decode_tok_s_fresh"),
+            "r": pf.get("decode_tok_s_at_ref_ctx"),
+            "t": m.get("official_release_date"),
+            "moe": 1 if mtype(m) == "moe" else 0,
+            "v": 1 if m.get("supports_vision") else 0,
+            "s": {b: SCORES[mid][b]["score"] for b in SCORES.get(mid, {})},
+        })
+    axes = [{"k": k, "l": l, "log": lg, "g": "Model"} for k, l, lg in SCATTER_AXES]
+    for b in sorted(BENCHES, key=lambda x: (DOMAIN_ORDER.index(DOMAIN_OF[x]), x)):
+        axes.append({"k": "bench:" + b, "l": b, "g": "Benchmark"})
+    presets = []
+    for b in SCATTER_PRESETS:
+        if COV.get(b, 0) < 2:
+            continue
+        presets.append({
+            "id": "b-" + BENCH_SLUG[b], "l": b, "x": "params", "y": "bench:" + b,
+            "note": "Score on %s against model size. Top-left is the sweet spot: a high score "
+                    "on few parameters. Hover a point for its values; click to open the model "
+                    "card." % b,
+        })
+    presets.append({
+        "id": "kv", "l": "KV @128K", "x": "params", "y": "kv",
+        "note": "KV-cache size against total model size. Bottom-left is the cheap-context "
+                "corner: a small model that holds a long context in little VRAM. The shaded "
+                "top-left corner is the one to avoid: a big KV cost on a small model.",
+    })
+    presets.append({
+        "id": "speed", "l": "Speed", "x": "params", "y": "r",
+        "note": "Estimated single-stream decode speed at 128K context against total model "
+                "size (one RTX 4090 at half its 1008 GB/s bandwidth). Top-left is the sweet "
+                "spot: high long-context throughput on few parameters. MoE models sit left of "
+                "dense peers of the same size because only their active parameters are "
+                "streamed.",
+    })
+    return {"models": models, "axes": axes, "presets": presets}
+
+
+def axis_select(sel_id, default_key, axes):
+    groups = {}
+    for a in axes:
+        groups.setdefault(a["g"], []).append(a)
+    out = []
+    for gname in ("Model", "Benchmark"):
+        out.append('<optgroup label="%s">' % gname)
+        for a in groups.get(gname, []):
+            out.append('<option value="%s"%s>%s</option>'
+                       % (esc(a["k"]), " selected" if a["k"] == default_key else "",
+                          esc(a["l"])))
+        out.append("</optgroup>")
+    return '<select class="select" id="%s">%s</select>' % (sel_id, "".join(out))
+
+
+def page_scatter():
+    payload = scatter_payload()
+    tabs = "".join(
+        '<button type="button" role="tab" aria-selected="%s" data-mode="%s">%s</button>'
+        % ("true" if i == 0 else "false", esc(p["id"]), esc(p["l"]))
+        for i, p in enumerate(payload["presets"])
+    ) + ('<button type="button" role="tab" aria-selected="false" data-mode="custom">'
+         'Custom</button>')
+    default_y = "bench:" + SCATTER_PRESETS[0] if COV.get(SCATTER_PRESETS[0], 0) >= 2 else "kv"
+    body = f"""
+<h1>Scores</h1>
+{views_html("scatter")}
+<p class="lede">One metric against another — benchmark scores, parameters, KV-cache cost and
+decode speed. The filters apply, so the chart always shows the models in view. Hover a point
+for its values; click it to open the model card.</p>
+{filter_bar()}
+<div class="sc-tabs" role="tablist" aria-label="Chart preset">{tabs}</div>
+<div class="sc-custom" id="sc-custom" hidden>
+  <label>X axis {axis_select("sc-x", "params", payload["axes"])}</label>
+  <label>Y axis {axis_select("sc-y", default_y, payload["axes"])}</label>
+</div>
+<div class="sc-wrap" id="scwrap"><div class="sc-tip" id="sctip"></div><div id="scbox"></div></div>
+<p class="sc-note" id="scnote"></p>
+<div class="sc-foot">
+  <span class="count" id="sccount"></span>
+  <button type="button" id="sc-table-btn" aria-expanded="false" aria-controls="sctable">Show as table</button>
+</div>
+<div id="sctable" hidden></div>
+"""
+    js = SCATTER_JS.replace("__SC__", json.dumps(payload, ensure_ascii=False))
+    return layout("Scatter — Tiny League", body, "scatter", script=js,
+                  desc="Scatter charts of any two metrics: benchmark scores, parameters, "
+                       "KV-cache cost and decode speed.", path="scatter.html")
+
+
+SCATTER_JS = """
+(function(){
+ var SC=__SC__;
+ var wrap=document.getElementById('scwrap'),box=document.getElementById('scbox'),
+     tip=document.getElementById('sctip'),note=document.getElementById('scnote'),
+     cnt=document.getElementById('sccount'),tbl=document.getElementById('sctable'),
+     tblBtn=document.getElementById('sc-table-btn'),
+     custom=document.getElementById('sc-custom'),selX=document.getElementById('sc-x'),
+     selY=document.getElementById('sc-y'),
+     tabs=[].slice.call(document.querySelectorAll('.sc-tabs button'));
+ if(!box)return;
+ var mode=SC.presets.length?SC.presets[0].id:'custom';
+ var pts=[],hot=-1,geo=null,lastW=0;
+
+ function esc(s){return String(s).replace(/[&<>"]/g,function(c){
+   return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+ function isNum(v){return typeof v==='number'&&isFinite(v);}
+ function r1(v){return Math.round(v*10)/10;}
+ function val(m,k){
+   if(k==='params')return isNum(m.p)?m.p:null;
+   if(k==='kv')return isNum(m.kv)?m.kv:null;
+   if(k==='f')return isNum(m.f)?m.f:null;
+   if(k==='r')return isNum(m.r)?m.r:null;
+   if(k==='t')return m.t?Date.parse(m.t+'T00:00:00Z'):null;
+   if(k.indexOf('bench:')===0){var v=m.s[k.slice(6)];return isNum(v)?v:null;}
+   return null;
+ }
+ function meta(k){
+   for(var i=0;i<SC.axes.length;i++){if(SC.axes[i].k===k)return SC.axes[i];}
+   return {k:k,l:k};
+ }
+ function label(k){return meta(k).l||k;}
+ function title(k){
+   var m=meta(k);
+   if(!m.log)return m.l;
+   if(m.l.charAt(m.l.length-1)===')')return m.l.slice(0,-1)+', log)';
+   return m.l+' (log)';
+ }
+
+ function visible(){
+   var f=window.TL_FILTER||{},out=[],i,m,
+       mn=isNum(f.mn)?f.mn:-Infinity,mx=isNum(f.mx)?f.mx:Infinity;
+   for(i=0;i<SC.models.length;i++){
+     m=SC.models[i];
+     if(!isNum(m.p)||m.p<mn||m.p>mx)continue;
+     if(f.moe&&!m.moe)continue;
+     if(f.vis&&!m.v)continue;
+     out.push(m);
+   }
+   return out;
+ }
+ function spec(){
+   for(var i=0;i<SC.presets.length;i++){
+     var p=SC.presets[i];
+     if(p.id===mode)return {x:p.x,y:p.y,note:p.note||'',preset:true};
+   }
+   return {x:(selX&&selX.value)||'params',y:(selY&&selY.value)||'kv',note:'',preset:false};
+ }
+ function pad(lo,hi,log){
+   if(lo===hi){
+     if(log){return [lo/1.4,hi*1.4];}
+     var d=Math.abs(lo)*0.08||1;return [lo-d,hi+d];
+   }
+   if(log){var f=Math.pow(hi/lo,0.05);return [lo/f,hi*f];}
+   var p=(hi-lo)*0.06;return [lo-p,hi+p];
+ }
+ function linTicks(lo,hi){
+   var span=hi-lo||1,raw=span/5,mag=Math.pow(10,Math.floor(Math.log10(raw))),
+       n=raw/mag,step=(n<=1?1:n<=2?2:n<=2.5?2.5:n<=5?5:10)*mag,
+       t=[],v=Math.ceil(lo/step-1e-9)*step;
+   while(v<=hi+1e-9){if(v>=lo-1e-9)t.push(v);v+=step;}
+   return t;
+ }
+ function logTicks(lo,hi){
+   var t=[],e0=Math.floor(Math.log10(lo)),e1=Math.ceil(Math.log10(hi)),e,j,v,ms=[1,2,5];
+   for(e=e0;e<=e1;e++){
+     for(j=0;j<3;j++){
+       v=ms[j]*Math.pow(10,e);
+       if(v>=lo*0.999&&v<=hi*1.001)t.push(v);
+     }
+   }
+   while(t.length>8)t=t.filter(function(_,i){return i%2===0;});
+   return t;
+ }
+ function monthTicks(lo,hi){
+   var d=new Date(lo),t=[];
+   d=new Date(Date.UTC(d.getUTCFullYear(),d.getUTCMonth(),1));
+   while(d.getTime()<lo)d=new Date(Date.UTC(d.getUTCFullYear(),d.getUTCMonth()+1,1));
+   while(d.getTime()<=hi){
+     t.push(d.getTime());
+     d=new Date(Date.UTC(d.getUTCFullYear(),d.getUTCMonth()+1,1));
+   }
+   while(t.length>7)t=t.filter(function(_,i){return i%2===0;});
+   return t;
+ }
+ function ticks(k,lo,hi,log){
+   if(meta(k).date)return monthTicks(lo,hi);
+   return log?logTicks(lo,hi):linTicks(lo,hi);
+ }
+ function fmt(k,v){
+   if(meta(k).date){
+     var d=new Date(v);return isNaN(d.getTime())?'':d.toISOString().slice(0,10);
+   }
+   if(Math.abs(v)>=100)return String(Math.round(v));
+   return String(r1(v));
+ }
+
+ /* Labels are placed after the SVG is in the DOM: it is the only way to get a real
+    text width. Each label takes the first free slot around its dot, or is dropped. */
+ function placeLabels(svg){
+   var narrow=(svg.clientWidth||900)<560;
+   var gs=[].slice.call(svg.querySelectorAll('.sc-pt'));
+   var cs=gs.map(function(g){
+     var c=g.querySelector('circle');
+     return {x:+c.getAttribute('cx'),y:+c.getAttribute('cy')};
+   });
+   var boxes=cs.map(function(p){return {x:p.x-5,y:p.y-5,w:10,h:10};});
+   gs.forEach(function(g,i){
+     var t=g.querySelector('text');
+     if(narrow){t.style.display='none';return;}
+     var w=0;
+     try{w=t.getComputedTextLength();}catch(e){}
+     if(!w)w=52;
+     var h=10.5,p=cs[i],
+         cands=[[8,-4],[8,-17],[8,9],[-8-w,-4],[-8-w,-17],[-8-w,9],[8,-30],[8,22]];
+     for(var k=0;k<cands.length;k++){
+       var bx=p.x+cands[k][0],by=p.y+cands[k][1];
+       if(bx<geo.L+2||bx+w>geo.L+geo.w-2||by<geo.T+2||by+h>geo.T+geo.h-2)continue;
+       var b={x:bx,y:by,w:w,h:h},hit=false;
+       for(var j=0;j<boxes.length;j++){
+         var o=boxes[j];
+         if(b.x<o.x+o.w&&b.x+b.w>o.x&&b.y<o.y+o.h&&b.y+b.h>o.y){hit=true;break;}
+       }
+       if(!hit){
+         boxes.push(b);
+         t.setAttribute('x',r1(bx));
+         t.setAttribute('y',r1(by+9));
+         return;
+       }
+     }
+     t.style.display='none';
+   });
+ }
+
+ function hideTip(){
+   hot=-1;
+   if(tip)tip.classList.remove('on');
+   var gs=box.querySelectorAll('.sc-pt');
+   for(var i=0;i<gs.length;i++)gs[i].classList.remove('hot');
+ }
+
+ function render(){
+   if(!box)return;
+   if(tip)tip.classList.remove('on');
+   hot=-1;
+   lastW=box.clientWidth||760;
+   var sp=spec();
+   if(note){
+     note.textContent=sp.preset&&sp.note?sp.note:
+       'Any two metrics, plotted against each other. Hover a point for its values; click to '+
+       'open the model card.';
+   }
+   var ms=visible(),i;
+   pts=[];
+   for(i=0;i<ms.length;i++){
+     var xv=val(ms[i],sp.x),yv=val(ms[i],sp.y);
+     if(xv!==null&&yv!==null)pts.push({m:ms[i],x:xv,y:yv});
+   }
+   if(cnt)cnt.textContent=pts.length+' of '+ms.length+' models in view have both values';
+   if(!pts.length){
+     box.innerHTML='<p class="sc-empty">No model in this range reports both <b>'+esc(label(sp.x))+
+       '</b> and <b>'+esc(label(sp.y))+'</b>.</p>';
+     if(tbl)tbl.innerHTML='';
+     return;
+   }
+   var W=Math.max(300,box.clientWidth||760),
+       H=Math.round(Math.min(520,Math.max(300,W*0.58))),
+       L=54,R=16,T=16,B=44,
+       w=W-L-R,h=H-T-B;
+   geo={L:L,T:T,w:w,h:h};
+   var xm=meta(sp.x),ym=meta(sp.y),
+       xl=Infinity,xh=-Infinity,yl=Infinity,yh=-Infinity;
+   for(i=0;i<pts.length;i++){
+     if(pts[i].x<xl)xl=pts[i].x;
+     if(pts[i].x>xh)xh=pts[i].x;
+     if(pts[i].y<yl)yl=pts[i].y;
+     if(pts[i].y>yh)yh=pts[i].y;
+   }
+   var xlog=!!xm.log&&xl>0,ylog=!!ym.log&&yl>0,
+       xd=pad(xl,xh,xlog),yd=pad(yl,yh,ylog);
+   var lx=Math.log(xd[1]/xd[0])||1,ly=Math.log(yd[1]/yd[0])||1;
+   function X(v){return xlog?L+w*(Math.log(v/xd[0])/lx):L+w*(v-xd[0])/(xd[1]-xd[0]);}
+   function Y(v){return ylog?T+h-h*(Math.log(v/yd[0])/ly):T+h-h*(v-yd[0])/(yd[1]-yd[0]);}
+   var xt=ticks(sp.x,xd[0],xd[1],xlog),yt=ticks(sp.y,yd[0],yd[1],ylog);
+   var p=[];
+   p.push('<svg viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'" role="img" '+
+          'aria-labelledby="sc-title sc-desc">');
+   p.push('<title id="sc-title">'+esc(label(sp.y))+' vs '+esc(label(sp.x))+'</title>');
+   p.push('<desc id="sc-desc">Scatter plot of '+pts.length+' models. '+
+          esc(title(sp.y))+' against '+esc(title(sp.x))+'.</desc>');
+   /* Params x -> the top-left corner is either the sweet spot (high score, few
+      parameters) or the place to avoid (a small model with a big KV cache). */
+   var glow=sp.x==='params'?(sp.y==='kv'?'warn':'good'):null;
+   if(glow){
+     p.push('<defs><radialGradient id="sc-glow" cx="0" cy="0" r="1">'+
+            '<stop offset="0" class="g-'+glow+'"/>'+
+            '<stop offset="1" class="g-'+glow+' e"/></radialGradient></defs>');
+     p.push('<rect x="'+L+'" y="'+T+'" width="'+w+'" height="'+h+
+            '" fill="url(#sc-glow)" pointer-events="none"/>');
+   }
+   var g=[];
+   xt.forEach(function(v){var x=r1(X(v));
+     g.push('<line x1="'+x+'" y1="'+T+'" x2="'+x+'" y2="'+r1(T+h)+'"/>');});
+   yt.forEach(function(v){var y=r1(Y(v));
+     g.push('<line x1="'+L+'" y1="'+y+'" x2="'+r1(L+w)+'" y2="'+y+'"/>');});
+   p.push('<g class="sc-grid">'+g.join('')+'</g>');
+   var t=[];
+   xt.forEach(function(v){
+     t.push('<text x="'+r1(X(v))+'" y="'+(T+h+17)+'" text-anchor="middle">'+
+            esc(fmt(sp.x,v))+'</text>');
+   });
+   yt.forEach(function(v){
+     t.push('<text x="'+(L-8)+'" y="'+r1(Y(v)+4)+'" text-anchor="end">'+
+            esc(fmt(sp.y,v))+'</text>');
+   });
+   p.push('<g class="sc-tick">'+t.join('')+'</g>');
+   p.push('<text class="sc-axis-title" x="'+r1(L+w/2)+'" y="'+(H-8)+
+          '" text-anchor="middle">'+esc(title(sp.x))+'</text>');
+   p.push('<text class="sc-axis-title" transform="translate(14 '+r1(T+h/2)+
+          ') rotate(-90)" text-anchor="middle">'+esc(title(sp.y))+'</text>');
+   var d=[];
+   pts.forEach(function(pt,i){
+     pt.px=r1(X(pt.x));
+     pt.py=r1(Y(pt.y));
+     d.push('<g class="sc-pt" data-i="'+i+'"><circle cx="'+pt.px+'" cy="'+pt.py+
+            '" r="5"/><text x="'+pt.px+'" y="'+r1(pt.py-9)+'">'+esc(pt.m.n)+
+            '</text></g>');
+   });
+   p.push('<g class="sc-dots">'+d.join('')+'</g></svg>');
+   box.innerHTML=p.join('');
+   var svg=box.querySelector('svg');
+   placeLabels(svg);
+   wire(svg,W,H);
+   buildTable(sp);
+ }
+
+ function wire(svg,W,H){
+   function nearest(e){
+     var r=svg.getBoundingClientRect();
+     if(!r.width)return -1;
+     var k=W/r.width,px=(e.clientX-r.left)*k,py=(e.clientY-r.top)*k,
+         best=-1,bd=1e9,i,dx,dy,dd;
+     for(i=0;i<pts.length;i++){
+       dx=pts[i].px-px;
+       dy=pts[i].py-py;
+       dd=dx*dx+dy*dy;
+       if(dd<bd){bd=dd;best=i;}
+     }
+     return bd<=196?best:-1;
+   }
+   function show(i,e){
+     hot=i;
+     var gs=box.querySelectorAll('.sc-pt');
+     for(var j=0;j<gs.length;j++)gs[j].classList.toggle('hot',j===i);
+     var pt=pts[i];
+     tip.innerHTML='<b>'+esc(pt.m.n)+'</b><br>'+esc(label(specY()))+': '+esc(fmt(specY(),pt.y))+
+       '<br>'+esc(label(specX()))+': '+esc(fmt(specX(),pt.x));
+     tip.classList.add('on');
+     var r=wrap.getBoundingClientRect();
+     var tw=tip.offsetWidth||170,th=tip.offsetHeight||46,
+         tx=e.clientX-r.left+14,ty=e.clientY-r.top+14;
+     if(tx+tw>r.width-6)tx=e.clientX-r.left-tw-14;
+     if(ty+th>r.height-6)ty=e.clientY-r.top-th-14;
+     tip.style.left=Math.max(4,tx)+'px';
+     tip.style.top=Math.max(4,ty)+'px';
+   }
+   svg.addEventListener('pointermove',function(e){
+     var i=nearest(e);
+     if(i<0){hideTip();return;}
+     show(i,e);
+   });
+   svg.addEventListener('pointerdown',function(e){
+     var i=nearest(e);if(i>=0)show(i,e);
+   });
+   svg.addEventListener('pointerleave',hideTip);
+   svg.addEventListener('click',function(){
+     if(hot>=0&&pts[hot]&&pts[hot].m.u)window.open(pts[hot].m.u,'_blank','noopener');
+   });
+   svg.addEventListener('keydown',function(e){
+     if(e.key==='Escape')hideTip();
+   });
+ }
+
+ function specX(){var s=spec();return s.x;}
+ function specY(){var s=spec();return s.y;}
+
+ function buildTable(sp){
+   if(!tbl)return;
+   var rows=pts.slice().sort(function(a,b){return b.y-a.y;}),h=[];
+   h.push('<div class="tbl-wrap" style="margin-top:12px"><table class="tbl"><thead><tr>'+
+          '<th>Model</th><th class="num">'+esc(title(sp.y))+'</th>'+
+          '<th class="num">'+esc(title(sp.x))+'</th></tr></thead><tbody>');
+   rows.forEach(function(pt){
+     h.push('<tr><td class="name"><a href="'+esc(pt.m.u)+'" target="_blank" rel="noopener">'+
+            esc(pt.m.n)+'</a></td><td class="num">'+esc(fmt(sp.y,pt.y))+
+            '</td><td class="num">'+esc(fmt(sp.x,pt.x))+'</td></tr>');
+   });
+   h.push('</tbody></table></div>');
+   tbl.innerHTML=h.join('');
+ }
+
+ if(tblBtn&&tbl){
+   tblBtn.addEventListener('click',function(){
+     var open=tbl.hidden;
+     tbl.hidden=!open;
+     tblBtn.setAttribute('aria-expanded',open?'true':'false');
+     tblBtn.textContent=open?'Hide table':'Show as table';
+   });
+ }
+ tabs.forEach(function(b){
+   b.addEventListener('click',function(){
+     mode=b.getAttribute('data-mode');
+     tabs.forEach(function(o){o.setAttribute('aria-selected',o===b?'true':'false');});
+     if(custom)custom.hidden=(mode!=='custom');
+     try{if(history.replaceState)history.replaceState(null,'','#'+mode);}catch(e){}
+     hideTip();
+     render();
+   });
+ });
+ [selX,selY].forEach(function(s){
+   if(s)s.addEventListener('change',function(){hideTip();render();});
+ });
+ /* Deep link: scatter.html#kv opens that preset, so a chart can be shared. */
+ (function(){
+   var h=(location.hash||'').slice(1),i,found=false;
+   if(!h)return;
+   for(i=0;i<SC.presets.length;i++){if(SC.presets[i].id===h)found=true;}
+   if(h!=='custom'&&!found)return;
+   mode=h;
+   tabs.forEach(function(b){
+     b.setAttribute('aria-selected',b.getAttribute('data-mode')===h?'true':'false');
+   });
+   if(custom)custom.hidden=(h!=='custom');
+ })();
+ window.TL_APPLY=render;
+ var rt=null;
+ window.addEventListener('resize',function(){
+   clearTimeout(rt);rt=setTimeout(function(){hideTip();render();},150);
+ });
+ render();
+ /* First paint can measure a pre-layout width (fonts, scrollbar); re-render once
+    if the real width differs, so label collisions are judged on the final box. */
+ requestAnimationFrame(function(){
+   var w=box.clientWidth||760;
+   if(Math.abs(w-lastW)>8)render();
+ });
+})();
+"""
 
 
 def page_about():
@@ -1024,6 +1562,7 @@ def main():
     written.append(("models.html", write("models.html", page_models())))
     written.append(("benchmarks.html", write("benchmarks.html", page_benchmarks())))
     written.append(("matrix.html", write("matrix.html", page_matrix())))
+    written.append(("scatter.html", write("scatter.html", page_scatter())))
     written.append(("compare.html", write("compare.html", page_compare())))
     written.append(("about.html", write("about.html", page_about())))
     n = 0
@@ -1034,7 +1573,7 @@ def main():
     for name, size in written:
         print("  %-20s %7d bytes" % (name, size))
     # crawler + social artefacts, same set the v1 build ships
-    pages = ["index.html", "models.html", "matrix.html", "benchmarks.html",
+    pages = ["index.html", "models.html", "matrix.html", "scatter.html", "benchmarks.html",
              "compare.html", "about.html"]
     pages += ["benchmarks/%s.html" % BENCH_SLUG[b] for b in BENCHES]
     write("feed.xml", build_feed())
@@ -1051,7 +1590,8 @@ def main():
 
 > Benchmark scores for {len(MODELS)} recent small open-weight models (1.5B to 285B,
 > official weights only, current versions), with {len(BENCHES)} benchmarks, a
-> sortable scores matrix, and each model's derived KV-cache cost at 128K tokens.
+> sortable scores matrix and scatter charts, and each model's derived KV-cache cost
+> at 128K tokens.
 
 Tiny League is a curated league table of benchmark scores for small open-weight
 language models. Scope: 1.5B to 285B total parameters, official developer-org
@@ -1063,6 +1603,8 @@ benchmarks as of {lastmod}.
 - {SITE}models.html: one row per model with parameters, active parameters, native
   context, license, release date and derived KV-cache size at 128K tokens.
 - {SITE}matrix.html: models x benchmarks heatmap, filterable by parameter size.
+- {SITE}scatter.html: scatter charts of any two metrics (benchmark score, parameters,
+  KV-cache cost, decode speed), filterable by parameter size.
 - {SITE}benchmarks.html: every benchmark grouped by domain, with coverage and leader.
 - {SITE}benchmarks/<slug>.html: one leaderboard per benchmark.
 - {SITE}compare.html: side-by-side comparison of up to five models.
