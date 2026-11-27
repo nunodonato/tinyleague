@@ -8,10 +8,12 @@ Writes into out/ — the deployable artifact. Run:
 Pages: home, models, benchmarks index, one page per benchmark, compare, about.
 No model detail pages (deliberately out of scope for this pass).
 """
+import datetime
 import json
 import os
 import re
 import sys
+from xml.sax.saxutils import escape as xml_escape
 from collections import Counter, defaultdict
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -320,6 +322,7 @@ def layout(title, body, nav, depth=0, script="", desc="", path="index.html"):
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc or 'Benchmark scores for recent small open-weight models.')}">
 <link rel="canonical" href="{canon}">
+<link rel="alternate" type="application/rss+xml" title="Tiny League changelog" href="{SITE}feed.xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tiny League">
 <meta property="og:title" content="{esc(title)}">
@@ -355,7 +358,7 @@ def layout(title, body, nav, depth=0, script="", desc="", path="index.html"):
 </main>
 <footer><div class="inner">
   <span>Created and maintained by <a href="https://www.nunodonato.com" target="_blank" rel="noopener">www.nunodonato.com</a></span>
-  <span>{len(MODELS)} models · {len(BENCHES)} benchmarks · <a href="{REPO}" target="_blank" rel="noopener">source</a> · <a href="{DISCORD}" target="_blank" rel="noopener">Discord</a></span>
+  <span>{len(MODELS)} models · {len(BENCHES)} benchmarks · <a href="{REPO}" target="_blank" rel="noopener">source</a> · <a href="{DISCORD}" target="_blank" rel="noopener">Discord</a> · <a href="{SITE}feed.xml">RSS</a></span>
 </div></footer>
 <script>{TOGGLE_JS}
 {FILTER_JS}
@@ -443,7 +446,7 @@ that fit your hardware.</p>
 <tbody>{newest_rows}</tbody>
 </table></div>
 
-<h2>Recent changes</h2>
+<h2 id="changes">Recent changes <a class="feed-link" href="{SITE}feed.xml" title="Subscribe with RSS">RSS</a></h2>
 <ul class="changes">{changes}</ul>
 """
     return layout("Tiny League — small models, real benchmarks", body, "home",
@@ -936,6 +939,53 @@ licensed, so forks should use their own identity.</p>
 
 # --------------------------------------------------------------------------
 
+def build_feed():
+    """RSS 2.0 of the changelog. One item per entry, dated at 00:00 UTC."""
+    entries = gh.load("changelog.json")
+    items = []
+    newest = None
+    for e in entries:
+        text = (e.get("text") or "").strip()
+        # the changelog writes "Sept"; strptime only knows "Sep"
+        raw = str(e.get("date") or "").replace("Sept", "Sep")
+        try:
+            dt = datetime.datetime.strptime(raw, "%d %b %Y")
+        except (ValueError, TypeError):
+            print("warn: skipping changelog entry with unparseable date: %r" % e.get("date"))
+            continue
+        if not text:
+            continue
+        newest = newest or dt
+        items.append(
+            "  <item>\n"
+            "    <title>%s</title>\n"
+            "    <link>%s#changes</link>\n"
+            '    <guid isPermaLink="false">tinyleague:%s</guid>\n'
+            "    <pubDate>%s</pubDate>\n"
+            "    <description>%s</description>\n"
+            "  </item>\n"
+            % (xml_escape(text), SITE, dt.date().isoformat(),
+               dt.strftime("%a, %d %b %Y 00:00:00 +0000"), xml_escape(text))
+        )
+    build = (newest.strftime("%a, %d %b %Y 00:00:00 +0000")
+             if newest else datetime.datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S +0000"))
+    return (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
+        "<channel>\n"
+        "  <title>Tiny League — changelog</title>\n"
+        "  <link>%s</link>\n"
+        "  <description>New models, benchmarks and updates: benchmark scores for recent "
+        "small open-weight models.</description>\n"
+        "  <language>en</language>\n"
+        "  <lastBuildDate>%s</lastBuildDate>\n"
+        '  <atom:link href="%sfeed.xml" rel="self" type="application/rss+xml"/>\n'
+        "  <ttl>1440</ttl>\n" % (SITE, build, SITE)
+        + "".join(items)
+        + "</channel>\n</rss>\n"
+    )
+
+
 def build_og():
     """Rasterise the social card into a temp file (before out/ is wiped)."""
     import subprocess
@@ -984,6 +1034,7 @@ def main():
     pages = ["index.html", "models.html", "matrix.html", "benchmarks.html",
              "compare.html", "about.html"]
     pages += ["benchmarks/%s.html" % BENCH_SLUG[b] for b in BENCHES]
+    write("feed.xml", build_feed())
     write("robots.txt", "User-agent: *\nAllow: /\n\nSitemap: %ssitemap.xml\n" % SITE)
     lastmod = str(scores_doc.get("generated_at") or "")[:10]
     write("sitemap.xml",

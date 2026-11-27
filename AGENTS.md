@@ -16,7 +16,9 @@ The site is a **static multi-page build** — no framework, no client router:
 
 `out/` is the deployable artifact: `index.html` (home), `models.html`, `matrix.html`
 (scores matrix), `benchmarks.html` + one leaderboard per benchmark under `benchmarks/`,
-`compare.html`, `about.html`, plus `robots.txt`, `sitemap.xml`, `llms.txt` and `og.png`.
+`compare.html`, `about.html`, plus `robots.txt`, `sitemap.xml`, `llms.txt`, `og.png`
+and `feed.xml` (RSS 2.0, one item per `data/changelog.json` entry — the changelog is the
+feed, so keep entries dated and one sentence long).
 
 Caddy serves the directory directly, so deploying is:
 

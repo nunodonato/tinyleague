@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Tiny League — changelog</title>
+  <link>https://tinyleague.org/</link>
+  <description>New models, benchmarks and updates: benchmark scores for recent small open-weight models.</description>
+  <language>en</language>
+  <lastBuildDate>Thu, 26 Nov 2026 00:00:00 +0000</lastBuildDate>
+  <atom:link href="https://tinyleague.org/feed.xml" rel="self" type="application/rss+xml"/>
+  <ttl>1440</ttl>
+  <item>
+    <title>Added GigaChat4-37B-A4B (37B MoE, hybrid attention); moved to tinyleague.org; added Discord and GitHub buttons.</title>
+    <link>https://tinyleague.org/#changes</link>
+    <guid isPermaLink="false">tinyleague:2026-11-26</guid>
+    <pubDate>Thu, 26 Nov 2026 00:00:00 +0000</pubDate>
+    <description>Added GigaChat4-37B-A4B (37B MoE, hybrid attention); moved to tinyleague.org; added Discord and GitHub buttons.</description>
+  </item>
+  <item>
+    <title>Added Maxwell-V1-Flash (35B MoE, block-sparse) and Raon-1-mini (29B MoE, Korean).</title>
+    <link>https://tinyleague.org/#changes</link>
+    <guid isPermaLink="false">tinyleague:2026-11-24</guid>
+    <pubDate>Tue, 24 Nov 2026 00:00:00 +0000</pubDate>
+    <description>Added Maxwell-V1-Flash (35B MoE, block-sparse) and Raon-1-mini (29B MoE, Korean).</description>
+  </item>
+  <item>
+    <title>Added Aleph-Alpha/Kolibri-1.1 (75B sparse-attention MoE) and Ling-3.2-air (124B MoE, vision).</title>
+    <link>https://tinyleague.org/#changes</link>
+    <guid isPermaLink="false">tinyleague:2026-11-23</guid>
+    <pubDate>Mon, 23 Nov 2026 00:00:00 +0000</pubDate>
+    <description>Added Aleph-Alpha/Kolibri-1.1 (75B sparse-attention MoE) and Ling-3.2-air (124B MoE, vision).</description>
+  </item>
+  <item>
+    <title>Added gemma-4-26B-A4B-it (25B MoE, vision); theme toggle with live system detection.</title>
+    <link>https://tinyleague.org/#changes</link>
+    <guid isPermaLink="false">tinyleague:2026-11-21</guid>
+    <pubDate>Sat, 21 Nov 2026 00:00:00 +0000</pubDate>
+    <description>Added gemma-4-26B-A4B-it (25B MoE, vision); theme toggle with live system detection.</description>
+  </item>
+  <item>
+    <title>Added Inkling-2-Mini; loop-aware KV cache; newest-first heatmap; Core pins DeepSWE 1.1, AutomationBench.</title>
+    <link>https://tinyleague.org/#changes</link>
+    <guid isPermaLink="false">tinyleague:2026-11-20</guid>
+    <pubDate>Fri, 20 Nov 2026 00:00:00 +0000</pubDate>
+    <description>Added Inkling-2-Mini; loop-aware KV cache; newest-first heatmap; Core pins DeepSWE 1.1, AutomationBench.</description>
+  </item>
+  <item>
+    <title>Added OVHaiLLM/Olala-v1.0-mini-7A1B; dropped North-Mini-Code and diffusiongemma.</title>
+    <link>https://tinyleague.org/#changes</link>
+    <guid isPermaLink="false">tinyleague:2026-11-19</guid>
+    <pubDate>Thu, 19 Nov 2026 00:00:00 +0000</pubDate>
+    <description>Added OVHaiLLM/Olala-v1.0-mini-7A1B; dropped North-Mini-Code and diffusiongemma.</description>
+  </item>
+  <item>
+    <title>Added tencent/Hy4-flash, a 220B MoE multimodal model with 12B active parameters.</title>
+    <link>https://tinyleague.org/#changes</link>
+    <guid isPermaLink="false">tinyleague:2026-11-18</guid>
+    <pubDate>Wed, 18 Nov 2026 00:00:00 +0000</pubDate>
+    <description>Added tencent/Hy4-flash, a 220B MoE multimodal model with 12B active parameters.</description>
+  </item>
+  <item>
+    <title>Added SenseNova/SenseNova-Loop-9B, a 9.4B looped-transformer multimodal model.</title>
+    <link>https://tinyleague.org/#changes</link>
+    <guid isPermaLink="false">tinyleague:2026-11-17</guid>
+    <pubDate>Tue, 17 Nov 2026 00:00:00 +0000</pubDate>
+    <description>Added SenseNova/SenseNova-Loop-9B, a 9.4B looped-transformer multimodal model.</description>
+  </item>
+  <item>
+    <title>Mobile layout: compact model cards, section menu, heatmap swipe hint, readable scatter labels.</title>
+    <link>https://tinyleague.org/#changes</link>
+    <guid isPermaLink="false">tinyleague:2026-11-11</guid>
+    <pubDate>Wed, 11 Nov 2026 00:00:00 +0000</pubDate>
+    <description>Mobile layout: compact model cards, section menu, heatmap swipe hint, readable scatter labels.</description>
+  </item>
+  <item>
+    <title>Added Nanbeige/Nanbeige4.3-33B; estimated decode speed, a Speed preset and sticky Models headers.</title>
+    <link>https://tinyleague.org/#changes</link>
+    <guid isPermaLink="false">tinyleague:2026-11-02</guid>
+    <pubDate>Mon, 02 Nov 2026 00:00:00 +0000</pubDate>
+    <description>Added Nanbeige/Nanbeige4.3-33B; estimated decode speed, a Speed preset and sticky Models headers.</description>
+  </item>
+  <item>
+    <title>v2 redesign: core heatmap, shareable filters, KV-cache column, HLE/IFBench scatter presets; added Spark-X2.6-1.7B, dropped KAT-Coder.</title>
+    <link>https://tinyleague.org/#changes</link>
+    <guid isPermaLink="false">tinyleague:2026-10-28</guid>
+    <pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate>
+    <description>v2 redesign: core heatmap, shareable filters, KV-cache column, HLE/IFBench scatter presets; added Spark-X2.6-1.7B, dropped KAT-Coder.</description>
+  </item>
+  <item>
+    <title>Added LiquidAI/LFM3-1.7B; lowered the param floor to 1.5B.</title>
+    <link>https://tinyleague.org/#changes</link>
+    <guid isPermaLink="false">tinyleague:2026-10-27</guid>
+    <pubDate>Tue, 27 Oct 2026 00:00:00 +0000</pubDate>
+    <description>Added LiquidAI/LFM3-1.7B; lowered the param floor to 1.5B.</description>
+  </item>
+  <item>
+    <title>Added Sage-A1.5, GPQA/Terminal-Bench scatter charts, and τ²/τ³-bench scores.</title>
+    <link>https://tinyleague.org/#changes</link>
+    <guid isPermaLink="false">tinyleague:2026-10-22</guid>
+    <pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate>
+    <description>Added Sage-A1.5, GPQA/Terminal-Bench scatter charts, and τ²/τ³-bench scores.</description>
+  </item>
+  <item>
+    <title>Added XHToken/Spark-X2.6-4B (4.1B dense) and dropped the superseded Spark-X2.5-4B. Added ornith-ai/Ornith-1.5-122B (125B MoE, 8B active, vision) and LiquidAI/LFM2.5-24B-A2B (24B MoE, 2B active). Removed the two oldest entries, Nemotron-3-Nano-Omni-30B-A3B-Reasoning and tencent/Hy-MT2-30B-A3B. The coverage heatmap now hides benchmark columns with fewer than two entries as soon as a filter is applied.</title>
+    <link>https://tinyleague.org/#changes</link>
+    <guid isPermaLink="false">tinyleague:2026-10-20</guid>
+    <pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate>
+    <description>Added XHToken/Spark-X2.6-4B (4.1B dense) and dropped the superseded Spark-X2.5-4B. Added ornith-ai/Ornith-1.5-122B (125B MoE, 8B active, vision) and LiquidAI/LFM2.5-24B-A2B (24B MoE, 2B active). Removed the two oldest entries, Nemotron-3-Nano-Omni-30B-A3B-Reasoning and tencent/Hy-MT2-30B-A3B. The coverage heatmap now hides benchmark columns with fewer than two entries as soon as a filter is applied.</description>
+  </item>
+  <item>
+    <title>Added nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16 and nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16. Re-based the AA Intelligence Index on v4.3.2 and re-fetched every model.</title>
+    <link>https://tinyleague.org/#changes</link>
+    <guid isPermaLink="false">tinyleague:2026-10-15</guid>
+    <pubDate>Thu, 15 Oct 2026 00:00:00 +0000</pubDate>
+    <description>Added nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16 and nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16. Re-based the AA Intelligence Index on v4.3.2 and re-fetched every model.</description>
+  </item>
+  <item>
+    <title>Added openbmb/MiniCPM-V-4.7-35B-A3B (35.2B MoE, vision) — first open-source on-device MoE VLM. Scores from the model card's eval figures (instruct, 4x visual-token compression).</title>
+    <link>https://tinyleague.org/#changes</link>
+    <guid isPermaLink="false">tinyleague:2026-10-12</guid>
+    <pubDate>Mon, 12 Oct 2026 00:00:00 +0000</pubDate>
+    <description>Added openbmb/MiniCPM-V-4.7-35B-A3B (35.2B MoE, vision) — first open-source on-device MoE VLM. Scores from the model card's eval figures (instruct, 4x visual-token compression).</description>
+  </item>
+  <item>
+    <title>Added IFM/K2-Horizon-3.7B. All K2 Horizon models are now on Artificial Analysis: added the AA Intelligence Index (v4.3) to K2-Horizon-3.7B (16), K2-Horizon-7B (21) and K2-Horizon-MoVA-36B-A4B (26).</title>
+    <link>https://tinyleague.org/#changes</link>
+    <guid isPermaLink="false">tinyleague:2026-09-14</guid>
+    <pubDate>Mon, 14 Sep 2026 00:00:00 +0000</pubDate>
+    <description>Added IFM/K2-Horizon-3.7B. All K2 Horizon models are now on Artificial Analysis: added the AA Intelligence Index (v4.3) to K2-Horizon-3.7B (16), K2-Horizon-7B (21) and K2-Horizon-MoVA-36B-A4B (26).</description>
+  </item>
+  <item>
+    <title>Fixed duplicate benchmark scores (highest shown, conflicts logged), AA fetcher matching, and vision/param detection for new models.</title>
+    <link>https://tinyleague.org/#changes</link>
+    <guid isPermaLink="false">tinyleague:2026-09-13</guid>
+    <pubDate>Sun, 13 Sep 2026 00:00:00 +0000</pubDate>
+    <description>Fixed duplicate benchmark scores (highest shown, conflicts logged), AA fetcher matching, and vision/param detection for new models.</description>
+  </item>
+  <item>
+    <title>Added Agnes-AI/Agnes-3.0-Flash (33.1B dense, vision). Added a License column to the Models table.</title>
+    <link>https://tinyleague.org/#changes</link>
+    <guid isPermaLink="false">tinyleague:2026-09-12</guid>
+    <pubDate>Sat, 12 Sep 2026 00:00:00 +0000</pubDate>
+    <description>Added Agnes-AI/Agnes-3.0-Flash (33.1B dense, vision). Added a License column to the Models table.</description>
+  </item>
+  <item>
+    <title>Added inclusionAI/Ling-3.0-flash-VL (124.8B MoE, vision) and meta-models/Muse-Glimmer-30B (29.8B dense, vision).</title>
+    <link>https://tinyleague.org/#changes</link>
+    <guid isPermaLink="false">tinyleague:2026-09-10</guid>
+    <pubDate>Thu, 10 Sep 2026 00:00:00 +0000</pubDate>
+    <description>Added inclusionAI/Ling-3.0-flash-VL (124.8B MoE, vision) and meta-models/Muse-Glimmer-30B (29.8B dense, vision).</description>
+  </item>
+  <item>
+    <title>Added nex-agi/Nex-N2.5-mini (35.1B MoE, vision). Added a model filter. Fixed the mobile layout (tables now scroll horizontally, heatmap keeps the model column pinned).</title>
+    <link>https://tinyleague.org/#changes</link>
+    <guid isPermaLink="false">tinyleague:2026-09-09</guid>
+    <pubDate>Wed, 09 Sep 2026 00:00:00 +0000</pubDate>
+    <description>Added nex-agi/Nex-N2.5-mini (35.1B MoE, vision). Added a model filter. Fixed the mobile layout (tables now scroll horizontally, heatmap keeps the model column pinned).</description>
+  </item>
+  <item>
+    <title>Removed the Fara family (and JetBrains/Mellum2-12B); benchmark columns now show specific versions, grouped by family.</title>
+    <link>https://tinyleague.org/#changes</link>
+    <guid isPermaLink="false">tinyleague:2026-09-08</guid>
+    <pubDate>Tue, 08 Sep 2026 00:00:00 +0000</pubDate>
+    <description>Removed the Fara family (and JetBrains/Mellum2-12B); benchmark columns now show specific versions, grouped by family.</description>
+  </item>
+  <item>
+    <title>Added openbmb/MiniCPM5-2B (2.5B dense), IFM K2-Horizon-MoVA-36B-A4B (36B MoE, 4B active) and K2-Horizon-7B (9B dense).</title>
+    <link>https://tinyleague.org/#changes</link>
+    <guid isPermaLink="false">tinyleague:2026-09-07</guid>
+    <pubDate>Mon, 07 Sep 2026 00:00:00 +0000</pubDate>
+    <description>Added openbmb/MiniCPM5-2B (2.5B dense), IFM K2-Horizon-MoVA-36B-A4B (36B MoE, 4B active) and K2-Horizon-7B (9B dense).</description>
+  </item>
+  <item>
+    <title>Initial release with 26 open-weight models.</title>
+    <link>https://tinyleague.org/#changes</link>
+    <guid isPermaLink="false">tinyleague:2026-09-04</guid>
+    <pubDate>Fri, 04 Sep 2026 00:00:00 +0000</pubDate>
+    <description>Initial release with 26 open-weight models.</description>
+  </item>
+</channel>
+</rss>
